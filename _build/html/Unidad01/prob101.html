@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.5.1. Problema 1.1 &#8212; Control de procesos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.5.2. Problema 1.2" href="prob102.html" />
+    <link rel="prev" title="1.5. Problemas" href="problemas01.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/M-UdL2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Control de procesos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Control de procesos
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="unidad01.html">
+   1. Introducción general
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="historia.html">
+     1.1. Breve historia del control de procesos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="contexto.html">
+     1.2. Contexto de la disciplina
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="descripci%C3%B3n.html">
+     1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="conceptos.html">
+     1.4. Conceptos generales
+    </a>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="problemas01.html">
+     1.5. Problemas
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       1.5.1. Problema 1.1
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="prob102.html">
+       1.5.2. Problema 1.2
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="prob104.html">
+       1.5.3. Problema 1.4
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unidad01/prob101.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Unidad01/prob101.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="problema-1-1">
+<span id="prob101"></span><h1><span class="section-number">1.5.1. </span>Problema 1.1<a class="headerlink" href="#problema-1-1" title="Permalink to this headline">¶</a></h1>
+<p>Identificar si el sistema de control para los siguientes equipos es de
+lazo abierto (en adelanto, <em>feedforward</em>) o cerrado (retroalimentación,
+<em>feedback</em>):</p>
+<ol class="simple">
+<li><p>Un tostador de pan automático</p></li>
+<li><p>Una lavadora</p></li>
+<li><p>El piloto automático de un avión.</p></li>
+</ol>
+<p>Asimismo, identificar las entradas y salidas de los sistemas
+mencionados. Indicar posibles sistemas de control de lazo cerrado para
+aquellos equipos que los tengan de lazo abierto.</p>
+<hr class="docutils" />
+<p><strong>Solución</strong></p>
+<p>a) <strong>Un tostador de pan automático</strong></p>
+<p>Se trata de un sistema de control en adelanto (de lazo abierto o
+<em>feed-forward</em>, las tres denominaciones significan lo mismo). El
+objetivo de control es lograr un determinado grado de tostado, para
+lograrlo se fija el tiempo de tostado en el sistema de control del
+tostador, para ello se fija el tiempo durante el cual se suministrará
+energía en forma de calor a la tostada. Este lazo abierto de control se
+puede ver en el siguiente diagrama de bloques:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InLineBackend.figure_format = &#39;svg&#39;
+<span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">dsp</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Grado de</span><span class="se">\n</span><span class="s1">tostado</span><span class="se">\n</span><span class="s1">deseado&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">control</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Control del</span><span class="se">\n</span><span class="s1">tostador&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Tiempo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">resistencia</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Resistencia</span><span class="se">\n</span><span class="s1">eléctrica&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Calor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">resistencia</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">proceso</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Proceso de</span><span class="se">\n</span><span class="s1">tostado&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proceso</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Grado de</span><span class="se">\n</span><span class="s1">tostado&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob101_1_0.svg" src="../_images/prob101_1_0.svg" /></div>
+</div>
+<p>También se podría diseñar un sistema de control de lazo cerrado, también
+denominado por retroalimentación o <em>feedback</em>:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Grado de</span><span class="se">\n</span><span class="s1">tostado</span><span class="se">\n</span><span class="s1">deseado&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrowhead</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="nb">sum</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Circle</span><span class="p">()</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">control</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Control del</span><span class="se">\n</span><span class="s1">tostador&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">resistencia</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Resistencia</span><span class="se">\n</span><span class="s1">eléctrica&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">resistencia</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">proceso</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Proceso de </span><span class="se">\n</span><span class="s1"> tostado&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proceso</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">outp</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Grado de</span><span class="se">\n</span><span class="s1">tostado&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">outp</span><span class="o">.</span><span class="n">center</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mf">1.5</span><span class="o">+</span><span class="mf">3.2</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">medidor</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Medidor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">medidor</span><span class="o">.</span><span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrowhead</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob101_3_0.svg" src="../_images/prob101_3_0.svg" /></div>
+</div>
+<p></p>
+<p>El medidor del grado de tostado podría medir el color en la superficie
+de la tostada, de manera que se logrará siempre tener el grado de
+tostado óptimo. Así se evitaría el problema más habitual de los
+tostadores: la primera tostada sale bien, pero las siguientes
+acostumbran a salir demasiado tostadas, ya que el sistema de control en
+adelanto no tiene en cuenta el hecho de que el tostador está caliente.</p>
+<p></p>
+<p>b) <strong>Una lavadora</strong></p>
+<p>El sistema de control de una lavadora vuelve a ser un sistema de control
+en adelanto. En este caso, el objetivo del sistema de control es el
+<em>grado de limpieza</em>. Al seleccionar un programa de lavado se busca
+obtener un cierto grado de limpieza de la ropa, aunque este grado de
+limpieza no se mide en ningún momento. El sistema de control simplemente
+proporciona una serie de órdenes consistentes en aperturas y cierres de
+válvulas, tiempo durante tiene que estar girando el tambor, conectar y
+desconectar la resistencia que calienta el agua, etc. Se puede plantear
+el siguiente diagrama de bloques:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Selección del</span><span class="se">\n</span><span class="s1">programa&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">control</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Control de la</span><span class="se">\n</span><span class="s1">lavadora&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">resistencia</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Proceso de</span><span class="se">\n</span><span class="s1">lavado&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">resistencia</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Grado de</span><span class="se">\n</span><span class="s1">limpieza&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob101_5_0.svg" src="../_images/prob101_5_0.svg" /></div>
+</div>
+<p></p>
+<p>Se puede diseñar fácilmente un sistema de control por retroalimentación
+(lazo cerrado). Este sistema continuaría utilizando un sistema de
+control en adelanto para la gestión de los diferentes programas, pero
+utilizaría un sistema de control por retroalimentación para determinar
+cuándo debe renovar el agua de lavado, lo que supone un ahorro en el
+consumo de agua ya que no se sustituiría hasta que no fuese
+estrictamente necesario. Para ello mediría la turbidez del agua mediante
+un sensor adecuado. En el momento que el agua no fuera lo
+suficientemente transparente (lo que indicaría que ya no tiene más
+capacidad de eliminar la suciedad de la ropa), la lavadora procedería a
+su sustitución. Este sistema de control ya está disponible en algunas
+lavadoras de gama alta.</p>
+<p></p>
+<p>c) <strong>El piloto automático de un avión</strong></p>
+<p>En este caso el sistema de control es por retroalimentación. Se marca al
+piloto automático una dirección de vuelo, el sistema de control mide la
+dirección del avión y según el error entre la dirección seguida y la
+deseada (consigna) se marcan la posición de los alerones y del timón, lo
+que hace modificar la dirección actual del avión para acercarla a la
+deseada. Un diagrama de bloques simplificado sería el siguiente:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Dirección</span><span class="se">\n</span><span class="s1">deseada&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrowhead</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="nb">sum</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Circle</span><span class="p">()</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">control</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Controlador&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">unit</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Posición</span><span class="se">\n</span><span class="s1">alerones</span><span class="se">\n</span><span class="s1">y timon&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">proceso</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Proceso</span><span class="se">\n</span><span class="s1">de vuelo&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proceso</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">outp</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Dirección a la</span><span class="se">\n</span><span class="s1">que se desplaza</span><span class="se">\n</span><span class="s1">el avion&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">outp</span><span class="o">.</span><span class="n">center</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">medidor</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Medidor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">medidor</span><span class="o">.</span><span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrowhead</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob101_7_0.svg" src="../_images/prob101_7_0.svg" /></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unidad01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="problemas01.html" title="previous page"><span class="section-number">1.5. </span>Problemas</a>
+    <a class='right-next' id="next-link" href="prob102.html" title="next page"><span class="section-number">1.5.2. </span>Problema 1.2</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Javier Arántegui<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

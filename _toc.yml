@@ -1,0 +1,17 @@
+- file: intro
+  numbered: true
+  
+- file: ./Unidad01/unidad01
+  sections:
+  - file: ./Unidad01/historia
+  - file: ./Unidad01/contexto
+  - file: ./Unidad01/descripción
+  - file: ./Unidad01/conceptos
+  - file: ./Unidad01/problemas01
+    numbered: false
+    sections:
+    - file: ./Unidad01/prob101.ipynb
+    - file: ./Unidad01/prob102.ipynb
+    - file: ./Unidad01/prob104.ipynb
+
+#-file: ./Unidad02/unidad02
