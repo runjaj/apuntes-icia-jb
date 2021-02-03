@@ -14,4 +14,8 @@
     - file: ./Unidad01/prob102.ipynb
     - file: ./Unidad01/prob104.ipynb
 
-#-file: ./Unidad02/unidad02
+- file: ./Unidad02/unidad02
+  sections:
+  - file: ./Unidad02/definiciones
+  - file: ./Unidad02/instrumentacion
+  
