@@ -1,0 +1,917 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Cómo abordar la dinámica de un sistema &#8212; Control de procesos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2.2. Algo de instrumentación" href="../Unidad02/instrumentacion.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/M-UdL2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Control de procesos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Control de procesos
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/unidad01.html">
+   1. Introducción general
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/historia.html">
+     1.1. Breve historia del control de procesos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/contexto.html">
+     1.2. Contexto de la disciplina
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/descripci%C3%B3n.html">
+     1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/conceptos.html">
+     1.4. Conceptos generales
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../Unidad01/problemas01.html">
+     1.5. Problemas
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob101.html">
+       1.5.1. Problema 1.1
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob102.html">
+       1.5.2. Problema 1.2
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob104.html">
+       1.5.3. Problema 1.4
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad02/unidad02.html">
+   2. Instrumentación industrial
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/definiciones.html">
+     2.1. Algunas definiciones de instrumentación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/instrumentacion.html">
+     2.2. Algo de instrumentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Cómo abordar la dinámica de un sistema
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unidad03/unidad03.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-ejemplo-de-dinamica-de-un-sistema-que-se-desea-conocer">
+   3.1. Un ejemplo de dinámica de un sistema. Qué se desea conocer?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-transformada-de-laplace-como-herramienta-util">
+   3.2. La transformada de Laplace como herramienta útil
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-funcion-de-transferencia-algebra-de-funciones-de-transferencia">
+   3.3. La función de transferencia. Álgebra de funciones de transferencia
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformadas-de-algunas-funciones-singulares">
+   3.4. Transformadas de algunas funciones singulares
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funcion-escalon">
+     3.4.1. Función escalón
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funcion-pulso">
+     3.4.2. Función pulso
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funcion-impulso">
+     3.4.3. Función impulso
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funcion-rampa">
+     3.4.4. Función rampa
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funciones-trigonometricas">
+     3.4.5. Funciones trigonométricas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inversion-de-transformadas-de-vuelta-al-tiempo-real">
+   3.5. Inversión de transformadas. De vuelta al tiempo real
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expansion-en-fracciones-parciales">
+   3.6. Expansión en fracciones parciales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformadas-de-laplace">
+   3.7. Transformadas de Laplace
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problemas">
+   3.8. Problemas
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="como-abordar-la-dinamica-de-un-sistema">
+<h1><span class="section-number">3. </span>Cómo abordar la dinámica de un sistema<a class="headerlink" href="#como-abordar-la-dinamica-de-un-sistema" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="un-ejemplo-de-dinamica-de-un-sistema-que-se-desea-conocer">
+<h2><span class="section-number">3.1. </span>Un ejemplo de dinámica de un sistema. Qué se desea conocer?<a class="headerlink" href="#un-ejemplo-de-dinamica-de-un-sistema-que-se-desea-conocer" title="Permalink to this headline">¶</a></h2>
+<p>Como ejemplo se considera un sistema dinámico de nivel. En este caso se
+pretende encontrar el comportamiento con el tiempo de un depósito en
+función del caudal de entrada. Para ello habrá que buscar un modelo
+matemático que describa dicho comportamiento. Se recomienda seguir el
+siguiente procedimiento:</p>
+<ol>
+<li><p>Se realiza el <em>diagrama de flujo del sistema</em>: En ese diagrama se
+marcan todas las variables implicadas. En este caso se trata de un
+depósito que se descarga por gravedad. Las variables implicadas son:</p>
+<ul class="simple">
+<li><p>Sección del depósito: <span class="math notranslate nohighlight">\(A(t)\)</span></p></li>
+<li><p>Resistencia de la tubería al paso del fluido: <span class="math notranslate nohighlight">\(R\)</span></p></li>
+<li><p>Caudales volumétricos de entrada y salida: <span class="math notranslate nohighlight">\(q_1 (t)\)</span> y <span class="math notranslate nohighlight">\(q_2 (t)\)</span></p></li>
+<li><p>Nivel del depósito: <span class="math notranslate nohighlight">\(h(t)\)</span></p></li>
+<li><p>Densidad del fluido: <span class="math notranslate nohighlight">\(\rho (t)\)</span></p></li>
+</ul>
+</li>
+<li><p>Planteamiento del <em>modelo matemático</em>: Un modelo matemático es un
+conjunto de ecuaciones que relacionan entre sí las variables del
+sistema. Se basan en ecuaciones de estado, leyes de equilibrio,
+ecuaciones cinéticas y balances de materia, energía y cantidad de
+movimiento.</p>
+<p>Para el ejemplo, al aplicar el Balance Macroscópico de Materia:</p>
+<div class="math notranslate nohighlight" id="equation-bmm">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-bmm" title="Permalink to this equation">¶</a></span>\[\frac{d A (t) h (t) \rho (t)}{d t} = \rho (t) q_1 (t) - \rho(t) q_2 (t)\]</div>
+<p>En el momento de plantear el modelo matemático hay
+que explicitar todas las hipótesis o simplificaciones realizadas. En
+este caso se han realizado las siguientes suposiciones:</p>
+<ul class="simple">
+<li><p>La densidad (<span class="math notranslate nohighlight">\(\rho\)</span>) y el area del depósito (<span class="math notranslate nohighlight">\(A\)</span>) son constantes
+e independientes del tiempo.</p></li>
+<li><p>El caudal de salida del depósito depende del nivel y de la
+resistencia de la tubería al paso del fluido de este modo:
+<span class="math notranslate nohighlight">\(q_2 (t) =
+    \frac{h (t)}{R}\)</span>.</p></li>
+</ul>
+<p>Teniendo en cuenta las hipótesis anteriores la ec. <a class="reference internal" href="#equation-bmm">(3.1)</a> queda como:</p>
+<div class="math notranslate nohighlight">
+\[\label{BMMh} A \frac{d h}{d t} = q_1 (t) - \frac{h (t)}{R}\]</div>
+</li>
+<li><p>Definición de las <em>variables de desviación</em>: Debido a que lo
+realmente importante en control es conocer cuánto se ha desplazado
+el sistema respecto al estado estacionario se definen unas variables
+de desviación.</p>
+<p>Para el ejemplo, el balance macroscópico de materia en estado
+estacionario es:</p>
+<div class="math notranslate nohighlight" id="equation-bmme">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-bmme" title="Permalink to this equation">¶</a></span>\[0 = q_{1 e} - \frac{h_e}{R}\]</div>
+<p>donde
+<span class="math notranslate nohighlight">\(_e\)</span> indica estado estacionario.</p>
+<p>Restando ambos balances macroscópicos de materia (ecs. <a class="reference internal" href="#equation-bmm">(3.1)</a> y <a class="reference internal" href="#equation-bmme">(3.2)</a>):</p>
+<div class="math notranslate nohighlight" id="equation-bmmd">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-bmmd" title="Permalink to this equation">¶</a></span>\[A \frac{d (h (t) - h_e)}{d t} = q_1 (t) - q_{1 e} - \frac{h(t) - h_e}{R}\]</div>
+<p>Se definen las siguientes variables de
+desviación:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+        H (t) &amp;\equiv h (t) - h_e &amp; \\
+        Q_1 (t) &amp;\equiv q_1 (t) - q_{1 e}
+    \end{aligned}\end{split}\]</div>
+<p>Las mayúsculas indican que se tratan de variables
+de desviación.</p>
+<p>Sustituyendo en la ec. <a class="reference internal" href="#equation-bmmd">(3.3)</a> se obtiene:</p>
+<div class="math notranslate nohighlight" id="equation-ode">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-ode" title="Permalink to this equation">¶</a></span>\[A \frac{d H (t)}{d t} = Q_1 (t) - \frac{H (t)}{R}\]</div>
+<p>Esta ecuación es el modelo matemático que representa la respuesta
+dinámica del tanque a cambios en el caudal de entrada. Resolviendo
+esta ecuación diferencial se puede saber cómo varía el nivel con el
+tiempo según cambia el caudal de entrada.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="la-transformada-de-laplace-como-herramienta-util">
+<span id="transformada"></span><h2><span class="section-number">3.2. </span>La transformada de Laplace como herramienta útil<a class="headerlink" href="#la-transformada-de-laplace-como-herramienta-util" title="Permalink to this headline">¶</a></h2>
+<p>La transformada de Laplace <span class="math notranslate nohighlight">\(\bar{f} (s)\)</span> de una función <span class="math notranslate nohighlight">\(f (t)\)</span> se
+define como:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [f (t)] \equiv \bar{f} (s) = \int_0^{\infty} f (t) e^{- s t} d
+   t\]</div>
+<p>donde <span class="math notranslate nohighlight">\(t \in \mathbb{R}\)</span> y <span class="math notranslate nohighlight">\(s \in \mathbb{C}\)</span>.</p>
+<p>El uso de transformadas de Laplace ofrece un método simple y elegante de
+resolver ecuaciones diferenciales como las que se obtienen en los
+modelos matemáticos de los procesos alimentarios.</p>
+<p>Entre las diferentes propiedades de las transformadas de Laplace cabe
+destacar:</p>
+<ol>
+<li><p>Es un operador lineal:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [a_1 f_1 (t) + a_2 f_2 (t)] = a_1 \mathcal{L} [f_1 (t)] + a_2
+         \mathcal{L} [f_2 (t)]\]</div>
+</li>
+<li><p>La transformada de una derivada es:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} \left[ \frac{d f (t)}{d t} \right] = s \bar{f} (s) - f (0)\]</div>
+<p>Es importante resaltar que una ecuación diferencial ordinaria de
+primer orden pasa a ser una ecuación lineal de primer grado.</p>
+<p>La transformada de la segunda derivada es:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} \left[ \frac{d^2 f (t)}{d t^2} \right] = s^2  \bar{f} (s) - s
+         f (0) - f' (0)\]</div>
+<p>Generalizando:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} \left[ \frac{d^{(n)} f (t)}{d t^n} \right] = s^n  \bar{f} (s)
+         - s^{n - 1} f (0) - s^{n - 2} f' (0) - \ldots - s f^{(n - 2)} (0) - f^{(n
+         - 1)} (0)\]</div>
+<p>Esta propiedad permite resolver de manera sencilla ecuaciones
+diferenciales ya que las convierte en ecuaciones algebraicas. El
+Problema 2.3 muestra cómo se puede utilizar la transformada de
+Laplace para resolver una ecuación diferencial.</p>
+</li>
+<li><p>La transformada de Laplace de una integral es:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} \left[ \int_0^t f (t) d t \right] = \frac{1}{s} \bar{f} (s)\]</div>
+</li>
+<li><p>(translacion)= Translación de la transformada:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [e^{- \alpha t} f (t)] = \bar{f} (\alpha + s)\]</div>
+<p>Translación de la función:</p>
+<div class="math notranslate nohighlight" id="equation-translacion">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-translacion" title="Permalink to this equation">¶</a></span>\[\mathcal{L} [f (t - t_0)] = e^{- t_0 s}  \bar{f}(s)\]</div>
+</li>
+<li><p>Teorema del valor final:</p>
+<div class="math notranslate nohighlight" id="equation-valor-final">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-valor-final" title="Permalink to this equation">¶</a></span>\[\mathcal{L} \left[ \underset{t \rightarrow \infty}{\lim} f (t) \right] = \underset{s \rightarrow 0}{\lim} [s \bar{f}(s)]\]</div>
+</li>
+</ol>
+<div class="admonition-ejemplo admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>La aplicación de la transformada de Laplace a una función es sencilla
+disponiendo de las tablas de transformadas de Laplace y del conocimiento
+de las propiedades anteriores. En el Problema 2.1 se muestra cómo se
+aplica.</p>
+</div>
+</div>
+<div class="section" id="la-funcion-de-transferencia-algebra-de-funciones-de-transferencia">
+<h2><span class="section-number">3.3. </span>La función de transferencia. Álgebra de funciones de transferencia<a class="headerlink" href="#la-funcion-de-transferencia-algebra-de-funciones-de-transferencia" title="Permalink to this headline">¶</a></h2>
+<p>Para un proceso sencillo, como el del nivel del depósito, se puede
+plantear un esquema sencillo que describa en cierta medida al sistema:</p>
+<p>Para el ejemplo del nivel del depósito, <span class="math notranslate nohighlight">\(f (t) = Q_1 (t)\)</span> y <span class="math notranslate nohighlight">\(y (t) = H
+(t)\)</span>. Es decir, en este caso el depósito es el proceso, la salida es la
+variación del nivel del depósito y la entrada al proceso es el caudal de
+entrada.</p>
+<p>En el caso de trabajar utilizando las transformadas de Laplace de las
+funciones de entrada y salida, se puede representar la dinámica del
+proceso mediante el uso de la <em>función de transferencia</em>. La función de
+transferencia <span class="math notranslate nohighlight">\(G (s)\)</span> liga la entrada y la salida del sistema:</p>
+<div class="math notranslate nohighlight">
+\[G (s) = \frac{\mathcal{L} [y (t)]}{\mathcal{L} [f (t)]} = \frac{\bar{y}
+   (s)}{\bar{f} (t)}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\bar{y} (s)\)</span> es la transformada de Laplace
+de la respuesta del proceso definida utilizando variables de desviación
+y <span class="math notranslate nohighlight">\(\bar{f} (s)\)</span> es la transformada de la función de desviación de la
+entrada.</p>
+<p>Para obtener la función de transferencia del ejemplo se realiza la
+transformada de Laplace de la ecuación diferencial
+<a class="reference internal" href="#equation-ode">(3.4)</a>:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} \left[ A \frac{d H (t)}{d t} \right] =\mathcal{L} \left[ Q_1
+   (t) - \frac{H (t)}{R} \right]\]</div>
+<p>Se realizan las transformadas
+considerando que el operador es lineal y conociendo la transformada de
+una derivada:</p>
+<div class="math notranslate nohighlight">
+\[A s \bar{H} (s) = \overline{Q_1} (s) - \frac{\bar{H} (s)}{R}\]</div>
+<p>Se
+supone que para <span class="math notranslate nohighlight">\(t = 0\)</span> el sistema está todavía en estado estacionario,
+las variables de desviación son nulas.</p>
+<p>Operando la ecuación anterior para encontrar la función de
+transferencia:</p>
+<div class="math notranslate nohighlight">
+\[G (s) = \frac{\bar{H} (s)}{\overline{Q_1} (s)} = \frac{R}{R A s + 1}\]</div>
+<p>Este es la función de transferencia típica de un sistema de primer
+orden.</p>
+<p>Para los procesos más complicados, con diagramas de bloques más
+complejos, se recurre al álgebra de funciones de transferencia.</p>
+<p>En el caso de tener un conjunto de procesos en paralelo, es decir, para
+un diagrama de bloques en paralelo, se puede obtener una función de
+transferencia equivalente:</p>
+<div class="math notranslate nohighlight">
+\[G (s) = \frac{Y (s)}{X (s)} = \frac{Y_1 (s) + Y_2 (s) + Y_3 (s)}{X (s)} =
+   G_1 (s) + G_2 (s) + G_3 (s)\]</div>
+<p>Generalizando: $<span class="math notranslate nohighlight">\(G (s) = \sum_i G_i (s)\)</span>$ Para un diagrama de bloques en
+serie:</p>
+<div class="math notranslate nohighlight">
+\[G (s) = \frac{X_n}{X_0} = \frac{X_1}{X_0}  \frac{X_2}{X_1} \cdots
+   \frac{X_n}{X_{n - 1}} = G_1 G_2 \ldots G_n\]</div>
+<p>Generalizando:</p>
+<div class="math notranslate nohighlight">
+\[\label{ec:serie} G (s) = \prod_i G_i (s)\]</div>
+<div class="admonition-ejemplo admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>El problema 3.6 muestra un ejemplo de sistema en serie. Se trata de dos
+depósitos de almacenamiento en serie. La curiosidad es que se plantea el
+sistema con interacción (el mostrado en la figura
+<a class="reference external" href="#fig:serie">[fig:serie]</a>{reference-type=”ref” reference=”fig:serie”})
+y el sistema de tanques sin interacción, para el que no es aplicable de
+manera directa la ecuación
+<a class="reference external" href="#ec:serie">[ec:serie]</a>{reference-type=”ref” reference=”ec:serie”}.</p>
+</div>
+</div>
+<div class="section" id="transformadas-de-algunas-funciones-singulares">
+<h2><span class="section-number">3.4. </span>Transformadas de algunas funciones singulares<a class="headerlink" href="#transformadas-de-algunas-funciones-singulares" title="Permalink to this headline">¶</a></h2>
+<p>A continuación se muestran las transformadas de algunas funciones con
+las que se trabajará frecuentemente más adelante ya que pueden ser
+asimiladas como las perturbaciones más frecuentes.</p>
+<p>Si no se dice lo contrario todas estas funciones se definen para que su
+valor sea nulo a tiempo menor que cero.</p>
+<div class="section" id="funcion-escalon">
+<h3><span class="section-number">3.4.1. </span>Función escalón<a class="headerlink" href="#funcion-escalon" title="Permalink to this headline">¶</a></h3>
+<p>Es una función cuyo valor para tiempos menores que cero es nulo y que
+alcanza el valor <span class="math notranslate nohighlight">\(M\)</span> para tiempo mayores que 0:</p>
+<p>Esta función se define como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t) = \left\{\begin{array}{ll}
+     0 &amp; t &lt; 0\\
+     M &amp; t &gt; 0
+   \end{array}\right.\end{split}\]</div>
+<p>La transformada de Laplace de esta función es:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [f (t)] = \frac{M}{s}\]</div>
+<p>Si <span class="math notranslate nohighlight">\(M\)</span> es igual a 1 se tiene la función escalón unidad, <span class="math notranslate nohighlight">\(U(t)\)</span>.</p>
+<p>En el caso de que la función tenga un retraso <span class="math notranslate nohighlight">\(t_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t) = \left\{\begin{array}{ll}
+     0 &amp; t &lt; t_0\\
+     M &amp; t &gt; t_0
+   \end{array}\right.\end{split}\]</div>
+<p>O lo que es lo mismo:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t - t_0) = \left\{\begin{array}{ll}
+     0 &amp; t &lt; 0\\
+     M &amp; t &gt; 0
+   \end{array}\right.\end{split}\]</div>
+<p>Por tanto, aplicando la propiedad número
+<a class="reference external" href="#translacion">[translacion]</a>{reference-type=”ref”
+reference=”translacion”} (ecuación
+<a class="reference external" href="#ec:translacion">[ec:translacion]</a>{reference-type=”ref”
+reference=”ec:translacion”}), la transformada de Laplace será:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [f (t - t_0)] = \frac{M}{s} \mathrm{e}^{- s t_0}\]</div>
+</div>
+<div class="section" id="funcion-pulso">
+<h3><span class="section-number">3.4.2. </span>Función pulso<a class="headerlink" href="#funcion-pulso" title="Permalink to this headline">¶</a></h3>
+<p>Se trata de una función pulso con área <span class="math notranslate nohighlight">\(A = M t_0\)</span>:</p>
+<p>La función pulso se define como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t) = \left\{\begin{array}{cc}
+     0 &amp; t &lt; 0\\
+     M &amp; 0 &lt; t &lt; t_0\\
+     0 &amp; t &gt; t_0
+   \end{array}\right.\end{split}\]</div>
+<p>Utilizando la definición del escalón unidad también se puede escribir
+como:</p>
+<div class="math notranslate nohighlight">
+\[f (t) = M [U (t) - U (t - t_0)]\]</div>
+<p>Por tanto, la transformada de Laplace será:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [f (t)] = \bar{f} (s) = M \left( \frac{1}{s} - \frac{\mathrm{e}^{-
+   s t_0}}{s} \right) = \frac{M}{s}  (1 - \mathrm{e}^{- s t_0})\]</div>
+</div>
+<div class="section" id="funcion-impulso">
+<h3><span class="section-number">3.4.3. </span>Función impulso<a class="headerlink" href="#funcion-impulso" title="Permalink to this headline">¶</a></h3>
+<p>Se trata de un pulso tal que <span class="math notranslate nohighlight">\(M \rightarrow \infty\)</span> y
+<span class="math notranslate nohighlight">\(t_0 \rightarrow 0\)</span>:</p>
+<p>La transformada de Laplace de esta función es:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [f (t)] = \bar{f} (s) = A\]</div>
+<p>En el caso particular de que el área sea 1 se habla de la función delta
+de Dirac <span class="math notranslate nohighlight">\(\delta (t)\)</span>.</p>
+<p>Se puede comprobar fácilmente que el impulso es la derivada de la
+función escalón.</p>
+<div class="admonition-ejemplo admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>En el Problema 3.4 se puede comprobar las diferencias y similitudes en
+la respuesta de un proceso a una entrada en escalón y en impulso.</p>
+</div>
+</div>
+<div class="section" id="funcion-rampa">
+<h3><span class="section-number">3.4.4. </span>Función rampa<a class="headerlink" href="#funcion-rampa" title="Permalink to this headline">¶</a></h3>
+<p>Se trata de una función lineal de pendiente <em>M</em>:</p>
+<p>Esta función se define como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t) = \left\{\begin{array}{ll}
+     0 &amp; t &lt; 0\\
+     M t &amp; t &gt; 0
+   \end{array}\right. = M t U (t)\end{split}\]</div>
+<p>La transformada de Laplace es:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [M t U (t)] = \frac{M}{s^2}\]</div>
+</div>
+<div class="section" id="funciones-trigonometricas">
+<h3><span class="section-number">3.4.5. </span>Funciones trigonométricas<a class="headerlink" href="#funciones-trigonometricas" title="Permalink to this headline">¶</a></h3>
+<p>La función seno es:</p>
+<p>Se define la función como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t) = \left\{\begin{array}{cl}
+     0 &amp; t &lt; 0\\
+     M \sin (\omega t) &amp; t &gt; 0
+   \end{array}\right. = M U (t) \sin (\omega t)\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(M\)</span> es la amplitud y <span class="math notranslate nohighlight">\(\omega\)</span> es la frecuencia angular, expresada
+normalmente como rad/s.</p>
+<p>La transformada de Laplace de la función seno es:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [M \sin (\omega t)] = \frac{M \omega}{s^2 + \omega^2}\]</div>
+<p>y la de la función coseno:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [M \cos (\omega t)] = \frac{M s}{s^2 + \omega^2}\]</div>
+</div>
+</div>
+<div class="section" id="inversion-de-transformadas-de-vuelta-al-tiempo-real">
+<h2><span class="section-number">3.5. </span>Inversión de transformadas. De vuelta al tiempo real<a class="headerlink" href="#inversion-de-transformadas-de-vuelta-al-tiempo-real" title="Permalink to this headline">¶</a></h2>
+<p>Continuando con el ejemplo se estudiará la salida del sistema para una
+entrada de tipo escalón unidad:</p>
+<div class="math notranslate nohighlight">
+\[\bar{H} (s) = \left[ \frac{R}{R A s + 1} \right]  \overline{Q_1} (s) =
+   \left[ \frac{R}{R A s + 1} \right]  \frac{1}{s}\]</div>
+<p>Mediante el operador transformada inversa de Laplace
+(<span class="math notranslate nohighlight">\(\mathcal{L}^{- 1}\)</span>) se obtiene la salida en tiempo real. Para ello hay
+que descomponer la función a invertir en partes asimilables a las que se
+encuentran en las tablas de transformadas de Laplace (apartado
+<a class="reference external" href="#sec:transformadas">1.7</a>{reference-type=”ref”
+reference=”sec:transformadas”}):</p>
+<div class="math notranslate nohighlight">
+\[\bar{H} (s) = \left[ \frac{R}{R A s + 1} \right]  \frac{1}{s} = \frac{a}{s}
+   + \frac{b}{s + \frac{1}{A R}}\]</div>
+<p>Donde <em>a</em> y <em>b</em> son dos variables a
+determinar. Obviamente, <span class="math notranslate nohighlight">\(a =
+R\)</span> y <span class="math notranslate nohighlight">\(b = - R\)</span>. Por tanto,</p>
+<div class="math notranslate nohighlight">
+\[\bar{H} (s) = \left[ R - R \mathrm{e}^{- \frac{t}{R A}} \right] U (t) = R U (t)
+   \left[ 1 - \mathrm{e}^{- \frac{t}{R A}} \right] = R U (t)  \left[ 1 - \mathrm{e}^{-
+   \frac{t}{\tau}} \right]\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\tau = R A\)</span> es la constante de
+tiempo y tiene dimensiones de tiempo.</p>
+<p>Cuanto mayor es <span class="math notranslate nohighlight">\(\tau\)</span> más lenta es la respuesta, más tarda el sistema en alcanzar el estado estacionario. Se comprueba
+que cuanto menor es la sección del tanque más rápida es la respuesta. Si
+<span class="math notranslate nohighlight">\(\tau\)</span> es grande se dice que el sistema presenta una gran inercia.</p>
+<p>La técnica propuesta en este capítulo para obtener modelos matemáticos
+se puede utilizar para modelos de mayor complejidad, como el que se
+obtiene en la resolución del problema 3.7.</p>
+</div>
+<div class="section" id="expansion-en-fracciones-parciales">
+<h2><span class="section-number">3.6. </span>Expansión en fracciones parciales<a class="headerlink" href="#expansion-en-fracciones-parciales" title="Permalink to this headline">¶</a></h2>
+<p>Un método de inversión de transformadas de Laplace es la expansión en
+fracciones parciales. Para invertir la función <span class="math notranslate nohighlight">\(\bar{f} (s)\)</span> se reordena
+como una suma de funciones simples:</p>
+<div class="math notranslate nohighlight">
+\[\bar{f} (s) = \overline{f_1} (s) + \overline{f_2} (s) + \ldots +
+   \overline{f_s} (s)\]</div>
+<p>Una vez realizada la descomposición se realiza la inversión de
+transformadas:</p>
+<div class="math notranslate nohighlight">
+\[f (t) =\mathcal{L}^{- 1} [\overline{f_1} (s)] +\mathcal{L}^{- 1}
+   [\overline{f_2} (s)] + \ldots +\mathcal{L}^{- 1} [\overline{f_s} (s)]\]</div>
+<p>Normalmente las funciones a invertir en control de procesos aparecen
+como fracciones de polinomios en <em>s</em> del tipo:</p>
+<div class="math notranslate nohighlight">
+\[\bar{f} (s) = \frac{\bar{z} (s)}{\bar{p} (s)}\]</div>
+<p>donde <em>z(s)</em> es un
+polinomio de orden <em>m</em> y <em>p(s)</em> es un polinomio de orden <em>n</em>.</p>
+<p>Para realizar la inversión de la transformada de Laplace se factoriza el
+denominador:</p>
+<div class="math notranslate nohighlight">
+\[\bar{f} (s) = \frac{z (s)}{(s - p_1)  (s - p_2) \ldots (s - p_n)}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(p_i\)</span> son las raíces (ceros) del polinomio <em>p(s)</em>.</p>
+<p>Si todos los <span class="math notranslate nohighlight">\(p_i\)</span> son diferentes, se puede expresar <em>f(s)</em> como una
+suma de <em>n</em> términos:</p>
+<div class="math notranslate nohighlight">
+\[\bar{f} (s) = \frac{A}{s - p_1} + \frac{B}{s - p_2} + \frac{C}{s - p_3} +
+   \cdots + \frac{W}{s - p_n}\]</div>
+<p>Los numeradores de la ecuación anterior se evalúan de la siguiente
+manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; A = \underset{s \rightarrow p_1}{\text{l{\'i}m}} [(s - p_1) \bar{f} (s)]
+  &amp; \\
+  &amp; B = \underset{s \rightarrow p_2}{\text{l{\'i}m}} [(s - p_2) \bar{f} (s)]
+  &amp; \\
+  &amp; \vdots &amp; \\
+  &amp; W = \underset{s \rightarrow p_n}{\text{l{\'i}m}} [(s - p_n) \bar{f} (s)]
+  &amp; \end{aligned}\end{split}\]</div>
+<p>Si existen raíces del denominador de <em>f(s)</em> repetidas, de nuevo se
+expresa <em>f(s)</em> como un producto de fracciones simples. Por ejemplo, en
+el caso de que una raíz se repita dos veces:</p>
+<div class="math notranslate nohighlight">
+\[\bar{f} (s) = \frac{z (s)}{(s - p_1)^2  (s - p_3)  (s - p_4) \ldots (s -
+   p_n)}\]</div>
+<p>la descomposición en fracciones simples es:</p>
+<div class="math notranslate nohighlight">
+\[\label{ec:dos raices} \bar{f} (s) = \frac{A}{(s - p_1)^2} + \frac{B}{s -
+  p_1} + \frac{C}{s - p_3} + \cdots + \frac{W}{s - p_n}\]</div>
+<p>Si la raíz se repite 3 veces (orden 3) la expansión sería así:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \bar{f} (s) = \frac{z (s)}{(s - p_1)^3  (s - p_4)  (s - p_5) \ldots (s -
+  p_n)} &amp;  \nonumber\\
+  &amp; \label{ec:tres raices} \bar{f} (s) = \frac{A}{(s - p_1)^3} + \frac{B}{(s
+  - p_1)^2} + \frac{C}{s - p_1} + \frac{D}{s - p_4} + \cdots + \frac{W}{s -
+  p_n} &amp; \end{aligned}\end{split}\]</div>
+<p>Los numeradores de la ecuación
+[[ec:dos raices]](#ec:dos raices){reference-type=”ref”
+reference=”ec:dos raices”} se calculan de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; A = \underset{s \rightarrow p_1}{\text{l{\'i}m}} [(s - p_1)^2  \bar{f}
+  (s)] &amp; \\
+  &amp; B = \underset{s \rightarrow p_1}{\text{l{\'i}m}} \left\{
+  \frac{\mathrm{d}}{\mathrm{d}s} [(s - p_1)^2  \bar{f} (s)] \right\} &amp; \\
+  &amp; C = \underset{s \rightarrow p_3}{\text{l{\'i}m}} [(s - p_3) \bar{f} (s)]
+  &amp; \\
+  &amp; \vdots &amp; \end{aligned}\end{split}\]</div>
+<p>Para encontrar el numerador <em>C</em> de la
+ecuación [[ec:tres raices]](#ec:tres raices){reference-type=”ref”
+reference=”ec:tres raices”} se debe tomar la segunda derivada.
+Generalizando al término <span class="math notranslate nohighlight">\(A_j\)</span> de una raíz de orden <em>N</em> en <span class="math notranslate nohighlight">\(p_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[A_j = \underset{s \rightarrow p_1}{\text{l{\'i}m}} \left\{ \frac{\mathrm{d}^{m
+   - 1}}{\mathrm{d}s^{m - 1}}  [(s - p_1)^N  \bar{f} (s)] \right\}  \frac{1}{(m -
+   1) !}\]</div>
+<p>Aunque su utilización es un tanto tediosa existen casos, como el
+apartado d) del problema 3.2, que muy difícilmente se puede resolver sin
+utilizar la técnica de expansión en fracciones parciales. Esta técnica
+tiene la ventaja de ser muy sistemática.</p>
+</div>
+<div class="section" id="transformadas-de-laplace">
+<span id="transformadas"></span><h2><span class="section-number">3.7. </span>Transformadas de Laplace<a class="headerlink" href="#transformadas-de-laplace" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table" id="id1">
+<caption><span class="caption-number">Table 3.1 </span><span class="caption-text">Transformadas de Laplace de funciones seleccionadas.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(\mathbf{f (t), t &gt; 0}\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathbf{\bar{f}(s)}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Impulso unidad, <span class="math notranslate nohighlight">\(\delta(t_0)\)</span></p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pulso unidad, <span class="math notranslate nohighlight">\(\delta_A(t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{A}  \frac{1 - e^{- sA}}{s}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Escalón unidad</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{s}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Rampa, <span class="math notranslate nohighlight">\(f(t) = t\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{s^2}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(t^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{2!}{s^3}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(t^n\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{n!}{s^{n + 1}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(e^{- a t}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{s + a}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(t^n e^{- a t}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{n!}{(s + a)^{n + 1}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sin (\omega t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{\omega}{s^2 + \omega^2}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\cos (\omega t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{s}{s^2 + \omega^2}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sinh (\omega t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{\omega}{s^2 - \omega^2}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\cosh (\omega t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{s}{s^2 - \omega^2}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(e^{- a t} \sin (\omega t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{\omega}{(s + a)^2 + \omega^2}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(e^{- a t} \cos (\omega t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{s + a}{(s + a)^2 + \omega^2}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table" id="id2">
+<caption><span class="caption-number">Table 3.2 </span><span class="caption-text">Transformada inversa de Laplace de funciones seleccionadas.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(\mathbf{\bar{f} (s)}\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\mathbf{f (t)}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\frac{1}{(s + a)  (s + b)}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{e^{- a t} - e^{- b t}}{b - a}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\frac{1}{(s + a)  (s + b)  (s + c)}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{e^{- a t}}{(b - a)  (c - a)} + \frac{e^{- b t}}{(c - b)  (a - b)} + \frac{e^{- a t}}{(a - c)  (b - c)}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\frac{s + a}{(s + b)  (s + c)}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{c - b}  [(a - b) e^{- b t} -(a - c) e^{- c t}]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\frac{a}{(s + b)^2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(a t e^{- b t}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\frac{a}{(s + b)^3}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{a}{2} t^2 e^{- b t}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\frac{a}{(s + b)^{n + 1}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{a}{n!} t^n b^{- b t}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\frac{1}{s (a s + 1)}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 - e^{- t / a}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\frac{1}{s (a s + 1)^2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 - \frac{a + t}{a} e^{- t / a}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\frac{\omega^2}{s (s^2 + 2 \zeta \omega s + \omega^2)}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 + \frac{e^{-\zeta \omega t}}{ \sqrt[]{1 - \zeta^2}} \sin \left( \omega \sqrt[]{1- \zeta^2} t - \varphi \right)\)</span> donde <span class="math notranslate nohighlight">\(\cos \varphi = - \zeta\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\frac{s}{(1 + a s)  (s^2 + \omega^2)}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(- \frac{1}{1 + a^2 \omega^2}e^{- t / a} + \frac{1}{\sqrt[]{1 + a^2 \omega^2}} \cos (\omega t +\varphi)\)</span> donde <span class="math notranslate nohighlight">\(\varphi = \arctan (a \omega)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\frac{s}{(s^2 + \omega^2)^2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{2 \omega} \sin (\omega t)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\frac{1}{(s + a)  [(s + b)^2 + \omega^2]}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{e^{- a t}}{(a - b)^2+ \omega^2} + \frac{e^{- b t} \sin (\omega t + \varphi)}{\omega\sqrt[]{(a - b)^2 + \omega^2}}\)</span> donde <span class="math notranslate nohighlight">\(\varphi = \arctan \left(\frac{\omega}{a - b} \right)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="problemas">
+<h2><span class="section-number">3.8. </span>Problemas<a class="headerlink" href="#problemas" title="Permalink to this headline">¶</a></h2>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unidad03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Unidad02/instrumentacion.html" title="previous page"><span class="section-number">2.2. </span>Algo de instrumentación</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Javier Arántegui<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
