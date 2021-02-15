@@ -20,3 +20,11 @@
   - file: ./Unidad02/instrumentacion
 
 - file: ./Unidad03/unidad03
+  sections:
+  - file: ./Unidad03/ejemplo_dinamica
+  - file: ./Unidad03/transformada
+  - file: ./Unidad03/funcion_transferencia
+  - file: ./Unidad03/funciones_singulares
+  - file: ./Unidad03/inversion
+  - file: ./Unidad03/expansion
+  - file: ./Unidad03/tablas_transformadas

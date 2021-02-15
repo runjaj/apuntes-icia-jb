@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.4. Transformadas de algunas funciones singulares &#8212; Control de procesos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.5. Inversión de transformadas. De vuelta al tiempo real" href="inversion.html" />
+    <link rel="prev" title="3.3. La función de transferencia. Álgebra de funciones de transferencia" href="funcion_transferencia.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/M-UdL2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Control de procesos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Control de procesos
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/unidad01.html">
+   1. Introducción general
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/historia.html">
+     1.1. Breve historia del control de procesos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/contexto.html">
+     1.2. Contexto de la disciplina
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/descripci%C3%B3n.html">
+     1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/conceptos.html">
+     1.4. Conceptos generales
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../Unidad01/problemas01.html">
+     1.5. Problemas
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob101.html">
+       1.5.1. Problema 1.1
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob102.html">
+       1.5.2. Problema 1.2
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob104.html">
+       1.5.3. Problema 1.4
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad02/unidad02.html">
+   2. Instrumentación industrial
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/definiciones.html">
+     2.1. Algunas definiciones de instrumentación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/instrumentacion.html">
+     2.2. Algo de instrumentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="unidad03.html">
+   3. Cómo abordar la dinámica de un sistema
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="ejemplo_dinamica.html">
+     3.1. Un ejemplo de dinámica de un sistema. ¿Qué se desea conocer?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="transformada.html">
+     3.2. La transformada de Laplace como herramienta útil
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="funcion_transferencia.html">
+     3.3. La función de transferencia. Álgebra de funciones de transferencia
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.4. Transformadas de algunas funciones singulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="inversion.html">
+     3.5. Inversión de transformadas. De vuelta al tiempo real
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="expansion.html">
+     3.6. Expansión en fracciones parciales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tablas_transformadas.html">
+     3.7. Transformadas de Laplace
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/Unidad03/funciones_singulares.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unidad03/funciones_singulares.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/runjaj/apuntes-icia-jb/master?urlpath=tree/_build/html/Unidad03/funciones_singulares.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funcion-escalon">
+   3.4.1. Función escalón
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funcion-pulso">
+   3.4.2. Función pulso
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funcion-impulso">
+   3.4.3. Función impulso
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funcion-rampa">
+   3.4.4. Función rampa
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-trigonometricas">
+   3.4.5. Funciones trigonométricas
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="transformadas-de-algunas-funciones-singulares">
+<h1><span class="section-number">3.4. </span>Transformadas de algunas funciones singulares<a class="headerlink" href="#transformadas-de-algunas-funciones-singulares" title="Permalink to this headline">¶</a></h1>
+<p>A continuación se muestran las transformadas de algunas funciones con
+las que se trabajará frecuentemente más adelante ya que pueden ser
+asimiladas como las perturbaciones más frecuentes.</p>
+<p>Si no se dice lo contrario todas estas funciones se definen para que su
+valor sea nulo a tiempo menor que cero.</p>
+<div class="section" id="funcion-escalon">
+<h2><span class="section-number">3.4.1. </span>Función escalón<a class="headerlink" href="#funcion-escalon" title="Permalink to this headline">¶</a></h2>
+<p>Es una función cuyo valor para tiempos menores que cero es nulo y que
+alcanza el valor <span class="math notranslate nohighlight">\(M\)</span> para tiempo mayores que 0:</p>
+<div class="cell tag_hide-input tag_interactive docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Heaviside</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">Symbol</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="c1">#M = Symbol(&#39;M&#39;)</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">M</span><span class="o">*</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "3dc3baf9be51499e8991c64cd386e8cc"}
+</script></div>
+</div>
+<div class="margin-caption figure align-center" id="step-fig">
+<p class="caption"><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Función escalón de altura <span class="math notranslate nohighlight">\(M\)</span>. Utilizando el control deslizante se puede modificar la altura del escalón de manera interactiva.</span><a class="headerlink" href="#step-fig" title="Permalink to this image">¶</a></p>
+</div>
+<p>Esta función se define como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t) = \left\{\begin{array}{ll}
+     0 &amp; t &lt; 0\\
+     M &amp; t &gt; 0
+   \end{array}\right.\end{split}\]</div>
+<p>La transformada de Laplace de esta función es:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [f (t)] = \frac{M}{s}\]</div>
+<p>Si <span class="math notranslate nohighlight">\(M\)</span> es igual a 1 se tiene la función escalón unidad, <span class="math notranslate nohighlight">\(U(t)\)</span>.</p>
+<p>En el caso de que la función tenga un retraso <span class="math notranslate nohighlight">\(t_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t) = \left\{\begin{array}{ll}
+     0 &amp; t &lt; t_0\\
+     M &amp; t &gt; t_0
+   \end{array}\right.\end{split}\]</div>
+<p>O lo que es lo mismo:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t - t_0) = \left\{\begin{array}{ll}
+     0 &amp; t &lt; 0\\
+     M &amp; t &gt; 0
+   \end{array}\right.\end{split}\]</div>
+<p>Por tanto, aplicando la propiedad número
+<a class="reference external" href="#translacion">[translacion]</a>{reference-type=”ref”
+reference=”translacion”} (ecuación
+<a class="reference external" href="#ec:translacion">[ec:translacion]</a>{reference-type=”ref”
+reference=”ec:translacion”}), la transformada de Laplace será:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [f (t - t_0)] = \frac{M}{s} \mathrm{e}^{- s t_0}\]</div>
+</div>
+<div class="section" id="funcion-pulso">
+<h2><span class="section-number">3.4.2. </span>Función pulso<a class="headerlink" href="#funcion-pulso" title="Permalink to this headline">¶</a></h2>
+<p>Se trata de una función pulso con área <span class="math notranslate nohighlight">\(A = M t_0\)</span>:</p>
+<p>La función pulso se define como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t) = \left\{\begin{array}{cc}
+     0 &amp; t &lt; 0\\
+     M &amp; 0 &lt; t &lt; t_0\\
+     0 &amp; t &gt; t_0
+   \end{array}\right.\end{split}\]</div>
+<p>Utilizando la definición del escalón unidad también se puede escribir
+como:</p>
+<div class="math notranslate nohighlight">
+\[f (t) = M [U (t) - U (t - t_0)]\]</div>
+<p>Por tanto, la transformada de Laplace será:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [f (t)] = \bar{f} (s) = M \left( \frac{1}{s} - \frac{\mathrm{e}^{-
+   s t_0}}{s} \right) = \frac{M}{s}  (1 - \mathrm{e}^{- s t_0})\]</div>
+</div>
+<div class="section" id="funcion-impulso">
+<h2><span class="section-number">3.4.3. </span>Función impulso<a class="headerlink" href="#funcion-impulso" title="Permalink to this headline">¶</a></h2>
+<p>Se trata de un pulso tal que <span class="math notranslate nohighlight">\(M \rightarrow \infty\)</span> y
+<span class="math notranslate nohighlight">\(t_0 \rightarrow 0\)</span>:</p>
+<p>La transformada de Laplace de esta función es:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [f (t)] = \bar{f} (s) = A\]</div>
+<p>En el caso particular de que el área sea 1 se habla de la función delta
+de Dirac <span class="math notranslate nohighlight">\(\delta (t)\)</span>.</p>
+<p>Se puede comprobar fácilmente que el impulso es la derivada de la
+función escalón.</p>
+<div class="admonition-ejemplo admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>En el Problema 3.4 se puede comprobar las diferencias y similitudes en
+la respuesta de un proceso a una entrada en escalón y en impulso.</p>
+</div>
+</div>
+<div class="section" id="funcion-rampa">
+<h2><span class="section-number">3.4.4. </span>Función rampa<a class="headerlink" href="#funcion-rampa" title="Permalink to this headline">¶</a></h2>
+<p>Se trata de una función lineal de pendiente <em>M</em>:</p>
+<p>Esta función se define como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t) = \left\{\begin{array}{ll}
+     0 &amp; t &lt; 0\\
+     M t &amp; t &gt; 0
+   \end{array}\right. = M t U (t)\end{split}\]</div>
+<p>La transformada de Laplace es:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [M t U (t)] = \frac{M}{s^2}\]</div>
+</div>
+<div class="section" id="funciones-trigonometricas">
+<h2><span class="section-number">3.4.5. </span>Funciones trigonométricas<a class="headerlink" href="#funciones-trigonometricas" title="Permalink to this headline">¶</a></h2>
+<p>La función seno es:</p>
+<p>Se define la función como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f (t) = \left\{\begin{array}{cl}
+     0 &amp; t &lt; 0\\
+     M \sin (\omega t) &amp; t &gt; 0
+   \end{array}\right. = M U (t) \sin (\omega t)\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(M\)</span> es la amplitud y <span class="math notranslate nohighlight">\(\omega\)</span> es la frecuencia angular, expresada
+normalmente como rad/s.</p>
+<p>La transformada de Laplace de la función seno es:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [M \sin (\omega t)] = \frac{M \omega}{s^2 + \omega^2}\]</div>
+<p>y la de la función coseno:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} [M \cos (\omega t)] = \frac{M s}{s^2 + \omega^2}\]</div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"d086e209932e4321b0472e245d3c4945": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3dc3baf9be51499e8991c64cd386e8cc": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_61e060306d9a47c681dcdff864eba1df", "IPY_MODEL_28ada070a9cc472e8f2ba14b67aa905a"], "layout": "IPY_MODEL_d086e209932e4321b0472e245d3c4945"}}, "b281fa63c6354a3f914f98ff3ac8570d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e9e75763ca5a45e893b4255c2b7e38bb": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "61e060306d9a47c681dcdff864eba1df": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "M", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_b281fa63c6354a3f914f98ff3ac8570d", "max": 5.0, "min": -5.0, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_e9e75763ca5a45e893b4255c2b7e38bb", "value": 0.0}}, "c1189d77d2464ca78e33584852358c90": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "28ada070a9cc472e8f2ba14b67aa905a": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_c1189d77d2464ca78e33584852358c90", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {"needs_background": "light"}, "data": {"text/plain": "<Figure size 432x288 with 1 Axes>", "image/png": "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\n"}}]}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unidad03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="funcion_transferencia.html" title="previous page"><span class="section-number">3.3. </span>La función de transferencia. Álgebra de funciones de transferencia</a>
+    <a class='right-next' id="next-link" href="inversion.html" title="next page"><span class="section-number">3.5. </span>Inversión de transformadas. De vuelta al tiempo real</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Javier Arántegui<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

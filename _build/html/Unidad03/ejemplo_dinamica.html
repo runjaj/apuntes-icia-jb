@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.1. Un ejemplo de dinámica de un sistema. ¿Qué se desea conocer? &#8212; Control de procesos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.2. La transformada de Laplace como herramienta útil" href="transformada.html" />
+    <link rel="prev" title="3. Cómo abordar la dinámica de un sistema" href="unidad03.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/M-UdL2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Control de procesos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Control de procesos
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/unidad01.html">
+   1. Introducción general
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/historia.html">
+     1.1. Breve historia del control de procesos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/contexto.html">
+     1.2. Contexto de la disciplina
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/descripci%C3%B3n.html">
+     1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/conceptos.html">
+     1.4. Conceptos generales
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../Unidad01/problemas01.html">
+     1.5. Problemas
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob101.html">
+       1.5.1. Problema 1.1
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob102.html">
+       1.5.2. Problema 1.2
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob104.html">
+       1.5.3. Problema 1.4
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad02/unidad02.html">
+   2. Instrumentación industrial
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/definiciones.html">
+     2.1. Algunas definiciones de instrumentación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/instrumentacion.html">
+     2.2. Algo de instrumentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="unidad03.html">
+   3. Cómo abordar la dinámica de un sistema
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.1. Un ejemplo de dinámica de un sistema. ¿Qué se desea conocer?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="transformada.html">
+     3.2. La transformada de Laplace como herramienta útil
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="funcion_transferencia.html">
+     3.3. La función de transferencia. Álgebra de funciones de transferencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="funciones_singulares.html">
+     3.4. Transformadas de algunas funciones singulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="inversion.html">
+     3.5. Inversión de transformadas. De vuelta al tiempo real
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="expansion.html">
+     3.6. Expansión en fracciones parciales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tablas_transformadas.html">
+     3.7. Transformadas de Laplace
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unidad03/ejemplo_dinamica.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="un-ejemplo-de-dinamica-de-un-sistema-que-se-desea-conocer">
+<h1><span class="section-number">3.1. </span>Un ejemplo de dinámica de un sistema. ¿Qué se desea conocer?<a class="headerlink" href="#un-ejemplo-de-dinamica-de-un-sistema-que-se-desea-conocer" title="Permalink to this headline">¶</a></h1>
+<p>Como ejemplo se considera un sistema dinámico de nivel. En este caso se
+pretende encontrar el comportamiento con el tiempo de un depósito en
+función del caudal de entrada. Para ello habrá que buscar un modelo
+matemático que describa dicho comportamiento. Se recomienda seguir el
+siguiente procedimiento:</p>
+<ol>
+<li><p>Se realiza el <em>diagrama de flujo del sistema</em>: En ese diagrama se
+marcan todas las variables implicadas. En este caso se trata de un
+depósito que se descarga por gravedad. Las variables implicadas son:</p>
+<ul class="simple">
+<li><p>Sección del depósito: <span class="math notranslate nohighlight">\(A(t)\)</span></p></li>
+<li><p>Resistencia de la tubería al paso del fluido: <span class="math notranslate nohighlight">\(R\)</span></p></li>
+<li><p>Caudales volumétricos de entrada y salida: <span class="math notranslate nohighlight">\(q_1 (t)\)</span> y <span class="math notranslate nohighlight">\(q_2 (t)\)</span></p></li>
+<li><p>Nivel del depósito: <span class="math notranslate nohighlight">\(h(t)\)</span></p></li>
+<li><p>Densidad del fluido: <span class="math notranslate nohighlight">\(\rho (t)\)</span></p></li>
+</ul>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/deposito.svg"><img alt="../_images/deposito.svg" src="../_images/deposito.svg" width="300px" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">El nivel del depósito depende de los caudales de entrada y salida del mismo.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>Planteamiento del <em>modelo matemático</em>: Un modelo matemático es un
+conjunto de ecuaciones que relacionan entre sí las variables del
+sistema. Se basan en ecuaciones de estado, leyes de equilibrio,
+ecuaciones cinéticas y balances de materia, energía y cantidad de
+movimiento.</p>
+<p>Para el ejemplo, al aplicar el Balance Macroscópico de Materia:</p>
+<div class="math notranslate nohighlight" id="equation-bmm">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-bmm" title="Permalink to this equation">¶</a></span>\[\frac{d A (t) h (t) \rho (t)}{d t} = \rho (t) q_1 (t) - \rho(t) q_2 (t)\]</div>
+<p>En el momento de plantear el modelo matemático hay
+que explicitar todas las hipótesis o simplificaciones realizadas. En
+este caso se han realizado las siguientes suposiciones:</p>
+<ul class="simple">
+<li><p>La densidad (<span class="math notranslate nohighlight">\(\rho\)</span>) y el area del depósito (<span class="math notranslate nohighlight">\(A\)</span>) son constantes
+e independientes del tiempo.</p></li>
+<li><p>El caudal de salida del depósito depende del nivel y de la
+resistencia de la tubería al paso del fluido de este modo:
+<span class="math notranslate nohighlight">\(q_2 (t) =
+    \frac{h (t)}{R}\)</span>.</p></li>
+</ul>
+<p>Teniendo en cuenta las hipótesis anteriores la ec. <a class="reference internal" href="#equation-bmm">(3.1)</a> queda como:</p>
+<div class="math notranslate nohighlight">
+\[\label{BMMh} A \frac{d h}{d t} = q_1 (t) - \frac{h (t)}{R}\]</div>
+</li>
+<li><p>Definición de las <em>variables de desviación</em>: Debido a que lo
+realmente importante en control es conocer cuánto se ha desplazado
+el sistema respecto al estado estacionario se definen unas variables
+de desviación.</p>
+<p>Para el ejemplo, el balance macroscópico de materia en estado
+estacionario es:</p>
+<div class="math notranslate nohighlight" id="equation-bmme">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-bmme" title="Permalink to this equation">¶</a></span>\[0 = q_{1 e} - \frac{h_e}{R}\]</div>
+<p>donde
+<span class="math notranslate nohighlight">\(_e\)</span> indica estado estacionario.</p>
+<p>Restando ambos balances macroscópicos de materia (ecs. <a class="reference internal" href="#equation-bmm">(3.1)</a> y <a class="reference internal" href="#equation-bmme">(3.2)</a>):</p>
+<div class="math notranslate nohighlight" id="equation-bmmd">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-bmmd" title="Permalink to this equation">¶</a></span>\[A \frac{d (h (t) - h_e)}{d t} = q_1 (t) - q_{1 e} - \frac{h(t) - h_e}{R}\]</div>
+<p>Se definen las siguientes variables de
+desviación:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+        H (t) &amp;\equiv h (t) - h_e &amp; \\
+        Q_1 (t) &amp;\equiv q_1 (t) - q_{1 e}
+    \end{aligned}\end{split}\]</div>
+<p>Las mayúsculas indican que se tratan de variables
+de desviación.</p>
+<p>Sustituyendo en la ec. <a class="reference internal" href="#equation-bmmd">(3.3)</a> se obtiene:</p>
+<div class="math notranslate nohighlight" id="equation-ode">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-ode" title="Permalink to this equation">¶</a></span>\[A \frac{d H (t)}{d t} = Q_1 (t) - \frac{H (t)}{R}\]</div>
+<p>Esta ecuación es el modelo matemático que representa la respuesta
+dinámica del tanque a cambios en el caudal de entrada. Resolviendo
+esta ecuación diferencial se puede saber cómo varía el nivel con el
+tiempo según cambia el caudal de entrada.</p>
+</li>
+</ol>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unidad03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="unidad03.html" title="previous page"><span class="section-number">3. </span>Cómo abordar la dinámica de un sistema</a>
+    <a class='right-next' id="next-link" href="transformada.html" title="next page"><span class="section-number">3.2. </span>La transformada de Laplace como herramienta útil</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Javier Arántegui<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

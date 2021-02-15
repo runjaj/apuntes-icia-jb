@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.6. Expansión en fracciones parciales &#8212; Control de procesos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.7. Transformadas de Laplace" href="tablas_transformadas.html" />
+    <link rel="prev" title="3.5. Inversión de transformadas. De vuelta al tiempo real" href="inversion.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/M-UdL2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Control de procesos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Control de procesos
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/unidad01.html">
+   1. Introducción general
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/historia.html">
+     1.1. Breve historia del control de procesos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/contexto.html">
+     1.2. Contexto de la disciplina
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/descripci%C3%B3n.html">
+     1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/conceptos.html">
+     1.4. Conceptos generales
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../Unidad01/problemas01.html">
+     1.5. Problemas
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob101.html">
+       1.5.1. Problema 1.1
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob102.html">
+       1.5.2. Problema 1.2
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Unidad01/prob104.html">
+       1.5.3. Problema 1.4
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad02/unidad02.html">
+   2. Instrumentación industrial
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/definiciones.html">
+     2.1. Algunas definiciones de instrumentación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/instrumentacion.html">
+     2.2. Algo de instrumentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="unidad03.html">
+   3. Cómo abordar la dinámica de un sistema
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="ejemplo_dinamica.html">
+     3.1. Un ejemplo de dinámica de un sistema. ¿Qué se desea conocer?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="transformada.html">
+     3.2. La transformada de Laplace como herramienta útil
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="funcion_transferencia.html">
+     3.3. La función de transferencia. Álgebra de funciones de transferencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="funciones_singulares.html">
+     3.4. Transformadas de algunas funciones singulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="inversion.html">
+     3.5. Inversión de transformadas. De vuelta al tiempo real
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.6. Expansión en fracciones parciales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tablas_transformadas.html">
+     3.7. Transformadas de Laplace
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unidad03/expansion.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="expansion-en-fracciones-parciales">
+<h1><span class="section-number">3.6. </span>Expansión en fracciones parciales<a class="headerlink" href="#expansion-en-fracciones-parciales" title="Permalink to this headline">¶</a></h1>
+<p>Un método de inversión de transformadas de Laplace es la expansión en
+fracciones parciales. Para invertir la función <span class="math notranslate nohighlight">\(\bar{f} (s)\)</span> se reordena
+como una suma de funciones simples:</p>
+<div class="math notranslate nohighlight">
+\[\bar{f} (s) = \overline{f_1} (s) + \overline{f_2} (s) + \ldots +
+   \overline{f_s} (s)\]</div>
+<p>Una vez realizada la descomposición se realiza la inversión de
+transformadas:</p>
+<div class="math notranslate nohighlight">
+\[f (t) =\mathcal{L}^{- 1} [\overline{f_1} (s)] +\mathcal{L}^{- 1}
+   [\overline{f_2} (s)] + \ldots +\mathcal{L}^{- 1} [\overline{f_s} (s)]\]</div>
+<p>Normalmente las funciones a invertir en control de procesos aparecen
+como fracciones de polinomios en <em>s</em> del tipo:</p>
+<div class="math notranslate nohighlight">
+\[\bar{f} (s) = \frac{\bar{z} (s)}{\bar{p} (s)}\]</div>
+<p>donde <em>z(s)</em> es un
+polinomio de orden <em>m</em> y <em>p(s)</em> es un polinomio de orden <em>n</em>.</p>
+<p>Para realizar la inversión de la transformada de Laplace se factoriza el
+denominador:</p>
+<div class="math notranslate nohighlight">
+\[\bar{f} (s) = \frac{z (s)}{(s - p_1)  (s - p_2) \ldots (s - p_n)}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(p_i\)</span> son las raíces (ceros) del polinomio <em>p(s)</em>.</p>
+<p>Si todos los <span class="math notranslate nohighlight">\(p_i\)</span> son diferentes, se puede expresar <em>f(s)</em> como una
+suma de <em>n</em> términos:</p>
+<div class="math notranslate nohighlight">
+\[\bar{f} (s) = \frac{A}{s - p_1} + \frac{B}{s - p_2} + \frac{C}{s - p_3} +
+   \cdots + \frac{W}{s - p_n}\]</div>
+<p>Los numeradores de la ecuación anterior se evalúan de la siguiente
+manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; A = \underset{s \rightarrow p_1}{\text{l{\'i}m}} [(s - p_1) \bar{f} (s)]
+  &amp; \\
+  &amp; B = \underset{s \rightarrow p_2}{\text{l{\'i}m}} [(s - p_2) \bar{f} (s)]
+  &amp; \\
+  &amp; \vdots &amp; \\
+  &amp; W = \underset{s \rightarrow p_n}{\text{l{\'i}m}} [(s - p_n) \bar{f} (s)]
+  &amp; \end{aligned}\end{split}\]</div>
+<p>Si existen raíces del denominador de <em>f(s)</em> repetidas, de nuevo se
+expresa <em>f(s)</em> como un producto de fracciones simples. Por ejemplo, en
+el caso de que una raíz se repita dos veces:</p>
+<div class="math notranslate nohighlight">
+\[\bar{f} (s) = \frac{z (s)}{(s - p_1)^2  (s - p_3)  (s - p_4) \ldots (s -
+   p_n)}\]</div>
+<p>la descomposición en fracciones simples es:</p>
+<div class="math notranslate nohighlight">
+\[\label{ec:dos raices} \bar{f} (s) = \frac{A}{(s - p_1)^2} + \frac{B}{s -
+  p_1} + \frac{C}{s - p_3} + \cdots + \frac{W}{s - p_n}\]</div>
+<p>Si la raíz se repite 3 veces (orden 3) la expansión sería así:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \bar{f} (s) = \frac{z (s)}{(s - p_1)^3  (s - p_4)  (s - p_5) \ldots (s -
+  p_n)} &amp;  \nonumber\\
+  &amp; \label{ec:tres raices} \bar{f} (s) = \frac{A}{(s - p_1)^3} + \frac{B}{(s
+  - p_1)^2} + \frac{C}{s - p_1} + \frac{D}{s - p_4} + \cdots + \frac{W}{s -
+  p_n} &amp; \end{aligned}\end{split}\]</div>
+<p>Los numeradores de la ecuación
+[[ec:dos raices]](#ec:dos raices){reference-type=”ref”
+reference=”ec:dos raices”} se calculan de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; A = \underset{s \rightarrow p_1}{\text{l{\'i}m}} [(s - p_1)^2  \bar{f}
+  (s)] &amp; \\
+  &amp; B = \underset{s \rightarrow p_1}{\text{l{\'i}m}} \left\{
+  \frac{\mathrm{d}}{\mathrm{d}s} [(s - p_1)^2  \bar{f} (s)] \right\} &amp; \\
+  &amp; C = \underset{s \rightarrow p_3}{\text{l{\'i}m}} [(s - p_3) \bar{f} (s)]
+  &amp; \\
+  &amp; \vdots &amp; \end{aligned}\end{split}\]</div>
+<p>Para encontrar el numerador <em>C</em> de la
+ecuación [[ec:tres raices]](#ec:tres raices){reference-type=”ref”
+reference=”ec:tres raices”} se debe tomar la segunda derivada.
+Generalizando al término <span class="math notranslate nohighlight">\(A_j\)</span> de una raíz de orden <em>N</em> en <span class="math notranslate nohighlight">\(p_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[A_j = \underset{s \rightarrow p_1}{\text{l{\'i}m}} \left\{ \frac{\mathrm{d}^{m
+   - 1}}{\mathrm{d}s^{m - 1}}  [(s - p_1)^N  \bar{f} (s)] \right\}  \frac{1}{(m -
+   1) !}\]</div>
+<p>Aunque su utilización es un tanto tediosa existen casos, como el
+apartado d) del problema 3.2, que muy difícilmente se puede resolver sin
+utilizar la técnica de expansión en fracciones parciales. Esta técnica
+tiene la ventaja de ser muy sistemática.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unidad03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="inversion.html" title="previous page"><span class="section-number">3.5. </span>Inversión de transformadas. De vuelta al tiempo real</a>
+    <a class='right-next' id="next-link" href="tablas_transformadas.html" title="next page"><span class="section-number">3.7. </span>Transformadas de Laplace</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Javier Arántegui<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
