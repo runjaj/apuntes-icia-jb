@@ -17,10 +17,9 @@ from ipywidgets import interact
 from sympy import Heaviside, plot, Symbol
 
 t = Symbol('t')
-#M = Symbol('M')
 
 def f(M):
-    plot(M*Heaviside(t), (t, -1,5), line_color='red');
+    plot(M*Heaviside(t), (t, -1,5), line_color='red')
 
 interact(f, M=(-5, 5, 0.1));
 
