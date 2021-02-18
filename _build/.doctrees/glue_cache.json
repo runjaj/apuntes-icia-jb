@@ -1,23 +1,5 @@
 {
   "Unidad03/funcion_transferencia": {
-    "proc_fig": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "proc_fig",
-          "mime_prefix": "application/papermill.record/"
-        },
-        "filenames": {
-          "image/png": "/Users/javier/Documents/Trabajo/apuntes-icia-jb/_build/jupyter_execute/Unidad03/funcion_transferencia_1_0.png",
-          "image/svg+xml": "/Users/javier/Documents/Trabajo/apuntes-icia-jb/_build/jupyter_execute/Unidad03/funcion_transferencia_1_0.svg"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "<schemdraw.schemdraw.Drawing at 0x7fcbe208abe0>",
-        "application/papermill.record/image/svg+xml": null,
-        "application/papermill.record/image/png": null
-      }
-    },
     "transf_fig": {
       "output_type": "display_data",
       "metadata": {
@@ -26,12 +8,30 @@
           "mime_prefix": "application/papermill.record/"
         },
         "filenames": {
-          "image/png": "/Users/javier/Documents/Trabajo/apuntes-icia-jb/_build/jupyter_execute/Unidad03/funcion_transferencia_4_0.png",
-          "image/svg+xml": "/Users/javier/Documents/Trabajo/apuntes-icia-jb/_build/jupyter_execute/Unidad03/funcion_transferencia_4_0.svg"
+          "image/svg+xml": "/Users/javier/Documents/Trabajo/apuntes-icia-jb/_build/jupyter_execute/Unidad03/funcion_transferencia_4_0.svg",
+          "image/png": "/Users/javier/Documents/Trabajo/apuntes-icia-jb/_build/jupyter_execute/Unidad03/funcion_transferencia_4_0.png"
         }
       },
       "data": {
-        "application/papermill.record/text/plain": "<schemdraw.schemdraw.Drawing at 0x7fcbe56c47c0>",
+        "application/papermill.record/text/plain": "<schemdraw.schemdraw.Drawing at 0x7fc7e4ea17f0>",
+        "application/papermill.record/image/svg+xml": null,
+        "application/papermill.record/image/png": null
+      }
+    },
+    "proc_fig": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "proc_fig",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/svg+xml": "/Users/javier/Documents/Trabajo/apuntes-icia-jb/_build/jupyter_execute/Unidad03/funcion_transferencia_1_0.svg",
+          "image/png": "/Users/javier/Documents/Trabajo/apuntes-icia-jb/_build/jupyter_execute/Unidad03/funcion_transferencia_1_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<schemdraw.schemdraw.Drawing at 0x7fc7e174d340>",
         "application/papermill.record/image/svg+xml": null,
         "application/papermill.record/image/png": null
       }

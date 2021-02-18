@@ -1,5 +1,6 @@
-jupyter-book
+jupytext
 matplotlib
 numpy
 scipy
 sympy
+ipywidgets

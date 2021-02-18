@@ -23,6 +23,7 @@ siguiente procedimiento:
     ```{figure} ./img/deposito.svg
     ---
     width: 300px
+    figclass: margin-caption
     ---
     El nivel del depósito depende de los caudales de entrada y salida del mismo.
     ```

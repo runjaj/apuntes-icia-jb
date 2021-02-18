@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2.8 -->
+<!-- CreationDate: 2021-02-17 17:22:47 -->
+<!-- Magnification: 1.05 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="228pt" height="191pt"
+	viewBox="749 642 3604 3022">
+<g fill="none">
+<!-- Line -->
+<polyline points=" 4320,3328 782,3328"
+	stroke="#000000" stroke-width="30px"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp0">
+	<path clip-rule="evenodd" d="M 749,642 H 4353 V 3664 H 749 z
+		M 2295,1101 2385,741 2475,1101 2403,657 2367,657z"/>
+</clipPath>
+</defs>
+<polyline points=" 2385,3330 2385,675" clip-path="url(#cp0)"
+	stroke="#000000" stroke-width="30px"/>
+<!-- Forward arrow to point 2385,675 -->
+<polyline points=" 2295,1101 2385,741 2475,1101"
+	stroke="#000000" stroke-width="30px" stroke-miterlimit="8"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp1">
+	<path clip-rule="evenodd" d="M 749,642 H 4353 V 3664 H 749 z
+		M 2659,2354 2527,2380 2586,2259 2511,2384 2519,2394z"/>
+</clipPath>
+</defs>
+<polyline points=" 3105,1935 2520,2385" clip-path="url(#cp1)"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Forward arrow to point 2520,2385 -->
+<polyline points=" 2659,2354 2527,2380 2586,2259"
+	stroke="#000000" stroke-width="8px" stroke-miterlimit="8"/>
+<!-- Text -->
+<text xml:space="preserve" x="4095" y="3600" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">t</text>
+<!-- Text -->
+<text xml:space="preserve" x="2970" y="1890" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">A=M t<tspan font-size="96" baseline-shift="sub">0</tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="1890" y="945" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">f(t)</text>
+</g>
+</svg>

@@ -51,9 +51,9 @@
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -303,7 +303,7 @@ depósito que se descarga por gravedad. Las variables implicadas son:</p>
 <li><p>Nivel del depósito: <span class="math notranslate nohighlight">\(h(t)\)</span></p></li>
 <li><p>Densidad del fluido: <span class="math notranslate nohighlight">\(\rho (t)\)</span></p></li>
 </ul>
-<div class="figure align-default" id="id1">
+<div class="margin-caption figure align-default" id="id1">
 <a class="reference internal image-reference" href="../_images/deposito.svg"><img alt="../_images/deposito.svg" src="../_images/deposito.svg" width="300px" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">El nivel del depósito depende de los caudales de entrada y salida del mismo.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
@@ -368,7 +368,7 @@ tiempo según cambia el caudal de entrada.</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "runjaj/apuntes-icia-jb",
             ref: "master",
         },
         codeMirrorConfig: {
