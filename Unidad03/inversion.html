@@ -47,8 +47,6 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -251,7 +249,10 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../_sources/Unidad03/inversion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../_sources/Unidad03/inversion.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -272,6 +273,26 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/runjaj/apuntes-icia-jb/master?urlpath=tree/Unidad03/inversion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
 
     </div>
 
@@ -296,26 +317,66 @@ entrada de tipo escalón unidad:</p>
 (<span class="math notranslate nohighlight">\(\mathcal{L}^{- 1}\)</span>) se obtiene la salida en tiempo real. Para ello hay
 que descomponer la función a invertir en partes asimilables a las que se
 encuentran en las tablas de transformadas de Laplace (apartado
-<a class="reference external" href="#sec:transformadas">1.7</a>{reference-type=”ref”
-reference=”sec:transformadas”}):</p>
+<a class="reference internal" href="tablas_transformadas.html#transformadas"><span class="std std-ref">Transformadas de Laplace</span></a>):</p>
 <div class="math notranslate nohighlight">
 \[\bar{H} (s) = \left[ \frac{R}{R A s + 1} \right]  \frac{1}{s} = \frac{a}{s}
    + \frac{b}{s + \frac{1}{A R}}\]</div>
-<p>Donde <em>a</em> y <em>b</em> son dos variables a
+<p>Donde <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span> son dos variables a
 determinar. Obviamente, <span class="math notranslate nohighlight">\(a =
 R\)</span> y <span class="math notranslate nohighlight">\(b = - R\)</span>. Por tanto,</p>
 <div class="math notranslate nohighlight">
-\[\bar{H} (s) = \left[ R - R \mathrm{e}^{- \frac{t}{R A}} \right] U (t) = R U (t)
+\[H (t) = \left[ R - R \mathrm{e}^{- \frac{t}{R A}} \right] U (t) = R U (t)
    \left[ 1 - \mathrm{e}^{- \frac{t}{R A}} \right] = R U (t)  \left[ 1 - \mathrm{e}^{-
    \frac{t}{\tau}} \right]\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\tau = R A\)</span> es la constante de
 tiempo y tiene dimensiones de tiempo.</p>
+<p>Tamibén se puede realizar la transformada inversa de Laplace de una manera muy simple utilizando <em>Sympy</em>:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importación de las funciones necesarias</span>
+<span class="c1"># Cuando se trabaja de manera interactiva es común usar:</span>
+<span class="c1">#</span>
+<span class="c1"># from sympy import *</span>
+<span class="c1">#</span>
+<span class="c1"># para no tener que preocuparse de que funciones están disponibles.</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">inverse_laplace_transform</span><span class="p">,</span> <span class="n">symbols</span>
+
+<span class="c1"># Definición de los símbolos necesarios</span>
+<span class="n">R</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;R A t&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+
+<span class="c1"># Definición de la función de transferencia, G(s)</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">R</span><span class="o">/</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Definición de la función de entrada, f(s), en este caso un escalón unidad</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">s</span>
+
+<span class="c1"># Cálculo de la respuesta, H(t)</span>
+<span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle R \theta\left(t\right) - R e^{- \frac{t}{A R}} \theta\left(t\right)\]</div>
+</div>
+</div>
 <p>Cuanto mayor es <span class="math notranslate nohighlight">\(\tau\)</span> más lenta es la respuesta, más tarda el sistema en alcanzar el estado estacionario. Se comprueba
 que cuanto menor es la sección del tanque más rápida es la respuesta. Si
 <span class="math notranslate nohighlight">\(\tau\)</span> es grande se dice que el sistema presenta una gran inercia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-ejemplo admonition">
+<p class="admonition-title">Ejemplo</p>
 <p>La técnica propuesta en este capítulo para obtener modelos matemáticos
 se puede utilizar para modelos de mayor complejidad, como el que se
 obtiene en la resolución del problema 3.7.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
