@@ -86,16 +86,19 @@ Función pulso unidad retrasada en el tiempo un valor $t_0$.
 Se puede modificar el valor del retraso utilizando el deslizador.
 ```
 
-from ipywidgets import interact
+from ipywidgets import FloatSlider, interactive_output
 
 from sympy import Heaviside, plot, Symbol
 
 t = Symbol('t')
 
+to = FloatSlider(value=0, min=0, max=5, step=.2, description=r"$t_0$", continuous_update=False)
+
 def f(to):
     plot(Heaviside(t-to), (t, -1,5), line_color='red')
 
-interact(f, to=(0, 5, 0.5), continuous_update=False);
+display(to)
+interactive_output(f, {'to':to})
 
 En el caso de que la función tenga un retraso $t_0$:
 

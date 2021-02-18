@@ -38,5 +38,10 @@ launch_buttons:
   thebe                     : true  # Add a thebe button to pages (requires the repository to run on Binder)
   colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
 
-  
+  sphinx:
+  config:
+    language: es
+  nb_custom_formats:
+    .Rmd:
+        - jupytext.reads
 
