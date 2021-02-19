@@ -53,7 +53,9 @@ Cuanto mayor es $\tau$ más lenta es la respuesta, más tarda el sistema en alca
 que cuanto menor es la sección del tanque más rápida es la respuesta. Si
 $\tau$ es grande se dice que el sistema presenta una gran inercia.
 
-#plot
+from sympy import *
+x = Symbol('x')
+plot(sin(x), lw=3);
 
 ```{admonition} Ejemplo
 La técnica propuesta en este capítulo para obtener modelos matemáticos

@@ -71,7 +71,9 @@ que cuanto menor es la sección del tanque más rápida es la respuesta. Si
 $\tau$ es grande se dice que el sistema presenta una gran inercia.
 
 ```{code-cell} ipython3
-#plot
+from sympy import *
+x = Symbol('x')
+plot(sin(x), lw=3);
 ```
 
 ```{admonition} Ejemplo

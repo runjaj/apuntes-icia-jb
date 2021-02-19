@@ -44,8 +44,6 @@ tiempo y tiene dimensiones de tiempo.
 Tamibén se puede realizar la transformada inversa de Laplace de una manera muy simple utilizando *Sympy*:
 
 ```{code-cell} ipython3
-:tags: [hide-input]
-
 # Importación de las funciones necesarias
 # Cuando se trabaja de manera interactiva es común usar:
 #
@@ -73,7 +71,9 @@ que cuanto menor es la sección del tanque más rápida es la respuesta. Si
 $\tau$ es grande se dice que el sistema presenta una gran inercia.
 
 ```{code-cell} ipython3
-#plot
+from sympy import *
+x = Symbol('x')
+plot(sin(x), lw=3);
 ```
 
 ```{admonition} Ejemplo

@@ -39,9 +39,5 @@ launch_buttons:
   colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
 
   sphinx:
-  config:
-    language: es
-  nb_custom_formats:
-    .Rmd:
-        - jupytext.reads
-
+    config:
+      language: "es"
