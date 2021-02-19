@@ -1,3 +1,0 @@
-# Control de procesos
-
-Esta es la intro...

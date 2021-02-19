@@ -1,2 +1,0 @@
-# Instrumentación industrial
-
