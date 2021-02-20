@@ -71,17 +71,46 @@ que cuanto menor es la sección del tanque más rápida es la respuesta. Si
 $\tau$ es grande se dice que el sistema presenta una gran inercia.
 
 ```{code-cell} ipython3
-from sympy import *
-x = Symbol('x')
-plot(sin(x), lw=3);
+:tags: [hide-input]
+
+from ipywidgets import FloatSlider, interactive_output
+
+from sympy import plot, inverse_laplace_transform, symbols
+
+
+tau, t = symbols('tau, t', real=True)
+s = symbols('s')
+
+T = FloatSlider(value=1.5, min=0.1, max=12, step=.1, continuous_update=False, description=r'$\tau$')
+
+y = 1/(tau*s+1)*1/s
+yt = inverse_laplace_transform(y, s, t)
+
+def f(T):
+    taus = [0.5, 1, 2, 4, 8, T]
+    p = plot(yt.subs(tau, 0.5),
+             yt.subs(tau, 1),
+             yt.subs(tau, 2),
+             yt.subs(tau, 4),
+             yt.subs(tau, 8),
+             yt.subs(tau, T),
+             (t, -1, 10), legend=True, size= [8, 4], show=False)
+    for i in range(len(taus)):
+        p[i].label = str(taus[i])
+    p[0].line_color = "yellow"
+    p[1].line_color = "lime"
+    p[2].line_color = "cyan"
+    p[3].line_color = "green"
+    p[4].line_color = "brown"
+    p[5].line_color= 'red'
+    p.show()
+
+display(T)
+interactive_output(f, {'T':T})
 ```
 
 ```{admonition} Ejemplo
 La técnica propuesta en este capítulo para obtener modelos matemáticos
 se puede utilizar para modelos de mayor complejidad, como el que se
 obtiene en la resolución del problema 3.7.
-```
-
-```{code-cell} ipython3
-
 ```
