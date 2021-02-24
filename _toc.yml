@@ -1,30 +1,44 @@
 - file: intro
   numbered: true
-  
-- file: ./Unidad01/unidad01
-  sections:
-  - file: ./Unidad01/historia
-  - file: ./Unidad01/contexto
-  - file: ./Unidad01/descripción
-  - file: ./Unidad01/conceptos
-  - file: ./Unidad01/problemas01
-    numbered: false
+
+- part: Teoría
+  chapters:
+  - file: Unidad01/unidad01
     sections:
-    - file: ./Unidad01/prob101.ipynb
-    - file: ./Unidad01/prob102.ipynb
-    - file: ./Unidad01/prob104.ipynb
+    - file: Unidad01/historia
+    - file: Unidad01/contexto
+    - file: Unidad01/descripción
+    - file: Unidad01/conceptos
+  
+  - file: Unidad02/unidad02
+    sections:
+    - file: Unidad02/definiciones
+    - file: Unidad02/instrumentacion
+  
+  - file: Unidad03/unidad03
+    sections:
+    - file: Unidad03/ejemplo_dinamica
+    - file: Unidad03/transformada
+    - file: Unidad03/funcion_transferencia
+    - file: Unidad03/funciones_singulares
+    - file: Unidad03/inversion
+    - file: Unidad03/expansion
+    - file: Unidad03/tablas_transformadas
 
-- file: ./Unidad02/unidad02
-  sections:
-  - file: ./Unidad02/definiciones
-  - file: ./Unidad02/instrumentacion
-
-- file: ./Unidad03/unidad03
-  sections:
-  - file: ./Unidad03/ejemplo_dinamica
-  - file: ./Unidad03/transformada
-  - file: ./Unidad03/funcion_transferencia
-  - file: ./Unidad03/funciones_singulares
-  - file: ./Unidad03/inversion
-  - file: ./Unidad03/expansion
-  - file: ./Unidad03/tablas_transformadas
+- part: Problemas resueltos
+  chapters:
+    - file: Unidad01/problemas01
+      sections:
+      - file: Unidad01/prob101.ipynb
+      - file: Unidad01/prob102.ipynb
+      - file: Unidad01/prob104.ipynb
+    - file: Unidad03/problemas03
+      sections:
+        - file: Unidad03/prob301.ipynb
+        - file: Unidad03/prob302.ipynb
+        - file: Unidad03/prob303.ipynb
+        - file: Unidad03/prob304.ipynb
+        - file: Unidad03/prob305.ipynb
+        - file: Unidad03/prob306.ipynb
+        - file: Unidad03/prob307.ipynb
+        - file: Unidad03/prob308.ipynb

@@ -56,7 +56,7 @@ destacar:
         
     ```{math}
     :label: translacion
-    \mathcal{L} [f (t - t_0)] = e^{- t_0 s}  \bar{f}(s)
+    \mathcal{L} [f (t - t_0) U(t-t_0)] = e^{- t_0 s}  \bar{f}(s)
     ```
 
 5.  **Teorema del valor final**:

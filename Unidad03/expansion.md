@@ -38,12 +38,12 @@ Los numeradores de la ecuación anterior se evalúan de la siguiente
 manera: 
 
 $$\begin{aligned}
-  & A = \underset{s \rightarrow p_1}{\text{l{\'i}m}} [(s - p_1) \bar{f} (s)]
+  & A = \lim_{s \to p_1} [(s - p_1) \bar{f} (s)]
   & \\
-  & B = \underset{s \rightarrow p_2}{\text{l{\'i}m}} [(s - p_2) \bar{f} (s)]
+  & B = \lim_{s \to p_2} [(s - p_2) \bar{f} (s)]
   & \\
   & \vdots & \\
-  & W = \underset{s \rightarrow p_n}{\text{l{\'i}m}} [(s - p_n) \bar{f} (s)]
+  & W = \lim_{s \to p_n} [(s - p_n) \bar{f} (s)]
   & \end{aligned}$$
 
 Si existen raíces del denominador de *f(s)* repetidas, de nuevo se
@@ -72,11 +72,11 @@ Los numeradores de la ecuación
 reference="ec:dos raices"} se calculan de la siguiente manera:
 
 $$\begin{aligned}
-  & A = \underset{s \rightarrow p_1}{\text{l{\'i}m}} [(s - p_1)^2  \bar{f}
+  & A = \lim_{s \to p_1} [(s - p_1)^2  \bar{f}
   (s)] & \\
-  & B = \underset{s \rightarrow p_1}{\text{l{\'i}m}} \left\{
+  & B = \lim_{s \to p_1} \left\{
   \frac{\mathrm{d}}{\mathrm{d}s} [(s - p_1)^2  \bar{f} (s)] \right\} & \\
-  & C = \underset{s \rightarrow p_3}{\text{l{\'i}m}} [(s - p_3) \bar{f} (s)]
+  & C = \lim_{s \to p_3} [(s - p_3) \bar{f} (s)]
   & \\
   & \vdots & \end{aligned}$$ 
   
@@ -85,7 +85,7 @@ ecuación [\[ec:tres raices\]](#ec:tres raices){reference-type="ref"
 reference="ec:tres raices"} se debe tomar la segunda derivada.
 Generalizando al término $A_j$ de una raíz de orden *N* en $p_1$:
 
-$$A_j = \underset{s \rightarrow p_1}{\text{l{\'i}m}} \left\{ \frac{\mathrm{d}^{m
+$$A_j = \lim_{s \to p_1} \left\{ \frac{\mathrm{d}^{m
    - 1}}{\mathrm{d}s^{m - 1}}  [(s - p_1)^N  \bar{f} (s)] \right\}  \frac{1}{(m -
    1) !}$$
 
@@ -93,3 +93,13 @@ Aunque su utilización es un tanto tediosa existen casos, como el
 apartado d) del problema 3.2, que muy difícilmente se puede resolver sin
 utilizar la técnica de expansión en fracciones parciales. Esta técnica
 tiene la ventaja de ser muy sistemática.
+
+```python
+from sympy import*
+s, t = symbols("s t")
+apart(3*s+3/(2*s**2+s+1))
+```
+
+```python
+
+```
