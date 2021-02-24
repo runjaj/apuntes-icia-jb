@@ -26,6 +26,7 @@
     - file: Unidad03/tablas_transformadas
 
 - part: Problemas resueltos
+  numbered: false
   chapters:
     - file: Unidad01/problemas01
       sections:
