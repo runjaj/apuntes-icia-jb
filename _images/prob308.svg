@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2.8 -->
+<!-- CreationDate: 2021-02-22 12:34:10 -->
+<!-- Magnification: 1.05 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="376pt" height="327pt"
+	viewBox="1482 759 5965 5187">
+<g fill="none">
+<!-- Text -->
+<text xml:space="preserve" x="2565" y="990" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="216" text-anchor="middle">w<tspan font-size="144" baseline-shift="sub">1</tspan>, T<tspan font-size="144" baseline-shift="sub">1</tspan></text>
+<!-- Line -->
+<polyline points=" 3190,2295 2915,2295 2915,4950 6355,4950 6355,2295 6080,2295
+"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Line -->
+<polyline points=" 3190,2520 6080,2520"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Ellipse -->
+<ellipse cx="4051" cy="4141" rx="585" ry="135"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Ellipse -->
+<ellipse cx="5220" cy="4141" rx="585" ry="135"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Line -->
+<polyline points=" 4635,4140 4635,2115"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp0">
+	<path clip-rule="evenodd" d="M 1482,759 H 7447 V 5946 H 1482 z
+		M 4695,5487 4635,5727 4575,5487 4625,5771 4646,5771z"/>
+</clipPath>
+</defs>
+<polyline points=" 4635,4950 4635,5760" clip-path="url(#cp0)"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Forward arrow to point 4635,5760 -->
+<polyline points=" 4695,5487 4635,5727 4575,5487"
+	stroke="#000000" stroke-width="15px" stroke-miterlimit="8"/>
+<!-- Text -->
+<text xml:space="preserve" x="4770" y="5490" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="216" text-anchor="start">Condensado</text>
+<!-- Text -->
+<text xml:space="preserve" x="4770" y="5850" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="216" text-anchor="start">T<tspan font-size="144" baseline-shift="sub">s</tspan></text>
+<!-- Line -->
+<defs>
+<clipPath id="cp1">
+	<path clip-rule="evenodd" d="M 1482,759 H 7447 V 5946 H 1482 z
+		M 2652,2640 2892,2700 2652,2760 2936,2711 2936,2690z"/>
+</clipPath>
+</defs>
+<polyline points=" 1575,2700 2925,2700" clip-path="url(#cp1)"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Forward arrow to point 2925,2700 -->
+<polyline points=" 2652,2640 2892,2700 2652,2760"
+	stroke="#000000" stroke-width="15px" stroke-miterlimit="8"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp2">
+	<path clip-rule="evenodd" d="M 1482,759 H 7447 V 5946 H 1482 z
+		M 7152,4350 7392,4410 7152,4470 7436,4421 7436,4400z"/>
+</clipPath>
+</defs>
+<polyline points=" 6075,4410 7425,4410" clip-path="url(#cp2)"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Forward arrow to point 7425,4410 -->
+<polyline points=" 7152,4350 7392,4410 7152,4470"
+	stroke="#000000" stroke-width="15px" stroke-miterlimit="8"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp3">
+	<path clip-rule="evenodd" d="M 1482,759 H 7447 V 5946 H 1482 z
+		M 3930,1887 3870,2127 3810,1887 3860,2171 3881,2171z"/>
+</clipPath>
+</defs>
+<polyline points=" 2160,1170 3870,1170 3870,2160" clip-path="url(#cp3)"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Forward arrow to point 3870,2160 -->
+<polyline points=" 3930,1887 3870,2127 3810,1887"
+	stroke="#000000" stroke-width="15px" stroke-miterlimit="8"/>
+<!-- Text -->
+<text xml:space="preserve" x="1890" y="2565" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="216" text-anchor="middle">Vapor</text>
+<!-- Text -->
+<text xml:space="preserve" x="7200" y="4185" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="216" text-anchor="middle">w<tspan font-size="144" baseline-shift="sub">2</tspan>, T<tspan font-size="144" baseline-shift="sub">2</tspan></text>
+<!-- Line -->
+<polyline points=" 3190,2115 3190,4590 6080,4590 6080,2115"
+	stroke="#000000" stroke-width="15px"/>
+</g>
+</svg>

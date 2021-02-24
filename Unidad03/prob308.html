@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.8. Problema 3.08 &#8212; Control de procesos</title>
+    <title>Problema 3.8 &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -47,6 +47,8 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -56,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="2.7. Problema 3.07" href="prob307.html" />
+    <link rel="prev" title="Problema 3.7" href="prob307.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -200,22 +202,22 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Unidad01/problemas01.html">
-   1. Problemas
+   Tema 1
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad01/prob101.html">
-     1.1. Problema 1.1
+     Problema 1.1
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad01/prob102.html">
-     1.2. Problema 1.2
+     Problema 1.2
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad01/prob104.html">
-     1.3. Problema 1.4
+     Problema 1.4
     </a>
    </li>
   </ul>
@@ -224,47 +226,47 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="problemas03.html">
-   2. Problemas
+   Tema 3
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="prob301.html">
-     2.1. Problema 3.01
+     Problema 3.1
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob302.html">
-     2.2. Problema 3.02
+     Problema 3.2
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob303.html">
-     2.3. Problema 3.03
+     Problema 3.3
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob304.html">
-     2.4. Problema 3.04
+     Problema 3.4
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob305.html">
-     2.5. Problema 3.05
+     Problema 3.5
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob306.html">
-     2.6. Problema 3.06
+     Problema 3.6
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob307.html">
-     2.7. Problema 3.07
+     Problema 3.7
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     2.8. Problema 3.08
+     Problema 3.8
     </a>
    </li>
   </ul>
@@ -363,60 +365,78 @@
         
               <div>
                 
-  <div class="section" id="problema-3-08">
-<h1><span class="section-number">2.8. </span>Problema 3.08<a class="headerlink" href="#problema-3-08" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="problema-3-8">
+<h1>Problema 3.8<a class="headerlink" href="#problema-3-8" title="Permalink to this headline">¶</a></h1>
 <p>Considerar el tanque encamisado de la figura utilizado como
 precalentador. Suponiendo que la capacitancia de la pared del tanque es
 despreciable y que la temperatura en el interior del mismo es uniforme.</p>
+<p><img alt="Problema 3.8" src="../_images/prob308.svg" /></p>
 <p>Deducir:</p>
 <ol class="simple">
 <li><p>La función de transferencia para variaciones de <span class="math notranslate nohighlight">\(T_1\)</span> y/o <span class="math notranslate nohighlight">\(T_s\)</span>.</p></li>
 <li><p>El diagrama de bloques del sistema.</p></li>
-<li><p>La respuesta del sistema para una entrada en escalón unidad en <span class="math notranslate nohighlight">\(T_1\)</span>
-(<span class="math notranslate nohighlight">\(T_s\)</span> cte).</p></li>
+<li><p>La respuesta del sistema para una entrada en escalón unidad en <span class="math notranslate nohighlight">\(T_1\)</span> (<span class="math notranslate nohighlight">\(T_s\)</span> cte).</p></li>
 </ol>
-<p><span class="sans-serif">Solución</span></p>
+<hr class="docutils" />
+<p><strong>Solución</strong></p>
 <p>a) En este problema se plantea un proceso con dos entradas (<span class="math notranslate nohighlight">\(T_1\)</span> y
 <span class="math notranslate nohighlight">\(T_s\)</span>) y una respuesta (<span class="math notranslate nohighlight">\(T_2\)</span>). En primer lugar se plantea el Balance
-Macroscópico de Energía:
-$<span class="math notranslate nohighlight">\(\label{BME} m C_p  \frac{\mathrm{d}T_2}{\mathrm{d}t} = w C_p  (T_1 - T_2) + U A
-  (T_s - T_2)\)</span><span class="math notranslate nohighlight">\( donde *m* es la cantidad de líquido a calentar en el
-interior del tanque, \)</span>C_p<span class="math notranslate nohighlight">\( es el calor específico, *U* es el coeficiente
-global de transferencia de calor y *A* es el area de intercambio. Como
+Macroscópico de Energía:</p>
+<div class="math notranslate nohighlight">
+\[\label{BME} m C_p  \frac{\mathrm{d}T_2}{\mathrm{d}t} = w C_p  (T_1 - T_2) + U A
+  (T_s - T_2)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(m\)</span> es la cantidad de líquido a calentar en el
+interior del tanque, <span class="math notranslate nohighlight">\(C_p\)</span> es el calor específico, <span class="math notranslate nohighlight">\(U\)</span> es el coeficiente
+global de transferencia de calor y <span class="math notranslate nohighlight">\(A\)</span> es el area de intercambio. Como
 el enunciado del problema no indica que exista ningún sistema de control
 de nivel se asume que los caudales de las corrientes de entrada y de
-salida son iguales (\)</span>w_1 = w_2 = w$).</p>
+salida son iguales (<span class="math notranslate nohighlight">\(w_1 = w_2 = w\)</span>).</p>
 <p>Operando y agrupando constantes en la ec.
 <a href="#BME" data-reference-type="ref" data-reference="BME">[BME]</a>
-se obtiene:
-$<span class="math notranslate nohighlight">\(\label{BME2} \tau \frac{\mathrm{d}T_2}{\mathrm{d}t} + T_2 = k_1 T_1 + k_2 T_s\)</span><span class="math notranslate nohighlight">\(
-donde: \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+se obtiene:</p>
+<div class="math notranslate nohighlight">
+\[\label{BME2} \tau \frac{\mathrm{d}T_2}{\mathrm{d}t} + T_2 = k_1 T_1 + k_2 T_s\]</div>
+<p>donde:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   &amp; \tau = \frac{m C_p}{w C_p + U A} &amp; \\
   &amp; k_1 = \frac{w C_p}{w C_p + U A} &amp; \\
-  &amp; k_2 = \frac{U A}{w C_p + U A} &amp; \end{aligned}\)</span><span class="math notranslate nohighlight">\( A continuación se
-realiza el Balance Macroscópico de Energía en estado estacionario:
-\)</span><span class="math notranslate nohighlight">\(\label{BMEe} 0 = k_1 T_{1, e} + k_2 T_{s, e} - T_{2, e}\)</span><span class="math notranslate nohighlight">\( Restando las
+  &amp; k_2 = \frac{U A}{w C_p + U A} &amp; \end{aligned}\end{split}\]</div>
+<p>A continuación se
+realiza el Balance Macroscópico de Energía en estado estacionario:</p>
+<div class="math notranslate nohighlight">
+\[\label{BMEe} 0 = k_1 T_{1, e} + k_2 T_{s, e} - T_{2, e}\]</div>
+<p>Restando las
 ecuaciones
-&lt;a href=&quot;#BME2&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;BME2&quot;&gt;[BME2]&lt;/a&gt;
+<a href="#BME2" data-reference-type="ref" data-reference="BME2">[BME2]</a>
 y
-&lt;a href=&quot;#BMEe&quot; data-reference-type=&quot;ref&quot; data-reference=&quot;BMEe&quot;&gt;[BMEe]&lt;/a&gt;,
+<a href="#BMEe" data-reference-type="ref" data-reference="BMEe">[BMEe]</a>,
 definiendo variables de desviación y realizando la transformada de
-Laplace a la ecuación resultante se obtiene: \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+Laplace a la ecuación resultante se obtiene:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   &amp; \tau s \bar{T}'_2 + \bar{T}_2' = k_1  \bar{T}_1' + k_2  \bar{T}_s' &amp; \\
   &amp; \bar{T}_2' = \frac{k_1}{\tau s + 1}  \bar{T}_1' + \frac{k_2}{\tau s + 1} 
-  \bar{T}_s' &amp; \end{aligned}\)</span>$ donde las prima indica que se trata de
+  \bar{T}_s' &amp; \end{aligned}\end{split}\]</div>
+<p>donde las prima indica que se trata de
 variables de desviación.</p>
 <p>b) El diagrama de bloques de este proceso es:</p>
-<p></p>
-<p>donde: $<span class="math notranslate nohighlight">\(\begin{aligned}
+<p><img alt="Bloques" src="../_images/bloques.svg" /></p>
+<p>donde:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   &amp; G_1 = \frac{k_1}{\tau s + 1} &amp; \\
-  &amp; G_2 = \frac{k_2}{\tau s + 1} &amp; \end{aligned}\)</span><span class="math notranslate nohighlight">\( c) La variación de la
+  &amp; G_2 = \frac{k_2}{\tau s + 1} &amp; \end{aligned}\end{split}\]</div>
+<p>c) La variación de la
 temperatura de la corriente de salida del tanque para un cambio en
-escalón unidad de \)</span>T_1<span class="math notranslate nohighlight">\( será:
-\)</span><span class="math notranslate nohighlight">\(\bar{T}_2' = \frac{k_1}{\tau s + 1}  \frac{1}{s} + 0\)</span><span class="math notranslate nohighlight">\( Realizando la
+escalón unidad de <span class="math notranslate nohighlight">\(T_1\)</span> será:</p>
+<div class="math notranslate nohighlight">
+\[\bar{T}_2' = \frac{k_1}{\tau s + 1}  \frac{1}{s} + 0\]</div>
+<p>Realizando la
 transformada inversa de Laplace y deshaciendo las variables de
-desviación se obtiene:
-\)</span><span class="math notranslate nohighlight">\(T_2 = T_{2, e} + k_1  \left( 1 - \mathrm{e}^{- \frac{t}{\tau}} \right)\)</span>$</p>
+desviación se obtiene:</p>
+<div class="math notranslate nohighlight">
+\[T_2 = T_{2, e} + k_1  \left( 1 - \mathrm{e}^{- \frac{t}{\tau}} \right)\]</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -447,7 +467,7 @@ desviación se obtiene:
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="prob307.html" title="previous page"><span class="section-number">2.7. </span>Problema 3.07</a>
+    <a class='left-prev' id="prev-link" href="prob307.html" title="previous page">Problema 3.7</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

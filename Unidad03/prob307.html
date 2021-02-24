@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.7. Problema 3.07 &#8212; Control de procesos</title>
+    <title>Problema 3.7 &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -47,6 +47,8 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -56,8 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.8. Problema 3.08" href="prob308.html" />
-    <link rel="prev" title="2.6. Problema 3.06" href="prob306.html" />
+    <link rel="next" title="Problema 3.8" href="prob308.html" />
+    <link rel="prev" title="Problema 3.6" href="prob306.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -201,22 +203,22 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Unidad01/problemas01.html">
-   1. Problemas
+   Tema 1
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad01/prob101.html">
-     1.1. Problema 1.1
+     Problema 1.1
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad01/prob102.html">
-     1.2. Problema 1.2
+     Problema 1.2
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad01/prob104.html">
-     1.3. Problema 1.4
+     Problema 1.4
     </a>
    </li>
   </ul>
@@ -225,47 +227,47 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="problemas03.html">
-   2. Problemas
+   Tema 3
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="prob301.html">
-     2.1. Problema 3.01
+     Problema 3.1
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob302.html">
-     2.2. Problema 3.02
+     Problema 3.2
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob303.html">
-     2.3. Problema 3.03
+     Problema 3.3
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob304.html">
-     2.4. Problema 3.04
+     Problema 3.4
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob305.html">
-     2.5. Problema 3.05
+     Problema 3.5
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob306.html">
-     2.6. Problema 3.06
+     Problema 3.6
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     2.7. Problema 3.07
+     Problema 3.7
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob308.html">
-     2.8. Problema 3.08
+     Problema 3.8
     </a>
    </li>
   </ul>
@@ -364,8 +366,8 @@
         
               <div>
                 
-  <div class="section" id="problema-3-07">
-<h1><span class="section-number">2.7. </span>Problema 3.07<a class="headerlink" href="#problema-3-07" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="problema-3-7">
+<h1>Problema 3.7<a class="headerlink" href="#problema-3-7" title="Permalink to this headline">¶</a></h1>
 <p>En un reactor tanque agitado se lleva a acabo una reacción irreversible
 de primer orden, <span class="math notranslate nohighlight">\(A \rightarrow B\)</span>, con un coeficiente cinético <span class="math notranslate nohighlight">\(k = 1
   h^{- 1}\)</span>, El caudal de alimentación es de 10 l/min, con <span class="math notranslate nohighlight">\(c_{A_0}\)</span> =
@@ -374,75 +376,112 @@ causado por una subida instantánea de la concentración a 0.7 mol/l.
 Indicar cual hubiese sido el transitorio, si la perturbación se hubiera
 producido en forma de impulso unidad. Cuáles serán la ganancia y la
 constante de tiempo del sistema?</p>
-<p><span class="sans-serif">Solución</span></p>
+<hr class="docutils" />
+<p><strong>Solución</strong></p>
 <p>A partir del enunciado del problema se puede realizar el siguiente
 diagrama de flujo:</p>
-<p>donde: $<span class="math notranslate nohighlight">\(\left\{\begin{array}{l}
-     q = 10 \text{l/min} = 0.6 \text{m\textsuperscript{3}/h}\\
-     V = 1 \text{m\textsuperscript{3}}
-   \end{array}\right.\)</span>$ El subíndice <em>A</em> indica que es la concentración
+<p><img alt="Reactor" src="../_images/prob307.svg" /></p>
+<p>donde:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{array}{l}
+     q = 10 \text{l/min} = 0.6\ \mathrm{ m^3/h}\\
+     V = 1 \ \mathrm{m^3}
+   \end{array}\right.\end{split}\]</div>
+<p>El subíndice <em>A</em> indica que es la concentración
 del componente A y el subíndice <em>i</em> indica que se trata de la
 concentración de entrada.</p>
-<p>La reacción química que se produce en el reactor es la siguiente:
-$<span class="math notranslate nohighlight">\(A \rightarrow B\)</span><span class="math notranslate nohighlight">\( cuya constante cinética es \)</span>k = 1$h<sup>-1</sup>.</p>
+<p>La reacción química que se produce en el reactor es la siguiente:</p>
+<div class="math notranslate nohighlight">
+\[A \rightarrow B\]</div>
+<p>cuya constante cinética es <span class="math notranslate nohighlight">\(k = 1 \text{ h}^{-1}\)</span>.</p>
 <p>La concentración de entrada en el reactor antes de que se produzca el
 cambio de la concentración en escalón es <span class="math notranslate nohighlight">\(c_{A i_0} = c_{A i} (t = 0)
-= 0.5\)</span>mol/l.</p>
+= 0.5\ \mathrm{mol/l}\)</span>.</p>
 <p>A continuación hay que plantear el balance macroscópico de materia en
-estado no estacionario (BMM):
-$<span class="math notranslate nohighlight">\(V \frac{\mathrm{d}c_A}{\mathrm{d}t} = q c_{A i} - q c_A - k c_A V\)</span><span class="math notranslate nohighlight">\(
-donde se ha supuesto que los caudales volumétricos (*q*), las densidades
-(\)</span>\rho$) y el volumen del reactor (<em>V</em>) son constantes e independientes
+estado no estacionario (BMM):</p>
+<div class="math notranslate nohighlight">
+\[V \frac{\mathrm{d}c_A}{\mathrm{d}t} = q c_{A i} - q c_A - k c_A V\]</div>
+<p>donde se ha supuesto que los caudales volumétricos (<em>q</em>), las densidades
+(<span class="math notranslate nohighlight">\(\rho\)</span>) y el volumen del reactor (<em>V</em>) son constantes e independientes
 del tiempo.</p>
 <p>El balance macroscópico de materia  en estado estacionario (BMMe) del
-sistema es: $<span class="math notranslate nohighlight">\(0 = q c_{A i_0} - q c_{A e} - k c_{A_{} e} V\)</span>$ donde el
+sistema es:</p>
+<div class="math notranslate nohighlight">
+\[0 = q c_{A i_0} - q c_{A e} - k c_{A_{} e} V\]</div>
+<p>donde el
 subíndice <em>e</em> indica que se trata de las concentraciones en estado
 estacionario. Este balance representa la situación antes de que se
 produzca ningún cambio.</p>
-<p>Operando la ecuación anterior: $<span class="math notranslate nohighlight">\(q c_{A i_0} = c_{A e}  (q + k V)\)</span><span class="math notranslate nohighlight">\( El
-tiempo de residencia del reactor es: \)</span><span class="math notranslate nohighlight">\(\theta = \frac{V}{q}\)</span><span class="math notranslate nohighlight">\(
-Sustituendo y operando: \)</span><span class="math notranslate nohighlight">\(c_{A e} = \frac{c_{A i_0}}{1 + k \theta}\)</span><span class="math notranslate nohighlight">\(
-Sustituyendo los calores de las variables se obtiene que la
-concentración de salida del reactor del componente *A* en estadio
-estacionario, es decir, para tiempos menores o iguales a cero es:
-\)</span><span class="math notranslate nohighlight">\(c_{A e} = 0.1875 \ensuremath{\operatorname{mol}} / l\)</span><span class="math notranslate nohighlight">\( El siguiente
-paso es definir las variables de desviación para la entrada:
-\)</span><span class="math notranslate nohighlight">\(C_{A i} = c_{A i} - c_{A i_0}\)</span><span class="math notranslate nohighlight">\( y para la salida:
-\)</span><span class="math notranslate nohighlight">\(C_A = c_A - c_{A e}\)</span><span class="math notranslate nohighlight">\( Restando el BMMe al BMM se obtiene:
-\)</span>$V \frac{\mathrm{d}c_A}{\mathrm{d}t} = q (c_{A i} - c_{A i_0}) - q (c_A - c_{A e})</p>
-<ul class="simple">
-<li><p>k (c_A - c_{A e}) V$<span class="math notranslate nohighlight">\( Sustituyendo las variables de desviación y
-operando:
-\)</span><span class="math notranslate nohighlight">\(V \frac{\mathrm{d}C_A}{\mathrm{d}t} = q C_{A i} - C_A  (q + k V)\)</span><span class="math notranslate nohighlight">\(
-Esta última ecuación es el modelo matemático del proceso planteado. Con
+<p>Operando la ecuación anterior:</p>
+<div class="math notranslate nohighlight">
+\[q c_{A i_0} = c_{A e}  (q + k V)\]</div>
+<p>El
+tiempo de residencia del reactor es:</p>
+<div class="math notranslate nohighlight">
+\[\theta = \frac{V}{q}\]</div>
+<p>Sustituendo y operando:</p>
+<div class="math notranslate nohighlight">
+\[c_{A e} = \frac{c_{A i_0}}{1 + k \theta}\]</div>
+<p>Sustituyendo los calores de las variables se obtiene que la
+concentración de salida del reactor del componente <em>A</em> en estadio
+estacionario, es decir, para tiempos menores o iguales a cero es:</p>
+<div class="math notranslate nohighlight">
+\[c_{A e} = 0.1875 \text{ mol/l}\]</div>
+<p>El siguiente
+paso es definir las variables de desviación para la entrada:</p>
+<div class="math notranslate nohighlight">
+\[C_{A i} = c_{A i} - c_{A i_0}\]</div>
+<p>y para la salida:</p>
+<div class="math notranslate nohighlight">
+\[C_A = c_A - c_{A e}\]</div>
+<p>Restando el BMMe al BMM se obtiene:</p>
+<div class="math notranslate nohighlight">
+\[V \frac{\mathrm{d}c_A}{\mathrm{d}t} = q (c_{A i} - c_{A i_0}) - q (c_A - c_{A e})
+   - k (c_A - c_{A e}) V\]</div>
+<p>Sustituyendo las variables de desviación y
+operando:</p>
+<div class="math notranslate nohighlight">
+\[V \frac{\mathrm{d}C_A}{\mathrm{d}t} = q C_{A i} - C_A  (q + k V)\]</div>
+<p>Esta ú
+ltima ecuación es el modelo matemático del proceso planteado. Con
 objeto de resolver la ecuación diferencial se aplica la transformada de
-Laplace a la ecuación anterior:
-\)</span><span class="math notranslate nohighlight">\(V s \overline{C_A} = q \overline{C_{A i}} - \overline{C_A}  (q + k V)\)</span><span class="math notranslate nohighlight">\(
-Para poder responder a las preguntas propuestas por el problema hay que
-plantear la siguiente función de transferencia:
-\)</span><span class="math notranslate nohighlight">\(G = \frac{\overline{C_A}}{\overline{C_{A i}}}\)</span><span class="math notranslate nohighlight">\( Combinando las dos
-ecuaciones anteriores se obtiene:
-\)</span>$G = \frac{q}{V s + q + k V} = \frac{\frac{q}{q + k V}}{\frac{V}{q + k V} s</p></li>
-</ul>
-<ul class="simple">
-<li><p>1} = \frac{\frac{1}{1 + k \theta}}{\frac{1}{\theta^{- 1} + k} s + 1}$<span class="math notranslate nohighlight">\(
-Lógicamente la función de transferencia es la propia de un sistema de
-primer orden. La ganancia del proceso será:
-\)</span><span class="math notranslate nohighlight">\(K = \frac{1}{1 + k \theta} = 0.375\)</span><span class="math notranslate nohighlight">\( Y la constante de tiempo es:
-\)</span><span class="math notranslate nohighlight">\(\tau = \frac{1}{\theta^{- 1} + k} = 0.625 h = 37.5 \min\)</span><span class="math notranslate nohighlight">\( El efecto de
+Laplace a la ecuación anterior:</p>
+<div class="math notranslate nohighlight">
+\[V s \overline{C_A} = q \overline{C_{A i}} - \overline{C_A}  (q + k V)\]</div>
+<p>Para poder responder a las preguntas propuestas por el problema hay que
+plantear la siguiente función de transferencia:</p>
+<div class="math notranslate nohighlight">
+\[G = \frac{\overline{C_A}}{\overline{C_{A i}}}\]</div>
+<p>Combinando las dos
+ecuaciones anteriores se obtiene:</p>
+<div class="math notranslate nohighlight">
+\[G = \frac{q}{V s + q + k V} = \frac{\frac{q}{q + k V}}{\frac{V}{q + k V} s
+   + 1} = \frac{\frac{1}{1 + k \theta}}{\frac{1}{\theta^{- 1} + k} s + 1}\]</div>
+<p>Lógicamente la función de transferencia es la propia de un sistema de
+primer orden. La ganancia del proceso será:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{1}{1 + k \theta} = 0.375\]</div>
+<p>Y la constante de tiempo es:</p>
+<div class="math notranslate nohighlight">
+\[\tau = \frac{1}{\theta^{- 1} + k} = 0.625 h = 37.5 \min\]</div>
+<p>El efecto de
 un cambio súbito de concentración de 0.5 a 0.7 mol/l, es decir, para una
-entrada en escalón de altura 0.2 mol/l es:
-\)</span><span class="math notranslate nohighlight">\(C_A = 0.375 \cdot 0.2 \text{mol/l}  \left( 1 - \mathrm{e}^{- \frac{t}{37.5
-\min}} \right) = 0.075 \text{mol/l}  \left( 1 - \mathrm{e}^{- \frac{t}{37.5
-\min}} \right)\)</span><span class="math notranslate nohighlight">\( Deshaciendo las variables de desviación se obtiene
+entrada en escalón de altura 0.2 mol/l es:</p>
+<div class="math notranslate nohighlight">
+\[C_A = 0.375 \cdot 0.2 \text{ mol/l}  \left( 1 - \mathrm{e}^{- \frac{t}{37.5
+   \min}} \right) = 0.075 \text{ mol/l}  \left( 1 - \mathrm{e}^{- \frac{t}{37.5
+   \min}} \right)\]</div>
+<p>Deshaciendo las variables de desviación se obtiene
 la ecuación que describirá la variación de la concentración del
-componente *A* en función del tiempo:
-\)</span>$c_A = 0.075 \text{mol/l}  \left( 1 - \mathrm{e}^{- \frac{t}{37.5 \min}} \right)</p></li>
-<li><p>0.1875 \text{mol/l}$<span class="math notranslate nohighlight">\( Para una entrada que sea un impulso unidad la
-respuesta es:
-\)</span><span class="math notranslate nohighlight">\(C_A = \frac{K A}{\tau} e^{- \frac{t}{\tau}} = 0.6 \text{mol/l} \mathrm{e}^{-
-\frac{t}{37.5 \min}}\)</span>$</p></li>
-</ul>
+componente <em>A</em> en función del tiempo:</p>
+<div class="math notranslate nohighlight">
+\[c_A = 0.075 \text{ mol/l}  \left( 1 - \mathrm{e}^{- \frac{t}{37.5 \min}} \right)
+   + 0.1875 \text{ mol/l}\]</div>
+<p>Para una entrada que sea un impulso unidad la
+respuesta es:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \frac{K A}{\tau} e^{- \frac{t}{\tau}} = 0.6 \text{ mol/l } \mathrm{e}^{-
+   \frac{t}{37.5 \min}}\]</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -473,8 +512,8 @@ respuesta es:
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="prob306.html" title="previous page"><span class="section-number">2.6. </span>Problema 3.06</a>
-    <a class='right-next' id="next-link" href="prob308.html" title="next page"><span class="section-number">2.8. </span>Problema 3.08</a>
+    <a class='left-prev' id="prev-link" href="prob306.html" title="previous page">Problema 3.6</a>
+    <a class='right-next' id="next-link" href="prob308.html" title="next page">Problema 3.8</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

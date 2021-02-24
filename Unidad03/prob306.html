@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.6. Problema 3.06 &#8212; Control de procesos</title>
+    <title>Problema 3.6 &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -47,6 +47,8 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -56,8 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.7. Problema 3.07" href="prob307.html" />
-    <link rel="prev" title="2.5. Problema 3.05" href="prob305.html" />
+    <link rel="next" title="Problema 3.7" href="prob307.html" />
+    <link rel="prev" title="Problema 3.5" href="prob305.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -201,22 +203,22 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Unidad01/problemas01.html">
-   1. Problemas
+   Tema 1
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad01/prob101.html">
-     1.1. Problema 1.1
+     Problema 1.1
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad01/prob102.html">
-     1.2. Problema 1.2
+     Problema 1.2
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad01/prob104.html">
-     1.3. Problema 1.4
+     Problema 1.4
     </a>
    </li>
   </ul>
@@ -225,47 +227,47 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="problemas03.html">
-   2. Problemas
+   Tema 3
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="prob301.html">
-     2.1. Problema 3.01
+     Problema 3.1
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob302.html">
-     2.2. Problema 3.02
+     Problema 3.2
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob303.html">
-     2.3. Problema 3.03
+     Problema 3.3
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob304.html">
-     2.4. Problema 3.04
+     Problema 3.4
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob305.html">
-     2.5. Problema 3.05
+     Problema 3.5
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     2.6. Problema 3.06
+     Problema 3.6
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob307.html">
-     2.7. Problema 3.07
+     Problema 3.7
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob308.html">
-     2.8. Problema 3.08
+     Problema 3.8
     </a>
    </li>
   </ul>
@@ -364,11 +366,11 @@
         
               <div>
                 
-  <div class="section" id="problema-3-06">
-<h1><span class="section-number">2.6. </span>Problema 3.06<a class="headerlink" href="#problema-3-06" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="problema-3-6">
+<h1>Problema 3.6<a class="headerlink" href="#problema-3-6" title="Permalink to this headline">¶</a></h1>
 <p>Determinar las funciones de transferencia <span class="math notranslate nohighlight">\(\frac{h_2 (s)}{F_i (s)}\)</span> de
 los sistemas siguientes:</p>
-<p></p>
+<p><img alt="Problema 3.6" src="../_images/prob306.svg" /></p>
 <p>El fluido tiene una densidad constante y las resistencias son lineales
 (<span class="math notranslate nohighlight">\(F =
   \frac{h}{R}\)</span>).</p>
@@ -378,101 +380,139 @@ los sistemas siguientes:</p>
 el nivel del segundo tanque no influye en el nivel del primer tanque o
 en el caudal <span class="math notranslate nohighlight">\(F_1\)</span>. En cambio, el segundo sistema se trata de un sistema
 de <em>tanques con interacción</em> ya que el caudal de salida del primer
-tanquedependerá tanto del nivel del tanque 1 como del nivel del tanque
+tanque dependerá tanto del nivel del tanque 1 como del nivel del tanque
 2.</p>
 <p><strong>Tanques sin interacción</strong></p>
 <p>En ambos casos el objetivo del problema es encontrar la siguiente
 función de transferencia (las primas indican que se tratan de variables
-de desviación): $<span class="math notranslate nohighlight">\(G (s) = \frac{h_2' (s)}{F_i' (s)}\)</span>$ representada en el
+de desviación):</p>
+<div class="math notranslate nohighlight">
+\[G (s) = \frac{h_2' (s)}{F_i' (s)}\]</div>
+<p>representada en el
 siguiente diagrama:</p>
-<p></p>
+<p><img alt="Bloque" src="../_images/bloque.svg" /></p>
 <p>Si el sistema no presenta interacciones el bloque anterior es
 equivalente a un sistema en el que hay dos procesos en serie como el que
 se muestra a continuación:</p>
-<p></p>
+<p><img alt="Bloques separados" src="../_images/bloques_separados.svg" /></p>
 <p>en el que cada uno de los bloques representa a un depósito. Las
-funciones de transferencia de estos bloques serán: $<span class="math notranslate nohighlight">\(\begin{aligned}
+funciones de transferencia de estos bloques serán:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   G_1 (s) = \frac{h_1' (s)}{F_i' (s)} &amp;  &amp; \\
-  G_2 (s) = \frac{h_2' (s)}{h_1' (s)} &amp;  &amp; \end{aligned}\)</span><span class="math notranslate nohighlight">\( Al tratarse
-de dos procesos en serie: \)</span><span class="math notranslate nohighlight">\(G (s) = G_1 (s) G_2 (s)\)</span><span class="math notranslate nohighlight">\( Para calcular
-\)</span>G_1<span class="math notranslate nohighlight">\( hay que obtener el modelo matemático que represente la variación
+  G_2 (s) = \frac{h_2' (s)}{h_1' (s)} &amp;  &amp; \end{aligned}\end{split}\]</div>
+<p>Al tratarse
+de dos procesos en serie:</p>
+<div class="math notranslate nohighlight">
+\[G (s) = G_1 (s) G_2 (s)\]</div>
+<p>Para calcular
+<span class="math notranslate nohighlight">\(G_1\)</span> hay que obtener el modelo matemático que represente la variación
 con el tiempo del nivel de un depósito en función del caudal de entrada.
-Se trata del mismo modelo que el del ejemplo del capítulo 2, por tanto:
-\)</span><span class="math notranslate nohighlight">\(G_1 = \frac{K_1}{\tau_1 s + 1} = \frac{h'_1}{F'_i}\)</span><span class="math notranslate nohighlight">\( donde \)</span>K_1 = R_1<span class="math notranslate nohighlight">\(
-y \)</span>\tau_1 = A_1 R_1$.</p>
-<p>De igual manera para el segundo de los depósitos:
-$<span class="math notranslate nohighlight">\(G_2 = \frac{K_2}{\tau_2 s + 1} = \frac{h'_2}{F'_1}\)</span><span class="math notranslate nohighlight">\( donde
-\)</span>K_2 = R_2<span class="math notranslate nohighlight">\(, \)</span>\tau_2 = A_2 R_2<span class="math notranslate nohighlight">\( y \)</span>F_1’ = \frac{h’_1}{R_1}$.</p>
+Se trata del mismo modelo que el del ejemplo del capítulo 2, por tanto:</p>
+<div class="math notranslate nohighlight">
+\[G_1 = \frac{K_1}{\tau_1 s + 1} = \frac{h'_1}{F'_i}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(K_1 = R_1\)</span>
+y <span class="math notranslate nohighlight">\(\tau_1 = A_1 R_1\)</span>.</p>
+<p>De igual manera para el segundo de los depósitos:</p>
+<div class="math notranslate nohighlight">
+\[G_2 = \frac{K_2}{\tau_2 s + 1} = \frac{h'_2}{F'_1}\]</div>
+<p>donde
+<span class="math notranslate nohighlight">\(K_2 = R_2\)</span>, <span class="math notranslate nohighlight">\(\tau_2 = A_2 R_2\)</span> y <span class="math notranslate nohighlight">\(F_1' = \frac{h'_1}{R_1}\)</span>.</p>
 <p>Sustituyendo <span class="math notranslate nohighlight">\(F'_1\)</span> y operando se encuentra la función de transferencia
-buscada: $<span class="math notranslate nohighlight">\(G = \frac{K_2}{(\tau_1 s + 1)  (\tau_2 s + 1)}\)</span><span class="math notranslate nohighlight">\( Se puede
+buscada:</p>
+<div class="math notranslate nohighlight">
+\[G = \frac{K_2}{(\tau_1 s + 1)  (\tau_2 s + 1)}\]</div>
+<p>Se puede
 apreciar que se trata de un sistema de segundo orden. La respuesta de
-este sistema será sobreamortiguada (\)</span>\zeta &gt; 1$) ya que las raíces del
+este sistema será sobreamortiguada (<span class="math notranslate nohighlight">\(\zeta &gt; 1\)</span>) ya que las raíces del
 denominador son números reales.</p>
 <p>En la figura siguiente se muestra la variación con el tiempo del nivel
 del depósito para un cambio en el caudal de entrada en forma de escalón
 unidad. Se observa que la dinámica es más lenta a medida que aumenta el
 número de tanques:</p>
-<p></p>
+<p><img alt="Tanques sin interacción" src="../_images/tanques_sin.svg" /></p>
 <p><strong>Tanques con interacción</strong></p>
 <p>Para obtener el modelo matemático se realizarán los Balances
 Macroscópicos de Materia a los tanques (se ha supuesto que la densidad
-es constante y que no depende del tiempo): $<span class="math notranslate nohighlight">\(\begin{aligned}
-  \ensuremath{\operatorname{Tanque}} 1 : &amp; A_1 \frac{\mathrm{d}h_1}{\mathrm{d}t} = F_i - F_1 &amp; \\
-  \ensuremath{\operatorname{Tanque}} 2 : &amp; A_2 \frac{\mathrm{d}h_2}{\mathrm{d}t} = F_1 - F_2 &amp; \end{aligned}\)</span><span class="math notranslate nohighlight">\(
-Los caudales de salida de los tanques dependen de las resistencias
-lineales: \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+es constante y que no depende del tiempo):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathrm{Tanque 1: } &amp; A_1 \frac{\mathrm{d}h_1}{\mathrm{d}t} = F_i - F_1 &amp; \\
+  \text{Tanque 2: } &amp; A_2 \frac{\mathrm{d}h_2}{\mathrm{d}t} = F_1 - F_2 &amp; \end{aligned}\end{split}\]</div>
+<p>Los caudales de salida de los tanques dependen de las resistencias
+lineales:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   &amp; F_1 = \frac{h_1 - h_2}{R_1} &amp; \\
-  &amp; F_2 = \frac{h_2}{R_2} &amp; \end{aligned}\)</span><span class="math notranslate nohighlight">\( El cuadal de salida del
+  &amp; F_2 = \frac{h_2}{R_2} &amp; \end{aligned}\end{split}\]</div>
+<p>El cuadal de salida del
 primer tanque depende, lógicamente, de la diferencia de alturas entre
 los dos tanques ya que la presión ejercida por la columna de fluido
-depende de esa diferencia de nivel. En el caso de que \)</span>h_2<span class="math notranslate nohighlight">\( fuera mayor
-que \)</span>h_1$ el fluido circularía en sentido contrario. Esta ecuación marca
+depende de esa diferencia de nivel. En el caso de que <span class="math notranslate nohighlight">\(h_2\)</span> fuera mayor
+que <span class="math notranslate nohighlight">\(h_1\)</span> el fluido circularía en sentido contrario. Esta ecuación marca
 la interacción entre los tanques e impide que las ecuaciones de los
 balances de materia se puedan resolver de manera independiente. Las dos
 ecuaciones diferenciales se deben resolver de manera simultanea.</p>
-<p>Sustituyendo los caudales en los balances de materia se encuentra:
-$<span class="math notranslate nohighlight">\(\begin{aligned}
+<p>Sustituyendo los caudales en los balances de materia se encuentra:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   &amp; A_1 R_1  \frac{\mathrm{d}h_1}{\mathrm{d}t} + h_1 - h_2 = R_1 F_i &amp; \\
   &amp; A_2 R_2  \frac{\mathrm{d}h_2}{\mathrm{d}t} + \left( 1 + \frac{R_2}{R_1} \right)
-  h_2 - \frac{R_2}{R_1} h_1 = 0 &amp; \end{aligned}\)</span><span class="math notranslate nohighlight">\( Tal como se ha
+  h_2 - \frac{R_2}{R_1} h_1 = 0 &amp; \end{aligned}\end{split}\]</div>
+<p>Tal como se ha
 comentado las dos ecuaciones diferenciales están ligadas (las incógnitas
-\)</span>h_1 (t)<span class="math notranslate nohighlight">\( y \)</span>h_2 (t)$ aparecen en ambas ecuaciones), se deben resolver
+<span class="math notranslate nohighlight">\(h_1 (t)\)</span> y <span class="math notranslate nohighlight">\(h_2 (t)\)</span> aparecen en ambas ecuaciones), se deben resolver
 simultaneamente. Esta es la diferencia fundamental con los sistemas sin
 interacción.</p>
 <p>A continuación se realizan los balances de materia en estado
-estacionario: $<span class="math notranslate nohighlight">\(\begin{aligned}
+estacionario:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   &amp; h_{1, e} - h_{2, e} = R_1 F_i &amp; \\
   &amp; \left( 1 + \frac{R_2}{R_1} \right) h_{2, e} - \frac{R_2}{R_1} h_{1, e} =
-  0 &amp; \end{aligned}\)</span><span class="math notranslate nohighlight">\( donde los subíndices \)</span>e$ indican los valores en
+  0 &amp; \end{aligned}\end{split}\]</div>
+<p>donde los subíndices <span class="math notranslate nohighlight">\(e\)</span> indican los valores en
 estado estacionario.</p>
-<p>Restando los balances de materia y los balances en estado estacionario:
-$<span class="math notranslate nohighlight">\(\begin{aligned}
+<p>Restando los balances de materia y los balances en estado estacionario:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   &amp; A_1 R_1  \frac{\mathrm{d}h'_1}{\mathrm{d}t} + h'_1 - h'_2 = R_1 F'_i &amp; \\
   &amp; A_2 R_2  \frac{\mathrm{d}h'_2}{\mathrm{d}t} + \left( 1 + \frac{R_2}{R_1}
-  \right) h'_2 - \frac{R_2}{R_1} h'_1 = 0 &amp; \end{aligned}\)</span><span class="math notranslate nohighlight">\( tomando como
-variables de desviación: \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+  \right) h'_2 - \frac{R_2}{R_1} h'_1 = 0 &amp; \end{aligned}\end{split}\]</div>
+<p>tomando como
+variables de desviación:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}\begin{aligned}
   &amp; h'_1 = h_1 - h_{1, e} &amp; \\
   &amp; h'_2 = h_2 - h_{2, e} &amp; \\
-  &amp; F'_i = F_i - F_{i, e} &amp; \end{aligned}\)</span><span class="math notranslate nohighlight">\( Haciendo la transformada de
-Laplace: \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+  &amp; F'_i = F_i - F_{i, e} &amp; \end{aligned}$$ Haciendo la transformada de
+Laplace: \end{split}\\\begin{split}$$\begin{aligned}
   &amp; (A_1 R_1 s + 1) h'_1 (s) - h'_2 (s) = R_1 F'_i (s) &amp; \\
   &amp; \left[ A_2 R_2 s + \left( 1 + \frac{R_2}{R_1} \right) \right] h'_2 (s) -
-  \frac{R_2}{R_1} h'_1 (s) = 0 &amp; \end{aligned}\)</span><span class="math notranslate nohighlight">\( Resolviendo el sistema
-de ecuaciones: \)</span><span class="math notranslate nohighlight">\(\begin{aligned}
+  \frac{R_2}{R_1} h'_1 (s) = 0 &amp; \end{aligned}\end{split}\end{aligned}\end{align} \]</div>
+<p>Resolviendo el sistema
+de ecuaciones:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
   &amp; h'_1 = \frac{(\tau_2 R_1) s + R_1 + R_2}{\tau_1 \tau_2 s^2 + (\tau_1 +
   \tau_2 + A_1 R_2) s + 1} F_i' &amp; \\
   &amp; h'_2 = \frac{R_2}{\tau_1 \tau_2 s^2 + (\tau_1 + \tau_2 + A_1 R_2) s + 1}
-  F_i' &amp; \end{aligned}\)</span><span class="math notranslate nohighlight">\( donde \)</span>\tau_1 = A_1 R_1<span class="math notranslate nohighlight">\( y \)</span>\tau_2 = A_2 R_2$.</p>
+  F_i' &amp; \end{aligned}\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\tau_1 = A_1 R_1\)</span> y <span class="math notranslate nohighlight">\(\tau_2 = A_2 R_2\)</span>.</p>
 <p>La respuesta es igual a la de los tanques sin interacción excepto por el
 término <span class="math notranslate nohighlight">\(A_1 R_2\)</span> del denominador. Es el factor de interacción, ya que
 cuanto mayor sea mayor es la interacción entre los tanques.</p>
 <p>La respuesta, de nuevo, es sobreamortiguada pero más lenta que la del
 sistema sin interacción. Para el sistema de tanques sin interacción, la
-constante de tiempo es: $<span class="math notranslate nohighlight">\(\tau_{\sin} = \sqrt{\tau_1 + \tau_2}\)</span><span class="math notranslate nohighlight">\( Para el
-sistema de tanques con interacción:
-\)</span><span class="math notranslate nohighlight">\(\tau_{\ensuremath{\operatorname{con}}} = \sqrt{\tau_1 + \tau_2 + A_1 R_2}\)</span><span class="math notranslate nohighlight">\(
-Al ser el factor de interacción positivo es evidente que
-\)</span>\tau_{\ensuremath{\operatorname{con}}} &gt; \tau_{\sin}$.</p>
+constante de tiempo es:</p>
+<div class="math notranslate nohighlight">
+\[\tau_{\mathrm{sin}} = \sqrt{\tau_1 + \tau_2}\]</div>
+<p>Para el
+sistema de tanques con interacción:</p>
+<div class="math notranslate nohighlight">
+\[\tau_{\mathrm{con}} = \sqrt{\tau_1 + \tau_2 + A_1 R_2}\]</div>
+<p>Al ser el factor de interacción positivo es evidente que
+<span class="math notranslate nohighlight">\(\tau_{\mathrm{con}} &gt; \tau_{\mathrm{sin}}\)</span>.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -503,8 +543,8 @@ Al ser el factor de interacción positivo es evidente que
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="prob305.html" title="previous page"><span class="section-number">2.5. </span>Problema 3.05</a>
-    <a class='right-next' id="next-link" href="prob307.html" title="next page"><span class="section-number">2.7. </span>Problema 3.07</a>
+    <a class='left-prev' id="prev-link" href="prob305.html" title="previous page">Problema 3.5</a>
+    <a class='right-next' id="next-link" href="prob307.html" title="next page">Problema 3.7</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2.8 -->
+<!-- CreationDate: 2021-02-21 12:17:46 -->
+<!-- Magnification: 1.05 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="241pt" height="105pt"
+	viewBox="1868 1463 3824 1661">
+<g fill="none">
+<!-- Line -->
+<rect x="3060" y="2115" width="1440" height="765"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Text -->
+<text xml:space="preserve" x="3779" y="2587" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="240" text-anchor="middle">G(s)</text>
+<!-- Line -->
+<defs>
+<clipPath id="cp0">
+	<path clip-rule="evenodd" d="M 1868,1463 H 5692 V 3124 H 1868 z
+		M 5397,2437 5637,2497 5397,2557 5681,2508 5681,2487z"/>
+</clipPath>
+</defs>
+<polyline points=" 4500,2497 5670,2497" clip-path="url(#cp0)"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Forward arrow to point 5670,2497 -->
+<polyline points=" 5397,2437 5637,2497 5397,2557"
+	stroke="#000000" stroke-width="15px" stroke-miterlimit="8"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp1">
+	<path clip-rule="evenodd" d="M 1868,1463 H 5692 V 3124 H 1868 z
+		M 2787,2437 3027,2497 2787,2557 3071,2508 3071,2487z"/>
+</clipPath>
+</defs>
+<polyline points=" 1890,2497 3060,2497" clip-path="url(#cp1)"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Forward arrow to point 3060,2497 -->
+<polyline points=" 2787,2437 3027,2497 2787,2557"
+	stroke="#000000" stroke-width="15px" stroke-miterlimit="8"/>
+<!-- Line -->
+<polyline points=" 1890,2115 2340,2115 2340,1485 2790,1485"
+	stroke="#000000" stroke-width="15px"/>
+<!-- Text -->
+<text xml:space="preserve" x="5130" y="3015" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="240" text-anchor="middle">y(s)</text>
+<!-- Text -->
+<text xml:space="preserve" x="2340" y="3015" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="240" text-anchor="middle">x(s)</text>
+</g>
+</svg>
