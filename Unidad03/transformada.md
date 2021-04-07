@@ -69,6 +69,10 @@ destacar:
 ```{admonition} Ejemplo
 La aplicación de la transformada de Laplace a una función es sencilla
 disponiendo de las tablas de transformadas de Laplace y del conocimiento
-de las propiedades anteriores. En el Problema 2.1 se muestra cómo se
+de las propiedades anteriores. En el {ref}`prob301` se muestra cómo se
 aplica.
+```
+
+```python
+
 ```
