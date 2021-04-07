@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>1.4. Conceptos generales &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -45,8 +46,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -96,7 +95,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Teoría
  </span>
@@ -194,8 +193,37 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orde
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Problemas resueltos
  </span>
@@ -274,6 +302,11 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -346,15 +379,15 @@
         
               <div>
                 
-  <div class="section" id="conceptos-generales">
+  <section id="conceptos-generales">
 <span id="conceptos"></span><h1><span class="section-number">1.4. </span>Conceptos generales<a class="headerlink" href="#conceptos-generales" title="Permalink to this headline">¶</a></h1>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>En el <a class="reference internal" href="prob101.html#prob101"><span class="std std-ref">Problema 1.1</span></a> a) se muestra la diferencia existente en un sistema de control de un tostador de pan si el control es de lazo abierto (control en adelanto) o si es de lazo cerrado (control por retroalimentación).</p>
 </div>
-</div>
+</aside>
 <ol>
 <li><p><strong>Dinámica</strong>: Comportamiento de un proceso dependiente del tiempo. En la teoría del control se estudia básicamente la dinámica de dos
 tipos de sistema:</p>
@@ -386,18 +419,18 @@ controlar. Puede ser constante o variar con el tiempo.</p></li>
 control de lazo abierto. Se detecta la perturbación cuando entra en
 el proceso y se realiza el cambio necesario en las variables
 manipulables para que la variable controlada se mantenga constante.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Se muestra un sistema de control en adelanto en el <a class="reference internal" href="prob101.html#prob101"><span class="std std-ref">Problema 1.1</span></a> b).
 Se trata del sistema de control de una lavadora.</p>
 </div>
-</div>
+</aside>
 <p>Para este sistema es necesaria una calibración del sistema de
 control. Es importante resaltar que no se mide en ningún momento la
 variable controlada.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -405,20 +438,20 @@ variable controlada.</p>
 control automático de un avión es un sistema de control por
 retroalimentación.</p>
 </div>
-</div>
+</aside>
 </li>
 <li><p><strong>Control por retroalimentación (<em>Feedback</em>)</strong>: Se mide la variable
 controlada a la salida del proceso y se compara con la consigna (el
 valor deseado de la variable controlada). La diferencia (error) se
 alimenta al controlador por retroalimentación que modifica la
 variable manipulable.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>En el <a class="reference internal" href="prob102.html#prob102"><span class="std std-ref">Problema 1.2</span></a> hay una discusión sobre las ventajas e inconvenientes del control por retroalimentación y en adelanto de un  sistema de control de temperatura de un edificio.</p>
 </div>
-</div>
+</aside>
 <table class="table" id="comparativa">
 <caption><span class="caption-number">Table 1.1 </span><span class="caption-text">Comparativa de los controladores en adelanto y los controladores por retroalimentación.</span><a class="headerlink" href="#comparativa" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -509,7 +542,7 @@ histórico del funcionamiento del sistema.</p></li>
 </ol>
 </li>
 </ol>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

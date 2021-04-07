@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>3.3. La función de transferencia. Álgebra de funciones de transferencia &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -45,8 +46,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -56,6 +55,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.4. Transformadas de algunas funciones singulares" href="funciones_singulares.html" />
@@ -96,7 +97,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Teoría
  </span>
@@ -194,8 +195,37 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orde
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Problemas resueltos
  </span>
@@ -273,6 +303,11 @@
   </ul>
   <i class="fas fa-chevron-down">
   </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
  </li>
 </ul>
 
@@ -369,7 +404,7 @@
         
               <div>
                 
-  <div class="section" id="la-funcion-de-transferencia-algebra-de-funciones-de-transferencia">
+  <section id="la-funcion-de-transferencia-algebra-de-funciones-de-transferencia">
 <h1><span class="section-number">3.3. </span>La función de transferencia. Álgebra de funciones de transferencia<a class="headerlink" href="#la-funcion-de-transferencia-algebra-de-funciones-de-transferencia" title="Permalink to this headline">¶</a></h1>
 <p>Para un proceso sencillo, como el del nivel del depósito, se puede
 plantear un esquema sencillo que describa en cierta medida al sistema:</p>
@@ -395,11 +430,13 @@ plantear un esquema sencillo que describa en cierta medida al sistema:</p>
 <div class="cell_output docutils container">
 </div>
 </div>
-<div class="margin-caption figure align-center" id="proc-fig">
+<figure class="margin-caption align-center" id="proc-fig">
 <div class="cell_output docutils container">
 <img alt="../_images/funcion_transferencia_1_0.svg" src="../_images/funcion_transferencia_1_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Representación simplificada de un proceso.</span><a class="headerlink" href="#proc-fig" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Representación simplificada de un proceso.</span><a class="headerlink" href="#proc-fig" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Para el ejemplo del nivel del depósito, <span class="math notranslate nohighlight">\(f (t) = Q_1 (t)\)</span> y
 <span class="math notranslate nohighlight">\(y (t) = H (t)\)</span>. Es decir, en este caso el depósito es el proceso, la
 salida es la variación del nivel del depósito y la entrada al proceso es
@@ -435,11 +472,13 @@ la transformada de la función de desviación de la entrada.</p>
 <div class="cell_output docutils container">
 </div>
 </div>
-<div class="margin-caption figure align-center" id="transf-fig">
+<figure class="margin-caption align-center" id="transf-fig">
 <div class="cell_output docutils container">
 <img alt="../_images/funcion_transferencia_4_0.svg" src="../_images/funcion_transferencia_4_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">La función de transferencia del proceso es <span class="math notranslate nohighlight">\(G(s)\)</span>, <span class="math notranslate nohighlight">\(\bar{f}(s)\)</span> y <span class="math notranslate nohighlight">\(\bar{y}(s)\)</span> son la transformada de Laplace de las funciones de entrada y salida del proceso.</span><a class="headerlink" href="#transf-fig" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">La función de transferencia del proceso es <span class="math notranslate nohighlight">\(G(s)\)</span>, <span class="math notranslate nohighlight">\(\bar{f}(s)\)</span> y <span class="math notranslate nohighlight">\(\bar{y}(s)\)</span> son la transformada de Laplace de las funciones de entrada y salida del proceso.</span><a class="headerlink" href="#transf-fig" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Para obtener la función de transferencia del ejemplo se realiza la
 transformada de Laplace de la ecuación diferencial <a class="reference internal" href="ejemplo_dinamica.html#equation-ode">(3.4)</a>:</p>
 <div class="math notranslate nohighlight">
@@ -551,7 +590,7 @@ y el sistema de tanques sin interacción, para el que no es aplicable de
 manera directa la ecuación
 <a href="#ec:serie" data-reference-type="ref" data-reference="ec:serie">[ec:serie]</a>.</p>
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

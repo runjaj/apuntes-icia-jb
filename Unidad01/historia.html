@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>1.1. Breve historia del control de procesos &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -45,8 +46,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -96,7 +95,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Teoría
  </span>
@@ -194,8 +193,37 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orde
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Problemas resueltos
  </span>
@@ -273,6 +301,11 @@
   </ul>
   <i class="fas fa-chevron-down">
   </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
  </li>
 </ul>
 
@@ -375,9 +408,9 @@
         
               <div>
                 
-  <div class="section" id="breve-historia-del-control-de-procesos">
+  <section id="breve-historia-del-control-de-procesos">
 <span id="historia"></span><h1><span class="section-number">1.1. </span>Breve historia del control de procesos<a class="headerlink" href="#breve-historia-del-control-de-procesos" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="en-la-antiguedad">
+<section id="en-la-antiguedad">
 <h2><span class="section-number">1.1.1. </span>En la antiguedad<a class="headerlink" href="#en-la-antiguedad" title="Permalink to this headline">¶</a></h2>
 <p>Los primeros sistemas de control conocidos, ya en la antigüedad, son mecanismos destinados al control del caudal para regular un reloj de
 agua o el control de nivel de líquido en una lámpara de aceite o en un
@@ -392,12 +425,14 @@ cuando el nivel baja, el caudal del depósito aumenta y cuando el nivel
 sube, el caudal disminuye y, si es necesario, se corta (<a class="reference internal" href="#romanos"><span class="std std-numref">Fig. 1.1</span></a>). En
 este caso el sensor y el actuador están combinados en el mismo
 dispositivo, el flotador y la combinación de tubo de alimentación.</p>
-<div class="margin-caption figure align-default" id="romanos">
+<figure class="margin-caption align-default" id="romanos">
 <a class="reference internal image-reference" href="../_images/romanos.svg"><img alt="../_images/romanos.svg" height="300px" src="../_images/romanos.svg" /></a>
-<p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Un tonel que nunca se acaba Ejemplo del control de nivel de líquido y caludal tal como se realizaba en la antiguedad.</span><a class="headerlink" href="#romanos" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="durante-la-revolucion-industrial">
+<figcaption>
+<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Un tonel que nunca se acaba Ejemplo del control de nivel de líquido y caludal tal como se realizaba en la antiguedad.</span><a class="headerlink" href="#romanos" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="durante-la-revolucion-industrial">
 <h2><span class="section-number">1.1.2. </span>Durante la revolución industrial<a class="headerlink" href="#durante-la-revolucion-industrial" title="Permalink to this headline">¶</a></h2>
 <p>Un caso más moderno de control por retroalimentación es el control de
 temperatura de un horno para calentar una incubadora, sistema que fue
@@ -414,10 +449,12 @@ está demasiado fría, el alcohol se contrae, el regulador de tiro se abre
 y el fuego arde más fuertemente. La temperatura deseada está determinada
 por la longitud del vástago del flotador, que determina la apertura del
 regulador de tiro para una dilatación determinada de alcohol.</p>
-<div class="margin-caption figure align-default" id="drebbel">
+<figure class="margin-caption align-default" id="drebbel">
 <a class="reference internal image-reference" href="../_images/drebbel.png"><img alt="../_images/drebbel.png" src="../_images/drebbel.png" style="height: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Croquis de la incubadora de Drebbel para empollar huevos de gallina.</span><a class="headerlink" href="#drebbel" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Croquis de la incubadora de Drebbel para empollar huevos de gallina.</span><a class="headerlink" href="#drebbel" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>La búsqueda de un medio para controlar la velocidad de rotación de un
 eje fue un problema famoso en las crónicas del control automático. La
 principal motivación era la de controlar automáticamente la velocidad de
@@ -429,10 +466,12 @@ hacían girar con cuerdas y poleas, casi como persianas, para mantener
 una velocidad fija. Pero no fue el molino de viento es que hizo famoso
 el regulador de bola flotante, fue su adaptación a la máquina de vapor
 en los laboratorios de James Watt, alrededor de 1788 (<a class="reference internal" href="#watt"><span class="std std-numref">Fig. 1.3</span></a>).</p>
-<div class="margin-caption figure align-default" id="watt">
+<figure class="margin-caption align-default" id="watt">
 <a class="reference internal image-reference" href="../_images/Vapor.png"><img alt="../_images/Vapor.png" src="../_images/Vapor.png" style="height: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Máquina de vapor con un regulador centrífugo o de bola flotante, que aparece en la parte derecha de la imagen.</span><a class="headerlink" href="#watt" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Máquina de vapor con un regulador centrífugo o de bola flotante, que aparece en la parte derecha de la imagen.</span><a class="headerlink" href="#watt" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>La acción del regulador centrífugo es fácil de describir. Supongamos que
 la máquina está operando en equilibrio y aplicamos de pronto una carga.
 En ese momento disminuirá la velocidad de la máquina y las bolas del
@@ -462,8 +501,8 @@ era capaz de movimiento inestable. Airy realizó la primera exposición
 histórica de la inestabilidad en un sistema de control, el análisis de
 un sistema a través de ecuaciones diferenciales y, por tanto, los
 comienzos del estudio de la dinámica de control con retroalimentación.</p>
-</div>
-<div class="section" id="inicios-teoricos">
+</section>
+<section id="inicios-teoricos">
 <h2><span class="section-number">1.1.3. </span>Inicios teóricos<a class="headerlink" href="#inicios-teoricos" title="Permalink to this headline">¶</a></h2>
 <p>El primer estudio sistemático de la estabilidad del control
 retroalimentado apareció en el trabajo <em>On Governors</em> de J.C. Maxwell
@@ -510,8 +549,8 @@ Nyquist publicó un artículo describiendo como determinar la estabilidad
 desde un gráfico de la respuesta de frecuencia del lazo. A partir de
 esta teoría se desarrolló una extensa metodología de diseño de
 amplificadores retroalimentados, descrita en el libro de Bode (1945).</p>
-</div>
-<div class="section" id="implantacion-en-la-industria">
+</section>
+<section id="implantacion-en-la-industria">
 <h2><span class="section-number">1.1.4. </span>Implantación en la industria<a class="headerlink" href="#implantacion-en-la-industria" title="Permalink to this headline">¶</a></h2>
 <p>Simultáneamente al desarrollo del amplificador retoralimentado, el
 control retroalimentado de procesos industriales empezó a ser la norma.
@@ -547,8 +586,8 @@ de la ecuación característica cuando se cambiaba un parámetro. Su
 método, el lugar geométrico de las raíces, es adecuado para el diseño y
 análisis de estabilidad y continúa siendo hoy día una técnica
 importante.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

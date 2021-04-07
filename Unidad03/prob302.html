@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Problema 3.2 &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -45,10 +46,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -56,6 +53,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Problema 3.3" href="prob303.html" />
@@ -96,7 +95,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Teoría
  </span>
@@ -194,8 +193,37 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orde
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Problemas resueltos
  </span>
@@ -273,6 +301,11 @@
   </ul>
   <i class="fas fa-chevron-down">
   </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
  </li>
 </ul>
 
@@ -366,7 +399,7 @@
         
               <div>
                 
-  <div class="section" id="problema-3-2">
+  <section id="problema-3-2">
 <h1>Problema 3.2<a class="headerlink" href="#problema-3-2" title="Permalink to this headline">¶</a></h1>
 <p>Hallar la transformada inversa de:</p>
 <ol class="simple">
@@ -392,30 +425,33 @@ operador es asociativo:</p>
 <p>También se puede resolver el problema utilizando <em>Sympy</em>, como siempre empezaremos cargando la librería y defiendo las variables <span class="math notranslate nohighlight">\(t\)</span> y <span class="math notranslate nohighlight">\(s\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>La función para realizar la transformada inversa de Laplace es <code class="docutils literal notranslate"><span class="pre">inverse_laplace_transform</span></code>y la sintaxis es sencilla y similar a <code class="docutils literal notranslate"><span class="pre">laplace_transform</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">/</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 3 e^{- 3 t} \theta\left(t\right)\]</div>
+\[\begin{equation*}t\end{equation*}\]</div>
+</div>
+</div>
+<p>La función para realizar la transformada inversa de Laplace es <code class="docutils literal notranslate"><span class="pre">inverse_laplace_transform</span></code> y la sintaxis es sencilla y similar a <code class="docutils literal notranslate"><span class="pre">laplace_transform</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">/</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}3 e^{- 3 t} \theta\left(t\right)\end{equation*}\]</div>
 </div>
 </div>
 <p>Al igual que en el problema 3.01 definimos una función <code class="docutils literal notranslate"><span class="pre">L()</span></code> para que hacer que fuera más sencillo el calcular las transformada de Laplace, podemos hacer lo mismo para la transformada inversa de Laplace. Definimos una nueva función llamada <code class="docutils literal notranslate"><span class="pre">invL</span></code>, su funcionamiento es trivial:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">invL</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">invL</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 
 <span class="n">invL</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">/</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
@@ -423,7 +459,7 @@ operador es asociativo:</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 3 e^{- 3 t} \theta\left(t\right)\]</div>
+\[\begin{equation*}3 e^{- 3 t} \theta\left(t\right)\end{equation*}\]</div>
 </div>
 </div>
 <p>b) Para poder realizar la transformada inversa de Laplace es necesario
@@ -470,26 +506,26 @@ problema es:</p>
 <p>Utilizando Sympy podemos realizar la descomposición en fracciones simples:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">s</span><span class="o">/</span><span class="p">((</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">s</span><span class="o">/</span><span class="p">((</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">apart</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{s + 1}{2 \left(s^{2} + 1\right)} - \frac{1}{2 \left(s + 1\right)}\]</div>
+\[\begin{equation*}\frac{s + 1}{2 \left(s^{2} + 1\right)} - \frac{1}{2 \left(s + 1\right)}\end{equation*}\]</div>
 </div>
 </div>
 <p>Tambien podemos realizar la transformada inversa de Laplace:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">invL</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">invL</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{\left(e^{t} \sin{\left(t \right)} + e^{t} \cos{\left(t \right)} - 1\right) e^{- t} \theta\left(t\right)}{2}\]</div>
+\[\begin{equation*}\frac{\left(e^{t} \sin{\left(t \right)} + e^{t} \cos{\left(t \right)} - 1\right) e^{- t} \theta\left(t\right)}{2}\end{equation*}\]</div>
 </div>
 </div>
 <p>c) Para realizar la transformada inversa de Laplace es necesario
@@ -524,25 +560,25 @@ de Laplace es trivial:</p>
 <p>Podemos comprobar los resultados con Sympy. En primer lugar, realizaremos la descomposición de fracciones simples:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apart</span><span class="p">((</span><span class="mi">3</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">apart</span><span class="p">((</span><span class="mi">3</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">^</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{1}{4 \left(s + 2\right)} - \frac{1}{4 s} + \frac{1}{2 s^{2}} + \frac{2}{s^{3}}\]</div>
+\[\begin{equation*}\frac{1}{4 \left(s + 2\right)} - \frac{1}{4 s} + \frac{1}{2 s^{2}} + \frac{2}{s^{3}}\end{equation*}\]</div>
 </div>
 </div>
 <p>La tranformada inversa de Laplace:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">invL</span><span class="p">((</span><span class="mi">3</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">invL</span><span class="p">((</span><span class="mi">3</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">^</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle t^{2} \theta\left(t\right) + \frac{t \theta\left(t\right)}{2} - \frac{\theta\left(t\right)}{4} + \frac{e^{- 2 t} \theta\left(t\right)}{4}\]</div>
+\[\begin{equation*}t^{2} \theta\left(t\right) + \frac{t \theta\left(t\right)}{2} - \frac{\theta\left(t\right)}{4} + \frac{e^{- 2 t} \theta\left(t\right)}{4}\end{equation*}\]</div>
 </div>
 </div>
 <p>d) De nuevo, antes de realizar la transformada inversa de Laplace hay
@@ -615,7 +651,7 @@ considerar la escritura exponencial de un número complejo:</p>
 <p>Podemos realizar la descomposición en factores simples:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
 
 <span class="n">apart</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
@@ -623,22 +659,22 @@ considerar la escritura exponencial de un número complejo:</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{1}{s^{2} + 1} - \frac{1}{\left(s^{2} + 1\right)^{2}}\]</div>
+\[\begin{equation*}\frac{1}{s^{2} + 1} - \frac{1}{\left(s^{2} + 1\right)^{2}}\end{equation*}\]</div>
 </div>
 </div>
 <p>La transformada inversa de Laplace:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">invL</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">invL</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{\left(t \cos{\left(t \right)} + \sin{\left(t \right)}\right) \theta\left(t\right)}{2}\]</div>
+\[\begin{equation*}\frac{\left(t \cos{\left(t \right)} + \sin{\left(t \right)}\right) \theta\left(t\right)}{2}\end{equation*}\]</div>
 </div>
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -649,16 +685,16 @@ considerar la escritura exponencial de un número complejo:</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "julia-1.6"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "julia-1.6",
             path: "./Unidad03"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'julia-1.6'</script>
 
               </div>
               

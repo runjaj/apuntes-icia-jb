@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>2.2. Algo de instrumentación &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -45,8 +46,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -56,6 +55,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3. Cómo abordar la dinámica de un sistema" href="../Unidad03/unidad03.html" />
@@ -96,7 +97,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Teoría
  </span>
@@ -194,8 +195,37 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orde
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Problemas resueltos
  </span>
@@ -273,6 +303,11 @@
   </ul>
   <i class="fas fa-chevron-down">
   </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
  </li>
 </ul>
 
@@ -382,9 +417,9 @@
         
               <div>
                 
-  <div class="section" id="algo-de-instrumentacion">
+  <section id="algo-de-instrumentacion">
 <h1><span class="section-number">2.2. </span>Algo de instrumentación<a class="headerlink" href="#algo-de-instrumentacion" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dispositivos-de-medida-sensores">
+<section id="dispositivos-de-medida-sensores">
 <h2><span class="section-number">2.2.1. </span>Dispositivos de medida (sensores)<a class="headerlink" href="#dispositivos-de-medida-sensores" title="Permalink to this headline">¶</a></h2>
 <p>Para el correcto funcionamiento de un sistema de control es
 imprescindible una buena medida de la variable controlada y unas líneas
@@ -406,7 +441,7 @@ sensores.</p>
 </table>
 <p>A continuación se comenta con un poco de detalle cuatro de los
 dispositivos de medida más utilizados en la industria de procesos.</p>
-<div class="section" id="medidores-de-caudal">
+<section id="medidores-de-caudal">
 <h3><span class="section-number">2.2.1.1. </span>Medidores de caudal<a class="headerlink" href="#medidores-de-caudal" title="Permalink to this headline">¶</a></h3>
 <p>Los medidores de caudal más utilizados en la industria son aquellos que
 miden una diferencia de presión en el fluido al pasar por un elemento en
@@ -424,8 +459,8 @@ normalmente pueden ser modeladas con las siguiente ecuación algebráica:</p>
 <p>donde
 <span class="math notranslate nohighlight">\(\alpha\)</span> es una constante característica del medidor de caudal y
 <span class="math notranslate nohighlight">\(\Delta P\)</span> es la diferencia de presión.</p>
-</div>
-<div class="section" id="sensores-de-temperatura">
+</section>
+<section id="sensores-de-temperatura">
 <h3><span class="section-number">2.2.1.2. </span>Sensores de temperatura<a class="headerlink" href="#sensores-de-temperatura" title="Permalink to this headline">¶</a></h3>
 <p>Los más comunes son aquellos que miden la temperatura como una señal
 eléctrica. Entre ellos cabe destacar los termopares. Independientemente
@@ -435,9 +470,9 @@ temperatura siempre se encuentra en el interior de una vaina de metal.
 Los termopares pueden ser modelados siguiendo sistemas de primer orden o
 sistemas de segundo orden sobreamortiguados dependiendo de como estén
 construidos y de los materiales utilizados.</p>
-</div>
-</div>
-<div class="section" id="lineas-de-transmision">
+</section>
+</section>
+<section id="lineas-de-transmision">
 <h2><span class="section-number">2.2.2. </span>Líneas de transmisión<a class="headerlink" href="#lineas-de-transmision" title="Permalink to this headline">¶</a></h2>
 <p>En el caso de utilizar líneas de transmisión neumática muy largas puede
 ser que su efecto sobre la dinámica global del sistema no sea
@@ -449,8 +484,8 @@ la siguiente función de transferencia:</p>
 la presión de salida de la línea de transmisión neumática, <span class="math notranslate nohighlight">\(P_i\)</span> es la
 presión de entrada y <span class="math notranslate nohighlight">\(\tau_d / \tau_p \approx
 0.25\)</span>.</p>
-</div>
-<div class="section" id="elementos-finales-de-control">
+</section>
+<section id="elementos-finales-de-control">
 <h2><span class="section-number">2.2.3. </span>Elementos finales de control<a class="headerlink" href="#elementos-finales-de-control" title="Permalink to this headline">¶</a></h2>
 <p>El elemento final de control más común es la válvula. El sistema de
 control cambia la posición del émbolo ya sea utilizando aire comprimido,
@@ -473,8 +508,8 @@ que depende del tamaño de la válvula, <span class="math notranslate nohighligh
 <p>Otros elementos finales de control pueden ser motores de velocidad
 variable para ventiladores o bombas, la puesta en marcha o apagado de
 equipos, sistemas electrohidráulicos, etc.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

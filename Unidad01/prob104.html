@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Problema 1.4 &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -45,10 +46,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -56,6 +53,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Tema 3" href="../Unidad03/problemas03.html" />
@@ -96,7 +95,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Teoría
  </span>
@@ -194,8 +193,37 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orde
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Problemas resueltos
  </span>
@@ -273,6 +301,11 @@
   </ul>
   <i class="fas fa-chevron-down">
   </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
  </li>
 </ul>
 
@@ -366,7 +399,7 @@
         
               <div>
                 
-  <div class="section" id="problema-1-4">
+  <section id="problema-1-4">
 <h1>Problema 1.4<a class="headerlink" href="#problema-1-4" title="Permalink to this headline">¶</a></h1>
 <p>Explicar como el concepto económico conocido como la <em>ley de la oferta y
 la demanda</em> se puede interpretar como un sistema de control por
@@ -385,9 +418,8 @@ funcionamiento de la ley de la oferta y la demanda:</p>
 
 <span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$\Delta_</span><span class="si">{sp}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrowhead</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">suma1</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Circle</span><span class="p">()</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$\Delta_</span><span class="si">{sp}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">suma1</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">))</span>
 <span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$\epsilon$&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">control</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Control de</span><span class="se">\n</span><span class="s1">precios&#39;</span><span class="p">))</span>
 <span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
@@ -397,17 +429,15 @@ funcionamiento de la ley de la oferta y la demanda:</p>
 <span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">punto2</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 <span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$P$&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">ofertantes</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Ofertantes&#39;</span><span class="p">))</span>
-<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$O$&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">ofertantes</span><span class="o">.</span><span class="n">W</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrowhead</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;bot&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">suma2</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Circle</span><span class="p">()</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">))</span>
-<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">suma2</span><span class="o">.</span><span class="n">S</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">suma1</span><span class="o">.</span><span class="n">S</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$\Delta$&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrowhead</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$O$&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">ofertantes</span><span class="o">.</span><span class="n">W</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">suma2</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">suma2</span><span class="o">.</span><span class="n">S</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">suma1</span><span class="o">.</span><span class="n">S</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$\Delta$&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">punto2</span><span class="o">.</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$P$&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">demandantes</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Demandantes&#39;</span><span class="p">))</span>
 <span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$D$&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">demandantes</span><span class="o">.</span><span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">suma2</span><span class="o">.</span><span class="n">N</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrowhead</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;top&#39;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">suma2</span><span class="o">.</span><span class="n">N</span><span class="p">)</span>
+
 
 <span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
@@ -433,7 +463,7 @@ es el error del que alimenta al control de precios</p></li>
 ejemplo, si la cantidad de producto ofertada/año es mayor que la
 cantidad demandada, <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span>. Como consecuencia <span class="math notranslate nohighlight">\(\varepsilon &lt; 0\)</span>,
 lo que implica que el precio disminuye.</p>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
