@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.4. Retrasos &#8212; Control de procesos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Acciones de control" href="../Unidad06/unidad06.html" />
+    <link rel="prev" title="5.3. Linealización" href="3_Linealizacion.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/M-UdL2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Control de procesos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Presentación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Teoría
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/unidad01.html">
+   1. Introducción
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/1_historia.html">
+     1.1. Breve historia del control de procesos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/2_contexto.html">
+     1.2. Contexto de la disciplina
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/3_descripci%C3%B3n.html">
+     1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/4_conceptos.html">
+     1.4. Conceptos generales
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad02/unidad02.html">
+   2. Instrumentación industrial
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/1_definiciones.html">
+     2.1. Algunas definiciones de instrumentación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/2_instrumentacion.html">
+     2.2. Algo de instrumentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/unidad03.html">
+   3. Cómo abordar la dinámica de un sistema
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/1_ejemplo_dinamica.html">
+     3.1. Un ejemplo de dinámica de un sistema. ¿Qué se desea conocer?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/2_transformada.html">
+     3.2. La transformada de Laplace como herramienta útil
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/3_funcion_transferencia.html">
+     3.3. La función de transferencia. Álgebra de funciones de transferencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/4_funciones_singulares.html">
+     3.4. Transformadas de algunas funciones singulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/5_inversion.html">
+     3.5. Inversión de transformadas. De vuelta al tiempo real
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/6_expansion.html">
+     3.6. Expansión en fracciones parciales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/7_tablas_transformadas.html">
+     3.7. Transformadas de Laplace
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="unidad05.html">
+   5. Sistemas lineales de segundo orden
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Definicion.html">
+     5.1. Definición de sistema de segundo orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Escalon.html">
+     5.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Linealizacion.html">
+     5.3. Linealización
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.4. Retrasos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/unidad06.html">
+   6. Acciones de control
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/1_Descripcion.html">
+     6.1. Descripción de un bucle de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/2_Control_P.html">
+     6.2. Control proporcional (P)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/3_Control_PI.html">
+     6.3. Control Proporcional + Integral (PI)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/4_Control_PD.html">
+     6.4. Control Proporcional + Derivativo (PD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/5_Control_PID.html">
+     6.5. Control Proporcional + Integral + Derivativo (PID)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad07/unidad07.html">
+   7. Control por retroalimentación de sistemas lineales
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/1_Accion_P.html">
+     7.1. Acción de control proporcional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/2_Accion_I.html">
+     7.2. Acción de control integral
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/3_Accion_D.html">
+     7.3. Acción de control derivativa
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/4_Acciones_combinadas.html">
+     7.4. Acciones de control combinadas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/5_Influencia_retrasos.html">
+     7.5. Influencia de los retrasos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/6_Intro_dise%C3%B1o.html">
+     7.6. Introducción al diseño de sistemas de control por retroalimentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad08/unidad08.html">
+   8. Análisis de estabilidad de sistemas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/1_Definicion_estabilidad.html">
+     8.1. Definición de estabilidad. Ecuación característica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/2_Routh_Hurvitz.html">
+     8.2. Método de Routh-Hurvitz
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/3_Lugar_raices.html">
+     8.3. Método del lugar de las raíces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/4_Diagramas_Bode.html">
+     8.4. Análisis armónico de sistemas lineales. Diagramas de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/5_Bode.html">
+     8.5. Criterio de estabilidad de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/6_Nyquist.html">
+     8.6. Criterio de estabilidad de Nyquist
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas resueltos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/problemas01.html">
+   Tema 1
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob101.html">
+     Problema 1.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob102.html">
+     Problema 1.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob104.html">
+     Problema 1.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/problemas03.html">
+   Tema 3
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob301.html">
+     Problema 3.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob302.html">
+     Problema 3.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob303.html">
+     Problema 3.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob304.html">
+     Problema 3.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob305.html">
+     Problema 3.5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob306.html">
+     Problema 3.6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob307.html">
+     Problema 3.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob308.html">
+     Problema 3.8
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob401.html">
+     Problema 4.01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob403.html">
+     Problema 4.03
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="problemas05.html">
+   Tema 5
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob504.html">
+     Problema 5.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/problemas06.html">
+   Tema 6
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob602.html">
+     Problema 6.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob603.html">
+     Problema 6.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob604.html">
+     Problema 6.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob605.html">
+     Problema 6.5
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad07/problemas07.html">
+   Tema 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad08/problemas08.html">
+   Tema 8
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unidad05/4_Retrasos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/runjaj/apuntes-icia-jb/master?urlpath=tree/Unidad05/4_Retrasos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="retrasos">
+<h1><span class="section-number">5.4. </span>Retrasos<a class="headerlink" href="#retrasos" title="Permalink to this headline">¶</a></h1>
+<p>Uno de los elemento no lineales más habituales en los procesos
+alimentarios es la existencia de retrasos. En el capítulo 7 se estudiará
+su influencia en el control de procesos.</p>
+<p>Sea el siguiente proceso de primer orden con un retraso:</p>
+<div class="margin-caption figure align-default" id="retraso">
+<img alt="../_images/retraso.svg" src="../_images/retraso.svg" /><p class="caption"><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Diagrama de bloques de un proceso de primer orden con un retraso igual a <span class="math notranslate nohighlight">\(t_d\)</span>.</span><a class="headerlink" href="#retraso" title="Permalink to this image">¶</a></p>
+</div>
+<p>Para el sistema de primer orden:</p>
+<div class="math notranslate nohighlight">
+\[G_p = \frac{\mathcal{L} [y (t)]}{\mathcal{L} [f (t)]} = \frac{K_p}{\tau_p s
+   + 1}\]</div>
+<p>y para el retraso (ec.
+ec:translacion, propiedad
+“translacion”, apartado
+“transformada”):</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathcal{L} [y (t - t_d)]}{\mathcal{L} [y (t)]} = \mathrm{e}^{- t_d s}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(t_d\)</span> es el retraso o tiempo muerto.</p>
+<p>Por tanto el proceso puede representarse como:</p>
+<p>La función de transferencia global para el proceso de primer orden y el
+retraso será:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathcal{L} [y (t - t_d)]}{\mathcal{L} [f (t)]} = \frac{K_p}{\tau_p s
+   + 1} \mathrm{e}^{- t_d s}\]</div>
+<p>El cálculo de la transformada inversa de Laplace es sencillo. En este caso lo vamos a realizar utilizando Sympy. En primer lugar cargaremos las bibliotecas que vamos a utilizar, definiremos los símbolos necesarios y las funciones de transferencia del proceso (<span class="math notranslate nohighlight">\(G_p\)</span>) y del retraso (<span class="math notranslate nohighlight">\(G_d\)</span>). También calcularemos la función de transferencia <span class="math notranslate nohighlight">\(G\)</span>, resultado de plantear la serie de bloques formada por el proceso y por el retraso:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span><span class="p">,</span> <span class="n">Plots</span><span class="p">,</span> <span class="n">LaTeXStrings</span>
+
+<span class="n">t</span><span class="p">,</span> <span class="n">td</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;t t_d K tau M&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">)</span>
+
+<span class="n">Gp</span> <span class="o">=</span> <span class="n">K</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Gd</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">td</span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">Gp</span><span class="o">*</span><span class="n">Gd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}\frac{K e^{- s t_{d}}}{s \tau + 1}\end{equation*}\]</div>
+</div>
+</div>
+<p>La respuesta del proceso de primer orden <span class="math notranslate nohighlight">\(y(t)\)</span> es:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="n">Gp</span><span class="o">*</span><span class="n">M</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}K M \left(e^{\frac{t}{\tau}} - 1\right) e^{- \frac{t}{\tau}} \theta\left(t\right)\end{equation*}\]</div>
+</div>
+</div>
+<p>La salida tras sufrir el retraso <span class="math notranslate nohighlight">\(t_d\)</span> es:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">yd</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">M</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}K M \left(e^{\frac{t}{\tau}} - e^{\frac{t_{d}}{\tau}}\right) e^{- \frac{t}{\tau}} \theta\left(t - t_{d}\right)\end{equation*}\]</div>
+</div>
+</div>
+<p>El efecto del retraso es muy evidente al representar gráficamente ambas respuestas:</p>
+<div class="margin figure align-left" id="id1">
+<img alt="../_images/02.png" src="../_images/02.png" />
+<p class="caption"><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Efecto de un retraso <span class="math notranslate nohighlight">\(t_0 = 1\)</span> sobre la respuesta de un sistema de primer orden con una entrada en escalón.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">yd</span><span class="p">(</span><span class="n">K</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">td</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">M</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">legend</span><span class="o">=:</span><span class="n">bottomright</span><span class="p">,</span> 
+    <span class="n">label</span><span class="o">=</span><span class="s">&quot;Proceso+ Retraso&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="n">L</span><span class="s">&quot;</span><span class="se">\f</span><span class="s">rac{t}{</span><span class="se">\t</span><span class="s">au}&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="n">L</span><span class="s">&quot;</span><span class="se">\f</span><span class="s">rac{y(t)}{K M}&quot;</span><span class="p">,</span>
+    <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">K</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">M</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;Proceso&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="figure">
+<img alt="../_images/4_Retrasos_7_0.svg" src="../_images/4_Retrasos_7_0.svg" /><p class="caption"><span class="caption-text"><p>Efecto del retraso sobre la respuesta de un proceso de primer orden para una entrada en escalón.</p>
+</span></p>
+</div>
+</div>
+</div>
+<p>El retraso se puede simplificar matemáticamente mediante la <a class="reference external" href="https://es.wikipedia.org/wiki/Aproximaci%C3%B3n_de_Pad%C3%A9">aproximación
+de Padé</a>:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{e}^{- t_d s} \approx \frac{1 - \frac{t_d}{2} s}{1 + \frac{t_d}{2} s}\]</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "runjaj/apuntes-icia-jb",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.6"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.6",
+            path: "./Unidad05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.6'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="3_Linealizacion.html" title="previous page"><span class="section-number">5.3. </span>Linealización</a>
+    <a class='right-next' id="next-link" href="../Unidad06/unidad06.html" title="next page"><span class="section-number">6. </span>Acciones de control</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Javier Arántegui<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

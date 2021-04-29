@@ -1,7 +1,7 @@
 Traceback (most recent call last):
   File "/Users/javier/opt/anaconda3/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/Users/javier/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1107, in execute
+  File "/Users/javier/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
   File "/Users/javier/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
     return just_run(coro(*args, **kwargs))
@@ -11,25 +11,26 @@ Traceback (most recent call last):
     return future.result()
   File "/Users/javier/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
     await self.async_execute_cell(
-  File "/Users/javier/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 852, in async_execute_cell
+  File "/Users/javier/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 857, in async_execute_cell
     self._check_raise_for_error(cell, exec_reply)
   File "/Users/javier/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 # Calculamos los valores de y(t) para 0, 1, 2, 3 y 4
-for t in range(5):
+for tt in range(5):
     # Mostramos los valores expresados como %
-    print('%4.1f'%(y(t)*100))
+    print('%4.1f' % (N(yplot.subs(t, tt))*100))
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-4-962ea4d35cd2>[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0;32mfor[0m [0mt[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m5[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m     [0;31m# Mostramos los valores expresados como %[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 4[0;31m     [0mprint[0m[0;34m([0m[0;34m'%4.1f'[0m[0;34m%[0m[0;34m([0m[0my[0m[0;34m([0m[0mt[0m[0;34m)[0m[0;34m*[0m[0;36m100[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mTypeError[0m: 'Mul' object is not callable
-TypeError: 'Mul' object is not callable
+syntax: line break in ":" expression
+
+Stacktrace:
+ [1] top-level scope
+   @ In[6]:3
+ [2] eval
+   @ ./boot.jl:360 [inlined]
+ [3] include_string(mapexpr::typeof(REPL.softscope), mod::Module, code::String, filename::String)
+   @ Base ./loading.jl:1094
+LoadError: syntax: line break in ":" expression
 

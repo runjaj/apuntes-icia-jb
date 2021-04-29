@@ -1,5 +1,9 @@
 # Tema 1
 
+<style type="text/css">
+    ol { list-style-type: lower-alpha; }
+</style>
+
 **Problema 1.1**
 
 Identificar si el sistema de control para los siguientes equipos es de
@@ -20,9 +24,9 @@ aquellos equipos que los tengan de lazo abierto.
 
 Describir sistemas de control adecuados para regular la temperatura de un edificio en los que se mida:
 
-a. La temperatura interior
+1. La temperatura interior
 
-b. La temperatura exterior
+2. La temperatura exterior
 
 Discutir las ventajas e inconvenientes de las diferentes posibilidades.
 

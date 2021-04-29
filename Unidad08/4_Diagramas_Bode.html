@@ -1,0 +1,1038 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.4. Análisis armónico de sistemas lineales. Diagramas de Bode &#8212; Control de procesos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.5. Criterio de estabilidad de Bode" href="5_Bode.html" />
+    <link rel="prev" title="8.3. Método del lugar de las raíces" href="3_Lugar_raices.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/M-UdL2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Control de procesos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Presentación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Teoría
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/unidad01.html">
+   1. Introducción
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/1_historia.html">
+     1.1. Breve historia del control de procesos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/2_contexto.html">
+     1.2. Contexto de la disciplina
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/3_descripci%C3%B3n.html">
+     1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/4_conceptos.html">
+     1.4. Conceptos generales
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad02/unidad02.html">
+   2. Instrumentación industrial
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/1_definiciones.html">
+     2.1. Algunas definiciones de instrumentación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/2_instrumentacion.html">
+     2.2. Algo de instrumentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/unidad03.html">
+   3. Cómo abordar la dinámica de un sistema
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/1_ejemplo_dinamica.html">
+     3.1. Un ejemplo de dinámica de un sistema. ¿Qué se desea conocer?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/2_transformada.html">
+     3.2. La transformada de Laplace como herramienta útil
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/3_funcion_transferencia.html">
+     3.3. La función de transferencia. Álgebra de funciones de transferencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/4_funciones_singulares.html">
+     3.4. Transformadas de algunas funciones singulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/5_inversion.html">
+     3.5. Inversión de transformadas. De vuelta al tiempo real
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/6_expansion.html">
+     3.6. Expansión en fracciones parciales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/7_tablas_transformadas.html">
+     3.7. Transformadas de Laplace
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/unidad05.html">
+   5. Sistemas lineales de segundo orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/1_Definicion.html">
+     5.1. Definición de sistema de segundo orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/2_Escalon.html">
+     5.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/3_Linealizacion.html">
+     5.3. Linealización
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/4_Retrasos.html">
+     5.4. Retrasos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/unidad06.html">
+   6. Acciones de control
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/1_Descripcion.html">
+     6.1. Descripción de un bucle de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/2_Control_P.html">
+     6.2. Control proporcional (P)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/3_Control_PI.html">
+     6.3. Control Proporcional + Integral (PI)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/4_Control_PD.html">
+     6.4. Control Proporcional + Derivativo (PD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/5_Control_PID.html">
+     6.5. Control Proporcional + Integral + Derivativo (PID)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad07/unidad07.html">
+   7. Control por retroalimentación de sistemas lineales
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/1_Accion_P.html">
+     7.1. Acción de control proporcional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/2_Accion_I.html">
+     7.2. Acción de control integral
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/3_Accion_D.html">
+     7.3. Acción de control derivativa
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/4_Acciones_combinadas.html">
+     7.4. Acciones de control combinadas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/5_Influencia_retrasos.html">
+     7.5. Influencia de los retrasos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/6_Intro_dise%C3%B1o.html">
+     7.6. Introducción al diseño de sistemas de control por retroalimentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="unidad08.html">
+   8. Análisis de estabilidad de sistemas
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Definicion_estabilidad.html">
+     8.1. Definición de estabilidad. Ecuación característica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Routh_Hurvitz.html">
+     8.2. Método de Routh-Hurvitz
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Lugar_raices.html">
+     8.3. Método del lugar de las raíces
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.4. Análisis armónico de sistemas lineales. Diagramas de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Bode.html">
+     8.5. Criterio de estabilidad de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Nyquist.html">
+     8.6. Criterio de estabilidad de Nyquist
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas resueltos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/problemas01.html">
+   Tema 1
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob101.html">
+     Problema 1.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob102.html">
+     Problema 1.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob104.html">
+     Problema 1.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/problemas03.html">
+   Tema 3
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob301.html">
+     Problema 3.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob302.html">
+     Problema 3.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob303.html">
+     Problema 3.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob304.html">
+     Problema 3.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob305.html">
+     Problema 3.5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob306.html">
+     Problema 3.6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob307.html">
+     Problema 3.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob308.html">
+     Problema 3.8
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob401.html">
+     Problema 4.01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob403.html">
+     Problema 4.03
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/problemas05.html">
+   Tema 5
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/prob504.html">
+     Problema 5.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/problemas06.html">
+   Tema 6
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob602.html">
+     Problema 6.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob603.html">
+     Problema 6.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob604.html">
+     Problema 6.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob605.html">
+     Problema 6.5
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad07/problemas07.html">
+   Tema 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="problemas08.html">
+   Tema 8
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unidad08/4_Diagramas_Bode.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/runjaj/apuntes-icia-jb/master?urlpath=tree/Unidad08/4_Diagramas_Bode.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sistemas-lineales-de-primer-orden">
+   8.4.1. Sistemas lineales de primer orden
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sistema-lineal-de-segundo-orden">
+   8.4.2. Sistema lineal de segundo orden
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#retraso">
+   8.4.3. Retraso
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#controladores">
+   8.4.4. Controladores
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#controlador-proporcional">
+     8.4.4.1. Controlador proporcional
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#controlador-proporcional-integral">
+     8.4.4.2. Controlador proporcional+integral
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#controlador-proporcional-derivativo">
+     8.4.4.3. Controlador proporcional+derivativo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#controlador-proporcional-integral-derivativo">
+     8.4.4.4. Controlador proporcional+integral+derivativo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sistemas-de-varios-componentes">
+   8.4.5. Sistemas de varios componentes
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="analisis-armonico-de-sistemas-lineales-diagramas-de-bode">
+<h1><span class="section-number">8.4. </span>Análisis armónico de sistemas lineales. Diagramas de Bode<a class="headerlink" href="#analisis-armonico-de-sistemas-lineales-diagramas-de-bode" title="Permalink to this headline">¶</a></h1>
+<p>Esta técnica de análisis de estabilidad es completamente diferente a la de los dos apartados anteriores. También se la conoce como análisis de frecuencia.</p>
+<p>Se basa en que cuando se introduce una señal sinusoidal en un sistema lineal se obtiene, tras un periodo transitorio, una respuesta sinusoidal de la misma frecuencia pero de amplitud diferente y desfasada. El análisis armónico estudia el desfase y la razón de amplitudes entre la entrada y la salida. Para un sistema de control por retroalimentación la razón de amplitudes (RA) nunca debe ser mayor de 1 ya que entonces se amplificaría la señal y el sistema se volvería inestable al retroalimentar la salida. El estudio del desfase es importante ya que de
+cierta manera se puede considerar que da los mismos problemas que un retraso.</p>
+<p>Para un sistema de primer orden con una entrada sinusoidal la razón de amplitudes será:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{RA} = \frac{K_p}{\sqrt{1 + \omega^2 \tau_p^2}}\]</div>
+<p>como se puede deducir a partir de la ec. <a class="reference external" href="#ec:sinusoidal-1">[ec:sinusoidal-1]</a>{reference-type=”ref”
+reference=”ec:sinusoidal-1”}.</p>
+<p>Debido a la importancia de conocer RA se ha desarrollado una técnica matemática para determinarlo a partir de la función de transferencia sin necesidad de tener que obtener la respuesta del sistema en tiempo real.</p>
+<p>Hay que sustituir <span class="math notranslate nohighlight">\(s\)</span> por <span class="math notranslate nohighlight">\(\mathrm{i}\omega\)</span>, ya que se trata de un número complejo, para poder expresar la función de transferencia como un número complejo del tipo <span class="math notranslate nohighlight">\(x + \mathrm{i}y\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[G (\mathrm{i}\omega) = \frac{K_p}{\tau_p \mathrm{i}\omega + 1} = \frac{K_p}{1 +
+   \tau_p^2 \omega^2} + \mathrm{i}\left( - \frac{K_p \tau_p \omega}{1 + w^2
+   \tau_p^2} \right)\]</div>
+<p>Para eliminar separar la parte real de la compleja—eliminar el número complejo <span class="math notranslate nohighlight">\(\mathrm{i}\)</span> del denominador—ha sido necesario multiplicar y dividir por el conjugado del denominador.</p>
+<div class="margin-caption figure align-default" id="complejo">
+<img alt="../_images/complejo.svg" src="../_images/complejo.svg" /><p class="caption"><span class="caption-number">Fig. 8.2 </span><span class="caption-text">Representación del número complejo <span class="math notranslate nohighlight">\(W\)</span> en el plano complejo.</span><a class="headerlink" href="#complejo" title="Permalink to this image">¶</a></p>
+</div>
+<p>Cualquier número complejo <span class="math notranslate nohighlight">\(W\)</span> puede ser expresado, además de la manera habitual <span class="math notranslate nohighlight">\(x + \mathrm{i}y\)</span>, como un módulo <span class="math notranslate nohighlight">\(r\)</span> y un argumento <span class="math notranslate nohighlight">\(\varphi\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+    W = x + \mathrm{i} y &amp;= r (\cos \varphi + \mathrm{i}\sin \varphi) = r \mathrm{e}^{\mathrm{i}\varphi}\\
+    |W| = r &amp;= \sqrt{x^2 + y^2}\\
+    \varphi &amp;= \mathrm{atan} \left( \frac{y}{x} \right)
+\end{align}\end{split}\]</div>
+<p>Por tanto, la función de transferencia se puede expresar en función de <span class="math notranslate nohighlight">\(r\)</span> y <span class="math notranslate nohighlight">\(\varphi\)</span> como:</p>
+<div class="math notranslate nohighlight">
+\[G (\mathrm{i}\omega) = \frac{K_p}{\sqrt{1 + \omega^2 \tau_p^2}}
+   \mathrm{e}^{\mathrm{i}\varphi}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\frac{K_p}{\sqrt{1 + \omega^2 \tau_p^2}}\)</span> es la razón de amplitudes y <span class="math notranslate nohighlight">\(\varphi\)</span> es el desfase. De esta manera se logra obtener el desfase y la razón de amplitudes sin tener que obtener la respuesta en tiempo real para una entrada sinusoidal de amplitud <span class="math notranslate nohighlight">\(M\)</span> y frecuencia angular <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
+<p>En general, sea un sistema de orden <span class="math notranslate nohighlight">\(n\)</span> con la siguiente función de transferencia:</p>
+<div class="math notranslate nohighlight">
+\[G (s) = \frac{Q (s)}{P (s)}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(Q (s)\)</span> y <span class="math notranslate nohighlight">\(P (s)\)</span> son polinomios de orden <span class="math notranslate nohighlight">\(m\)</span> y <span class="math notranslate nohighlight">\(n\)</span> respectivamente y <span class="math notranslate nohighlight">\(m &lt; n\)</span>. Se puede demostrar que:</p>
+<ol>
+<li><p>La respuesta final, cuando <span class="math notranslate nohighlight">\(t \rightarrow \infty\)</span>, a una entrada sinusoidal de frecuencia angular <span class="math notranslate nohighlight">\(\omega\)</span> es una sinusoidal de la misma frecuencia.</p></li>
+<li><p>La razón de amplitudes (RA) es el módulo de <span class="math notranslate nohighlight">\(G (\mathrm{i} \omega)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{RA} = |G (\mathrm{i}\omega)|\]</div>
+<p>La respuesta sinusoidal tendrá el siguiente desfase:</p>
+<div class="math notranslate nohighlight">
+\[\varphi = \arg (G (\mathrm{i}\omega))\]</div>
+</li>
+</ol>
+<p>A continuación se tratan con detalle algunos de los principales sistemas estudiados y se introducen los diagramas de Bode.</p>
+<div class="section" id="sistemas-lineales-de-primer-orden">
+<h2><span class="section-number">8.4.1. </span>Sistemas lineales de primer orden<a class="headerlink" href="#sistemas-lineales-de-primer-orden" title="Permalink to this headline">¶</a></h2>
+<p>Para un sistema de primer orden de ganancia <em>k</em> y constante de tiempo <span class="math notranslate nohighlight">\(\tau\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \frac{\mathrm{RA}}{k} &amp;= \frac{1}{\sqrt{\tau^2 \omega^2 + 1}} \\
+ \varphi &amp;= \mathrm{atan} (- \tau \omega)
+\end{aligned}\end{split}\]</div>
+<p>Una manera conveniente de representar la razón de amplitudes y el desfase son los <em>diagramas de Bode</em>. Estos diagramas consisten en representar la razón de amplitudes frente a la frecuencia angular utilizando escalas logarítmicas y el desfase en una escala lineal frente a la frecuencia angular en una escala logarítmica. Si se desea utilizar solo escalas lineales hay que representar <span class="math notranslate nohighlight">\(\log \mathrm{RA}\)</span> y <span class="math notranslate nohighlight">\(\varphi\)</span> frente al <span class="math notranslate nohighlight">\(\log \omega\)</span>. A veces se representa la razón de amplitudes como decibelios:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{dB}= 20 \log \mathrm{RA}\]</div>
+<p>A menudo se representa en los diagramas de Bode <span class="math notranslate nohighlight">\(\frac{\mathrm{RA}}{k}\)</span> y <span class="math notranslate nohighlight">\(\tau \omega\)</span> para obtener diagramas independientes del sistema.</p>
+<div class="margin figure align-left" id="id1">
+<img alt="../_images/05.png" src="../_images/05.png" />
+<p class="caption"><span class="caption-number">Fig. 8.3 </span><span class="caption-text">Diagrama de Bode para un sistema de primer orden. ABF es la asíntota de baja frecuencia y AAF es la asíntota de alta frecuencia.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span><span class="p">,</span> <span class="n">Plots</span><span class="p">,</span> <span class="n">LaTeXStrings</span>
+<span class="c">#plotly()</span>
+
+<span class="n">w</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;omega zeta&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">)</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">function</span> <span class="n">RAphi</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">Gw</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="nb">I</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
+
+    <span class="n">RA</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">re</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="nb">im</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ϕ</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">arg</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span>
+    <span class="c">#ϕ = atan(sympy.im(Gw)/sympy.re(Gw))</span>
+    <span class="k">return</span> <span class="n">RA</span><span class="p">,</span> <span class="n">ϕ</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="n">bodedata</span><span class="p">(</span><span class="n">RA</span><span class="p">,</span> <span class="n">ϕ</span><span class="p">;</span> <span class="n">wmin</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="mf">1e2</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">wdata</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">.^</span><span class="n">range</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">wmin</span><span class="p">),</span> <span class="n">log10</span><span class="p">(</span><span class="n">wmax</span><span class="p">),</span> <span class="n">length</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">RAdata</span> <span class="o">=</span> <span class="p">[</span><span class="n">RA</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">wdata</span><span class="p">]</span>
+    <span class="n">ϕdata</span> <span class="o">=</span> <span class="p">[</span><span class="n">N</span><span class="p">(</span><span class="n">ϕ</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">wdata</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">RAdata</span><span class="p">,</span> <span class="n">ϕdata</span><span class="p">,</span> <span class="n">wdata</span>
+<span class="k">end</span>
+
+
+<span class="k">function</span> <span class="n">bode</span><span class="p">(</span><span class="n">G</span><span class="p">;</span> <span class="n">wmin</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="mf">1e2</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">wdata</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">.^</span><span class="n">range</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">wmin</span><span class="p">),</span> <span class="n">log10</span><span class="p">(</span><span class="n">wmax</span><span class="p">),</span> <span class="n">length</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">RAcol</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">length</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+    <span class="n">phicol</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">length</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">g</span> <span class="kp">in</span> <span class="n">G</span>
+        <span class="n">ra</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">RAphi</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+        <span class="n">radata</span><span class="p">,</span> <span class="n">phidata</span> <span class="o">=</span> <span class="n">bodedata</span><span class="p">(</span><span class="n">ra</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">wmin</span><span class="o">=</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="n">wmax</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+            <span class="n">RAcol</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">radata</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">phicol</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">phidata</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">end</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">end</span>
+    
+    <span class="n">RAplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">wdata</span><span class="p">,</span> <span class="n">RAcol</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
+                  <span class="n">ylabel</span><span class="o">=</span><span class="n">L</span><span class="s">&quot;RA&quot;</span><span class="p">)</span>
+    <span class="n">ϕplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">wdata</span><span class="p">,</span> <span class="n">phicol</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span>
+                 <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ&quot;</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">RAplot</span><span class="p">,</span> <span class="n">ϕplot</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">link</span><span class="o">=:</span><span class="n">x</span><span class="p">,</span> <span class="n">minorticks</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">bode</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Diagramas_Bode_1_0.svg" src="../_images/4_Diagramas_Bode_1_0.svg" /></div>
+</div>
+<p>Para dibujar el diagrama de Bode de un sistema lineal de primer orden, se debe calcular el logaritmo de la razón de amplitudes:</p>
+<div class="math notranslate nohighlight">
+\[\log \left( \frac{\mathrm{RA}}{k} \right) = - \frac{1}{2} \log (1 + \tau^2
+   \omega^2)\]</div>
+<p>A partir del análisis de la figura <a class="reference external" href="#fig:bode_1">[fig:bode_1]</a>{reference-type=”ref”
+reference=”fig:bode_1”} se observa que:</p>
+<ol>
+<li><p>La razón de amplitudes tiende a 1 cuando la frecuencia tiende a 0. Es decir:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{\omega \to 0}  \frac{\mathrm{RA}}{k} = 1
+         \Rightarrow \lim_{\omega \to 0}
+          \log
+         \frac{\mathrm{RA}}{k} = 0\]</div>
+<p>Existe para bajas frecuencias una asíntota horizontal que para por el punto (1,1) de la gráfica de razón de amplitudes frente a la frecuencia, es la asíntota de baja frecuencia (ABF).</p>
+</li>
+<li><p>También existe una asíntota de alta frecuencia (AAF), <span class="math notranslate nohighlight">\(\log \frac{\mathrm{RA}}{k} \approx - \log \tau \omega\)</span>. Es una recta de pendiente -1 que pasa por el punto (1,1). Este es el punto en el que la diferencia entre el valor de la asíntota y el de la curva es máxima.</p></li>
+<li><p>A partir del estudio de la gráfica de desfase frente a frecuencia se observa que el desfase tiende a 0 cuando la frecuencia tiende a 0.</p></li>
+<li><p>Si la frecuencia tiende a <span class="math notranslate nohighlight">\(\infty\)</span>, el desfase tiende a -90º.</p></li>
+<li><p>Si el desfase es de -45º, <span class="math notranslate nohighlight">\(\log \tau \omega = 0\)</span>.</p></li>
+</ol>
+</div>
+<div class="section" id="sistema-lineal-de-segundo-orden">
+<h2><span class="section-number">8.4.2. </span>Sistema lineal de segundo orden<a class="headerlink" href="#sistema-lineal-de-segundo-orden" title="Permalink to this headline">¶</a></h2>
+<p>Para un sistema lineal de 2 orden se puede demostrar que la razón de amplitudes y el desfase se expresan como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathrm{RA} &amp;= \frac{k}{\sqrt{(1 - \tau^2 \omega^2)^2 + (2 \zeta \tau
+  \omega)^2}}\\
+  \varphi &amp;= \mathrm{atan} \left( - \frac{2 \zeta \tau \omega}{1 - \tau^2
+  \omega^2} \right)
+\end{aligned}\end{split}\]</div>
+<div class="margin figure align-left" id="id2">
+<img alt="../_images/05.png" src="../_images/05.png" />
+<p class="caption"><span class="caption-number">Fig. 8.4 </span><span class="caption-text">Diagramas de Bode para diferentes sistemas de 2º orden en función del coeficiente de amortiguamiento.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">zetas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="n">s</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">GG</span> <span class="o">=</span> <span class="p">[</span><span class="n">G</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">zetas</span><span class="p">]</span>
+
+<span class="n">bode</span><span class="p">(</span><span class="n">GG</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Diagramas_Bode_3_0.svg" src="../_images/4_Diagramas_Bode_3_0.svg" /></div>
+</div>
+<p>En este caso, de nuevo aparece una asíntota de bajas frecuencias:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{\omega \to 0} \frac{\mathrm{RA}}{k} = 1\]</div>
+<p>y una asíntota para altas frecuencias:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{\omega \to 0} \log \frac{\mathrm{RA}}{k} = - 2 \log \tau \omega\]</div>
+<p>A partir del análisis de las gráficas de la figura anterior se observa que el desfase máximo posible es de -180º. Existe un máximo en la razón de amplitudes, si el sistema es subamortiguado, cuando <span class="math notranslate nohighlight">\(\omega \tau = 1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \left( \frac{\mathrm{RA}}{k} \right)_{\max} &amp;= \frac{1}{2 \zeta \sqrt[]{1 -
+  \zeta^2}} \\
+  \varphi_{\max} &amp;= \sqrt{1 - 2 \zeta^2} 
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="retraso">
+<h2><span class="section-number">8.4.3. </span>Retraso<a class="headerlink" href="#retraso" title="Permalink to this headline">¶</a></h2>
+<p>En el caso del retraso la razón de amplitudes y el desfase son:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \mathrm{RA} = 1 &amp; \\
+  &amp; \varphi = - t_d \omega &amp; 
+\end{aligned}\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(t_d\)</span> es el valor del retraso.</p>
+<div class="margin figure align-left" id="id3">
+<img alt="../_images/05.png" src="../_images/05.png" />
+<p class="caption"><span class="caption-number">Fig. 8.5 </span><span class="caption-text">Diagrama de Bode para el retraso.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">wmin</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span>
+<span class="n">wmax</span> <span class="o">=</span> <span class="mf">10.</span>
+<span class="n">RAplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">],[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">],</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
+                  <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;RA(ω)&quot;</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ϕplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span>
+             <span class="n">xlabel</span><span class="o">=</span><span class="n">L</span><span class="s">&quot;t_d \omega&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ&quot;</span><span class="p">)</span>
+  <span class="n">plot</span><span class="p">(</span><span class="n">RAplot</span><span class="p">,</span> <span class="n">ϕplot</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">link</span><span class="o">=:</span><span class="n">x</span><span class="p">,</span> <span class="n">minorticks</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Diagramas_Bode_5_0.svg" src="../_images/4_Diagramas_Bode_5_0.svg" /></div>
+</div>
+</div>
+<div class="section" id="controladores">
+<h2><span class="section-number">8.4.4. </span>Controladores<a class="headerlink" href="#controladores" title="Permalink to this headline">¶</a></h2>
+<p>A continuación se muestra para diferentes controladores las fórmulas utilizadas para la construcción de los diagramas de Bode.</p>
+<div class="section" id="controlador-proporcional">
+<h3><span class="section-number">8.4.4.1. </span>Controlador proporcional<a class="headerlink" href="#controlador-proporcional" title="Permalink to this headline">¶</a></h3>
+<p>Para un controlador proporcional la razón de amplitudes es:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathrm{RA} &amp;= K_c \\
+  \varphi &amp;= 0 \end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="controlador-proporcional-integral">
+<h3><span class="section-number">8.4.4.2. </span>Controlador proporcional+integral<a class="headerlink" href="#controlador-proporcional-integral" title="Permalink to this headline">¶</a></h3>
+<p>Las ecuaciones necesarias para dibujar el diagrama de Bode de un controlador PI son</p>
+<p>: $<span class="math notranslate nohighlight">\(\begin{aligned}
+  \mathrm{RA} &amp;= K_c  \sqrt[]{1 + \frac{1}{\omega^2 \tau_I^2}}\\
+  \varphi &amp;= \mathrm{atan} \left( - \frac{1}{\omega \tau_I} \right)\end{aligned}\)</span>$</p>
+<div class="margin figure align-left" id="id4">
+<img alt="../_images/05.png" src="../_images/05.png" />
+<p class="caption"><span class="caption-number">Fig. 8.6 </span><span class="caption-text">Diagrama de Bode para un controlador PI.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">bode</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>
+<span class="n">xlabel!</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;\omega </span><span class="se">\t</span><span class="s">au_I&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Diagramas_Bode_7_0.svg" src="../_images/4_Diagramas_Bode_7_0.svg" /></div>
+</div>
+<p>En este caso existe, de nuevo, una asíntota de baja frecuencia:</p>
+<div class="math notranslate nohighlight">
+\[\omega \rightarrow 0 \Rightarrow \frac{1}{\omega^2 \tau_I^2} \gg 0
+   \Rightarrow \log \left( \frac{\mathrm{RA}}{K_c} \right) \rightarrow - \log
+   \omega \tau_I\]</div>
+<p>y una asíntota de alta frecuencia:</p>
+<div class="math notranslate nohighlight">
+\[\omega \rightarrow \infty \Rightarrow \frac{1}{\omega^2 \tau_I^2}
+   \rightarrow 0 \Rightarrow \log \left( \frac{\mathrm{RA}}{K_c} \right)
+   \rightarrow 0\]</div>
+</div>
+<div class="section" id="controlador-proporcional-derivativo">
+<h3><span class="section-number">8.4.4.3. </span>Controlador proporcional+derivativo<a class="headerlink" href="#controlador-proporcional-derivativo" title="Permalink to this headline">¶</a></h3>
+<p>En el caso de utilizar un controlador PD:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathrm{RA} &amp;= K_c  \sqrt[]{1 + \tau_D^2 w^2}\\
+  \varphi &amp;= \mathrm{atan} \tau_D \omega &gt; 0 \end{aligned}\end{split}\]</div>
+<div class="margin figure align-left" id="id5">
+<img alt="../_images/05.png" src="../_images/05.png" />
+<p class="caption"><span class="caption-number">Fig. 8.7 </span><span class="caption-text">Diagrama de Bode de un controlador PD.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">bode</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Diagramas_Bode_9_0.svg" src="../_images/4_Diagramas_Bode_9_0.svg" /></div>
+</div>
+<p>En este caso el desfase aparece adelantado a la entrada. De nuevo se comprueba que la acción derivativa se adelanta al comportamiento futuro de las perturbaciones.</p>
+</div>
+<div class="section" id="controlador-proporcional-integral-derivativo">
+<h3><span class="section-number">8.4.4.4. </span>Controlador proporcional+integral+derivativo<a class="headerlink" href="#controlador-proporcional-integral-derivativo" title="Permalink to this headline">¶</a></h3>
+<p>Para un controlador PID:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathrm{RA} &amp;= K_c  \sqrt[]{\left( \tau_D \omega - \frac{1}{\tau_I \omega}
+  \right)^2 + 1} \\
+  \varphi &amp;= \mathrm{atan} \left( \tau_D \omega - \frac{1}{\tau_I \omega}
+  \right) \end{aligned}\end{split}\]</div>
+<div class="margin figure align-left" id="id6">
+<img alt="../_images/05.png" src="../_images/05.png" />
+<p class="caption"><span class="caption-number">Fig. 8.8 </span><span class="caption-text">Diagrama de Bode para un controlador PID con <span class="math notranslate nohighlight">\(\tau_I=10\)</span> y <span class="math notranslate nohighlight">\(\tau_D=0.1\)</span>.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">bode</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="n">s</span><span class="o">+</span><span class="mf">0.1</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Diagramas_Bode_11_0.svg" src="../_images/4_Diagramas_Bode_11_0.svg" /></div>
+</div>
+</div>
+</div>
+<div class="section" id="sistemas-de-varios-componentes">
+<h2><span class="section-number">8.4.5. </span>Sistemas de varios componentes<a class="headerlink" href="#sistemas-de-varios-componentes" title="Permalink to this headline">¶</a></h2>
+<p>Sea un sistema de <em>n</em> procesos en serie cuya dinámica venga descrita por las funciones de transferencia <span class="math notranslate nohighlight">\(G_1, G_2, \ldots, G_n\)</span>. Su dinámica global vendrá descrita por la siguiente función de transferencia:</p>
+<div class="math notranslate nohighlight">
+\[G (s) = G_1 (s) G_2 (s) \ldots G_n (s)\]</div>
+<p>Se puede demostrar que la razón de amplitudes y el desfase global son:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \mathrm{RA} = \mathrm{RA}_1 \mathrm{RA}_2 \ldots \mathrm{RA}_n = \prod_i
+  \mathrm{RA}_i &amp; \\
+  &amp; \varphi = \varphi_1 + \varphi_2 + \ldots + \varphi_n = \sum_i \varphi_i &amp;
+  \end{aligned}\end{split}\]</div>
+<p>Por tanto,</p>
+<div class="math notranslate nohighlight">
+\[\log \mathrm{RA} = \log \mathrm{RA}_1 + \log \mathrm{RA}_2 + \ldots + \log
+   \mathrm{RA}_n = \sum_i \log \mathrm{RA}_i\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "runjaj/apuntes-icia-jb",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.6"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.6",
+            path: "./Unidad08"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.6'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="3_Lugar_raices.html" title="previous page"><span class="section-number">8.3. </span>Método del lugar de las raíces</a>
+    <a class='right-next' id="next-link" href="5_Bode.html" title="next page"><span class="section-number">8.5. </span>Criterio de estabilidad de Bode</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Javier Arántegui<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.2. Método de Routh-Hurvitz &#8212; Control de procesos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.3. Método del lugar de las raíces" href="3_Lugar_raices.html" />
+    <link rel="prev" title="8.1. Definición de estabilidad. Ecuación característica" href="1_Definicion_estabilidad.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/M-UdL2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Control de procesos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Presentación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Teoría
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/unidad01.html">
+   1. Introducción
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/1_historia.html">
+     1.1. Breve historia del control de procesos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/2_contexto.html">
+     1.2. Contexto de la disciplina
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/3_descripci%C3%B3n.html">
+     1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/4_conceptos.html">
+     1.4. Conceptos generales
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad02/unidad02.html">
+   2. Instrumentación industrial
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/1_definiciones.html">
+     2.1. Algunas definiciones de instrumentación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/2_instrumentacion.html">
+     2.2. Algo de instrumentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/unidad03.html">
+   3. Cómo abordar la dinámica de un sistema
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/1_ejemplo_dinamica.html">
+     3.1. Un ejemplo de dinámica de un sistema. ¿Qué se desea conocer?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/2_transformada.html">
+     3.2. La transformada de Laplace como herramienta útil
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/3_funcion_transferencia.html">
+     3.3. La función de transferencia. Álgebra de funciones de transferencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/4_funciones_singulares.html">
+     3.4. Transformadas de algunas funciones singulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/5_inversion.html">
+     3.5. Inversión de transformadas. De vuelta al tiempo real
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/6_expansion.html">
+     3.6. Expansión en fracciones parciales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/7_tablas_transformadas.html">
+     3.7. Transformadas de Laplace
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/unidad05.html">
+   5. Sistemas lineales de segundo orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/1_Definicion.html">
+     5.1. Definición de sistema de segundo orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/2_Escalon.html">
+     5.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/3_Linealizacion.html">
+     5.3. Linealización
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/4_Retrasos.html">
+     5.4. Retrasos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/unidad06.html">
+   6. Acciones de control
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/1_Descripcion.html">
+     6.1. Descripción de un bucle de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/2_Control_P.html">
+     6.2. Control proporcional (P)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/3_Control_PI.html">
+     6.3. Control Proporcional + Integral (PI)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/4_Control_PD.html">
+     6.4. Control Proporcional + Derivativo (PD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/5_Control_PID.html">
+     6.5. Control Proporcional + Integral + Derivativo (PID)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad07/unidad07.html">
+   7. Control por retroalimentación de sistemas lineales
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/1_Accion_P.html">
+     7.1. Acción de control proporcional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/2_Accion_I.html">
+     7.2. Acción de control integral
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/3_Accion_D.html">
+     7.3. Acción de control derivativa
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/4_Acciones_combinadas.html">
+     7.4. Acciones de control combinadas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/5_Influencia_retrasos.html">
+     7.5. Influencia de los retrasos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/6_Intro_dise%C3%B1o.html">
+     7.6. Introducción al diseño de sistemas de control por retroalimentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="unidad08.html">
+   8. Análisis de estabilidad de sistemas
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Definicion_estabilidad.html">
+     8.1. Definición de estabilidad. Ecuación característica
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.2. Método de Routh-Hurvitz
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Lugar_raices.html">
+     8.3. Método del lugar de las raíces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Diagramas_Bode.html">
+     8.4. Análisis armónico de sistemas lineales. Diagramas de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Bode.html">
+     8.5. Criterio de estabilidad de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Nyquist.html">
+     8.6. Criterio de estabilidad de Nyquist
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas resueltos
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/problemas01.html">
+   Tema 1
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob101.html">
+     Problema 1.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob102.html">
+     Problema 1.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob104.html">
+     Problema 1.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/problemas03.html">
+   Tema 3
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob301.html">
+     Problema 3.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob302.html">
+     Problema 3.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob303.html">
+     Problema 3.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob304.html">
+     Problema 3.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob305.html">
+     Problema 3.5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob306.html">
+     Problema 3.6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob307.html">
+     Problema 3.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob308.html">
+     Problema 3.8
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob401.html">
+     Problema 4.01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob403.html">
+     Problema 4.03
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/problemas05.html">
+   Tema 5
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/prob504.html">
+     Problema 5.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/problemas06.html">
+   Tema 6
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob602.html">
+     Problema 6.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob603.html">
+     Problema 6.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob604.html">
+     Problema 6.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob605.html">
+     Problema 6.5
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad07/problemas07.html">
+   Tema 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="problemas08.html">
+   Tema 8
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unidad08/2_Routh_Hurvitz.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="metodo-de-routh-hurvitz">
+<h1><span class="section-number">8.2. </span>Método de Routh-Hurvitz<a class="headerlink" href="#metodo-de-routh-hurvitz" title="Permalink to this headline">¶</a></h1>
+<p>El método de Routh-Hurvitz permite comprobar de una manera rápida y sencilla si alguna de las partes reales de las raíces de la ecuación característica es positiva sin necesidad de tener que encontrar las raíces.</p>
+<p>Operando la ecuación característica se obtiene:</p>
+<div class="math notranslate nohighlight">
+\[1 + G_c G_p G_f G_m \equiv a_0 s^n + a_1 s^{n - 1} + \ldots + a_{n - 1} s +
+   a_n = 0\]</div>
+<p>donde <span class="math notranslate nohighlight">\(a_0\)</span> debe ser positivo.</p>
+<p>El criterio de estabilidad de Routh-Hurvitz es:</p>
+<ol>
+<li><p>Condición necesaria pero no suficiente: Todos los coeficientes <span class="math notranslate nohighlight">\(a_0, a_1, \ldots, a_n\)</span> de la ecuación característica deben ser positivos para que el sistema sea estable. Si alguno de los coeficientes es negativo, al menos una de las raíces tendrá la parte real positiva.</p></li>
+<li><p>Condición necesaria y suficiente: Se construye la matriz de Routh:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c|ccccc}
+           1 &amp; a_0 &amp; a_2 &amp; a_4 &amp; a_6 &amp; \ldots\\
+           2 &amp; a_1 &amp; a_3 &amp; a_5 &amp; a_7 &amp; \ldots\\
+           3 &amp; A_1 &amp; A_2 &amp; A_3 &amp; \ldots &amp; \\
+           4 &amp; B_1 &amp; B_2 &amp; B_3 &amp; \ldots &amp; \\
+           5 &amp; C_1 &amp; C_2 &amp; C_3 &amp; \ldots &amp; \\
+           \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp;  &amp; \\
+           n + 1 &amp; W_1 &amp; W_2 &amp;  &amp;  &amp; 
+         \end{array}\end{split}\]</div>
+<p>donde:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+        &amp; A_1 = \frac{a_1 a_2 - a_0 a_3}{a_1},\ A_2 = \frac{a_1 a_4 - a_0
+        a_5}{a_1},\ A_3 = \frac{a_1 a_6 - a_0 a_7}{a_1},\ \ldots &amp; \\
+        &amp; B_1 = \frac{A_1 a_3 - a_1 A_2}{A_1},\ B_2 = \frac{A_1 a_5 - a_1
+        A_3}{A_1},\ \ldots &amp; \\
+        &amp; C_1 = \frac{B_1 A_2 - A_1 B_2}{B_1},\ C_2 = \frac{B_1 A_3 - A_1
+        B_3}{B_1},\ \ldots &amp; \\
+        &amp; \vdots &amp; 
+      \end{aligned}\end{split}\]</div>
+<p>El sistema será estable si todos los términos de la primera columna de la matriz (<span class="math notranslate nohighlight">\(a_0, a_1, A_1, B_1, C_1, \ldots, W_1\)</span>) son positivos. Si alguno de estos elementos es negativo el sistema será inestable. Por cada    cambio de signo habrá una raíz con la parte real positiva.</p>
+</li>
+</ol>
+<p>El criterio de estabilidad de Routh presenta algunas limitaciones. No puede trata sistemas con retrasos (tiempos muertos) o no lineales. Sólo da información de si un sistema es estable o inestable, no da información de si un sistema estable está cerca o lejos de la inestabilidad. Otra limitación es la necesidad de tener que expresar la ecuación característica como un polinomio en <span class="math notranslate nohighlight">\(s\)</span>, esto puede ser bastante complicado en sistemas complejos.</p>
+<p>Para encontrar qué valores de las constantes del controlador están situadas en el límite de estabilidad se debe resolver la siguiente ecuación:</p>
+<div class="math notranslate nohighlight">
+\[W_1 s^2 + W_2 = 0\]</div>
+<p>De esta manera se puede determinar un par de raíces de la ecuación característica con la parte real nula, es decir, situadas sobre el eje imaginario. Lógicamente <span class="math notranslate nohighlight">\(W_1\)</span> y <span class="math notranslate nohighlight">\(W_2\)</span> dependen de los parámetros del controlador.</p>
+<div class="admonition-ejemplo admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>En el problema <a class="reference external" href="#prob802">[prob802]</a>{reference-type=”ref”
+reference=”prob802”} se utiliza el criterio de Routh-Hurvitz para
+demostrar la estabilidad de un lazo de control por retroalimentación.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "runjaj/apuntes-icia-jb",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unidad08"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="1_Definicion_estabilidad.html" title="previous page"><span class="section-number">8.1. </span>Definición de estabilidad. Ecuación característica</a>
+    <a class='right-next' id="next-link" href="3_Lugar_raices.html" title="next page"><span class="section-number">8.3. </span>Método del lugar de las raíces</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Javier Arántegui<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

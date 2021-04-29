@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3.3. La función de transferencia. Álgebra de funciones de transferencia &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -97,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Teoría
  </span>
@@ -109,22 +108,22 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../Unidad01/historia.html">
+    <a class="reference internal" href="../Unidad01/1_historia.html">
      1.1. Breve historia del control de procesos
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Unidad01/contexto.html">
+    <a class="reference internal" href="../Unidad01/2_contexto.html">
      1.2. Contexto de la disciplina
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Unidad01/descripci%C3%B3n.html">
+    <a class="reference internal" href="../Unidad01/3_descripci%C3%B3n.html">
      1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Unidad01/conceptos.html">
+    <a class="reference internal" href="../Unidad01/4_conceptos.html">
      1.4. Conceptos generales
     </a>
    </li>
@@ -197,7 +196,7 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Unidad04/unidad04.html">
-   4. Sistemas lineales de primer orde
+   4. Sistemas lineales de primer orden
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
@@ -224,8 +223,37 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/unidad05.html">
+   5. Sistemas lineales de segundo orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/1_Definicion.html">
+     5.1. Definición de sistema de segundo orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/2_Escalon.html">
+     5.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/3_Linealizacion.html">
+     5.3. Linealización
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/4_Retrasos.html">
+     5.4. Retrasos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Problemas resueltos
  </span>
@@ -309,6 +337,11 @@
    Tema 4
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad05/problemas05.html">
+   Problemas
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -347,14 +380,11 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../_sources/Unidad03/funcion_transferencia.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Unidad03/funcion_transferencia.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Unidad03/funcion_transferencia.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -404,14 +434,17 @@
         
               <div>
                 
-  <section id="la-funcion-de-transferencia-algebra-de-funciones-de-transferencia">
+  <div class="section" id="la-funcion-de-transferencia-algebra-de-funciones-de-transferencia">
 <h1><span class="section-number">3.3. </span>La función de transferencia. Álgebra de funciones de transferencia<a class="headerlink" href="#la-funcion-de-transferencia-algebra-de-funciones-de-transferencia" title="Permalink to this headline">¶</a></h1>
 <p>Para un proceso sencillo, como el del nivel del depósito, se puede
 plantear un esquema sencillo que describa en cierta medida al sistema:</p>
+<div class="margin figure align-left" id="id1">
+<img alt="../_images/0.png" src="../_images/0.png" />
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Representación simplificada de un proceso.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InLineBackend.figure_format = &#39;svg&#39;
-<span class="kn">import</span> <span class="nn">schemdraw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
 <span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">dsp</span>
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
@@ -421,22 +454,13 @@ plantear un esquema sencillo que describa en cierta medida al sistema:</p>
 <span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">proceso</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Proceso&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">))</span>
 <span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Salida</span><span class="se">\n\n</span><span class="s1">$y(t)$&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proceso</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
 
-<span class="c1"># d.draw()</span>
-
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;proc_fig&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-</div>
-</div>
-<figure class="margin-caption align-center" id="proc-fig">
-<div class="cell_output docutils container">
 <img alt="../_images/funcion_transferencia_1_0.svg" src="../_images/funcion_transferencia_1_0.svg" /></div>
-<figcaption>
-<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Representación simplificada de un proceso.</span><a class="headerlink" href="#proc-fig" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+</div>
 <p>Para el ejemplo del nivel del depósito, <span class="math notranslate nohighlight">\(f (t) = Q_1 (t)\)</span> y
 <span class="math notranslate nohighlight">\(y (t) = H (t)\)</span>. Es decir, en este caso el depósito es el proceso, la
 salida es la variación del nivel del depósito y la entrada al proceso es
@@ -451,10 +475,13 @@ transferencia <span class="math notranslate nohighlight">\(G (s)\)</span> liga l
 <p>donde <span class="math notranslate nohighlight">\(\bar{y} (s)\)</span> es la transformada de Laplace de la respuesta del
 proceso definida utilizando variables de desviación y <span class="math notranslate nohighlight">\(\bar{f} (s)\)</span> es
 la transformada de la función de desviación de la entrada.</p>
+<div class="margin figure align-left" id="id2">
+<img alt="../_images/0.png" src="../_images/0.png" />
+<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">La función de transferencia del proceso es <span class="math notranslate nohighlight">\(G(s)\)</span>, <span class="math notranslate nohighlight">\(\bar{f}(s)\)</span> y <span class="math notranslate nohighlight">\(\bar{y}(s)\)</span> son la transformada de Laplace de las funciones de entrada y salida del proceso.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InLineBackend.figure_format = &#39;svg&#39;
-<span class="kn">import</span> <span class="nn">schemdraw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
 <span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">dsp</span>
 
 <span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -463,22 +490,13 @@ la transformada de la función de desviación de la entrada.</p>
 <span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">proceso</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;$G(s)$&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">))</span>
 <span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s1">&#39;Salida</span><span class="se">\n\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;$\bar</span><span class="si">{y}</span><span class="s1">(s)$&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proceso</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
 
-<span class="c1"># d.draw()</span>
-
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;transf_fig&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<img alt="../_images/funcion_transferencia_3_0.svg" src="../_images/funcion_transferencia_3_0.svg" /></div>
 </div>
-</div>
-<figure class="margin-caption align-center" id="transf-fig">
-<div class="cell_output docutils container">
-<img alt="../_images/funcion_transferencia_4_0.svg" src="../_images/funcion_transferencia_4_0.svg" /></div>
-<figcaption>
-<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">La función de transferencia del proceso es <span class="math notranslate nohighlight">\(G(s)\)</span>, <span class="math notranslate nohighlight">\(\bar{f}(s)\)</span> y <span class="math notranslate nohighlight">\(\bar{y}(s)\)</span> son la transformada de Laplace de las funciones de entrada y salida del proceso.</span><a class="headerlink" href="#transf-fig" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
 <p>Para obtener la función de transferencia del ejemplo se realiza la
 transformada de Laplace de la ecuación diferencial <a class="reference internal" href="ejemplo_dinamica.html#equation-ode">(3.4)</a>:</p>
 <div class="math notranslate nohighlight">
@@ -499,10 +517,13 @@ orden.</p>
 <p>Para los procesos más complicados, con diagramas de bloques más
 complejos, se recurre al álgebra de funciones de transferencia.</p>
 <p>En la situación en la que se presente un conjunto de procesos en paralelo, que se representan como una serie de bloques en paralelo, como los de la figura siguiente:</p>
+<div class="margin figure align-left" id="id3">
+<img alt="../_images/0.png" src="../_images/0.png" />
+<p class="caption"><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Reducción de tres bloques en paralelo.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InLineBackend.figure_format = &#39;svg&#39;
-<span class="kn">import</span> <span class="nn">schemdraw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">schemdraw</span>
 <span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">dsp</span>
 
 <span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -533,12 +554,16 @@ complejos, se recurre al álgebra de funciones de transferencia.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/funcion_transferencia_7_0.svg" src="../_images/funcion_transferencia_7_0.svg" /></div>
+<img alt="../_images/funcion_transferencia_5_0.svg" src="../_images/funcion_transferencia_5_0.svg" /></div>
 </div>
 <p>Se puede encontrar un bloque equivalente que reuna las tres funciones de transferencia <span class="math notranslate nohighlight">\(G_1\)</span>, <span class="math notranslate nohighlight">\(G_2\)</span> y <span class="math notranslate nohighlight">\(G_3\)</span> en una sola función de transferencia <span class="math notranslate nohighlight">\(G\)</span>:</p>
+<div class="margin figure align-left" id="id4">
+<img alt="../_images/0.png" src="../_images/0.png" />
+<p class="caption"><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Reducción de un grupo de <span class="math notranslate nohighlight">\(n\)</span> bloques en serie.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InLineBackend.figure_format = &#39;svg&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%config InLineBackend.figure_format = &#39;svg&#39;</span>
 <span class="kn">import</span> <span class="nn">schemdraw</span>
 <span class="kn">from</span> <span class="nn">schemdraw.elements</span> <span class="kn">import</span> <span class="n">DotDotDot</span>
 <span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">dsp</span>
@@ -562,7 +587,7 @@ complejos, se recurre al álgebra de funciones de transferencia.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/funcion_transferencia_9_0.svg" src="../_images/funcion_transferencia_9_0.svg" /></div>
+<img alt="../_images/funcion_transferencia_7_0.svg" src="../_images/funcion_transferencia_7_0.svg" /></div>
 </div>
 <p>Buscar un bloque equivalente tiene la ventaja de que solo será necesario trabajar con una función de transferencia en lugar de con tres, si se necesita conocer las funciones <span class="math notranslate nohighlight">\(X_1\)</span>, <span class="math notranslate nohighlight">\(X_2\)</span> y <span class="math notranslate nohighlight">\(X_3\)</span>.</p>
 <p>En este caso obtener la función de
@@ -590,7 +615,7 @@ y el sistema de tanques sin interacción, para el que no es aplicable de
 manera directa la ecuación
 <a href="#ec:serie" data-reference-type="ref" data-reference="ec:serie">[ec:serie]</a>.</p>
 </div>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {

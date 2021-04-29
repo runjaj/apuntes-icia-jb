@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="515pt"
+   height="230pt"
+   viewBox="885 708 8172 3645"
+   version="1.1"
+   id="svg36"
+   sodipodi:docname="bode_no.svg"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)">
+  <metadata
+     id="metadata42">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs40" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1030"
+     inkscape:window-height="622"
+     id="namedview38"
+     showgrid="false"
+     inkscape:zoom="0.78716743"
+     inkscape:cx="343.33333"
+     inkscape:cy="153.33333"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g34"
+     inkscape:document-rotation="0" />
+  <g
+     fill="none"
+     id="g34">
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="5625"
+       y="3150"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="end"
+       id="text10">-180º</text>
+    <!-- Line -->
+    <polyline
+       points=" 1305,1845 4590,1845"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40 40"
+       id="polyline12" />
+    <!-- Line -->
+    <polyline
+       points=" 5760,3060 9045,3060"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40 40"
+       id="polyline14" />
+    <!-- Line -->
+    <rect
+       x="5760"
+       y="720"
+       width="3285"
+       height="3285"
+       stroke="#000000"
+       stroke-width="8px"
+       id="rect16" />
+    <!-- Line -->
+    <polyline
+       points=" 1305,2025 1307,2025 1313,2025 1322,2024 1337,2023 1358,2022  1385,2021 1418,2019 1456,2016 1498,2014 1543,2011 1591,2008 1640,2005 1689,2001  1738,1998 1785,1994 1831,1990 1874,1987 1915,1983 1954,1979 1990,1976 2024,1972  2056,1968 2086,1964 2114,1959 2140,1955 2165,1950 2190,1945 2213,1940 2235,1935  2262,1928 2288,1920 2314,1912 2340,1904 2365,1895 2389,1885 2414,1875 2439,1864  2463,1853 2487,1841 2511,1829 2534,1817 2557,1805 2580,1792 2603,1780 2625,1767  2646,1755 2667,1742 2688,1730 2709,1718 2729,1707 2749,1695 2770,1684 2790,1673  2811,1661 2832,1650 2854,1639 2877,1628 2901,1617 2925,1607 2951,1596 2977,1586  3004,1577 3031,1568 3059,1559 3087,1552 3115,1545 3143,1539 3171,1535 3199,1531  3227,1528 3254,1527 3280,1527 3306,1528 3331,1530 3356,1534 3381,1539 3405,1545  3426,1551 3446,1559 3467,1568 3488,1577 3509,1588 3530,1601 3552,1614 3573,1629  3595,1646 3617,1663 3639,1682 3661,1702 3683,1724 3705,1746 3727,1770 3748,1795  3769,1820 3790,1846 3810,1873 3830,1901 3849,1929 3867,1957 3885,1986 3903,2016  3920,2045 3936,2075 3952,2106 3968,2138 3980,2164 3993,2191 4005,2219 4017,2247  4030,2277 4042,2309 4055,2341 4068,2376 4081,2412 4095,2451 4109,2491 4123,2534  4138,2579 4153,2626 4169,2676 4185,2727 4202,2781 4218,2835 4235,2890 4252,2945  4268,3000 4284,3052 4298,3102 4312,3148 4324,3190 4335,3226 4344,3257 4351,3282  4357,3301 4361,3315 4363,3323 4364,3328 4365,3330"
+       stroke="#000000"
+       stroke-width="15px"
+       stroke-linejoin="bevel"
+       id="polyline18" />
+    <!-- Line -->
+    <polyline
+       points=" 5760,1710 5763,1711 5770,1712 5782,1714 5799,1718 5823,1723  5852,1730 5884,1737 5919,1745 5955,1754 5990,1763 6025,1773 6057,1783 6088,1792  6116,1802 6143,1812 6167,1822 6190,1833 6211,1844 6232,1856 6251,1869 6270,1883  6286,1895 6301,1908 6317,1922 6333,1936 6348,1952 6364,1969 6380,1987 6396,2006  6412,2026 6429,2047 6445,2069 6462,2092 6478,2115 6494,2140 6510,2165 6526,2191  6542,2217 6558,2244 6573,2271 6588,2298 6603,2326 6618,2354 6632,2382 6647,2410  6661,2438 6675,2468 6688,2495 6702,2523 6716,2552 6730,2582 6744,2612 6759,2643  6774,2674 6790,2706 6806,2738 6823,2770 6840,2802 6857,2834 6875,2865 6893,2896  6912,2926 6930,2955 6949,2982 6967,3009 6986,3033 7005,3056 7024,3078 7042,3097  7061,3115 7080,3130 7098,3144 7117,3155 7136,3165 7155,3173 7176,3179 7197,3182  7219,3184 7242,3184 7265,3182 7289,3178 7314,3172 7340,3165 7367,3157 7394,3147  7422,3136 7450,3124 7479,3111 7509,3098 7538,3084 7567,3070 7597,3056 7626,3043  7655,3030 7684,3017 7713,3006 7741,2995 7769,2985 7797,2976 7825,2969 7853,2963  7880,2958 7909,2954 7937,2952 7966,2951 7996,2951 8026,2952 8057,2954 8088,2958  8120,2962 8152,2967 8184,2974 8215,2981 8247,2989 8278,2997 8309,3006 8339,3016  8369,3025 8397,3035 8425,3045 8451,3055 8477,3065 8501,3075 8524,3085 8546,3094  8567,3104 8588,3113 8613,3124 8637,3134 8660,3145 8682,3155 8704,3165 8727,3175  8749,3186 8773,3197 8796,3208 8821,3220 8845,3231 8868,3243 8891,3254 8910,3263  8927,3271 8940,3277 8948,3282 8953,3284 8955,3285"
+       stroke="#000000"
+       stroke-width="15px"
+       stroke-linejoin="bevel"
+       id="polyline20" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="1080"
+       y="1890"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text22">1</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="900"
+       y="990"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text24">RA</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2925"
+       y="4275"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="middle"
+       id="text26">Ïω</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="5355"
+       y="990"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text28">ɸ¸</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="7560"
+       y="4275"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="middle"
+       id="text30">ω</text>
+    <!-- Line -->
+    <rect
+       x="1305"
+       y="720"
+       width="3285"
+       height="3285"
+       stroke="#000000"
+       stroke-width="8px"
+       id="rect32" />
+  </g>
+</svg>

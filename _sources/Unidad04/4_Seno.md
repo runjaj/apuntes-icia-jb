@@ -1,4 +1,5 @@
 
+
 # Respuesta a una función sinusoidal
 
 +++
@@ -40,7 +41,53 @@ aumentar el desfase, aumenta el desfase.
 En el caso de que la frecuencia angular tienda a infinito, el desfase
 tiende a $\frac{\pi}{2}$, que es el desfase máximo.
 
-```python
-from sympy import *
+```{code-cell}
+using SymPy, Plots, LaTeXStrings
 
+t, Kp, M, w, Tp = symbols("t K_p M omega, tau_p", real=true)
+s = symbols("s")
+
+L(f) = sympy.laplace_transform(f, t, s, noconds=true)
+iL(f)  =sympy.inverse_laplace_transform(f, s, t)
+
+f = L(M*sin(w*t))
+G = Kp/(Tp*s+1)
+
+y = iL(G*f)
+```
+
+```{code-cell}
+y = sympy.trigsimp(
+    collect(
+        collect(
+            collect(
+                expand(
+                    cancel(
+                        simplify(
+                            expand(y)
+                            )
+                        )
+                    ), exp(t/Tp))
+            , Kp*M)
+        , w^2*Tp^2+1)
+)
+```
+
+```{figure} ./img/0.png
+---
+figclass: margin-caption
+align: left
+---
+Respuesta oscilatoria de un sistema de primer orden.
+```
+
+```{code-cell}
+#plotly()
+plot(y(Kp=>1, M=>1, Tp=>2, w=>1), -.5, 15, lw = 2,
+    xlabel = L"t", ylabel = L"y(t)", label="respuesta", legend = :bottomright)
+plot!(sin(t)*Heaviside(t), lw=2, label="entrada")
+plot!([5π/2, 5π/2, 8.9, 8.9], [.95, -.1, -.1, .4], color="green", label="")
+annotate!(8.4, -.2, Plots.text("Retraso", 10, :center))
+plot!([0, 3.5],[-.1, -.1], color="green", label="")
+annotate!(3.5/2, -.2, Plots.text("Transitorio", 10, :center))
 ```

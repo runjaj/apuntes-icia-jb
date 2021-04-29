@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="334pt"
+   height="409pt"
+   viewBox="2013 573 5289 6489"
+   version="1.1"
+   id="svg110"
+   sodipodi:docname="margenes.svg"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)">
+  <metadata
+     id="metadata116">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs114" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1015"
+     inkscape:window-height="777"
+     id="namedview112"
+     showgrid="false"
+     inkscape:zoom="0.93519593"
+     inkscape:cx="137.6049"
+     inkscape:cy="272.66667"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg110"
+     inkscape:document-rotation="0" />
+  <g
+     fill="none"
+     id="g108">
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="4902"
+       y="6975"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="middle"
+       id="text12">ω<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan120">(1)</tspan></text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="3375"
+       y="2640"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text14">ganancia</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="3330"
+       y="6165"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text16">Margen de</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="3330"
+       y="6420"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text18">fase</text>
+    <!-- Line -->
+    <rect
+       x="2655"
+       y="585"
+       width="4635"
+       height="3060"
+       stroke="#000000"
+       stroke-width="8px"
+       id="rect20" />
+    <!-- Line -->
+    <rect
+       x="2655"
+       y="3645"
+       width="4635"
+       height="3060"
+       stroke="#000000"
+       stroke-width="8px"
+       id="rect22" />
+    <!-- Line -->
+    <defs
+       id="defs27">
+      <clipPath
+         id="cp0">
+        <path
+           clip-rule="evenodd"
+           d="M 2013,573 H 7302 V 7062 H 2013 z   M 2792,2100 2672,2070 2792,2040 2648,2063 2648,2077z"
+           id="path24" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 5580,5895 5580,2070 2655,2070"
+       clip-path="url(#cp0)"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40 40"
+       id="polyline29" />
+    <!-- Forward arrow to point 2655,2070 -->
+    <polyline
+       points=" 2792,2100 2672,2070 2792,2040"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline31" />
+    <!-- Line -->
+    <defs
+       id="defs36">
+      <clipPath
+         id="cp1">
+        <path
+           clip-rule="evenodd"
+           d="M 2013,573 H 7302 V 7062 H 2013 z   M 5610,6568 5580,6688 5550,6568 5573,6712 5587,6712z"
+           id="path33" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 2655,5850 5580,5850 5580,6705"
+       clip-path="url(#cp1)"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40 40"
+       id="polyline38" />
+    <!-- Forward arrow to point 5580,6705 -->
+    <polyline
+       points=" 5610,6568 5580,6688 5550,6568"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline40" />
+    <!-- Line -->
+    <defs
+       id="defs45">
+      <clipPath
+         id="cp2">
+        <path
+           clip-rule="evenodd"
+           d="M 2013,573 H 7302 V 7062 H 2013 z   M 2792,1650 2672,1620 2792,1590 2648,1613 2648,1627z"
+           id="path42" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 2655,5175 4905,5175 4905,1620 2655,1620"
+       clip-path="url(#cp2)"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40 40"
+       id="polyline47" />
+    <!-- Forward arrow to point 2655,1620 -->
+    <polyline
+       points=" 2792,1650 2672,1620 2792,1590"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline49" />
+    <!-- Line -->
+    <defs
+       id="defs54">
+      <clipPath
+         id="cp3">
+        <path
+           clip-rule="evenodd"
+           d="M 2013,573 H 7302 V 7062 H 2013 z   M 3630,1933 3600,2053 3570,1933 3593,2077 3607,2077z   M 3570,1757 3600,1637 3630,1757 3607,1613 3593,1613z"
+           id="path51" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 3600,1620 3600,2070"
+       clip-path="url(#cp3)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline56" />
+    <!-- Forward arrow to point 3600,2070 -->
+    <polyline
+       points=" 3630,1933 3600,2053 3570,1933"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline58" />
+    <!-- Backward arrow to point 3600,1620 -->
+    <polyline
+       points=" 3570,1757 3600,1637 3630,1757"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline60" />
+    <!-- Line -->
+    <defs
+       id="defs65">
+      <clipPath
+         id="cp4">
+        <path
+           clip-rule="evenodd"
+           d="M 2013,573 H 7302 V 7062 H 2013 z   M 3630,5713 3600,5833 3570,5713 3593,5857 3607,5857z   M 3570,5312 3600,5192 3630,5312 3607,5168 3593,5168z"
+           id="path62" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 3600,5175 3600,5850"
+       clip-path="url(#cp4)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline67" />
+    <!-- Forward arrow to point 3600,5850 -->
+    <polyline
+       points=" 3630,5713 3600,5833 3570,5713"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline69" />
+    <!-- Backward arrow to point 3600,5175 -->
+    <polyline
+       points=" 3570,5312 3600,5192 3630,5312"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline71" />
+    <!-- Line -->
+    <defs
+       id="defs76">
+      <clipPath
+         id="cp5">
+        <path
+           clip-rule="evenodd"
+           d="M 2013,573 H 7302 V 7062 H 2013 z   M 4929,6561 4899,6681 4869,6561 4892,6705 4906,6705z   M 3570,5312 3600,5192 3630,5312 3607,5168 3593,5168z"
+           id="path73" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 4899,5163 4899,6698"
+       clip-path="url(#cp5)"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40 40"
+       id="polyline78" />
+    <!-- Forward arrow to point 4899,6698 -->
+    <polyline
+       points=" 4929,6561 4899,6681 4869,6561"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline80" />
+    <!-- Line -->
+    <polyline
+       points=" 2970,4230 2972,4230 2977,4231 2987,4231 3002,4233 3023,4234  3050,4237 3084,4240 3123,4244 3169,4248 3220,4253 3274,4258 3331,4264 3390,4270  3450,4277 3510,4284 3569,4291 3627,4299 3682,4306 3736,4314 3787,4321 3835,4329  3881,4337 3924,4346 3964,4354 4003,4363 4039,4372 4073,4381 4105,4391 4135,4401  4164,4412 4192,4423 4219,4435 4245,4448 4273,4462 4301,4478 4328,4494 4354,4512  4380,4530 4406,4550 4431,4570 4455,4591 4479,4613 4503,4637 4527,4660 4550,4685  4573,4711 4595,4737 4617,4763 4639,4790 4660,4817 4681,4845 4701,4872 4720,4899  4739,4927 4758,4954 4776,4981 4794,5007 4812,5033 4829,5059 4846,5085 4863,5110  4880,5135 4898,5160 4915,5185 4932,5209 4951,5234 4969,5259 4988,5285 5008,5310  5029,5336 5050,5361 5072,5388 5094,5414 5118,5440 5142,5466 5166,5492 5191,5518  5217,5544 5244,5569 5270,5594 5297,5619 5325,5643 5353,5666 5381,5688 5409,5710  5437,5731 5465,5751 5494,5771 5523,5790 5551,5808 5581,5825 5610,5841 5640,5858  5667,5871 5695,5885 5723,5898 5752,5911 5782,5923 5814,5936 5847,5948 5882,5960  5919,5973 5958,5985 5998,5998 6041,6011 6087,6024 6134,6037 6184,6051 6236,6064  6289,6078 6344,6092 6399,6106 6455,6119 6509,6133 6562,6145 6612,6157 6658,6168  6700,6178 6736,6186 6767,6193 6792,6199 6811,6203 6825,6207 6833,6208 6838,6210  6840,6210"
+       stroke="#000000"
+       stroke-width="15px"
+       stroke-linejoin="bevel"
+       id="polyline82" />
+    <!-- Line -->
+    <polyline
+       points=" 3195,1080 3197,1080 3200,1081 3207,1083 3218,1086 3234,1091  3255,1096 3281,1104 3313,1113 3351,1123 3394,1135 3442,1149 3494,1164 3551,1180  3611,1197 3673,1215 3737,1233 3802,1252 3867,1271 3932,1291 3997,1310 4060,1329  4122,1348 4182,1366 4240,1385 4296,1403 4350,1420 4402,1437 4452,1454 4500,1470  4545,1486 4589,1502 4632,1518 4672,1533 4711,1548 4749,1564 4786,1579 4822,1594  4857,1610 4891,1626 4924,1641 4958,1658 4994,1676 5029,1694 5065,1713 5100,1732  5136,1752 5171,1772 5206,1793 5241,1814 5276,1836 5311,1858 5346,1880 5381,1903  5416,1927 5451,1951 5485,1975 5520,1999 5554,2024 5588,2049 5622,2074 5655,2099  5687,2124 5719,2149 5751,2174 5782,2199 5812,2224 5842,2248 5871,2272 5900,2296  5927,2319 5954,2342 5981,2365 6006,2387 6032,2409 6056,2430 6080,2451 6104,2472  6127,2492 6150,2513 6177,2536 6204,2560 6230,2583 6257,2607 6284,2630 6311,2654  6338,2679 6367,2704 6396,2729 6426,2756 6458,2784 6490,2812 6524,2842 6559,2873  6595,2904 6631,2937 6669,2970 6706,3003 6743,3035 6779,3067 6814,3098 6846,3126  6875,3152 6901,3175 6923,3194 6941,3210 6954,3222 6964,3230 6970,3236 6974,3239  6975,3240"
+       stroke="#000000"
+       stroke-width="15px"
+       stroke-linejoin="bevel"
+       id="polyline84" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2475"
+       y="5940"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="end"
+       id="text86">-180º</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2205"
+       y="900"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text88">RA</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="5580"
+       y="6975"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="middle"
+       id="text92">ω<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan118">co</tspan></text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="6840"
+       y="6975"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text94">ω</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2565"
+       y="2160"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="end"
+       id="text96">M</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2565"
+       y="1710"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="end"
+       id="text98">1.0</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2205"
+       y="4095"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text100">ɸ</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2565"
+       y="5265"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="end"
+       id="text104">ɸ<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan122">(1)</tspan></text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="3375"
+       y="2385"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text106">Margen de</text>
+  </g>
+</svg>

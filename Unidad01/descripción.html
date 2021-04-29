@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -95,7 +94,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Teoría
  </span>
@@ -195,7 +194,7 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Unidad04/unidad04.html">
-   4. Sistemas lineales de primer orde
+   4. Sistemas lineales de primer orden
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
@@ -222,8 +221,37 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/unidad05.html">
+   5. Sistemas lineales de segundo orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/1_Definicion.html">
+     5.1. Definición de sistema de segundo orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/2_Escalon.html">
+     5.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/3_Linealizacion.html">
+     5.3. Linealización
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/4_Retrasos.html">
+     5.4. Retrasos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Problemas resueltos
  </span>
@@ -307,6 +335,11 @@
    Tema 4
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad05/problemas05.html">
+   Problemas
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -379,15 +412,13 @@
         
               <div>
                 
-  <section id="descripcion-cualitativa-de-un-ejemplo-de-proceso-alimentario-y-sus-sistemas-de-control">
+  <div class="section" id="descripcion-cualitativa-de-un-ejemplo-de-proceso-alimentario-y-sus-sistemas-de-control">
 <span id="descripcion"></span><h1><span class="section-number">1.3. </span>Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control<a class="headerlink" href="#descripcion-cualitativa-de-un-ejemplo-de-proceso-alimentario-y-sus-sistemas-de-control" title="Permalink to this headline">¶</a></h1>
 <p>Una planta de pasteurización es un buen ejemplo de procesos alimentario.</p>
-<figure class="align-default" id="id1">
+<div class="figure align-default" id="id1">
 <img alt="../_images/lactea.png" class="full-width" src="../_images/lactea.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Esquema de una planta de pasteurización. 1. Depósito regulador. 2. Pasteurizador de la leche. 3. Depósito de retención. 4. Centrífuga desnatadora. 5. Válvula modulante. 6. Homogeneizador. 7. Densímetro. 8. Pasteurizador de la nata. 9. Panel de estandarización.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Esquema de una planta de pasteurización. 1. Depósito regulador. 2. Pasteurizador de la leche. 3. Depósito de retención. 4. Centrífuga desnatadora. 5. Válvula modulante. 6. Homogeneizador. 7. Densímetro. 8. Pasteurizador de la nata. 9. Panel de estandarización.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <p>Cumple los requerimientos de todo proceso:</p>
 <ol class="simple">
 <li><p><em>Seguridad</em>: Se deben minimizar los riegos del proceso. Para el
@@ -404,12 +435,10 @@ obtención de vapor.</p></li>
 <p>Como ejemplos de magnitudes a controlar en el proceso se encuentra el
 nivel de los depósitos, caudales, porcentaje de la materia grasa de la
 leche, temperaturas de salida de los intercambiadores de calor.</p>
-<figure class="margin-caption align-default" id="id2">
+<div class="margin-caption figure align-default" id="id2">
 <a class="reference internal image-reference" href="../_images/control_T_leche.svg"><img alt="../_images/control_T_leche.svg" src="../_images/control_T_leche.svg" width="600px" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Esquema del sistema de control de temperatura de un pasteurizador de leche.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Esquema del sistema de control de temperatura de un pasteurizador de leche.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <p>El sistema de control debe cumplir los objetivos propuestos:</p>
 <ol class="simple">
 <li><p>Suprimir la influencia de perturbaciones (cambios en las variables
@@ -442,7 +471,7 @@ medición <em>in-line</em> para las magnitudes anteriores.</p>
 alimentos va adoptando soluciones tecnológicas desarrolladas para otro
 tipo de industrias. También va desarrollando nuevas soluciones que se
 adapten a sus características, como puede ser sensores adecuados.</p>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {

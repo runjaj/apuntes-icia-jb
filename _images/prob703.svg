@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="389.08887pt"
+   height="228.5639pt"
+   viewBox="615 1005 6175.1175 3627.2515"
+   version="1.1"
+   id="svg89"
+   sodipodi:docname="prob703.svg"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)">
+  <metadata
+     id="metadata95">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs93" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="725"
+     inkscape:window-height="480"
+     id="namedview91"
+     showgrid="false"
+     inkscape:zoom="0.89038917"
+     inkscape:cx="250.92407"
+     inkscape:cy="146.51792"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg89" />
+  <g
+     fill="none"
+     id="g87"
+     transform="translate(-20.742187,-144.60699)">
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="5130"
+       y="2700"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="240px"
+       text-anchor="start"
+       id="text10">PI</text>
+    <!-- Line -->
+    <polyline
+       points=" 5040,4455 5040,4770 5580,4455 5580,4770 5040,4455"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline12" />
+    <!-- Line -->
+    <polyline
+       points=" 5130,4230 5490,4230"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline14" />
+    <!-- Line -->
+    <polyline
+       points=" 5130,4230 5132,4227 5136,4222 5142,4213 5151,4201 5162,4187  5175,4171 5189,4155 5205,4140 5222,4126 5240,4114 5261,4104 5285,4098 5310,4095  5335,4098 5359,4104 5380,4114 5398,4126 5415,4140 5431,4155 5445,4171 5458,4187  5469,4201 5478,4213 5484,4222 5488,4227 5490,4230"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-linejoin="bevel"
+       id="polyline16" />
+    <!-- Line -->
+    <polyline
+       points=" 1755,1665 1755,4590 4050,4590 4050,1665"
+       stroke="#000000"
+       stroke-width="30px"
+       id="polyline18" />
+    <!-- Line -->
+    <polyline
+       points=" 1755,2340 4050,2340"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline20" />
+    <!-- Line -->
+    <defs
+       id="defs25">
+      <clipPath
+         id="cp0">
+        <path
+           clip-rule="evenodd"
+           d="M 615,1005 H 6630 V 4782 H 615 Z m 1935,748 -30,120 -30,-120 23,144 h 14 z"
+           id="path22" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 1035,1170 2520,1170 2520,1890"
+       clip-path="url(#cp0)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline27" />
+    <!-- Forward arrow to point 2520,1890 -->
+    <polyline
+       points=" 2550,1753 2520,1873 2490,1753"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline29" />
+    <!-- Line -->
+    <polyline
+       points=" 4095,4590 5040,4590"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline31" />
+    <!-- Line -->
+    <defs
+       id="defs36">
+      <clipPath
+         id="cp1">
+        <path
+           clip-rule="evenodd"
+           d="M 615,1005 H 6630 V 4782 H 615 Z m 5683,3555 120,30 -120,30 144,-23 v -14 z"
+           id="path33" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 5580,4590 6435,4590"
+       clip-path="url(#cp1)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline38" />
+    <!-- Forward arrow to point 6435,4590 -->
+    <polyline
+       points=" 6298,4560 6418,4590 6298,4620"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline40" />
+    <!-- Line -->
+    <polyline
+       points=" 4050,2160 4275,2160 4275,4095 4050,4095"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline42" />
+    <!-- Line -->
+    <defs
+       id="defs47">
+      <clipPath
+         id="cp2">
+        <path
+           clip-rule="evenodd"
+           d="M 615,1005 H 6630 V 4782 H 615 Z m 3973,1575 120,30 -120,30 144,-23 v -14 z"
+           id="path44" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 4275,2610 4725,2610"
+       clip-path="url(#cp2)"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40, 40"
+       id="polyline49" />
+    <!-- Forward arrow to point 4725,2610 -->
+    <polyline
+       points=" 4588,2580 4708,2610 4588,2640"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline51" />
+    <!-- Line -->
+    <rect
+       x="4725"
+       y="2250"
+       width="1035"
+       height="675"
+       stroke="#000000"
+       stroke-width="8px"
+       id="rect53" />
+    <!-- Line -->
+    <defs
+       id="defs58">
+      <clipPath
+         id="cp3">
+        <path
+           clip-rule="evenodd"
+           d="M 615,1005 H 6630 V 4782 H 615 Z m 2655,3448 -30,120 -30,-120 23,144 h 14 z m -60,-1976 30,-120 30,120 -23,-144 h -14 z"
+           id="path55" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 3240,2340 3240,4590"
+       clip-path="url(#cp3)"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40, 40"
+       id="polyline60" />
+    <!-- Forward arrow to point 3240,4590 -->
+    <polyline
+       points=" 3270,4453 3240,4573 3210,4453"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline62" />
+    <!-- Backward arrow to point 3240,2340 -->
+    <polyline
+       points=" 3210,2477 3240,2357 3270,2477"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline64" />
+    <!-- Line -->
+    <defs
+       id="defs69">
+      <clipPath
+         id="cp4">
+        <path
+           clip-rule="evenodd"
+           d="M 615,1005 H 6630 V 4782 H 615 Z m 2655,3448 -30,120 -30,-120 23,144 h 14 z m 2070,-495 -30,120 -30,-120 23,144 h 14 z"
+           id="path66" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 5310,4095 5310,2925"
+       clip-path="url(#cp4)"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40, 40"
+       id="polyline71" />
+    <!-- Backward arrow to point 5310,4095 -->
+    <polyline
+       points=" 5340,3958 5310,4078 5280,3958"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline73" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2880"
+       y="3600"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="240px"
+       text-anchor="start"
+       id="text75">h</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="630"
+       y="1260"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="240px"
+       text-anchor="start"
+       id="text79">q<tspan
+   font-size="160px"
+   baseline-shift="sub"
+   id="tspan77">1</tspan></text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="6615"
+       y="4635"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="240px"
+       text-anchor="start"
+       id="text83">q<tspan
+   font-size="160px"
+   baseline-shift="sub"
+   id="tspan81">2</tspan></text>
+    <!-- Line -->
+    <polyline
+       points=" 5310,4635 5310,4230"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline85" />
+  </g>
+</svg>

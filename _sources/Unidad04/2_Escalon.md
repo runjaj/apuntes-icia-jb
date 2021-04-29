@@ -7,9 +7,9 @@ jupytext:
     format_version: 0.12
     jupytext_version: 1.8.2
 kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
+  display_name: Julia 1.6.0
+  language: julia
+  name: julia-1.6
 ---
 
 # Respuesta a una entrada en escalón
@@ -24,43 +24,62 @@ $$y (s) = \frac{A}{s}  \frac{K_p}{\tau_p s + 1}$$
 En tiempo real, invirtiendo las transformadas de Laplace, se obtiene:
 
 $$\label{ec:primer orden real} y (t) = A K_p  \left( 1 - \mathrm{e}^{-
-  \frac{t}{\tau_p}} \right)$$ 
+  \frac{t}{\tau_p}} \right)$$
   
+Podemos reproducir este cálculo utilizando Sympy. Como es habitual, empezamos definiendo las variables necesarias y cargando las librerías que vamos a utilizar:
 
-```{code-cell} ipython3
-from sympy import *
-init_printing()
+```{code-cell}
+using SymPy, Plots, Markdown, LaTeXStrings, Printf
 
 # Definimos las variables de nuestro sistema
 t, A, Kp = symbols("t A K_p", real=True)
+
 # Especificamos que la constante de tiempo es siempre positiva
-Tp = symbols('tau_p', positive=True)
-s = symbols('s')
-
-G = Kp/(Tp*s + 1)
-print("Función de transferencia del proceso, G(s) = ")
-display(G)
-
-f = A/s
-print("Función de entrada, f(s) = ")
-display(f)
-
-y_s = G*f
-print("Respuesta del proceso, y(s) = ")
-display(y_s)
-
-y = inverse_laplace_transform(G*f, s, t)
-print("Respuesta del proceso, y(t) =")
-display(y)
+τp = symbols("tau_p", positive=True)
+s = symbols("s");
 ```
 
-Representando la función en coordenadas adimensionales, $\frac{y (t)}{A K_p}$ frente $\frac{t}{\tau_p}$, se obtiene la típica salida de un sistema de primer orden:
+Definición de la función de transferencia del proceso, $G(s)$:
 
-```{code-cell} ipython3
-yplot = y.subs(A, 1).subs(Kp,1).subs(Tp,1)
+```{code-cell}
+G = Kp/(τp*s + 1)
+```
 
-plot(yplot, (t, 0, 5), 
-     ylabel=r'$\frac{y(t)}{A K_p}$', xlabel=r'$\frac{t}{\tau_p}$');
+La función de entrada es un escalón de altura $A$, $f(s)$:
+
+```{code-cell}
+f = A/s
+```
+
+Por lo tanto, la respuesta del proceso $y(s)$ es:
+
+```{code-cell}
+y_s = G*f
+```
+
+Realizando la transformada inversa de Laplace de $y(s)$ obtenemos la respuesta del proceso en tiempo real, $y(t)$:
+
+```{code-cell}
+y = sympy.inverse_laplace_transform(y_s, s, t)
+```
+
+Representando la función en coordenadas adimensionales, $\frac{y(t)}{A K_p}$ frente a $\frac{t}{\tau_p}$, se obtiene la típica salida de un sistema de primer orden:
+
+```{code-cell}
+plot(y(A=>1, Kp=>1, τp=>1), xlim=(0,5),
+    ylabel=L"$\frac{y(t)}{A K_p}$", xlabel=L"$\frac{t}{\tau_p}$",
+    label="", lw=2)
+hline!([1], lw=2, label="")
+```
+
+```{raw-cell}
+
+---
+align: center
+name: stepfop-fig
+figclass: margin-caption
+---
+Representación de un sistema de primer orden a una entrada en escalón de altura $A$.
 ```
 
 ## Propiedades de un sistema de primer orden
@@ -100,11 +119,13 @@ Evaluando al ecuación [\[ec:primer orden real\]](#ec:primer orden real){referen
     
 El cálculo de estos valores es muy sencillo:
 
-```{code-cell} ipython3
+```{code-cell}
 # Calculamos los valores de y(t) para 0, 1, 2, 3 y 4
-for tt in range(5):
+for τ ∈ 1:4
     # Mostramos los valores expresados como %
-    print('%4.1f' % (N(yplot.subs(t, tt))*100))
+    output = y(A=>1, Kp=>1, τp=>1, t=>τ)*100
+    @printf "%.1f" output
+end
 ```
 
 Transcurrido cuatro veces la constante de tiempo del proceso se puede asegurar que ha llegado el sistema al nuevo estado estacionario.
@@ -115,9 +136,9 @@ La salida del proceso en el nuevo estado estacionario es:
 
 $$\lim_{t \to \infty} y (t) = A K_p$$
 
-Podemos comprobar 
+Podemos comprobar
 
-```{code-cell} ipython3
+```{code-cell}
 limit(y, t, oo)
 ```
 

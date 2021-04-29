@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2.2. Algo de instrumentación &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -97,7 +96,7 @@
   </a>
  </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Teoría
  </span>
@@ -109,22 +108,22 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../Unidad01/historia.html">
+    <a class="reference internal" href="../Unidad01/1_historia.html">
      1.1. Breve historia del control de procesos
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Unidad01/contexto.html">
+    <a class="reference internal" href="../Unidad01/2_contexto.html">
      1.2. Contexto de la disciplina
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Unidad01/descripci%C3%B3n.html">
+    <a class="reference internal" href="../Unidad01/3_descripci%C3%B3n.html">
      1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Unidad01/conceptos.html">
+    <a class="reference internal" href="../Unidad01/4_conceptos.html">
      1.4. Conceptos generales
     </a>
    </li>
@@ -197,7 +196,7 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Unidad04/unidad04.html">
-   4. Sistemas lineales de primer orde
+   4. Sistemas lineales de primer orden
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
@@ -224,8 +223,37 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/unidad05.html">
+   5. Sistemas lineales de segundo orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/1_Definicion.html">
+     5.1. Definición de sistema de segundo orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/2_Escalon.html">
+     5.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/3_Linealizacion.html">
+     5.3. Linealización
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/4_Retrasos.html">
+     5.4. Retrasos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-<p>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Problemas resueltos
  </span>
@@ -307,6 +335,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../Unidad04/problemas04.html">
    Tema 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad05/problemas05.html">
+   Problemas
   </a>
  </li>
 </ul>
@@ -417,9 +450,9 @@
         
               <div>
                 
-  <section id="algo-de-instrumentacion">
+  <div class="section" id="algo-de-instrumentacion">
 <h1><span class="section-number">2.2. </span>Algo de instrumentación<a class="headerlink" href="#algo-de-instrumentacion" title="Permalink to this headline">¶</a></h1>
-<section id="dispositivos-de-medida-sensores">
+<div class="section" id="dispositivos-de-medida-sensores">
 <h2><span class="section-number">2.2.1. </span>Dispositivos de medida (sensores)<a class="headerlink" href="#dispositivos-de-medida-sensores" title="Permalink to this headline">¶</a></h2>
 <p>Para el correcto funcionamiento de un sistema de control es
 imprescindible una buena medida de la variable controlada y unas líneas
@@ -441,7 +474,7 @@ sensores.</p>
 </table>
 <p>A continuación se comenta con un poco de detalle cuatro de los
 dispositivos de medida más utilizados en la industria de procesos.</p>
-<section id="medidores-de-caudal">
+<div class="section" id="medidores-de-caudal">
 <h3><span class="section-number">2.2.1.1. </span>Medidores de caudal<a class="headerlink" href="#medidores-de-caudal" title="Permalink to this headline">¶</a></h3>
 <p>Los medidores de caudal más utilizados en la industria son aquellos que
 miden una diferencia de presión en el fluido al pasar por un elemento en
@@ -459,8 +492,8 @@ normalmente pueden ser modeladas con las siguiente ecuación algebráica:</p>
 <p>donde
 <span class="math notranslate nohighlight">\(\alpha\)</span> es una constante característica del medidor de caudal y
 <span class="math notranslate nohighlight">\(\Delta P\)</span> es la diferencia de presión.</p>
-</section>
-<section id="sensores-de-temperatura">
+</div>
+<div class="section" id="sensores-de-temperatura">
 <h3><span class="section-number">2.2.1.2. </span>Sensores de temperatura<a class="headerlink" href="#sensores-de-temperatura" title="Permalink to this headline">¶</a></h3>
 <p>Los más comunes son aquellos que miden la temperatura como una señal
 eléctrica. Entre ellos cabe destacar los termopares. Independientemente
@@ -470,9 +503,9 @@ temperatura siempre se encuentra en el interior de una vaina de metal.
 Los termopares pueden ser modelados siguiendo sistemas de primer orden o
 sistemas de segundo orden sobreamortiguados dependiendo de como estén
 construidos y de los materiales utilizados.</p>
-</section>
-</section>
-<section id="lineas-de-transmision">
+</div>
+</div>
+<div class="section" id="lineas-de-transmision">
 <h2><span class="section-number">2.2.2. </span>Líneas de transmisión<a class="headerlink" href="#lineas-de-transmision" title="Permalink to this headline">¶</a></h2>
 <p>En el caso de utilizar líneas de transmisión neumática muy largas puede
 ser que su efecto sobre la dinámica global del sistema no sea
@@ -484,8 +517,8 @@ la siguiente función de transferencia:</p>
 la presión de salida de la línea de transmisión neumática, <span class="math notranslate nohighlight">\(P_i\)</span> es la
 presión de entrada y <span class="math notranslate nohighlight">\(\tau_d / \tau_p \approx
 0.25\)</span>.</p>
-</section>
-<section id="elementos-finales-de-control">
+</div>
+<div class="section" id="elementos-finales-de-control">
 <h2><span class="section-number">2.2.3. </span>Elementos finales de control<a class="headerlink" href="#elementos-finales-de-control" title="Permalink to this headline">¶</a></h2>
 <p>El elemento final de control más común es la válvula. El sistema de
 control cambia la posición del émbolo ya sea utilizando aire comprimido,
@@ -508,8 +541,8 @@ que depende del tamaño de la válvula, <span class="math notranslate nohighligh
 <p>Otros elementos finales de control pueden ser motores de velocidad
 variable para ventiladores o bombas, la puesta en marcha o apagado de
 equipos, sistemas electrohidráulicos, etc.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

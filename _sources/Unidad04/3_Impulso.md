@@ -1,4 +1,4 @@
-<!-- #region -->
+
 # Respuesta a una función impulso
 
 +++
@@ -11,18 +11,20 @@ que en tiempo real es:
 
 
 $$y (t) = \frac{K_p A}{\tau_p} \mathrm{e}^{- \frac{t}{\tau_p}}$$
-<!-- #endregion -->
 
-```python
-from sympy import *
+Como en el caso de una entrada en escalón, podemos reproducir con Sympy el cálculo de la respuesta de un proceso de primer orden a una entrada en escalón:
+
+```{code-cell}
+using SymPy, Plots, LaTeXStrings
+
 t, Kp, A = symbols("t K_p A", real=True)
-Tp = symbols('tau_p', positive=True)
-s = symbols('s')
+τp = symbols("tau_p", positive=True)
+s = symbols("s")
 
 f = A
-G = Kp/(Tp*s + 1)
+G = Kp/(τp*s + 1)
 
-y = inverse_laplace_transform(G*f, s, t)
+y = sympy.inverse_laplace_transform(G*f, s, t)
 y
 ```
 
@@ -30,19 +32,20 @@ De forma adimensional se puede escribir:
 
 $$\frac{y (t)}{K_p A} = \mathrm{e}^{- \frac{t}{\tau_p}}$$
 
-se obtiene la función simétrica a la respuesta a una entrada en escalón, lo que
+```{code-cell}
+plot(y(A=>1, Kp=>1, τp=>1), xlimit = (-1, 5), lw = 2,
+    label = "", xlabel = L"\frac{t}{\tau_p}",
+    ylabel = L"\frac{y(t)}{K_p A}")
+```
+
+Se obtiene la función simétrica a la respuesta a una entrada en escalón, lo que
 implica que tiene las mismas características.
 
-```python
-y_imp = inverse_laplace_transform(G*f, s, t).subs({A:1, Kp:1, Tp: 1})
+```{code-cell}
+y_imp = subs(sympy.inverse_laplace_transform(G*f, s, t), A => 1, Kp => 1, τp => 1)
 
-y_esc = inverse_laplace_transform(G*A/s, s, t).subs({A:1, Kp:1, Tp: 1})
-```
+y_esc = subs(sympy.inverse_laplace_transform(G*A/s, s, t), A => 1, Kp => 1, τp => 1)
 
-```python
-plot(y_imp, y_esc, (t, -1, 5));
-```
-
-```python
-
+plot(y_imp, -1, 5, lw = 2, label="Impulso", legend=:bottomright, xlabel=L"t", ylabel=L"y")
+plot!(y_esc, lw = 2, label = "Escalón")
 ```

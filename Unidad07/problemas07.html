@@ -1,0 +1,1048 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tema 7 &#8212; Control de procesos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tema 8" href="../Unidad08/problemas08.html" />
+    <link rel="prev" title="Problema 6.5" href="../Unidad06/prob605.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/M-UdL2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Control de procesos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Presentación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Teoría
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/unidad01.html">
+   1. Introducción
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/1_historia.html">
+     1.1. Breve historia del control de procesos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/2_contexto.html">
+     1.2. Contexto de la disciplina
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/3_descripci%C3%B3n.html">
+     1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/4_conceptos.html">
+     1.4. Conceptos generales
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad02/unidad02.html">
+   2. Instrumentación industrial
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/1_definiciones.html">
+     2.1. Algunas definiciones de instrumentación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/2_instrumentacion.html">
+     2.2. Algo de instrumentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/unidad03.html">
+   3. Cómo abordar la dinámica de un sistema
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/1_ejemplo_dinamica.html">
+     3.1. Un ejemplo de dinámica de un sistema. ¿Qué se desea conocer?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/2_transformada.html">
+     3.2. La transformada de Laplace como herramienta útil
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/3_funcion_transferencia.html">
+     3.3. La función de transferencia. Álgebra de funciones de transferencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/4_funciones_singulares.html">
+     3.4. Transformadas de algunas funciones singulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/5_inversion.html">
+     3.5. Inversión de transformadas. De vuelta al tiempo real
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/6_expansion.html">
+     3.6. Expansión en fracciones parciales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/7_tablas_transformadas.html">
+     3.7. Transformadas de Laplace
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/unidad05.html">
+   5. Sistemas lineales de segundo orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/1_Definicion.html">
+     5.1. Definición de sistema de segundo orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/2_Escalon.html">
+     5.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/3_Linealizacion.html">
+     5.3. Linealización
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/4_Retrasos.html">
+     5.4. Retrasos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/unidad06.html">
+   6. Acciones de control
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/1_Descripcion.html">
+     6.1. Descripción de un bucle de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/2_Control_P.html">
+     6.2. Control proporcional (P)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/3_Control_PI.html">
+     6.3. Control Proporcional + Integral (PI)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/4_Control_PD.html">
+     6.4. Control Proporcional + Derivativo (PD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/5_Control_PID.html">
+     6.5. Control Proporcional + Integral + Derivativo (PID)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="unidad07.html">
+   7. Control por retroalimentación de sistemas lineales
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Accion_P.html">
+     7.1. Acción de control proporcional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Accion_I.html">
+     7.2. Acción de control integral
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Accion_D.html">
+     7.3. Acción de control derivativa
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Acciones_combinadas.html">
+     7.4. Acciones de control combinadas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Influencia_retrasos.html">
+     7.5. Influencia de los retrasos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Intro_dise%C3%B1o.html">
+     7.6. Introducción al diseño de sistemas de control por retroalimentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad08/unidad08.html">
+   8. Análisis de estabilidad de sistemas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/1_Definicion_estabilidad.html">
+     8.1. Definición de estabilidad. Ecuación característica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/2_Routh_Hurvitz.html">
+     8.2. Método de Routh-Hurvitz
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/3_Lugar_raices.html">
+     8.3. Método del lugar de las raíces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/4_Diagramas_Bode.html">
+     8.4. Análisis armónico de sistemas lineales. Diagramas de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/5_Bode.html">
+     8.5. Criterio de estabilidad de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/6_Nyquist.html">
+     8.6. Criterio de estabilidad de Nyquist
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas resueltos
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/problemas01.html">
+   Tema 1
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob101.html">
+     Problema 1.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob102.html">
+     Problema 1.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob104.html">
+     Problema 1.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/problemas03.html">
+   Tema 3
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob301.html">
+     Problema 3.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob302.html">
+     Problema 3.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob303.html">
+     Problema 3.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob304.html">
+     Problema 3.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob305.html">
+     Problema 3.5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob306.html">
+     Problema 3.6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob307.html">
+     Problema 3.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob308.html">
+     Problema 3.8
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob401.html">
+     Problema 4.01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob403.html">
+     Problema 4.03
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/problemas05.html">
+   Tema 5
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/prob504.html">
+     Problema 5.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/problemas06.html">
+   Tema 6
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob602.html">
+     Problema 6.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob603.html">
+     Problema 6.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob604.html">
+     Problema 6.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob605.html">
+     Problema 6.5
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Tema 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unidad08/problemas08.html">
+   Tema 8
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unidad07/problemas07.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/runjaj/apuntes-icia-jb/master?urlpath=tree/Unidad07/problemas07.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tema-7">
+<h1>Tema 7<a class="headerlink" href="#tema-7" title="Permalink to this headline">¶</a></h1>
+<style type="text/css">
+    ol { list-style-type: lower-alpha; }
+</style>
+<p><strong>Problema 7.1</strong></p>
+<p>La localización de un cambio de carga en un lazo de control puede afectar a la respuesta del sistema. En el diagrama de bloques adjunto se produce un cambio en escalón unidad en la posición 1 ó 2.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InLineBackend.figure_format = &#39;svg&#39;
+<span class="kn">import</span> <span class="nn">schemdraw</span>
+<span class="kn">from</span> <span class="nn">schemdraw</span> <span class="kn">import</span> <span class="n">dsp</span>
+
+<span class="n">hbox</span> <span class="o">=</span> <span class="mf">1.25</span>
+<span class="n">wbox</span> <span class="o">=</span> <span class="mf">1.75</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$R$&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">sum1</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">cont</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$K_c=5$&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">cont</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">sum2</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span> 
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$U_1$&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum2</span><span class="o">.</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum2</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">proc1</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{2}</span><span class="s1">{2s+1}$&#39;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proc1</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">sum3</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span> 
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$U_2$&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum3</span><span class="o">.</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum3</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">proc2</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\frac</span><span class="si">{1}</span><span class="s1">{2s+1}$&#39;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proc2</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">dot</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">dot</span><span class="o">.</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$C$&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">dot</span><span class="o">.</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">hbox</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./img/prob701.svg&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/problemas07_1_0.svg" src="../_images/problemas07_1_0.svg" /></div>
+</div>
+<ol class="simple">
+<li><p>¿Cuál es la frecuencia del estado transitorio si la variación se produce en la posición 1? ¿Y si es en la 2?</p></li>
+<li><p>¿Cuánto valdrá el <em>offset</em> en cada caso? Suponer un escalón unidad.</p></li>
+</ol>
+<p><strong>Problema 7.2</strong></p>
+<p>Para controlar un sistema de primer orden se utiliza un controlador PD con un elemento de medida cuya dinámica también es de primer orden.</p>
+<ol class="simple">
+<li><p>Determinar las expresiones de la constante de tiempo y el coeficiente de amortiguamiento para el sis- tema de lazo cerrado</p></li>
+<li><p>Si τp = 1 min y τm = 10s, calcular Kc para que el coeficiente de amortiguamiento sea 0.7 en los siguientes supuestos: (1) τd = 0 y (2) τd = 3 s.</p></li>
+<li><p>Comparar, para las dos situaciones del apartado b) el offset y el periodo, y comentar la ventaja que representa la adición de la acción derivativa</p></li>
+</ol>
+<p><strong>Problema 7.3</strong></p>
+<p>Sea el sistema de lazo de control de la figura adjunta:</p>
+<p><img alt="prob703" src="../_images/prob703.svg" /></p>
+<ol class="simple">
+<li><p>Dibujar el diagrama de bloques indicando la función de transferencia de cada subsitema. Suponer que el detector de nivel actua sin retraso alguno sobre el controlador</p></li>
+<li><p>¿Cuál es la función de transferencia para variaciones de carga (<span class="math notranslate nohighlight">\(H/Q_1\)</span>)?</p></li>
+<li><p>Discutir la influencia de los parámetros de proceso y de los del controlador sobre la dinámica del sistema.</p></li>
+</ol>
+<p><strong>Problema 7.4</strong></p>
+<p>Sea el sencillo lazo de control de la figura:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbox</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">wbox</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$R$&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">sum1</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">cont</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$G(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">cont</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$Y(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">hbox</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./img/prob704.svg&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/problemas07_5_0.svg" src="../_images/problemas07_5_0.svg" /></div>
+</div>
+<p>donde <span class="math notranslate nohighlight">\(G_p = \frac{k}{s(s+p)}\)</span>.</p>
+<p>Determinar la ganancia k y el parámetro p para que la dinámica del sistema responda a las siguientes características:</p>
+<ol class="simple">
+<li><p>Para un cambio en escalón el overshoot debe ser inferior al 5%.</p></li>
+<li><p>El periodo de oscilación de 4 s.</p></li>
+</ol>
+<p><strong>Problema 7.5</strong></p>
+<p>Los marcapasos electrónicos actúan sobre el corazón de manera que este responda adecuadamente al ritmo cardiaco deseado. La situación dinámica se puede representar por el bucle de control retroalimentado de la figura adjunta:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbox</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">wbox</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;Ritmo</span><span class="se">\n</span><span class="s2">cardiaco</span><span class="se">\n</span><span class="s2">deseado&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">sum1</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">marcap</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;Marcapasos&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">marcap</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">sum2</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;Perturbaciones&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum2</span><span class="o">.</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum2</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">corazon</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Corazón&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">corazon</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">dot</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">dot</span><span class="o">.</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;Ritmo</span><span class="se">\n</span><span class="s2">cardiaco</span><span class="se">\n</span><span class="s2">real&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">hbox</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./img/prob705.svg&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/problemas07_7_0.svg" src="../_images/problemas07_7_0.svg" /></div>
+</div>
+<p>Se ha establecido que la función de transferencia del marcapasos es <span class="math notranslate nohighlight">\(\frac{K}{0.1 s+1}\)</span> y la del colarzon es <span class="math notranslate nohighlight">\(\frac{1}{s}\)</span>. El ritmo cardiaco normal es de 70 pulsaciones/min.</p>
+<p>Determinar:</p>
+<ol class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(K = 10\)</span>, ¿cuánto vale la constante de tiempo de todo el sistema? ¿Qué sentido físico tiene dicha constante?</p></li>
+<li><p>Si se produjera una perturbación sostenida de 10 pulsaciones en exceso, ¿qué ritmo cardiaco estacionario se alcanzaría?</p></li>
+<li><p>Suponer que el individuo puede tolerar durante períodos de tiempo no excesivos un ritmo cardiaco de 110 pulsaciones/min, siempre que en ningún caso se llegue a 130, aunque sea puntualmente. ¿Qué valor ha de tener <span class="math notranslate nohighlight">\(K\)</span> para que un paso súbito de 70 a 110 pulsaciones/min en la consigna sea tolerable para el individuo?</p></li>
+</ol>
+<p><strong>Problema 7.6</strong></p>
+<p>Uno de los problemas más importantes con el que se enfrentan los ingenieros es el empleo óptmio de las fuentes de energía. Muchos ingenieros trabajan hoy en día en sistemas de energía solar para calefacción doméstica. Uno de esos sistemas emplea colectores solares y almacenamiento térmico, tal como se indica en el diagrama superior de la figura adjunta. El diagrama de bloques del sistema de control se presenta en la parte inferior de la figura:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbox</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">wbox</span> <span class="o">=</span> <span class="mf">1.1</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">sol</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;Sol&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">colec</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;Colectores&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">colec</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">ventil</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;Ventiladores y</span><span class="se">\n</span><span class="s2">controladores&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">ventil</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">aire</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;Aire</span><span class="se">\n</span><span class="s2">caliente&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./img/prob706a.svg&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/problemas07_9_0.svg" src="../_images/problemas07_9_0.svg" /></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbox</span> <span class="o">=</span> <span class="mf">1.25</span>
+<span class="n">wbox</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$R(s),$</span><span class="se">\n</span><span class="s2">Temperatura</span><span class="se">\n</span><span class="s2">deseada&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="nb">sum</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">proc</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$G(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$Y(s)$,</span><span class="se">\n</span><span class="s2">Temperatura</span><span class="se">\n</span><span class="s2">de la casa&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">hbox</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">medidor</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$H(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">medidor</span><span class="o">.</span><span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./img/prob706b.svg&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/problemas07_10_0.svg" src="../_images/problemas07_10_0.svg" /></div>
+</div>
+<p>La dinámica de los colectores, el almacenamiento térmico y la propia casa viene dada por <span class="math notranslate nohighlight">\(G(s) = \frac{k_1}{s^2}\)</span>. La dinámica de los instrumentos de medida viene determinada por <span class="math notranslate nohighlight">\(H(s) = \frac{k_2}{\tau_1s + 1}\)</span> . Suponer que <span class="math notranslate nohighlight">\(\tau_1 = 1 \mathrm{ s}\)</span> y <span class="math notranslate nohighlight">\(\tau_2 = 0\)</span> (aproximación).</p>
+<ol class="simple">
+<li><p>¿Para qué valores de <span class="math notranslate nohighlight">\(k = k_1 k_2\)</span> el sistema será subamortiguado y para cuáles sobreamortiguado?</p></li>
+<li><p>¿Para qué valores de <span class="math notranslate nohighlight">\(k\)</span> la temperatura de la casa, al variar la consigna, no discrepará en ningún momento más de un 5 % del nuevo valor estacionario a alcanzar?</p></li>
+<li><p>Suponer que la temperatura de la casa está estabilizada en 22 ℃. Si la consigna se cambia de pronto a 24 ℃, siendo <span class="math notranslate nohighlight">\(k_2 = 1.1\)</span>, ¿qué temperatura se alcanzará en la casa?</p></li>
+</ol>
+<p><strong>Problema 7.7</strong></p>
+<p>Sea el sistema cuyo diagrama de bloques se presenta en la figura adjunta:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbox</span> <span class="o">=</span> <span class="mf">1.25</span>
+<span class="n">wbox</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$R(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="nb">sum</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">proc</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$G(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$Y(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">hbox</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">medidor</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$H(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">medidor</span><span class="o">.</span><span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./img/prob707.svg&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/problemas07_12_0.svg" src="../_images/problemas07_12_0.svg" /></div>
+</div>
+<p>donde <span class="math notranslate nohighlight">\(G(s) = \frac{K}{s(s+1)}\)</span> y <span class="math notranslate nohighlight">\(H(s)=1+K_ms\)</span>.</p>
+<p>Determinar los valores de ganancia <span class="math notranslate nohighlight">\(K\)</span> y de la constante <span class="math notranslate nohighlight">\(K_m\)</span> para que la respuesta a un escalón unidad tenga un <em>overshoot</em> de 0.2 al cabo de 1 s.</p>
+<p><strong>Problema 7.8</strong></p>
+<p>En muchas ciudades se han realizado esfuerzos significativos para reciclar los envases de vidrio. En la figura siguiente se representa un diagrama de bloques simplificado del proceso de reciclado de una ciudad:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbox</span> <span class="o">=</span> <span class="mf">1.25</span>
+<span class="n">wbox</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$R(s)$, </span><span class="se">\n</span><span class="s2">Número de</span><span class="se">\n</span><span class="s2">envases en uso&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="nb">sum</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">proc</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{K}</span><span class="s2">{\tau_1s+1}$&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">sum1</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$U(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$C(s)$, </span><span class="se">\n</span><span class="s2">Número de</span><span class="se">\n</span><span class="s2">envases recogidos&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">hbox</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">medidor</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\frac</span><span class="si">{K}</span><span class="s2">{\tau_2 s+1}$&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">medidor</span><span class="o">.</span><span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./img/prob708.svg&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/problemas07_14_0.svg" src="../_images/problemas07_14_0.svg" /></div>
+</div>
+<p>El énfasis de la campaña de recolección viene dado por la ganancia <span class="math notranslate nohighlight">\(K\)</span>. La perturbación <span class="math notranslate nohighlight">\(U\)</span> representa los envases que se rompen o se tiran a la basura o a otro lugar no controlado. Suponter <span class="math notranslate nohighlight">\(\tau_1 = 1\mathrm{ mes}\)</span> y <span class="math notranslate nohighlight">\(\tau_2 = 0.5\mathrm{ mes}\)</span>. Determinar:</p>
+<ol class="simple">
+<li><p>La ganancia <span class="math notranslate nohighlight">\(K\)</span> para que es sistema esté crítcamente amortiguado.</p></li>
+<li><p>El <em>offset</em> para una entrada en escalón unidad en la consigna, suponiendo <span class="math notranslate nohighlight">\(U(s)=0\)</span>. ¿Cuán sería ese <em>oofset</em> para la ganacia del apartado a)?</p></li>
+<li><p>El <em>offset</em> para una pérdida de envases <span class="math notranslate nohighlight">\(M\)</span> en escalón, suponiendo que no varía la consigna. ¿Este <em>offset</em> será positivo o negativo?</p></li>
+</ol>
+<p><strong>Problema 7.9</strong></p>
+<p>El comportamiento dinámico de una compleja organización empresarial se puede considerar un sistema de control por retroalimentación. Un modelo sencillo de un sistema de gestión se presneta en la figura adjunta.  La función de transferencia correspondiente a la actividad de gestión de la empresa es <span class="math notranslate nohighlight">\(G_c(s) = \frac{k_1}{s}\)</span>. La función de transferencia correspondiente a las actividades de ingeniería y producción es <span class="math notranslate nohighlight">\(G_p(s) = \frac{k_2}{\tau_p s+1}\)</span>. La función de transferencia de la actividad de evaluación de los resultados, <span class="math notranslate nohighlight">\(C(s)\)</span>, de la empresa es <span class="math notranslate nohighlight">\(H(s) = k_4 + k_5 s\)</span>. El resultado de la evaluación, <span class="math notranslate nohighlight">\(B(s)\)</span>, se compara con los objetivos propuestos, <span class="math notranslate nohighlight">\(R(s)\)</span>, y la diferneica constituye la entrada al bloque de gestión, <span class="math notranslate nohighlight">\(G_c\)</span>, que dará lugar a la pertinente acción correctora. <span class="math notranslate nohighlight">\(D(s)\)</span> representa las perturbaciones que actuan sobre el sistema.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hbox</span> <span class="o">=</span> <span class="mf">1.25</span>
+<span class="n">wbox</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$R(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="nb">sum</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">control</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$G_c(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">sum1</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$D(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sum1</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">proc</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$G_p(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$C(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">hbox</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mf">3.25</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="p">(</span><span class="n">medidor</span> <span class="o">:=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">hbox</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">wbox</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s2">&quot;$H(s)$&quot;</span><span class="p">,</span> <span class="s2">&quot;center&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">medidor</span><span class="o">.</span><span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">+=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;./img/prob709.svg&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/problemas07_16_0.svg" src="../_images/problemas07_16_0.svg" /></div>
+</div>
+<ol class="simple">
+<li><p>¿Cuál es la función (en el espacio <span class="math notranslate nohighlight">\(s\)</span>) que relaciona la salida <span class="math notranslate nohighlight">\(C(s)\)</span> con la consigna <span class="math notranslate nohighlight">\(R(s)\)</span> y la carga <span class="math notranslate nohighlight">\(D(s)\)</span>?</p></li>
+<li><p>Calcular el <em>offset</em> si se produce en la consigna una variación de una unidad en forma de escalón.</p></li>
+<li><p>Calcular el <em>overshoot</em> de la respuesta en tiempo real a la variación anterior.</p></li>
+<li><p>¿Qué sencilla modificación realizaría para mejorar la dinámica de este sistema de control?</p></li>
+</ol>
+<p>Datos:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k_1 k_2 = 0.1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau_p = 10\mathrm{ meses}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(k_4 = 5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(k_5 = 7.6\)</span></p></li>
+</ul>
+<p><strong>Problema 7.10</strong></p>
+<p>Considerar una lazo cerrado con las funciones de transferencia siguientes:</p>
+<p>\begin{align}
+G_c &amp;= 5\
+G_f &amp;= 1\
+G_p &amp;= \frac{2}{(s+1)(3s+1)}\
+G_d &amp;= \frac{1}{(s+1)(3s+1)}\
+G_m &amp;= 1
+\end{align}</p>
+<p>Para un cambio en el <em>set point</em> de magnitud 2, contestar a las siguientes preguntas:</p>
+<ol class="simple">
+<li><p>Derivar una expresión en el dominio de Laplace para la respuesta de lazo cerrado.</p></li>
+<li><p>Obtener la respuesta del lazo cerrado en tiempo real.</p></li>
+<li><p>Calcular el valor máximo de <span class="math notranslate nohighlight">\(y(t)\)</span> y establecer cuando ocurre.</p></li>
+<li><p>Calcular el <em>offset</em>.</p></li>
+<li><p>Calcular el periodo de oscilación de la respuesta de lazo cerrado.</p></li>
+<li><p>Dibujar cualitativamente la respuesta en tiempo real.</p></li>
+</ol>
+<p><strong>Problema 7.11</strong></p>
+<p>Repetir el problema anterior para un cambio en las perturbaciones de magnitud 1.5.</p>
+<p><strong>Problema 7.12</strong></p>
+<p>Sea un lazo de control por retroalimentación de un proceso de primer orden de ganancia 5 y constante de tiempo 2. Se selecciona un controlador proporcional de ganancia unidad. La función de transferencia del medidor es de primer orden con ganancia <span class="math notranslate nohighlight">\(K_m\)</span> y constante de tiempo <span class="math notranslate nohighlight">\(\tau_m\)</span>. Asumiendo que la función de transferencia del elemento final de control es igual a la unidad:</p>
+<ol class="simple">
+<li><p>Examinar el efecto de <span class="math notranslate nohighlight">\(K_m\)</span> sobre la respuesta de lazo cerrado (p.ej., para <span class="math notranslate nohighlight">\(\tau_m = 1\)</span> evaluar la constante de tiempo y coeficiente de amortiguamiento de la respuesta de lazo cerrado para varios valores de <span class="math notranslate nohighlight">\(K_m\)</span>).</p></li>
+<li><p>Evaluar el efecto de <span class="math notranslate nohighlight">\(\tau_m\)</span> sobre la respuesta de lazo cerrado.</p></li>
+<li><p>Dibujar cualitativamente las respuestas de lazo cerrado en función de varios valores de <span class="math notranslate nohighlight">\(K_m\)</span> y <span class="math notranslate nohighlight">\(\tau_m\)</span>. Discutir el efecto del medidor en la respuesta de lazo cerrado en función de estas gráficas (p.ej., discutir el efecto sobre el <em>overshoot</em>, la razón de disminución y el periodo de oscilación).</p></li>
+</ol>
+<p><strong>Problema 7.13</strong></p>
+<p>Considerar un sencillo sistema de control de nivel de un tanque de almacenamiento. Se puede tomar como variable manipulable tanto el caudal de la entrada <span class="math notranslate nohighlight">\(F_i\)</span> como el caudal de salida <span class="math notranslate nohighlight">\(F_o\)</span>. Inicialmente el sistema se encuentra en estado estacionario con <span class="math notranslate nohighlight">\(F_i = F_o = 3 \text{ m}^3 / \mathrm{min}\)</span> y un nivel de líquido de 60 cm. El área de la sección del depósito es de <span class="math notranslate nohighlight">\(2 \text{ m}^2\)</span>. Responder:</p>
+<ol class="simple">
+<li><p>Encontrar la respuesta de lazo cerrado a un incremento en escalón unidad en el punto de consigna cuando se utiliza <span class="math notranslate nohighlight">\(F_i\)</span> como variable manipulable.</p></li>
+<li><p>Repetir a) pero utilizando <span class="math notranslate nohighlight">\(F_o\)</span> como variable manipulable.</p></li>
+<li><p>Dibujar las dos respuestas y explicar las diferencias, si las hay, entre tomar <span class="math notranslate nohighlight">\(F_i\)</span> y <span class="math notranslate nohighlight">\(F_o\)</span> como variables manipulables.</p></li>
+</ol>
+<p>Tomar un controlador proporcional de ganancia 10 y que las funciones de transferencia de la válvula y del medidor son iguales a la unidad.</p>
+<p><strong>Problema 7.14</strong></p>
+<p>Repetir el problema anterior con las siguientes modificaciones:</p>
+<ol class="simple">
+<li><p>La función de transferencia de la válvula de entrada es <span class="math notranslate nohighlight">\(G_{f, i} (s) = 1\)</span> y la de la válvula de salida es <span class="math notranslate nohighlight">\(G_{f, 0} (s) = \frac{10}{3 s + 1}\)</span>.</p></li>
+<li><p>La ganancia proporcional es igual a 10.</p></li>
+</ol>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "runjaj/apuntes-icia-jb",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unidad07"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../Unidad06/prob605.html" title="previous page">Problema 6.5</a>
+    <a class='right-next' id="next-link" href="../Unidad08/problemas08.html" title="next page">Tema 8</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Javier Arántegui<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

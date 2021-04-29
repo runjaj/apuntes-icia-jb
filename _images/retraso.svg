@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2.8 -->
+<!-- CreationDate: 2021-04-16 11:41:07 -->
+<!-- Magnification: 1.05 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="314pt" height="45pt"
+	viewBox="843 1248 4974 699">
+<g fill="none">
+<!-- Text -->
+<text xml:space="preserve" x="5355" y="1530" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">y(t-t<tspan font-size="96" baseline-shift="sub">d</tspan>)</text>
+<!-- Line -->
+<rect x="3825" y="1260" width="1170" height="675"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp0">
+	<path clip-rule="evenodd" d="M 843,1248 H 5817 V 1947 H 843 z
+		M 3688,1590 3808,1620 3688,1650 3832,1627 3832,1613z"/>
+</clipPath>
+</defs>
+<polyline points=" 2835,1620 3825,1620" clip-path="url(#cp0)"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Forward arrow to point 3825,1620 -->
+<polyline points=" 3688,1590 3808,1620 3688,1650"
+	stroke="#000000" stroke-width="8px" stroke-miterlimit="8"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp1">
+	<path clip-rule="evenodd" d="M 843,1248 H 5817 V 1947 H 843 z
+		M 3688,1590 3808,1620 3688,1650 3832,1627 3832,1613z
+		M 5668,1590 5788,1620 5668,1650 5812,1627 5812,1613z"/>
+</clipPath>
+</defs>
+<polyline points=" 5805,1620 4995,1620" clip-path="url(#cp1)"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Backward arrow to point 5805,1620 -->
+<polyline points=" 5668,1590 5788,1620 5668,1650"
+	stroke="#000000" stroke-width="8px" stroke-miterlimit="8"/>
+<!-- Line -->
+<defs>
+<clipPath id="cp2">
+	<path clip-rule="evenodd" d="M 843,1248 H 5817 V 1947 H 843 z
+		M 3688,1590 3808,1620 3688,1650 3832,1627 3832,1613z
+		M 1528,1590 1648,1620 1528,1650 1672,1627 1672,1613z"/>
+</clipPath>
+</defs>
+<polyline points=" 1665,1620 855,1620" clip-path="url(#cp2)"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Backward arrow to point 1665,1620 -->
+<polyline points=" 1528,1590 1648,1620 1528,1650"
+	stroke="#000000" stroke-width="8px" stroke-miterlimit="8"/>
+<!-- Text -->
+<text xml:space="preserve" x="1800" y="1530" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">Proceso de</text>
+<!-- Text -->
+<text xml:space="preserve" x="1800" y="1740" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">primer orden</text>
+<!-- Text -->
+<text xml:space="preserve" x="4095" y="1665" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">Retraso</text>
+<!-- Text -->
+<text xml:space="preserve" x="945" y="1530" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">f(t)</text>
+<!-- Text -->
+<text xml:space="preserve" x="3150" y="1530" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">y(t)</text>
+<!-- Line -->
+<rect x="1665" y="1260" width="1170" height="675"
+	stroke="#000000" stroke-width="8px"/>
+</g>
+</svg>
