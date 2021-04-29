@@ -5,25 +5,65 @@
   chapters:
   - file: Unidad01/unidad01
     sections:
-    - file: Unidad01/historia
-    - file: Unidad01/contexto
-    - file: Unidad01/descripción
-    - file: Unidad01/conceptos
+    - file: Unidad01/1_historia
+    - file: Unidad01/2_contexto
+    - file: Unidad01/3_descripción
+    - file: Unidad01/4_conceptos
   
   - file: Unidad02/unidad02
     sections:
-    - file: Unidad02/definiciones
-    - file: Unidad02/instrumentacion
+    - file: Unidad02/1_definiciones
+    - file: Unidad02/2_instrumentacion
   
   - file: Unidad03/unidad03
     sections:
-    - file: Unidad03/ejemplo_dinamica
-    - file: Unidad03/transformada
-    - file: Unidad03/funcion_transferencia
-    - file: Unidad03/funciones_singulares
-    - file: Unidad03/inversion
-    - file: Unidad03/expansion
-    - file: Unidad03/tablas_transformadas
+    - file: Unidad03/1_ejemplo_dinamica
+    - file: Unidad03/2_transformada
+    - file: Unidad03/3_funcion_transferencia.md
+    - file: Unidad03/4_funciones_singulares
+    - file: Unidad03/5_inversion
+    - file: Unidad03/6_expansion
+    - file: Unidad03/7_tablas_transformadas
+
+  - file: Unidad04/unidad04
+    sections:
+    - file: Unidad04/1_Definicion
+    - file: Unidad04/2_Escalon
+    - file: Unidad04/3_Impulso
+    - file: Unidad04/4_Seno
+
+  - file: Unidad05/unidad05
+    sections:
+    - file: Unidad05/1_Definicion
+    - file: Unidad05/2_Escalon
+    - file: Unidad05/3_Linealizacion
+    - file: Unidad05/4_Retrasos
+    
+  - file: Unidad06/unidad06
+    sections:
+    - file: Unidad06/1_Descripcion
+    - file: Unidad06/2_Control_P
+    - file: Unidad06/3_Control_PI
+    - file: Unidad06/4_Control_PD
+    - file: Unidad06/5_Control_PID
+
+  - file: Unidad07/unidad07
+    sections:
+    - file: Unidad07/1_Accion_P
+    - file: Unidad07/2_Accion_I
+    - file: Unidad07/3_Accion_D
+    - file: Unidad07/4_Acciones_combinadas
+    - file: Unidad07/5_Influencia_retrasos
+    - file: Unidad07/6_Intro_diseño
+    
+  - file: Unidad08/unidad08
+    sections:
+    - file: Unidad08/1_Definicion_estabilidad
+    - file: Unidad08/2_Routh_Hurvitz
+    - file: Unidad08/3_Lugar_raices
+    - file: Unidad08/4_Diagramas_Bode
+    - file: Unidad08/5_Bode
+    - file: Unidad08/6_Nyquist
 
 - part: Problemas resueltos
   numbered: false
@@ -43,3 +83,18 @@
         - file: Unidad03/prob306.ipynb
         - file: Unidad03/prob307.ipynb
         - file: Unidad03/prob308.ipynb
+    - file: Unidad04/problemas04
+      sections:
+        - file: Unidad04/prob401
+        - file: Unidad04/prob403
+    - file: Unidad05/problemas05
+      sections:
+        - file: Unidad05/prob504
+    - file: Unidad06/problemas06
+      sections:
+        - file: Unidad06/prob602
+        - file: Unidad06/prob603
+        - file: Unidad06/prob604
+        - file: Unidad06/prob605
+    - file: Unidad07/problemas07
+    - file: Unidad08/problemas08

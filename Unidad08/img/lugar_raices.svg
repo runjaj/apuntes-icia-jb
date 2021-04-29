@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2.8 -->
+<!-- CreationDate: 2021-04-26 16:41:49 -->
+<!-- Magnification: 1.05 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="236pt" height="229pt"
+	viewBox="1833 528 3736 3624">
+<g fill="none">
+<!-- Text -->
+<text xml:space="preserve" x="4365" y="3465" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">c)</text>
+<!-- Circle -->
+<circle cx="3645" cy="1665" r="45"
+	stroke="#000000" stroke-width="30px"/>
+<!-- Circle -->
+<circle cx="3645" cy="3015" r="45"
+	stroke="#000000" stroke-width="30px"/>
+<!-- Circle -->
+<circle cx="4590" cy="1125" r="45"
+	stroke="#000000" stroke-width="30px"/>
+<!-- Circle -->
+<circle cx="4590" cy="3555" r="45"
+	stroke="#000000" stroke-width="30px"/>
+<!-- Line -->
+<polyline points=" 3645,540 3645,4140"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<polyline points=" 5445,2340 1845,2340"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Text -->
+<text xml:space="preserve" x="3735" y="675" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">Im</text>
+<!-- Text -->
+<text xml:space="preserve" x="5355" y="2610" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">Re</text>
+<!-- Text -->
+<text xml:space="preserve" x="4365" y="1035" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">c)</text>
+<!-- Text -->
+<text xml:space="preserve" x="2430" y="2205" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">a)</text>
+<!-- Text -->
+<text xml:space="preserve" x="3420" y="1575" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">b)</text>
+<!-- Text -->
+<text xml:space="preserve" x="3420" y="2970" fill="#000000" font-family="Times" font-style="normal" font-weight="normal" font-size="144" text-anchor="start">b)</text>
+<!-- Circle -->
+<circle cx="2655" cy="2340" r="45"
+	stroke="#000000" stroke-width="30px"/>
+</g>
+</svg>

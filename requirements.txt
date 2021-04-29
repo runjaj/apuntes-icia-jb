@@ -1,6 +1,1 @@
-jupytext
-matplotlib
-numpy
-scipy
-sympy
-ipywidgets
+schemdraw

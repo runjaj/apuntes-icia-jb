@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="336pt"
+   height="213pt"
+   viewBox="493 414 5321 3379"
+   version="1.1"
+   id="svg300"
+   sodipodi:docname="figura2.svg"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)">
+  <metadata
+     id="metadata306">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs304" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1325"
+     inkscape:window-height="880"
+     id="namedview302"
+     showgrid="false"
+     inkscape:zoom="2.4464286"
+     inkscape:cx="224"
+     inkscape:cy="142"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g294" />
+  <g
+     fill="none"
+     id="g298">
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="891.65649"
+       y="3532"
+       fill="#000000"
+       font-family="Times"
+       font-style="italic"
+       font-weight="normal"
+       font-size="144px"
+       text-anchor="start"
+       id="text196">Rise time</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="4366"
+       y="3733"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144"
+       text-anchor="start"
+       id="text198">respuesta</text>
+    <!-- Line -->
+    <polyline
+       points=" 811,1729 5794,1729"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline200" />
+    <!-- Line -->
+    <polyline
+       points=" 1153,1740 1153,3353"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline202" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="1516"
+       y="2636"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144"
+       text-anchor="start"
+       id="text204">B</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="3620"
+       y="2444"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144"
+       text-anchor="start"
+       id="text206">T</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="4970"
+       y="1071"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144"
+       text-anchor="start"
+       id="text208">\pm 5 \%</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="4366"
+       y="3523"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144"
+       text-anchor="start"
+       id="text210">Tiempo de</text>
+    <!-- Line -->
+    <defs
+       id="defs215">
+      <clipPath
+         id="cp0">
+        <path
+           clip-rule="evenodd"
+           d="M 493,414 H 5814 V 3793 H 493 z   M 1474,1595 1444,1715 1414,1595 1437,1739 1451,1739z   M 1414,696 1444,576 1474,696 1451,552 1437,552z"
+           id="path212" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 1444,559 1444,1732"
+       clip-path="url(#cp0)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline217" />
+    <!-- Forward arrow to point 1444,1732 -->
+    <polyline
+       points=" 1474,1595 1444,1715 1414,1595"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline219" />
+    <!-- Backward arrow to point 1444,559 -->
+    <polyline
+       points=" 1414,696 1444,576 1474,696"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline221" />
+    <!-- Line -->
+    <defs
+       id="defs226">
+      <clipPath
+         id="cp1">
+        <path
+           clip-rule="evenodd"
+           d="M 493,414 H 5814 V 3793 H 493 z   M 1474,3216 1444,3336 1414,3216 1437,3360 1451,3360z   M 1414,1869 1444,1749 1474,1869 1451,1725 1437,1725z"
+           id="path223" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 1444,1732 1444,3353"
+       clip-path="url(#cp1)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline228" />
+    <!-- Forward arrow to point 1444,3353 -->
+    <polyline
+       points=" 1474,3216 1444,3336 1414,3216"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline230" />
+    <!-- Backward arrow to point 1444,1732 -->
+    <polyline
+       points=" 1414,1869 1444,1749 1474,1869"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline232" />
+    <!-- Line -->
+    <defs
+       id="defs237">
+      <clipPath
+         id="cp2">
+        <path
+           clip-rule="evenodd"
+           d="M 493,414 H 5814 V 3793 H 493 z   M 2740,1588 2710,1708 2680,1588 2703,1732 2717,1732z   M 2680,1244 2710,1124 2740,1244 2717,1100 2703,1100z"
+           id="path234" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 2710,1107 2710,1725"
+       clip-path="url(#cp2)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline239" />
+    <!-- Forward arrow to point 2710,1725 -->
+    <polyline
+       points=" 2740,1588 2710,1708 2680,1588"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline241" />
+    <!-- Backward arrow to point 2710,1107 -->
+    <polyline
+       points=" 2680,1244 2710,1124 2740,1244"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline243" />
+    <!-- Line -->
+    <polyline
+       points=" 3037,1832 3037,2664"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline245" />
+    <!-- Line -->
+    <polyline
+       points=" 4295,1832 4295,2664"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline247" />
+    <!-- Line -->
+    <defs
+       id="defs252">
+      <clipPath
+         id="cp3">
+        <path
+           clip-rule="evenodd"
+           d="M 493,414 H 5814 V 3793 H 493 z   M 4151,2477 4271,2507 4151,2537 4295,2514 4295,2500z   M 3174,2537 3054,2507 3174,2477 3030,2500 3030,2514z"
+           id="path249" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 3037,2507 4288,2507"
+       clip-path="url(#cp3)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline254" />
+    <!-- Forward arrow to point 4288,2507 -->
+    <polyline
+       points=" 4151,2477 4271,2507 4151,2537"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline256" />
+    <!-- Backward arrow to point 3037,2507 -->
+    <polyline
+       points=" 3174,2537 3054,2507 3174,2477"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline258" />
+    <!-- Line -->
+    <polyline
+       points=" 5802,1541 4700,1533 4700,3360"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="10 30"
+       id="polyline260" />
+    <!-- Line -->
+    <polyline
+       points=" 4700,1960 5795,1960"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="10 30"
+       id="polyline262" />
+    <!-- Line -->
+    <defs
+       id="defs267">
+      <clipPath
+         id="cp4">
+        <path
+           clip-rule="evenodd"
+           d="M 493,414 H 5814 V 3793 H 493 z   M 5408,1358 5458,1471 5360,1395 5467,1493 5477,1485z   M 3174,2537 3054,2507 3174,2477 3030,2500 3030,2514z"
+           id="path264" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 5169,1100 5468,1484"
+       clip-path="url(#cp4)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline269" />
+    <!-- Forward arrow to point 5468,1484 -->
+    <polyline
+       points=" 5408,1358 5458,1471 5360,1395"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline271" />
+    <!-- Line -->
+    <defs
+       id="defs276">
+      <clipPath
+         id="cp5">
+        <path
+           clip-rule="evenodd"
+           d="M 493,414 H 5814 V 3793 H 493 z   M 5119,1773 5091,1893 5059,1774 5084,1917 5098,1917z   M 3174,2537 3054,2507 3174,2477 3030,2500 3030,2514z"
+           id="path273" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 5077,1107 5091,1910"
+       clip-path="url(#cp5)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline278" />
+    <!-- Forward arrow to point 5091,1910 -->
+    <polyline
+       points=" 5119,1773 5091,1893 5059,1774"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline280" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2752"
+       y="1520"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144"
+       text-anchor="start"
+       id="text282">C</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="1479"
+       y="1214"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144"
+       text-anchor="start"
+       id="text284">A</text>
+    <!-- Line -->
+    <polyline
+       points=" 815,3360 5800,3360 5800,426 815,426 815,3360"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline286" />
+    <!-- Line -->
+    <polyline
+       points=" 815,3360 848,3337 882,3271 915,3165 949,3022 982,2847 1016,2649  1049,2431 1082,2202 1116,1966 1149,1732 1183,1505 1217,1293 1250,1100 1283,930  1317,787 1350,676 1383,598 1417,553 1450,542 1484,564 1518,619 1551,701 1584,810  1618,940 1651,1088 1684,1248 1718,1418 1752,1589 1785,1759 1819,1923 1852,2076  1885,2214 1919,2334 1952,2434 1985,2511 2020,2564 2053,2592 2086,2595 2120,2575  2153,2531 2186,2467 2220,2386 2253,2287 2287,2178 2321,2059 2354,1936 2387,1810  2421,1686 2454,1568 2487,1459 2522,1361 2555,1275 2588,1205 2622,1152 2655,1117  2688,1100 2722,1101 2755,1119 2789,1153 2823,1203 2856,1264 2889,1338 2923,1419  2956,1506 2989,1597 3023,1688 3057,1778 3090,1863 3124,1942 3157,2012 3190,2072  3224,2121 3257,2157 3290,2181 3325,2190 3358,2187 3391,2172 3425,2145 3458,2107  3491,2061 3525,2005 3558,1945 3592,1882 3626,1815 3659,1748 3692,1684 3726,1623  3759,1566 3792,1516 3826,1474 3860,1440 3893,1415 3927,1400 3960,1394 3993,1398  4027,1411 4060,1432 4093,1461 4128,1496 4161,1537 4194,1582 4228,1628 4261,1677  4294,1725 4328,1772 4362,1816 4395,1857 4429,1892 4462,1922 4495,1945 4529,1963  4562,1972 4595,1975 4630,1971 4663,1961 4696,1945 4730,1923 4763,1896 4796,1865  4830,1832 4863,1798 4897,1763 4931,1727 4964,1693 4997,1662 5031,1633 5064,1607  5097,1586 5131,1570 5165,1559 5198,1553 5232,1551 5265,1555 5298,1564 5332,1577  5365,1593 5398,1613 5433,1636 5466,1660 5499,1685 5533,1711 5566,1737 5599,1762  5633,1784 5666,1804 5700,1823 5734,1837 5767,1848 5800,1856"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline288" />
+    <!-- Text -->
+    <g
+       transform="translate(652,1952) rotate(-90)"
+       id="g294">
+      <text
+         xml:space="preserve"
+         x="0"
+         y="0"
+         fill="#000000"
+         font-family="Times"
+         font-style="normal"
+         font-weight="normal"
+         font-size="144"
+         text-anchor="middle"
+         id="text292">\frac{y(t)}{M K<tspan
+   font-size="96"
+   baseline-shift="sub"
+   id="tspan290">p</tspan></text>
+    </g>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="3308"
+       y="3593"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="144"
+       text-anchor="middle"
+       id="text296">\frac{t}{\tau}</text>
+  </g>
+</svg>

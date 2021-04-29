@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="326pt"
+   height="409pt"
+   viewBox="2136 573 5166 6480"
+   version="1.1"
+   id="svg52"
+   sodipodi:docname="est_bode.svg"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)">
+  <metadata
+     id="metadata58">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs56" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1440"
+     inkscape:window-height="778"
+     id="namedview54"
+     showgrid="false"
+     inkscape:zoom="0.99946181"
+     inkscape:cx="167.89248"
+     inkscape:cy="174.98524"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g50"
+     inkscape:document-rotation="0" />
+  <g
+     fill="none"
+     id="g50">
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2347.6201"
+       y="4050"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text10">ɸ</text>
+    <!-- Line -->
+    <rect
+       x="2655"
+       y="3645"
+       width="4635"
+       height="3060"
+       stroke="#000000"
+       stroke-width="8px"
+       id="rect12" />
+    <!-- Line -->
+    <defs
+       id="defs17">
+      <clipPath
+         id="cp0">
+        <path
+           clip-rule="evenodd"
+           d="M 2136,573 H 7302 V 7053 H 2136 z   M 2792,1740 2672,1710 2792,1680 2648,1703 2648,1717z"
+           id="path14" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 5580,5895 5580,1710 2655,1710"
+       clip-path="url(#cp0)"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40 40"
+       id="polyline19" />
+    <!-- Forward arrow to point 2655,1710 -->
+    <polyline
+       points=" 2792,1740 2672,1710 2792,1680"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline21" />
+    <!-- Line -->
+    <defs
+       id="defs26">
+      <clipPath
+         id="cp1">
+        <path
+           clip-rule="evenodd"
+           d="M 2136,573 H 7302 V 7053 H 2136 z   M 5610,6568 5580,6688 5550,6568 5573,6712 5587,6712z"
+           id="path23" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 2655,5850 5580,5850 5580,6705"
+       clip-path="url(#cp1)"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40 40"
+       id="polyline28" />
+    <!-- Forward arrow to point 5580,6705 -->
+    <polyline
+       points=" 5610,6568 5580,6688 5550,6568"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline30" />
+    <!-- Line -->
+    <polyline
+       points=" 3195,1215 3197,1215 3201,1215 3208,1216 3219,1217 3236,1218  3257,1219 3285,1221 3319,1223 3358,1226 3403,1229 3453,1232 3509,1236 3568,1241  3630,1246 3695,1251 3762,1256 3830,1262 3899,1268 3967,1274 4035,1280 4101,1286  4166,1293 4229,1300 4290,1306 4348,1313 4405,1320 4459,1328 4511,1335 4561,1342  4609,1350 4655,1358 4699,1366 4742,1375 4783,1383 4822,1392 4861,1402 4898,1411  4935,1422 4970,1432 5005,1443 5040,1455 5080,1469 5119,1484 5158,1499 5197,1515  5236,1532 5274,1550 5313,1568 5351,1587 5389,1607 5428,1627 5465,1648 5503,1670  5541,1693 5578,1716 5614,1739 5651,1763 5686,1787 5722,1811 5756,1836 5790,1861  5823,1886 5855,1911 5886,1935 5916,1960 5945,1984 5973,2008 6000,2032 6027,2055  6052,2078 6076,2101 6099,2123 6121,2145 6143,2166 6163,2187 6183,2207 6203,2228  6226,2253 6249,2278 6271,2303 6293,2328 6313,2353 6334,2379 6354,2405 6374,2431  6394,2459 6415,2488 6435,2518 6456,2549 6477,2581 6498,2613 6519,2647 6540,2680  6560,2713 6579,2744 6597,2773 6613,2800 6627,2823 6638,2842 6647,2857 6653,2868  6657,2874 6659,2878 6660,2880"
+       stroke="#000000"
+       stroke-width="15px"
+       stroke-linejoin="bevel"
+       id="polyline32" />
+    <!-- Line -->
+    <polyline
+       points=" 2970,4230 2972,4230 2977,4231 2987,4231 3002,4233 3023,4234  3050,4237 3084,4240 3123,4244 3169,4248 3220,4253 3274,4258 3331,4264 3390,4270  3450,4277 3510,4284 3569,4291 3627,4299 3682,4306 3736,4314 3787,4321 3835,4329  3881,4337 3924,4346 3964,4354 4003,4363 4039,4372 4073,4381 4105,4391 4135,4401  4164,4412 4192,4423 4219,4435 4245,4448 4273,4462 4301,4478 4328,4494 4354,4512  4380,4530 4406,4550 4431,4570 4455,4591 4479,4613 4503,4637 4527,4660 4550,4685  4573,4711 4595,4737 4617,4763 4639,4790 4660,4817 4681,4845 4701,4872 4720,4899  4739,4927 4758,4954 4776,4981 4794,5007 4812,5033 4829,5059 4846,5085 4863,5110  4880,5135 4898,5160 4915,5185 4932,5209 4951,5234 4969,5259 4988,5285 5008,5310  5029,5336 5050,5361 5072,5388 5094,5414 5118,5440 5142,5466 5166,5492 5191,5518  5217,5544 5244,5569 5270,5594 5297,5619 5325,5643 5353,5666 5381,5688 5409,5710  5437,5731 5465,5751 5494,5771 5523,5790 5551,5808 5581,5825 5610,5841 5640,5858  5667,5871 5695,5885 5723,5898 5752,5911 5782,5923 5814,5936 5847,5948 5882,5960  5919,5973 5958,5985 5998,5998 6041,6011 6087,6024 6134,6037 6184,6051 6236,6064  6289,6078 6344,6092 6399,6106 6455,6119 6509,6133 6562,6145 6612,6157 6658,6168  6700,6178 6736,6186 6767,6193 6792,6199 6811,6203 6825,6207 6833,6208 6838,6210  6840,6210"
+       stroke="#000000"
+       stroke-width="15px"
+       stroke-linejoin="bevel"
+       id="polyline34" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2475"
+       y="1800"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="end"
+       id="text36">K</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2546.3101"
+       y="5940"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="end"
+       id="text38">-180º</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2205"
+       y="900"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text40">RA</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="5580"
+       y="6975"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="middle"
+       id="text44">ω<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan60">co</tspan></text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="6840"
+       y="6975"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text46">ω</text>
+    <!-- Line -->
+    <rect
+       x="2655"
+       y="585"
+       width="4635"
+       height="3060"
+       stroke="#000000"
+       stroke-width="8px"
+       id="rect48" />
+  </g>
+</svg>

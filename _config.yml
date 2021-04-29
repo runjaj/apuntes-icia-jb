@@ -10,7 +10,8 @@ exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoin
 
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: cache
+  timeout: 300
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -41,3 +42,4 @@ launch_buttons:
   sphinx:
     config:
       language: "es"
+

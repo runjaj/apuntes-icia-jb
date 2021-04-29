@@ -1,5 +1,9 @@
 # Tema 3
 
+<style type="text/css">
+    ol { list-style-type: lower-alpha; }
+</style>
+
 **Problema 3.1**
 
 Hallar la transformada de Laplace de las siguientes funciones:

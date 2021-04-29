@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="342pt"
+   height="342pt"
+   viewBox="2508 1023 5424 5424"
+   version="1.1"
+   id="svg2051"
+   sodipodi:docname="margenes_nyq.svg"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)">
+  <metadata
+     id="metadata2057">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2055" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="958"
+     id="namedview2053"
+     showgrid="false"
+     inkscape:zoom="1.8375068"
+     inkscape:cx="209.49667"
+     inkscape:cy="334.66627"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2049"
+     inkscape:document-rotation="0" />
+  <g
+     fill="none"
+     id="g2049">
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="4542"
+       y="2977"
+       fill="#000000"
+       font-family="Times"
+       font-style="italic"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="middle"
+       id="text1988">M</text>
+    <!-- Line -->
+    <polyline
+       points=" 5220,6435 5220,3735 2520,3735"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline1990" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="6977"
+       y="1944"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text1992">Círculo</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="6977"
+       y="2199"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text1994">unidad</text>
+    <!-- Arc -->
+    <path
+       d="M 3490,3744 A 1701 1701 0 0 0 4270 5211"
+       stroke="#000000"
+       stroke-width="8px"
+       id="path1996" />
+    <!-- Circle -->
+    <circle
+       cx="5236"
+       cy="3758"
+       r="1746"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40 40"
+       id="circle1998" />
+    <!-- Line -->
+    <polyline
+       points=" 4292,5209 5223,3734"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline2000" />
+    <!-- Line -->
+    <defs
+       id="defs2005">
+      <clipPath
+         id="cp0">
+        <path
+           clip-rule="evenodd"
+           d="M 2508,1023 H 7932 V 6447 H 2508 z   M 6598,2385 6493,2452 6554,2344 6472,2464 6482,2474z"
+           id="path2002" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 6893,2029 6482,2464"
+       clip-path="url(#cp0)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline2007" />
+    <!-- Forward arrow to point 6482,2464 -->
+    <polyline
+       points=" 6598,2385 6493,2452 6554,2344"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline2009" />
+    <!-- Line -->
+    <polyline
+       points=" 3859,2956 3849,3201"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline2011" />
+    <!-- Line -->
+    <defs
+       id="defs2016">
+      <clipPath
+         id="cp1">
+        <path
+           clip-rule="evenodd"
+           d="M 2508,1023 H 7932 V 6447 H 2508 z   M 5069,3048 5189,3078 5069,3108 5213,3085 5213,3071z   M 3996,3108 3876,3078 3996,3048 3852,3071 3852,3085z"
+           id="path2013" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 3859,3078 5206,3078"
+       clip-path="url(#cp1)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline2018" />
+    <!-- Forward arrow to point 5206,3078 -->
+    <polyline
+       points=" 5069,3048 5189,3078 5069,3108"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline2020" />
+    <!-- Backward arrow to point 3859,3078 -->
+    <polyline
+       points=" 3996,3108 3876,3078 3996,3048"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline2022" />
+    <!-- Line -->
+    <defs
+       id="defs2027">
+      <clipPath
+         id="cp2">
+        <path
+           clip-rule="evenodd"
+           d="M 2508,1023 H 7932 V 6447 H 2508 z   M 5069,3048 5189,3078 5069,3108 5213,3085 5213,3071z   M 3996,3108 3876,3078 3996,3048 3852,3071 3852,3085z"
+           id="path2024" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 7340,3746 7340,3748 7338,3752 7336,3761 7333,3773 7328,3792  7322,3815 7314,3845 7305,3881 7294,3922 7282,3968 7268,4018 7254,4071 7239,4127  7223,4184 7206,4242 7190,4299 7173,4357 7156,4412 7140,4467 7123,4519 7107,4569  7091,4617 7075,4662 7060,4706 7045,4747 7029,4786 7014,4823 6999,4858 6984,4892  6969,4924 6953,4955 6937,4985 6921,5013 6904,5041 6887,5069 6868,5097 6849,5125  6829,5153 6808,5180 6786,5207 6764,5233 6741,5259 6716,5285 6691,5310 6665,5335  6638,5360 6610,5384 6581,5407 6551,5430 6520,5452 6489,5474 6457,5495 6424,5515  6391,5534 6358,5552 6324,5569 6290,5586 6255,5601 6220,5615 6186,5628 6151,5641  6116,5652 6081,5662 6046,5671 6011,5679 5975,5687 5940,5693 5904,5699 5868,5704  5834,5707 5799,5711 5763,5713 5727,5715 5690,5716 5653,5716 5614,5715 5575,5714  5535,5712 5495,5709 5454,5706 5412,5701 5370,5696 5328,5690 5285,5683 5242,5676  5199,5668 5157,5658 5114,5649 5072,5638 5030,5627 4989,5615 4948,5603 4908,5590  4869,5576 4831,5562 4794,5548 4758,5533 4723,5518 4689,5502 4657,5486 4625,5469  4594,5452 4564,5435 4535,5417 4508,5399 4477,5378 4447,5356 4418,5334 4390,5310  4363,5286 4336,5260 4309,5234 4283,5207 4258,5179 4233,5150 4209,5120 4186,5090  4163,5059 4141,5027 4120,4995 4099,4963 4080,4930 4061,4897 4043,4864 4026,4832  4010,4799 3994,4767 3980,4735 3967,4703 3954,4672 3942,4641 3931,4611 3920,4582  3911,4553 3901,4524 3893,4496 3885,4468 3875,4434 3866,4400 3858,4367 3850,4333  3843,4299 3836,4264 3830,4230 3825,4196 3821,4161 3817,4127 3814,4093 3812,4059  3811,4026 3811,3994 3811,3962 3813,3932 3815,3902 3819,3873 3823,3846 3828,3820  3834,3795 3841,3771 3849,3749 3857,3728 3867,3707 3877,3688 3889,3668 3902,3648  3917,3630 3932,3612 3949,3595 3967,3578 3986,3562 4005,3547 4026,3533 4048,3520  4070,3508 4092,3497 4115,3487 4138,3478 4161,3470 4183,3464 4205,3458 4226,3454  4247,3452 4267,3450 4286,3449 4304,3450 4322,3451 4339,3454 4358,3458 4376,3464  4394,3472 4411,3482 4428,3494 4445,3508 4462,3525 4480,3545 4498,3567 4516,3591  4535,3616 4553,3642 4570,3667 4585,3691 4598,3711 4619,3746"
+       clip-path="url(#cp2)"
+       stroke="#000000"
+       stroke-width="15px"
+       stroke-linejoin="bevel"
+       id="polyline2029" />
+    <!-- Forward arrow to point 0,0 -->
+    <polyline
+       points=""
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline2031" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="5400"
+       y="1305"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text2033">Im[G(iω)]</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="2582.97"
+       y="3674.5486"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text2035">Re[G(iω)]</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="7303"
+       y="3555"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="middle"
+       id="text2037">ω = 0</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="4026"
+       y="5488"
+       fill="#000000"
+       font-family="Times"
+       font-style="italic"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text2039">A</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="3522"
+       y="4497"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="end"
+       id="text2043">ϕ<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2059">MF</tspan></text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="4618"
+       y="3996"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="middle"
+       id="text2045">ω → ∞</text>
+    <!-- Line -->
+    <polyline
+       points=" 5220,1035 5220,3735 7920,3735"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline2047" />
+  </g>
+</svg>

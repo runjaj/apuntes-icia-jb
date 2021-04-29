@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="204pt"
+   height="210pt"
+   viewBox="3945 1788 3230 3325"
+   version="1.1"
+   id="svg48"
+   sodipodi:docname="complejo.svg"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)">
+  <metadata
+     id="metadata54">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs52" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1440"
+     inkscape:window-height="778"
+     id="namedview50"
+     showgrid="false"
+     inkscape:zoom="2.0389505"
+     inkscape:cx="89.449115"
+     inkscape:cy="144.74197"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g46" />
+  <g
+     fill="none"
+     id="g46">
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="3960"
+       y="2610"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="end"
+       id="text10">y</text>
+    <!-- Line -->
+    <polyline
+       points=" 4140,1800 4140,4770 7110,4770"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline12" />
+    <!-- Line -->
+    <defs
+       id="defs17">
+      <clipPath
+         id="cp0">
+        <path
+           clip-rule="evenodd"
+           d="M 3945,1788 H 7175 V 5113 H 3945 z   M 6184,2598 6289,2532 6227,2639 6310,2520 6300,2510z"
+           id="path14" />
+      </clipPath>
+    </defs>
+    <polyline
+       points=" 4140,4770 6300,2520"
+       clip-path="url(#cp0)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline19" />
+    <!-- Forward arrow to point 6300,2520 -->
+    <polyline
+       points=" 6184,2598 6289,2532 6227,2639"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline21" />
+    <!-- Line -->
+    <polyline
+       points=" 4140,2520 6300,2520 6300,4770"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-dasharray="40 40"
+       id="polyline23" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="6300"
+       y="5040"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="middle"
+       id="text25">x</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="5310"
+       y="4320"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text27">ɸ</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="4860"
+       y="3420"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text29">|W|</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="6480"
+       y="2520"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text31">W=x+iy</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="4320"
+       y="1980"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text33">Im</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="6930"
+       y="5040"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text35">Re</text>
+    <!-- Arc -->
+    <defs
+       id="defs40">
+      <clipPath
+         id="cp1">
+        <path
+           clip-rule="evenodd"
+           d="M 3945,1788 H 7175 V 5113 H 3945 z   M 5008,4087 4960,3973 5056,4051 4951,3951 4941,3959z"
+           id="path37" />
+      </clipPath>
+    </defs>
+    <path
+       d="M 5310,4770 A 1684 1684 0 0 0 4950 3960"
+       clip-path="url(#cp1)"
+       stroke="#000000"
+       stroke-width="8px"
+       id="path42" />
+    <!-- Forward arrow to point 4950,3960 -->
+    <polyline
+       points=" 5008,4087 4960,3973 5056,4051"
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polyline44" />
+  </g>
+</svg>

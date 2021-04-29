@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="342pt"
+   height="342pt"
+   viewBox="2508 1023 5424 5424"
+   version="1.1"
+   id="svg40"
+   sodipodi:docname="nyquist.svg"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)">
+  <metadata
+     id="metadata46">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs44" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     id="namedview42"
+     showgrid="false"
+     inkscape:zoom="1.7803682"
+     inkscape:cx="228"
+     inkscape:cy="228"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g38" />
+  <g
+     fill="none"
+     id="g38">
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="6165"
+       y="4905"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="end"
+       id="text12">RA<tspan
+   font-size="112"
+   baseline-shift="sub"
+   id="tspan10">1</tspan></text>
+    <!-- Line -->
+    <polyline
+       points=" 5220,6435 5220,3735 2520,3735"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline14" />
+    <!-- Arc -->
+    <path
+       d="M 6210,3735 A 905 905 0 0 1 5805 4365"
+       stroke="#000000"
+       stroke-width="8px"
+       id="path16" />
+    <!-- Line -->
+    <polyline
+       points=" 5220,3735 6525,5085"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline18" />
+    <!-- Line -->
+    <polyline
+       points=" 7110,3735 7109,3737 7108,3742 7106,3750 7102,3764 7097,3783  7090,3808 7082,3838 7072,3875 7060,3916 7047,3962 7033,4012 7018,4064 7002,4118  6986,4173 6969,4228 6952,4282 6935,4335 6919,4386 6902,4435 6886,4482 6870,4526  6854,4568 6838,4608 6822,4646 6807,4682 6791,4715 6776,4747 6760,4778 6744,4807  6727,4835 6710,4861 6693,4887 6675,4913 6657,4937 6637,4961 6618,4985 6597,5008  6575,5031 6553,5054 6529,5076 6505,5098 6480,5120 6453,5141 6426,5162 6397,5183  6368,5203 6338,5223 6306,5242 6274,5261 6241,5279 6207,5296 6173,5313 6138,5329  6103,5345 6067,5360 6031,5374 5995,5387 5958,5400 5921,5411 5884,5422 5846,5433  5809,5443 5771,5452 5733,5460 5695,5468 5657,5476 5618,5483 5582,5488 5546,5494  5509,5499 5471,5504 5433,5508 5394,5512 5354,5515 5313,5518 5271,5521 5228,5523  5185,5525 5141,5526 5097,5527 5052,5527 5006,5527 4960,5526 4914,5525 4868,5523  4821,5520 4775,5517 4729,5513 4683,5509 4638,5504 4593,5498 4549,5492 4506,5485  4463,5478 4422,5470 4381,5462 4341,5453 4302,5443 4265,5434 4228,5423 4192,5412  4157,5401 4123,5388 4090,5376 4058,5363 4022,5347 3987,5331 3953,5313 3920,5295  3887,5276 3854,5256 3822,5235 3790,5212 3759,5189 3728,5165 3698,5140 3668,5115  3638,5088 3610,5061 3581,5033 3554,5004 3527,4975 3501,4946 3476,4916 3451,4886  3428,4856 3405,4826 3384,4796 3363,4766 3343,4737 3325,4708 3307,4679 3290,4650  3273,4622 3258,4594 3243,4566 3229,4539 3215,4512 3203,4485 3187,4453 3173,4420  3159,4388 3145,4355 3133,4323 3120,4290 3109,4257 3098,4223 3087,4190 3078,4156  3069,4123 3061,4089 3053,4056 3047,4024 3042,3992 3038,3960 3034,3930 3032,3900  3030,3871 3030,3843 3030,3817 3032,3791 3034,3767 3038,3743 3042,3721 3047,3700  3053,3680 3060,3660 3068,3640 3078,3620 3089,3601 3100,3583 3113,3566 3127,3549  3142,3532 3158,3517 3175,3502 3193,3488 3211,3475 3230,3462 3249,3451 3269,3441  3289,3432 3309,3424 3329,3417 3348,3412 3368,3407 3386,3404 3405,3401 3423,3400  3440,3400 3456,3401 3472,3402 3488,3405 3507,3410 3525,3417 3543,3426 3560,3437  3578,3450 3595,3467 3613,3486 3632,3508 3651,3533 3670,3560 3690,3588 3709,3618  3727,3646 3743,3673 3757,3695 3780,3735"
+       stroke="#000000"
+       stroke-width="15px"
+       stroke-linejoin="bevel"
+       id="polyline20" />
+    <!-- Forward arrow to point 0,0 -->
+    <polygon
+       points=""
+       stroke="#000000"
+       stroke-width="8px"
+       stroke-miterlimit="8"
+       id="polygon22" />
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="5400"
+       y="1305"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text24">Im[G(iω)]</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="7258.4731"
+       y="3978.6313"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text26">Re[G(iω)]</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="7110"
+       y="3555"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="middle"
+       id="text28">ω = 0</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="3825"
+       y="3600"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text30">ω → ∞</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="6210"
+       y="4185"
+       fill="#000000"
+       font-family="Times"
+       font-style="normal"
+       font-weight="normal"
+       font-size="168px"
+       text-anchor="start"
+       id="text32">ɸ</text>
+    <!-- Text -->
+    <text
+       xml:space="preserve"
+       x="6705"
+       y="5220"
+       fill="#000000"
+       font-family="Times"
+       font-style="italic"
+       font-weight="normal"
+       font-size="168"
+       text-anchor="start"
+       id="text34">1</text>
+    <!-- Line -->
+    <polyline
+       points=" 5220,1035 5220,3735 7920,3735"
+       stroke="#000000"
+       stroke-width="8px"
+       id="polyline36" />
+  </g>
+</svg>
