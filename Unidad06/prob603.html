@@ -597,6 +597,40 @@
 <li><p>La presión del aire a la salida del controlador cuando la temperatura sea de 70 ℃.</p></li>
 <li><p>La <span class="math notranslate nohighlight">\(\tau_I\)</span> de un controlador integral incorporado al proporcional, si al introducir ele elemento medido en un medio a 70 ℃ (inicialmente a 30 ℃) el controlador se satura en 10 minutos.</p></li>
 </ol>
+<hr class="docutils" />
+<p><strong>Solución</strong></p>
+<ol class="simple">
+<li><p>En este caso el sistema controlador-elemento final de control tiene la capacidad de controlar cambios de temperatura entre 0 y 100 °C, pero se utiliza para controlar cambios entre 30 y 90 °C. Eso supone que no se utiliza toda la capacidad de control del sistema de control pero que se utiliza una ganancia proporcional del controlador más elevada, con las ventajas que eso puede suponer. La banda proporcional de este sistema es:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\mathrm{BP} = \frac{90\text{ ºC} - 30 \text{ ºC}}{100\text{ ºC} - 0\text{ ºC}} 100 = 60\%\]</div>
+<p>La ganancia del controlador es:</p>
+<div class="math notranslate nohighlight">
+\[K_c = \frac{15\ \mathrm{psig} - 3 \text{ psig}}{90 \text{ ºC} -   30 \text{ ºC}} = 0.2 \mathrm{psig} /\text{ºC}\]</div>
+<p>b) La salida de un controlador proporcional es:</p>
+<div class="math notranslate nohighlight">
+\[c (t) = K_c \varepsilon (t) + c_s\]</div>
+<p>donde <span class="math notranslate nohighlight">\(c_s\)</span> es el <em>bias</em> del controlador, es decir, la salida del controlador cuando el error es nulo.</p>
+<p>En primer lugar hay que calcular el <em>bias</em> del controlador, para ello se va a suponer que en estado estacionario la temperatura es de 30 °C y que la salida del controlador es de 3 psig. Por tanto,</p>
+<div class="math notranslate nohighlight">
+\[3\ \mathrm{psig} = K_c 0 + c_s \Rightarrow c_s = 3\ \mathrm{psig}\]</div>
+<p>Si la temperatura es de 70 °C, el error será:</p>
+<div class="math notranslate nohighlight">
+\[\varepsilon = 70 \text{ ºC} - 30 \text{ ºC} = 40 \text{ ºC}\]</div>
+<p>Por tanto, la salida del controlador es:</p>
+<div class="math notranslate nohighlight">
+\[c = (0.2\ \mathrm{psig} /\text{ºC}) (40 \text{ ºC}) + 3\ \mathrm{psig} = 11\ \mathrm{psig}\]</div>
+<p>c) Aquí se plantea un cambio en la temperatura en forma de escalón de
+altura 40 °C, lo que supone que <span class="math notranslate nohighlight">\(\varepsilon = 40 \)</span>°C.</p>
+<p>Un controlador proporcional-integral (PI) responde a la siguiente
+dinámica:</p>
+<div class="math notranslate nohighlight">
+\[c (t) = K_c \varepsilon + \frac{K_c}{\tau_I} \int_0^t \varepsilon \mathrm{d}t
+   + c_s\]</div>
+<p>Se debe buscar qué constante de tiempo integral hace que el controlador se sature (que alcance uno de los valores límite de salida, en este caso, la máxima presión de salida) a los 10 minutos. Por tanto:</p>
+<div class="math notranslate nohighlight">
+\[c (t = 10) = 15\ \mathrm{psig} = (0.2\ \mathrm{psig} /\text{ºC}) (40\text{ ºC}) + \frac{0.2}{\tau_I} \int_0^{10} (40\text{ ºC}) \mathrm{d}t + 3\ \mathrm{psig}\]</div>
+<p>Resolviendo la ecuación anterior se encuentra que <span class="math notranslate nohighlight">\(\tau_I = 20 \min\)</span>.</p>
 </div>
 
     <script type="text/x-thebe-config">

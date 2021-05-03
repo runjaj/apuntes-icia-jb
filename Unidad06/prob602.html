@@ -52,6 +52,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Problema 6.3" href="prob603.html" />
@@ -552,9 +554,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Unidad06/prob602.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Unidad06/prob602.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -572,6 +574,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/runjaj/apuntes-icia-jb/master?urlpath=tree/Unidad06/prob602.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -587,6 +609,86 @@
   <div class="section" id="problema-6-2">
 <span id="prob602"></span><h1>Problema 6.2<a class="headerlink" href="#problema-6-2" title="Permalink to this headline">¶</a></h1>
 <p>Determinar la ganancia y la banda proporcional de u controlador neumático proporcional de acción directa con una escala de 0-120 ℃, si la variación en la salida pasa de 20 a 100 kPa cuando la temperatura aumenta desde 95 a ℃. Si se cambia la banda proporcional a 50 %, determinar la ganancia y la variación de temperatura requerida para un cambio total en la salida.</p>
+<hr class="docutils" />
+<p><strong>Solución</strong></p>
+<p>Un posible diagrama del sistema de control propuesto es el siguiente:</p>
+<p><img alt="prob602-esquema.svg" src="../_images/prob602-esquema.svg" /></p>
+<p>La temperatura del tanque <span class="math notranslate nohighlight">\(T (t)\)</span> la mide un sensor de temperatura. La
+respuesta de este medidor es <span class="math notranslate nohighlight">\(T_m (t)\)</span>, esta variable se alimenta al
+controlador que la compara con el valor de consigna <span class="math notranslate nohighlight">\(T_{sp} (t)\)</span>. La acción de control <span class="math notranslate nohighlight">\(c (t)\)</span> se envía a la válvula neumática que modifica el caudal de agua caliente <span class="math notranslate nohighlight">\(Q (t)\)</span>. Al varial el caudal de agua caliente varía la temperatura del tanque. Si el sistema de control funciona correctamente la diferencia entre esta temperatura y la consigna debe ser cada vez menor, si no se producen cambios o perturbaciones.</p>
+<p>Se puede plantear un diagrama de bloques que representa la instalación
+anterior:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">PyCall</span><span class="p">,</span> <span class="n">LaTeXStrings</span>
+
+<span class="n">schemdraw</span> <span class="o">=</span> <span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;schemdraw&quot;</span><span class="p">)</span>
+<span class="n">dsp</span> <span class="o">=</span> <span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;schemdraw.dsp&quot;</span><span class="p">)</span>
+<span class="c">#elm = pyimport(&quot;schemdraw.elements&quot;)</span>
+<span class="c">#lines = pyimport(&quot;schemdraw.elements.lines&quot;)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;T_{sp}(t)&quot;</span><span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">))</span>
+<span class="n">suma</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s">&quot;+&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;\epsilon(t)&quot;</span><span class="p">,</span> <span class="s">&quot;top&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">())</span>
+<span class="n">control</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mf">2.25</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s">&quot;Controlador&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;c(t)&quot;</span><span class="p">,</span> <span class="s">&quot;top&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+<span class="n">valvula</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mf">2.25</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s">&quot;Válvula&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;Q(t)&quot;</span><span class="p">,</span> <span class="s">&quot;top&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">valvula</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+<span class="n">proceso</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mf">2.25</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s">&quot;Proceso&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proceso</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+<span class="n">dot</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">dot</span><span class="o">.</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;T(t)&quot;</span><span class="p">,</span> <span class="s">&quot;right&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">dot</span><span class="o">.</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mf">4.25</span><span class="p">))</span>
+<span class="n">medidor</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mf">2.25</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s">&quot;Medidor&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;E&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;T_m(t)&quot;</span><span class="p">,</span> <span class="s">&quot;top&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">medidor</span><span class="o">.</span><span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="n">suma</span><span class="o">.</span><span class="n">S</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">suma</span><span class="o">.</span><span class="n">S</span><span class="p">))</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob602_1_0.svg" src="../_images/prob602_1_0.svg" /></div>
+</div>
+<p>El controlador es proporcional, lo que significa que:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \text{Error: } &amp; \varepsilon (t) = T_{sp} (t) - T_m (t) &amp; \\
+  \text{Acción de control: } &amp; c (t) = K_c \varepsilon (t) &amp; \end{aligned}\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(K_c\)</span> es la ganancia del controlador. La ganancia del controlador
+será, por tanto, la pendiente de la recta siguiente:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+
+<span class="n">plot</span><span class="p">([</span><span class="mi">95</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">110</span><span class="p">],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">95</span><span class="p">,</span><span class="mi">100</span><span class="p">],</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="n">L</span><span class="s">&quot;T\ \mathrm{(}\degree \mathrm{C)}&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="n">L</span><span class="s">&quot;P\ \mathrm{(kPa)}&quot;</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob602_3_0.svg" src="../_images/prob602_3_0.svg" /></div>
+</div>
+<p>Lo que supone:</p>
+<div class="math notranslate nohighlight">
+\[K_c = \frac{P_{\max} - P_{\min}}{T_{\max} - T_{\min}} = \frac{100
+   \ \mathrm{kPa} - 20\  \mathrm{kPa}}{110\text{ ºC} - 95\text{ ºC}} =
+   5.33\ \mathrm{kPa} /℃\]</div>
+<p>La banda proporcional (BP) es el porcentaje de uso del controlador. En este caso, aunque el controlador tiene capacidad de controlar temperaturas entre 0 y 120 ℃ se utiliza para controlar temperaturas entre 95 y 110 ℃. Eso supone que:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{BP} = 100 \frac{110\text{ ºC} - 95\text{ ºC}}{120\text{ ºC} - 0\text{ ºC}} = 12.5\%\]</div>
+<p>Si la banda proporcional es de 50%, el incremento de temperaturas controlado será:</p>
+<div class="math notranslate nohighlight">
+\[\Delta T = \frac{\mathrm{BP}\ 120\text{ ºC}}{100} = 60℃\]</div>
+<p>Por tanto la ganancia del controlador será:</p>
+<div class="math notranslate nohighlight">
+\[K_c = \frac{100\ \mathrm{kPa} - 20\ \mathrm{kPa}}{60\text{ ºC}} = 0.133
+   \mathrm{kPa} /℃\]</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -598,16 +700,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "julia-1.6"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "julia-1.6",
             path: "./Unidad06"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'julia-1.6'</script>
 
               </div>
               

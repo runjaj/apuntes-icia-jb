@@ -554,9 +554,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Unidad06/prob605.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Unidad06/prob605.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -574,6 +574,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/runjaj/apuntes-icia-jb/master?urlpath=tree/Unidad06/prob605.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -589,6 +609,43 @@
   <div class="section" id="problema-6-5">
 <span id="prob605"></span><h1>Problema 6.5<a class="headerlink" href="#problema-6-5" title="Permalink to this headline">¶</a></h1>
 <p>Un controlador P+I+D está en estado estacionario con una presión de salida de 9 psig. El <em>set point</em> y el punto de registro están juntos inicialmente. En el tiempo <span class="math notranslate nohighlight">\(t\)</span> = 0, el <em>set point</em> varía respecto al punto de registro a una velocidad de 0.5 in/min hacia lecturas más bajas. Si <span class="math notranslate nohighlight">\(K_c\)</span> = 2 psig/in de registro, <span class="math notranslate nohighlight">\(\tau_I\)</span> = 1.25 min y <span class="math notranslate nohighlight">\(\tau_D\)</span> = 0.4 min, dibujar la presión de salida frente al tiempo.</p>
+<hr class="docutils" />
+<p><strong>Solución</strong></p>
+<p>La salida de un controlador PID es:</p>
+<div class="math notranslate nohighlight">
+\[c (t) = K_c  \left( \varepsilon (t) + \frac{1}{\tau_I} \int_0^t \varepsilon(t) \mathrm{d}t + \tau_D \frac{\mathrm{d}\varepsilon (t)}{\mathrm{d}t} \right) + c_s\]</div>
+<p>En este problema:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ K_c &amp;= 2 \text{ psig} / \text{in}\\
+ \tau_I &amp;= 1.25 \text{ min} \\
+ \tau_D &amp;= 0.4 \text{ min}  \\
+ c (t = 0 \text{ min} ) &amp;= 9 \text{ psig} \\
+ \varepsilon (t) &amp;= - 0.5 \text{ in} /\text{ min} 
+\end{aligned}\end{split}\]</div>
+<p>Sustituyendo:</p>
+<div class="math notranslate nohighlight">
+\[c (t) = 2 \left( - 0.5 t + \frac{1}{1.25} \int_0^t - 0.5 t \mathrm{d}t + 0.4
+   \frac{\mathrm{d}(- 0.5 t)}{\mathrm{d}t} \right) + c_s = - t - 0.8 \frac{t^2}{2} -
+   0.4 + c_s\]</div>
+<p>El <em>bias</em> del controlador es <span class="math notranslate nohighlight">\(c_s = 9.4 \text{ psig}\)</span>, ya que <span class="math notranslate nohighlight">\(c (t = 0
+\min) = 9 \text{ psig}\)</span>. Por tanto, la curva a
+representar es:</p>
+<div class="math notranslate nohighlight">
+\[c (t) = 9 - t - 0.4 t^2\]</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="mf">0.1</span><span class="o">:</span><span class="mi">4</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="mi">9</span><span class="o">-</span><span class="n">t</span><span class="o">-</span><span class="mf">0.4</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
+     <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t (min)&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;P (psig)&quot;</span><span class="p">)</span>
+<span class="n">hline!</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob605_1_0.svg" src="../_images/prob605_1_0.svg" /></div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -600,16 +657,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "julia-1.6"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "julia-1.6",
             path: "./Unidad06"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'julia-1.6'</script>
 
               </div>
               
