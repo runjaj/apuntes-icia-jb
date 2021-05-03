@@ -61,33 +61,65 @@ Este es la planificación prevista de la asignatura:
 : Presentación
 1 - Introducción al control de procesos (4)
 
+**4 de mayo**
+: 1 - Introducción al control de procesos (2)
+
 **5 de mayo**
-: 2 - Instrumentación industrial (2) 
+: 3 - Cómo abordar la dinámica de un sistema (2) 
+
+**6 de mayo**
+: 3 - Cómo abordar la dinámica de un sistema (1)
 
 **7 de mayo**
-: 3 - Cómo abordar la dinámica de un sistema (4)
+: 4 - Sistemas de primer orden (2)
+
+**11 de mayo** ¡¡FIESTA!!
+: 5 - Sistemas de segundo orden (1)
 
 **12 de mayo**
-: 4 - Sistemas de primer orden Sistemas de segundo orden (2)
+: 6 - Acciones de control (2)
+
+**13 de mayo**
+: 7 - Control por retroalimentación de sistemas lineales (1)
 
 **14 de mayo**
-: 6 - Acciones de control
-7 - Control por retroalimentación de sistemas lineales (4)
+: 7 - Control por retroalimentación de sistemas lineales (2)
+
+**18 de mayo**
+: 8 - Análisis de estabilidad. Routh-Hurvitz (1)
 
 **19 de mayo**
-: 8 - Análisis de estabilidad. Routh-Hurvitz y lugar de las raíces (2)
+: 8 - Análisis de estabilidad. Lugar de las raíces (2)
+
+**20 de mayo**
+: 8 - Análisis de estabilidad. Diagramas de Bode (1)
 
 **21 de mayo**
-: 8 - (cont.) Criterio de estabilidad de Bode (4)
+: 8 - Análisis de estabilidad. Criterio de estabilidad de Bode (3)
+
+**25 de mayo**
+9 - Métodos semiempíricos (1)
 
 **26 de mayo**
 : 9 - Métodos semiempíricos (1+1)
 
+**27 de mayo**
+: 9 - Métodos semiempíricos (1)
+
 **28 de mayo**
-: 10 - Sistemas de control avanzado (4)
+: 2 - Instrumentación industrial (2)
+
+**1 de junio**
+: 10 - Control avanzado (1)
 
 **2 de junio**
-: Dudas (2)
+: 10 - Control avanzado (2)
+
+**3 de junio**
+: Problemas y dudas (1)
+
+**4 de junio**
+: Problemas y dudas (1+1)
 
 **21 de junio**
 : EXAMEN
