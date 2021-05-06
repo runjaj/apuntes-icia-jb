@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Control de procesos</title>
+    <title>Problema 7.10 &#8212; Control de procesos</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -362,13 +362,47 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad09/unidad09.html">
+   9. Métodos empíricos y semiempíricos
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/1_Ensayo.html">
+     9.1. Método del ensayo y error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/2_Criterio_unico.html">
+     9.2. Métodos de criterio único
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/3_Criterio_integral.html">
+     9.3. Método del criterio integral con el tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/4_Cohen.html">
+     9.4. Método de la curva de respuesta. Método de Cohen y Coon
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/5_Ziegler.html">
+     9.5. Método de Ziegler y Nichols
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
   Problemas resueltos
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Unidad01/problemas01.html">
    Tema 1
@@ -504,11 +538,11 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="problemas07.html">
    Tema 7
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="prob701.html">
      Problema 7.1
@@ -536,7 +570,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob706.html">
-     Problema 7.06
+     Problema 7.6
     </a>
    </li>
    <li class="toctree-l2">
@@ -552,6 +586,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="prob709.html">
      Problema 7.9
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Problema 7.10
     </a>
    </li>
   </ul>
@@ -603,9 +642,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Unidad07/prob710.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Unidad07/prob710.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -623,19 +662,30 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/runjaj/apuntes-icia-jb/master?urlpath=tree/Unidad07/prob710.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
         
     </div>
 </div>
@@ -644,9 +694,74 @@
         
               <div>
                 
-  <hr class="docutils" />
+  <div class="section" id="problema-7-10">
+<h1>Problema 7.10<a class="headerlink" href="#problema-7-10" title="Permalink to this headline">¶</a></h1>
+<style type="text/css">
+    ol { list-style-type: lower-alpha; }
+</style>
+<p>Considerar una lazo cerrado con las funciones de transferencia siguientes:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+    G_c &amp;= 5\\
+    G_f &amp;= 1\\
+    G_p &amp;= \frac{2}{(s+1)(3s+1)}\\
+    G_d &amp;= \frac{1}{(s+1)(3s+1)}\\
+    G_m &amp;= 1
+\end{align}\end{split}\]</div>
+<p>Para un cambio en el <em>set point</em> de magnitud 2, contestar a las siguientes preguntas:</p>
+<ol class="simple">
+<li><p>Derivar una expresión en el dominio de Laplace para la respuesta de lazo cerrado.</p></li>
+<li><p>Obtener la respuesta del lazo cerrado en tiempo real.</p></li>
+<li><p>Calcular el valor máximo de <span class="math notranslate nohighlight">\(y(t)\)</span> y establecer cuando ocurre.</p></li>
+<li><p>Calcular el <em>offset</em>.</p></li>
+<li><p>Calcular el periodo de oscilación de la respuesta de lazo cerrado.</p></li>
+<li><p>Dibujar cualitativamente la respuesta en tiempo real.</p></li>
+</ol>
+<hr class="docutils" />
 <p><strong>Solución</strong></p>
 <p>a) En este problema se propone el siguiente lazo de control:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">PyCall</span><span class="p">,</span> <span class="n">LaTeXStrings</span>
+
+<span class="n">schemdraw</span> <span class="o">=</span> <span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;schemdraw&quot;</span><span class="p">)</span>
+<span class="n">dsp</span> <span class="o">=</span> <span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;schemdraw.dsp&quot;</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;y_{sp}&quot;</span><span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">))</span>
+<span class="n">comp</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s">&quot;+&quot;</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+<span class="n">control</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;G_c&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">control</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+<span class="n">efc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;G_f&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">efc</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;G_p&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+<span class="n">suma</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Mixer</span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="s">&quot;+&quot;</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="s">&quot;+&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">suma</span><span class="o">.</span><span class="n">N</span><span class="p">))</span>
+<span class="n">pert</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;S&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;G_d&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">pert</span><span class="o">.</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;d&quot;</span><span class="p">,</span> <span class="s">&quot;right&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">suma</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+<span class="n">dot</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">push</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">dot</span><span class="o">.</span><span class="n">center</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="s">&quot;right&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">down</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">dot</span><span class="o">.</span><span class="n">center</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">left</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;E&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;G_m&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">W</span><span class="p">)</span><span class="o">.</span><span class="n">tox</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">S</span><span class="p">)</span><span class="o">.</span><span class="n">left</span><span class="p">())</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">up</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">S</span><span class="p">))</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob710_1_0.svg" src="../_images/prob710_1_0.svg" /></div>
+</div>
 <p>La respuesta de este sistema en el dominio de Laplace para un cambio en la consigna es:</p>
 <div class="math notranslate nohighlight">
 \[y = \frac{G_c G_f G_p}{1 + G_c G_f G_p} y_{sp}\]</div>
@@ -668,12 +783,67 @@
    \end{array}\right.\end{split}\]</div>
 <p>El coeficiente de amortiguamiento es menor que la unidad, lo que significa que se trata de un sistema subamortiguado. La respuesta será:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}y (t) = K_p M \left[ 1 - \frac{1}{\sqrt[]{1 - \zeta^2}} e^{- \zeta
+\[y (t) = K_p M \left[ 1 - \frac{1}{\sqrt[]{1 - \zeta^2}} e^{- \zeta
    \frac{t}{\tau}} \sin \left( \frac{1}{\sqrt[]{1 - \zeta^2}} 
-   \frac{t}{\tau} + \ensuremath{\operatorname{atan}} \frac{\sqrt[]{1 - \zeta^2}}{\zeta} \right)
-   \right]$$ donde:\\-   $K_p$ es la ganancia del proceso. En este caso
-    $K_p = \frac{10}{11}$.\\-   *M* es la altura del escalón ($M = 2$).\\Por tanto la respuesta en tiempo real es:\\$$y (t) = 1.818 [1 - 1.067 \mathrm{e}^{- 0.6667 t} \sin (2.043 t + 1.215)]\end{aligned}\end{align} \]</div>
+   \frac{t}{\tau} + \mathrm{atan} \frac{\sqrt[]{1 - \zeta^2}}{\zeta} \right)
+   \right]\]</div>
+<p>donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K_p\)</span> es la ganancia del proceso. En este caso
+<span class="math notranslate nohighlight">\(K_p = \frac{10}{11}\)</span>.</p></li>
+<li><p><em>M</em> es la altura del escalón (<span class="math notranslate nohighlight">\(M = 2\)</span>).</p></li>
+</ul>
+<p>Por tanto la respuesta en tiempo real es:</p>
+<div class="math notranslate nohighlight">
+\[y (t) = 1.818 [1 - 1.067 \mathrm{e}^{- 0.6667 t} \sin (2.043 t + 1.215)]\]</div>
 <p>c) Si se representa la función anterior se obtiene:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Plots</span><span class="p">,</span> <span class="n">SymPy</span><span class="p">,</span> <span class="n">Roots</span><span class="p">,</span> <span class="n">ForwardDiff</span>
+
+<span class="nd">@syms</span> <span class="n">t</span><span class="p">,</span> <span class="n">s</span>
+
+<span class="c"># Definimos las funciones de transferencia</span>
+<span class="n">Gc</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">Gf</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">Gp</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="p">((</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">Gm</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c"># Función de transferencia del lazo de control</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">Gc</span><span class="o">*</span><span class="n">Gf</span><span class="o">*</span><span class="n">Gp</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">Gc</span><span class="o">*</span><span class="n">Gf</span><span class="o">*</span><span class="n">Gp</span><span class="o">*</span><span class="n">Gm</span><span class="p">)</span>
+
+<span class="c"># Cambio en la consigna</span>
+<span class="n">Csp</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="n">s</span>
+
+<span class="c"># Cálculo de y(s)</span>
+<span class="n">C_s</span> <span class="o">=</span> <span class="n">G</span><span class="o">*</span><span class="n">Csp</span>
+
+<span class="c"># Cálculo de y(t)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="n">C_s</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c"># Transformamos C(t) para que se pueda realizar la diferenciación</span>
+<span class="c"># automática con ForwardDiff</span>
+<span class="n">C_t</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">lambdify</span><span class="p">(</span><span class="n">C</span><span class="p">)(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="c"># Valor de C(t) cuando t tiende a infinito</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">limit</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="n">C_s</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c"># Valor máximo de C(t), buscamos el máximo</span>
+<span class="n">tmax</span> <span class="o">=</span> <span class="n">fzero</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">derivative</span><span class="p">(</span><span class="n">C_t</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Cmax</span> <span class="o">=</span> <span class="n">C_t</span><span class="p">(</span><span class="n">tmax</span><span class="p">)</span>
+
+<span class="n">plot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;C(t)&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">B</span><span class="o">*</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">([</span><span class="n">tmax</span><span class="p">,</span> <span class="n">tmax</span><span class="p">],</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="n">Cmax</span><span class="p">],</span> <span class="n">marker</span><span class="o">=:</span><span class="n">circle</span><span class="p">,</span> <span class="n">msw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">annotations</span><span class="o">=</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)))</span>
+<span class="n">plot!</span><span class="p">([</span><span class="n">tmax</span><span class="p">,</span> <span class="n">tmax</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">B</span><span class="p">],</span> <span class="n">marker</span><span class="o">=:</span><span class="n">circle</span><span class="p">,</span> <span class="n">msw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">annotations</span><span class="o">=</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob710_3_0.svg" src="../_images/prob710_3_0.svg" /></div>
+</div>
 <p>En la gráfica se puede observar claramente que el valor máximo de la
 respuesta tiene el valor de <span class="math notranslate nohighlight">\(A + B\)</span>. El valor de <span class="math notranslate nohighlight">\(B\)</span> es el valor
 estacionario que alcanza el lazo de control, es decir:</p>
@@ -681,17 +851,17 @@ estacionario que alcanza el lazo de control, es decir:</p>
 \[B = \lim_{t \to \infty} y (t) = \lim_{s \to 0} s y (s)\]</div>
 <p>Para poder calcular el valor de <span class="math notranslate nohighlight">\(A\)</span> sólo hay que recordar la definición de <em>overshoot</em>:</p>
 <div class="math notranslate nohighlight">
-\[\mathrm{Overshoot = \frac{A}{B}\]</div>
+\[\mathrm{Overshoot} = \frac{A}{B}\]</div>
 <p>Por tanto el valor máximo de <span class="math notranslate nohighlight">\(y (t)\)</span> es:</p>
 <div class="math notranslate nohighlight">
-\[y_{\max} = A + B = (\mathrm{overshoot + 1) B\]</div>
+\[y_{\max} = A + B = (\mathrm{overshoot} + 1) B\]</div>
 <p>El <em>overshoot</em> es:</p>
 <div class="math notranslate nohighlight">
-\[\mathrm{Overshoot = \exp \left( \frac{- \pi \zeta}{\sqrt[]{1 - \zeta^2}}
+\[\mathrm{Overshoot} = \exp \left( \frac{- \pi \zeta}{\sqrt[]{1 - \zeta^2}}
    \right) = 0.3113\]</div>
 <p>El valor de <em>B</em> es:</p>
 <div class="math notranslate nohighlight">
-\[B = lim_{s \to 0} s \frac{\frac{10}{11}}{\frac{3}{11}
+\[B = \lim_{s \to 0} s \frac{\frac{10}{11}}{\frac{3}{11}
    s^2 + \frac{4}{11} s + 1}  \frac{2}{s} = \frac{20}{11}\]</div>
 <p>Por tanto el valor máximo de la respuesta es:</p>
 <div class="math notranslate nohighlight">
@@ -700,7 +870,8 @@ estacionario que alcanza el lazo de control, es decir:</p>
 <div class="math notranslate nohighlight">
 \[y_{\max} = 2.384 = 1.818 [1 - 1.067 \mathrm{e}^{- 0.6667 t_{\max}} \sin
    (2.043 t_{\max} + 1.215)]\]</div>
-<p>El resultado es: $<span class="math notranslate nohighlight">\(t_{\max} = 1.82\)</span>$</p>
+<p>El resultado es: $<span class="math notranslate nohighlight">\(t_{\max} = 1.75\)</span>$</p>
+<p>La estrategia para encontrar la posición del máximo utilizada para dibujar la gráfica anterior es diferente. En este caso se ha buscado el primer punto para el que la derivada de la respuesta es cero. No ha sido necesario calcular el <em>overshoot</em>.</p>
 <p>d) El periodo de osiclación es:</p>
 <div class="math notranslate nohighlight">
 \[T = \frac{2 \pi \tau}{\sqrt[]{1 - \zeta^2}}\]</div>
@@ -708,6 +879,7 @@ estacionario que alcanza el lazo de control, es decir:</p>
 <div class="math notranslate nohighlight">
 \[T = 3.50\]</div>
 <p>e) La respuesta en tiempo real está dibujada más arriba.</p>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -718,16 +890,16 @@ estacionario que alcanza el lazo de control, es decir:</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "julia-1.6"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "julia-1.6",
             path: "./Unidad07"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'julia-1.6'</script>
 
               </div>
               

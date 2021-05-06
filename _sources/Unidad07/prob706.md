@@ -1,4 +1,4 @@
-# Problema 7.06
+# Problema 7.6
  
 <style type="text/css">
     ol { list-style-type: lower-alpha; }
