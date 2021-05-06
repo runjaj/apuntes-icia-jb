@@ -97,4 +97,15 @@
         - file: Unidad06/prob604
         - file: Unidad06/prob605
     - file: Unidad07/problemas07
+      sections:
+        - file: Unidad07/prob701
+        - file: Unidad07/prob702
+        - file: Unidad07/prob703
+        - file: Unidad07/prob704
+        - file: Unidad07/prob705
+        - file: Unidad07/prob706
+        - file: Unidad07/prob707
+        - file: Unidad07/prob708
+        - file: Unidad07/prob709
+        - file: Unidad07/prob710
     - file: Unidad08/problemas08
