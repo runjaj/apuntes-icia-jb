@@ -64,6 +64,14 @@
     - file: Unidad08/4_Diagramas_Bode
     - file: Unidad08/5_Bode
     - file: Unidad08/6_Nyquist
+    
+  - file: Unidad09/unidad09
+    sections:
+    - file: Unidad09/1_Ensayo
+    - file: Unidad09/2_Criterio_unico
+    - file: Unidad09/3_Criterio_integral
+    - file: Unidad09/4_Cohen
+    - file: Unidad09/5_Ziegler
 
 - part: Problemas resueltos
   numbered: false
