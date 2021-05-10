@@ -16,8 +16,21 @@ Al contrario que el método anterior, ésta es una técnica de lazo cerrado. El 
 
 4.  Ziegler y Nichols recomendaron los siguientes parámetros para controladores por retroalimentación:
 
-      |         $K_c$     |       $\tau_I$    |       $\tau_D$
-------|:-----------------:|:-----------------:|:----------------:
-   P  |   $\frac{K_u}{2}$ |        -         |       -
-  PI  |  $\frac{K_u}{2.2}$| $\frac{P_u}{1.2}$ |       -
-  PID |  $\frac{K_u}{1.7}$|  $\frac{P_u}{2}$  | $\frac{P_u}{8}$ 
+    - P:
+        
+        $$K_c = \frac{K_u}{2}$$
+        
+    - PI:
+        
+        $$\begin{align}
+            K_c &= \frac{K_u}{2.2}\\
+            \tau_I &= \frac{P_u}{1.2}
+        \end{align}$$
+        
+    - PID:
+        
+        $$\begin{align}
+            K_c &= \frac{K_u}{1.7}\\
+            \tau_I &= \frac{P_u}{2}\\
+            \tau_D &= \frac{P_u}{8}
+        \end{align}$$
