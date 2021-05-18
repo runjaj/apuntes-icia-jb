@@ -597,10 +597,59 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Unidad08/problemas08.html">
    Tema 8
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob801.html">
+     Problema 8.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob802.html">
+     Problema 8.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob807.html">
+     Problema 8.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob808.html">
+     Problema 8.8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob810.html">
+     Problema 8.10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob811.html">
+     Problema 8.11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob812.html">
+     Problema 8.12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob815.html">
+     Problema 8.15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob816.html">
+     Problema 8.16
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -838,6 +887,9 @@
     <span class="n">annotations</span><span class="o">=</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)))</span>
 <span class="n">plot!</span><span class="p">([</span><span class="n">tmax</span><span class="p">,</span> <span class="n">tmax</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">B</span><span class="p">],</span> <span class="n">marker</span><span class="o">=:</span><span class="n">circle</span><span class="p">,</span> <span class="n">msw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">annotations</span><span class="o">=</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">)))</span>
+
+<span class="c"># NOTA: El problema 7.9 resuelve un problema similar pero sin utilizar</span>
+<span class="c"># un método numérico para calcular la derivada.</span>
 </pre></div>
 </div>
 </div>
@@ -871,7 +923,7 @@ estacionario que alcanza el lazo de control, es decir:</p>
 \[y_{\max} = 2.384 = 1.818 [1 - 1.067 \mathrm{e}^{- 0.6667 t_{\max}} \sin
    (2.043 t_{\max} + 1.215)]\]</div>
 <p>El resultado es: $<span class="math notranslate nohighlight">\(t_{\max} = 1.75\)</span>$</p>
-<p>La estrategia para encontrar la posición del máximo utilizada para dibujar la gráfica anterior es diferente. En este caso se ha buscado el primer punto para el que la derivada de la respuesta es cero. No ha sido necesario calcular el <em>overshoot</em>.</p>
+<p>La estrategia para encontrar la posición del máximo utilizada para dibujar la gráfica anterior es diferente. En este caso de ha buscado el primer punto para el que la derivada de la respuesta es cero. No ha sido necesario calcular el <em>overshoot</em>.</p>
 <p>d) El periodo de osiclación es:</p>
 <div class="math notranslate nohighlight">
 \[T = \frac{2 \pi \tau}{\sqrt[]{1 - \zeta^2}}\]</div>

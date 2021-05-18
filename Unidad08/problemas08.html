@@ -56,6 +56,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Problema 8.1" href="prob801.html" />
     <link rel="prev" title="Problema 7.10" href="../Unidad07/prob710.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -569,7 +570,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad07/prob706.html">
-     Problema 7.06
+     Problema 7.6
     </a>
    </li>
    <li class="toctree-l2">
@@ -596,10 +597,59 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="current reference internal" href="#">
    Tema 8
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob801.html">
+     Problema 8.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob802.html">
+     Problema 8.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob807.html">
+     Problema 8.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob808.html">
+     Problema 8.8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob810.html">
+     Problema 8.10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob811.html">
+     Problema 8.11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob812.html">
+     Problema 8.12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob815.html">
+     Problema 8.15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob816.html">
+     Problema 8.16
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -695,6 +745,9 @@
                 
   <div class="section" id="tema-8">
 <h1>Tema 8<a class="headerlink" href="#tema-8" title="Permalink to this headline">¶</a></h1>
+<style type="text/css">
+    ol { list-style-type: lower-alpha; }
+</style>
 <p><strong>Problema 8.1</strong></p>
 <p>Estimar la estabilidad de un sistema de control autimático cuya función de transferencia de lazo abierto es:</p>
 <div class="math notranslate nohighlight">
@@ -931,7 +984,7 @@ Dibujar el lugar de las raíces para un sistema cuya función de transferencia d
 <li><p>Calcular el <em>offset</em> si se produce en la carga una perturbación unidad en forma de escalón.</p></li>
 <li><p>La respuesta en tiempo real a la perturbación anterior, ¿es oscilatoria? Si lo es, ¿qué período tiene?</p></li>
 <li><p>Para disminuir el <em>offset</em> frente a las variaciones en la consigna, ¿qué parámetro se debería modificar?</p></li>
-<li><p>Estudiar la estabilidad de este sistema de control. ¿Cómo afectaría a laa estabilidad la modificación anterior?</p></li>
+<li><p>Estudiar la estabilidad de este sistema de control. ¿Cómo afectaría a la estabilidad la modificación anterior?</p></li>
 </ol>
 <p>Datos:</p>
 <ul class="simple">
@@ -987,7 +1040,7 @@ Dibujar el lugar de las raíces para un sistema cuya función de transferencia d
     G_{m_2} = k_1
 \end{align}\end{split}\]</div>
 <p>siendo <span class="math notranslate nohighlight">\(G_c\)</span> la correspondiente a un controlador PI.</p>
-<p>Las constantes de las funciones de transferenciason: <span class="math notranslate nohighlight">\(K_c\)</span> = 10, <span class="math notranslate nohighlight">\(\tau_I\)</span> = 1 min, <span class="math notranslate nohighlight">\(k_1\)</span> = 0.8 y <span class="math notranslate nohighlight">\(k_v\)</span> = 0.5.</p>
+<p>Las constantes de las funciones de transferenciason: <span class="math notranslate nohighlight">\(K_c\)</span> = 10, <span class="math notranslate nohighlight">\(\tau_I\)</span> = 1 min, <span class="math notranslate nohighlight">\(k_1\)</span> = 0.25 y <span class="math notranslate nohighlight">\(k_v\)</span> = 0.5.</p>
 <ol class="simple">
 <li><p>Determinar los márgenes de ganancia y de fase.</p></li>
 <li><p>Mostrar si el sistema es o no estable.</p></li>
@@ -1256,6 +1309,8 @@ Dibujar el lugar de las raíces para un sistema cuya función de transferencia d
 \[G_p = \frac{10 \mathrm{e}^{- 0.1 s}}{0.5 s + 1}\]</div>
 <p>Los valores de los parámetros se han determinado con un error de <span class="math notranslate nohighlight">\(\pm\)</span>20 %. Calcular la mayor ganancia de un controlador proporcional que
 hace al ciclo cerrado estable. Suponer <span class="math notranslate nohighlight">\(G_m = G_f = 1\)</span>.</p>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1287,6 +1342,7 @@ hace al ciclo cerrado estable. Suponer <span class="math notranslate nohighlight
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../Unidad07/prob710.html" title="previous page">Problema 7.10</a>
+    <a class='right-next' id="next-link" href="prob801.html" title="next page">Problema 8.1</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

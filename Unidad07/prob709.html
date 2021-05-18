@@ -570,7 +570,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="prob706.html">
-     Problema 7.06
+     Problema 7.6
     </a>
    </li>
    <li class="toctree-l2">
@@ -597,10 +597,59 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Unidad08/problemas08.html">
    Tema 8
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob801.html">
+     Problema 8.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob802.html">
+     Problema 8.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob807.html">
+     Problema 8.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob808.html">
+     Problema 8.8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob810.html">
+     Problema 8.10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob811.html">
+     Problema 8.11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob812.html">
+     Problema 8.12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob815.html">
+     Problema 8.15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob816.html">
+     Problema 8.16
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -752,27 +801,43 @@
 <span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
 <span class="nd">@syms</span> <span class="n">s</span>
 
+<span class="c"># Cambio en la consigna en forma de escalón unidad</span>
 <span class="n">ysp</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">s</span>
 
+<span class="c"># Función de transferencia del lazo de control</span>
 <span class="n">G</span> <span class="o">=</span> <span class="mf">0.2</span><span class="o">/</span><span class="p">(</span><span class="mi">20</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span><span class="mf">3.52</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
+<span class="c"># Respuesta del lazo de control</span>
 <span class="n">y_s</span> <span class="o">=</span> <span class="n">G</span><span class="o">*</span><span class="n">ysp</span>
 
 <span class="n">y_t</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="n">y_s</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 
-<span class="n">tau</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">zeta</span> <span class="o">=</span> <span class="mf">3.52</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">tau</span><span class="p">)</span>
+<span class="c"># Para calcular la posición del máximo, se debe cumplir que dy/dt = 0</span>
+<span class="c"># Para calcular la derivada y&#39; usaremos la propuedad de la transformada</span>
+<span class="c"># de Laplace de la derivada.</span>
+<span class="c"># Calcular la derivada de y_t directamente es demasiado complejo, esto es</span>
+<span class="c"># mucho más eficaz</span>
 
-<span class="n">overshoot</span> <span class="o">=</span> <span class="n">N</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="nb">pi</span><span class="o">*</span><span class="n">zeta</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">zeta</span><span class="o">^</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">dy_s</span> <span class="o">=</span> <span class="n">s</span><span class="o">*</span><span class="n">G</span><span class="o">*</span><span class="n">ysp</span>
+<span class="n">dy_t</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="n">dy_s</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c"># Valor de y(t -&gt; oo)</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">limit</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="n">y_s</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="n">ymax</span> <span class="o">=</span> <span class="n">B</span><span class="o">*</span><span class="p">(</span><span class="n">overshoot</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">tmax</span> <span class="o">=</span> <span class="n">find_zero</span><span class="p">(</span><span class="n">y_t</span><span class="o">-</span><span class="n">ymax</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c"># Resolvemos la ecuación numéricamente para encontrar la posición del máximo</span>
+<span class="c"># y su valor</span>
+<span class="n">tmax</span> <span class="o">=</span> <span class="n">fzero</span><span class="p">(</span><span class="n">dy_t</span><span class="p">,[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="n">y_t</span><span class="p">(</span><span class="n">tmax</span><span class="p">)</span>
+
 
 <span class="n">plot</span><span class="p">(</span><span class="n">y_t</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;C(t)&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
 <span class="n">plot!</span><span class="p">(</span><span class="n">B</span><span class="o">*</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
 <span class="n">plot!</span><span class="p">([</span><span class="n">tmax</span><span class="p">,</span> <span class="n">tmax</span><span class="p">],</span> <span class="p">[</span><span class="n">B</span><span class="p">,</span> <span class="n">ymax</span><span class="p">],</span> <span class="n">marker</span><span class="o">=:</span><span class="n">circle</span><span class="p">,</span> <span class="n">msw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">,</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)))</span>
 <span class="n">plot!</span><span class="p">([</span><span class="n">tmax</span><span class="p">,</span> <span class="n">tmax</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">B</span><span class="p">],</span> <span class="n">marker</span><span class="o">=:</span><span class="n">circle</span><span class="p">,</span> <span class="n">msw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">)))</span>
+
+<span class="c"># NOTA: El problema 7.10 utiliza un método numérico para calcular la derivada,</span>
+<span class="c"># lo que puede ser útil para situaciones en las que no se puede encontrar una solución</span>
+<span class="c"># analítica para la derivada</span>
 </pre></div>
 </div>
 </div>

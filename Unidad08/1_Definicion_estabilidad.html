@@ -570,7 +570,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad07/prob706.html">
-     Problema 7.06
+     Problema 7.6
     </a>
    </li>
    <li class="toctree-l2">
@@ -597,10 +597,59 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="problemas08.html">
    Tema 8
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob801.html">
+     Problema 8.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob802.html">
+     Problema 8.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob807.html">
+     Problema 8.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob808.html">
+     Problema 8.8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob810.html">
+     Problema 8.10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob811.html">
+     Problema 8.11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob812.html">
+     Problema 8.12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob815.html">
+     Problema 8.15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob816.html">
+     Problema 8.16
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -680,9 +729,8 @@
 inicial.</p>
 <p>La inestabilidad de los sistemas es la mayor limitación a la hora derealizar la sintonía del controlador.</p>
 <p>Tal como se ha visto en los temas anteriores la respuesta de bucle cerrado para un sistema de control generalizado es:</p>
-<div class="math notranslate nohighlight">
-\[y = \frac{G_c G_p G_f}{1 + G_c G_p G_f G_m} y_{sp} + \frac{G_d}{1 +
-   G_c G_p G_f G_m} d\]</div>
+<div class="math notranslate nohighlight" id="equation-ec8-1">
+<span class="eqno">(8.1)<a class="headerlink" href="#equation-ec8-1" title="Permalink to this equation">¶</a></span>\[y = \frac{G_c G_p G_f}{1 + G_c G_p G_f G_m} y_{sp} + \frac{G_d}{1 + G_c G_p G_f G_m} d\]</div>
 <p>Normalmente, la estabilidad o inestabilidad de un sistema es intrínseca al mismo, independientemente de la entrada. Es un problema del sistema.</p>
 <p>Para estudiar la estabilidad de la respuesta es necesario realizar la transformada inversa de Laplace para obtener la respuesta en tiempo real. Para ello hay que descomponer <span class="math notranslate nohighlight">\(y (s)\)</span> en fracciones simples. Para realizar esta descomposición se deben encontrar las raíces de la <em>ecuación característica</em> (<span class="math notranslate nohighlight">\(1 + G_c G_p G_f G_m = 0\)</span>). La ecuación característica es el denominador de las funciones de transferencia tanto del problema de la regulación o de la carga como del servocontrol, es decir, es 1 más el producto de las funciones de transferencia del lazo de retroalimentación (<span class="math notranslate nohighlight">\(G_{OL}\)</span>).</p>
 <p>Las raíces de la ecuación característica son <span class="math notranslate nohighlight">\(\alpha_i\)</span>, <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>. Por tanto, una vez realizada la descomposición en fracciones simples:</p>

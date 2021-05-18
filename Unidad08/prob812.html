@@ -1,0 +1,1165 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problema 8.12 &#8212; Control de procesos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Problema 8.15" href="prob815.html" />
+    <link rel="prev" title="Problema 8.11" href="prob811.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/M-UdL2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Control de procesos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Presentación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Teoría
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/unidad01.html">
+   1. Introducción
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/1_historia.html">
+     1.1. Breve historia del control de procesos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/2_contexto.html">
+     1.2. Contexto de la disciplina
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/3_descripci%C3%B3n.html">
+     1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/4_conceptos.html">
+     1.4. Conceptos generales
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad02/unidad02.html">
+   2. Instrumentación industrial
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/1_definiciones.html">
+     2.1. Algunas definiciones de instrumentación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/2_instrumentacion.html">
+     2.2. Algo de instrumentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/unidad03.html">
+   3. Cómo abordar la dinámica de un sistema
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/1_ejemplo_dinamica.html">
+     3.1. Un ejemplo de dinámica de un sistema. ¿Qué se desea conocer?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/2_transformada.html">
+     3.2. La transformada de Laplace como herramienta útil
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/3_funcion_transferencia.html">
+     3.3. La función de transferencia. Álgebra de funciones de transferencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/4_funciones_singulares.html">
+     3.4. Transformadas de algunas funciones singulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/5_inversion.html">
+     3.5. Inversión de transformadas. De vuelta al tiempo real
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/6_expansion.html">
+     3.6. Expansión en fracciones parciales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/7_tablas_transformadas.html">
+     3.7. Transformadas de Laplace
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/unidad05.html">
+   5. Sistemas lineales de segundo orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/1_Definicion.html">
+     5.1. Definición de sistema de segundo orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/2_Escalon.html">
+     5.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/3_Linealizacion.html">
+     5.3. Linealización
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/4_Retrasos.html">
+     5.4. Retrasos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/unidad06.html">
+   6. Acciones de control
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/1_Descripcion.html">
+     6.1. Descripción de un bucle de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/2_Control_P.html">
+     6.2. Control proporcional (P)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/3_Control_PI.html">
+     6.3. Control Proporcional + Integral (PI)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/4_Control_PD.html">
+     6.4. Control Proporcional + Derivativo (PD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/5_Control_PID.html">
+     6.5. Control Proporcional + Integral + Derivativo (PID)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad07/unidad07.html">
+   7. Control por retroalimentación de sistemas lineales
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/1_Accion_P.html">
+     7.1. Acción de control proporcional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/2_Accion_I.html">
+     7.2. Acción de control integral
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/3_Accion_D.html">
+     7.3. Acción de control derivativa
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/4_Acciones_combinadas.html">
+     7.4. Acciones de control combinadas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/5_Influencia_retrasos.html">
+     7.5. Influencia de los retrasos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/6_Intro_dise%C3%B1o.html">
+     7.6. Introducción al diseño de sistemas de control por retroalimentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="unidad08.html">
+   8. Análisis de estabilidad de sistemas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Definicion_estabilidad.html">
+     8.1. Definición de estabilidad. Ecuación característica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Routh_Hurvitz.html">
+     8.2. Método de Routh-Hurvitz
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Lugar_raices.html">
+     8.3. Método del lugar de las raíces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Diagramas_Bode.html">
+     8.4. Análisis armónico de sistemas lineales. Diagramas de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Bode.html">
+     8.5. Criterio de estabilidad de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Nyquist.html">
+     8.6. Criterio de estabilidad de Nyquist
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad09/unidad09.html">
+   9. Métodos empíricos y semiempíricos
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/1_Ensayo.html">
+     9.1. Método del ensayo y error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/2_Criterio_unico.html">
+     9.2. Métodos de criterio único
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/3_Criterio_integral.html">
+     9.3. Método del criterio integral con el tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/4_Cohen.html">
+     9.4. Método de la curva de respuesta. Método de Cohen y Coon
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/5_Ziegler.html">
+     9.5. Método de Ziegler y Nichols
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas resueltos
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/problemas01.html">
+   Tema 1
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob101.html">
+     Problema 1.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob102.html">
+     Problema 1.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob104.html">
+     Problema 1.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/problemas03.html">
+   Tema 3
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob301.html">
+     Problema 3.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob302.html">
+     Problema 3.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob303.html">
+     Problema 3.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob304.html">
+     Problema 3.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob305.html">
+     Problema 3.5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob306.html">
+     Problema 3.6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob307.html">
+     Problema 3.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob308.html">
+     Problema 3.8
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob401.html">
+     Problema 4.01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob403.html">
+     Problema 4.03
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/problemas05.html">
+   Tema 5
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/prob504.html">
+     Problema 5.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/problemas06.html">
+   Tema 6
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob602.html">
+     Problema 6.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob603.html">
+     Problema 6.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob604.html">
+     Problema 6.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob605.html">
+     Problema 6.5
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad07/problemas07.html">
+   Tema 7
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob701.html">
+     Problema 7.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob702.html">
+     Problema 7.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob703.html">
+     Problema 7.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob704.html">
+     Problema 7.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob705.html">
+     Problema 7.5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob706.html">
+     Problema 7.6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob707.html">
+     Problema 7.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob708.html">
+     Problema 7.8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob709.html">
+     Problema 7.9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob710.html">
+     Problema 7.10
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="problemas08.html">
+   Tema 8
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob801.html">
+     Problema 8.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob802.html">
+     Problema 8.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob807.html">
+     Problema 8.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob808.html">
+     Problema 8.8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob810.html">
+     Problema 8.10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob811.html">
+     Problema 8.11
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Problema 8.12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob815.html">
+     Problema 8.15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob816.html">
+     Problema 8.16
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unidad08/prob812.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/runjaj/apuntes-icia-jb/master?urlpath=tree/Unidad08/prob812.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="problema-8-12">
+<h1>Problema 8.12<a class="headerlink" href="#problema-8-12" title="Permalink to this headline">¶</a></h1>
+<p>Un sistema de control utiliza un PI y se representa en el diagrama de bloques de la figura:</p>
+<p><img alt="prob812" src="../_images/prob812.svg" /></p>
+<p>Las funciones de transferencia son las siguientes:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+    G_v &amp;= k_v\\
+    G_p &amp;= \frac{1}{(s^2+s+2)(5s+2)}\\
+    G_{m_1} &amp;= \mathrm{e}^{-0.8s}\\
+    G_{m_2} &amp;= k_1
+\end{align}\end{split}\]</div>
+<p>siendo <span class="math notranslate nohighlight">\(G_c\)</span> la correspondiente a un controlador PI.</p>
+<p>Las constantes de las funciones de transferenciason: <span class="math notranslate nohighlight">\(K_c\)</span> = 10, <span class="math notranslate nohighlight">\(\tau_I\)</span> = 1 min, <span class="math notranslate nohighlight">\(k_1\)</span> = 0.25 y <span class="math notranslate nohighlight">\(k_v\)</span> = 0.5.</p>
+<ol class="simple">
+<li><p>Determinar los márgenes de ganancia y de fase.</p></li>
+<li><p>Mostrar si el sistema es o no estable.</p></li>
+<li><p>¿Qué influencia tendría la introducción en el controlador de una acción derivativa con <span class="math notranslate nohighlight">\(\tau_D\)</span> = 1 min.</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Solución</strong></p>
+<p>a) Para resolver este problema se recurrirá a los diagramas de Bode. La función de transferencia de lazo abierto de este sistema es:</p>
+<div class="math notranslate nohighlight">
+\[G_{OL} = G_c G_v G_p G_{m_1} G_{m_2} = K_c  \left( 1 +
+   \frac{1}{\tau_I s} \right) k_v  \frac{1}{(s^2 + s + 2)  (5 s + 2)}
+   \mathrm{e}^{- 0.8 s} k_1\]</div>
+<p>Sustituyendo los valores de las constantes:</p>
+<div class="math notranslate nohighlight">
+\[G_{OL} = 4 \left( 1 + \frac{1}{s} \right)  \frac{1}{s^2 + s + 2} 
+   \frac{1}{5 s + 2} \mathrm{e}^{- 0.8 s} = 4 \left( 1 + \frac{1}{s} \right) 
+   \frac{0.5}{0.5 s^2 + 0.5 s + 1}  \frac{0.5}{2.5 s + 1} \mathrm{e}^{- 0.8 s}\]</div>
+<p>La función de transferencia del proceso <span class="math notranslate nohighlight">\(G_p\)</span> se puede descomponer de manera trivial en el producto de la función de transferencia de un proceso de primer orden y otro de segundo orden. Observar que dichas funciones de transferencia se ha multiplicado y dividido por el término independiente del denominador para obtener las funciones detransferencia de la manera acostumbrada. Si no se hace este paso, fácilmente se pueden obtener constantes de tiempo o coeficientes de amortiguamiento erroneas.</p>
+<p>A partir de la función de transferencia de lazo abierto se obtiene la razón de amplitudes y el desfase necesario para obtener el diagrama de Bode:</p>
+<div class="math notranslate nohighlight">
+\[RA_{OL} = 4 \sqrt{1 + \frac{1}{\omega^2}} 
+   \frac{0.5}{\sqrt{(1 - 0.5^2 \omega^2)^2 + (0.5 \omega)^2}} 
+   \frac{0.5}{\sqrt{2.5^2 \omega^2 + 1}} 1\]</div>
+<div class="math notranslate nohighlight">
+\[\varphi = \mathrm{atan} \left( - \frac{1}{\omega} \right) + \mathrm{atan}
+   \left( - \frac{0.5 \omega}{1 - 0.5^2 \omega^2} \right) + \mathrm{atan} (- 2.5
+   \omega) - 0.8 \omega\]</div>
+<p>Aunque podríamos dibujar el diagrama de Bode con las funciones anteriores, es una tarea un poco tediosa. A continuación se muestra el diagrama de Bode dibujado utilizando <em>SymPy</em>. Para su representación se utiliza la siguiente función:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span><span class="p">,</span> <span class="n">Plots</span><span class="p">,</span> <span class="n">LaTeXStrings</span><span class="p">,</span> <span class="n">DSP</span><span class="p">,</span> <span class="n">Roots</span><span class="p">,</span> <span class="n">Interpolations</span>
+
+<span class="n">t</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;t omega&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<span class="nd">@vars</span> <span class="n">s</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+<span class="s">**bode(Gol; wmin=1e-1, wmax=1e1, points=100, co=false, ra1=false)**</span>
+
+<span class="s">Representación del diagrama de Bode de la función de transferencia _Gol_.</span>
+
+<span class="s">Parámetros:</span>
+
+<span class="s">- `Gol`: Función de transferencia dependiente de _s_</span>
+<span class="s">- `wmin`: Frecuencia angular mínima a representar</span>
+<span class="s">- `wmax`: Frecuencia angular máxima a representar</span>
+<span class="s">- `points`: Número de puntos a representar</span>
+<span class="s">- `co`: Calcula y representa la frecuencia de cruce</span>
+<span class="s">- `ra1`: Calcula y representa la frecuencia que hace que _RA_ = 1</span>
+
+<span class="s">Ejemplo:</span>
+
+<span class="s">`salida = bode(20*(s+1)/s/(s+5)/(s^2+2s+10); wmax=10, co=true, ra1=true)`</span>
+
+<span class="s">El resultado se da como un diccionario. Para obtener los valores del ejemplo:</span>
+
+<span class="s">- Frecuencia de cruce: ```salida[&quot;wco&quot;]```</span>
+<span class="s">- Frecuencia para _RA_ = 1: `salida[&quot;phi1&quot;]`</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">;</span> <span class="n">wmin</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="mf">1e1</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">ra1</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+    <span class="n">Gw</span> <span class="o">=</span> <span class="n">Gol</span><span class="p">(</span><span class="n">s</span><span class="o">=&gt;</span><span class="nb">im</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
+
+    <span class="n">RAol</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">real</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">imag</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">phiol</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">imag</span><span class="p">(</span><span class="n">Gw</span><span class="p">),</span> <span class="n">real</span><span class="p">(</span><span class="n">Gw</span><span class="p">))</span>
+    
+    <span class="c"># Hace una lista equiespaciada para los valores del log10 del desfase</span>
+    <span class="n">wlog</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">wmin</span><span class="p">),</span> <span class="n">log10</span><span class="p">(</span><span class="n">wmax</span><span class="p">);</span> <span class="n">length</span><span class="o">=</span><span class="n">points</span><span class="p">)</span>
+    <span class="c"># Genera la versión lineal</span>
+    <span class="n">wlin</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">.^</span><span class="n">wlog</span>
+    
+    <span class="c"># Convierte la función del desfase a lenguajje Julia</span>
+    <span class="n">philam</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">(</span><span class="n">phiol</span><span class="p">)</span>
+    <span class="c"># Calcula los datos de desfase para los valores de frecuencia</span>
+    <span class="n">phidata</span> <span class="o">=</span> <span class="n">philam</span><span class="o">.</span><span class="p">(</span><span class="n">wlin</span><span class="p">)</span>
+    <span class="c"># Tiene en cuanta las &quot;vueltas&quot; del desfase</span>
+    <span class="n">DSP</span><span class="o">.</span><span class="n">unwrap!</span><span class="p">(</span><span class="n">phidata</span><span class="p">)</span>
+    <span class="c"># Calcularemos los valores del desfase mediante interpolación</span>
+    <span class="c"># lineal</span>
+    <span class="n">itp</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="n">wlin</span><span class="p">,</span><span class="n">phidata</span><span class="p">)</span>
+    
+    <span class="c"># Calculo de la frecuencia de cruce (desfase = -180°) </span>
+    <span class="c"># y la RAco, si es necesario</span>
+    <span class="k">if</span> <span class="n">co</span>
+        <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">itp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="nb">pi</span>
+        <span class="n">wco</span> <span class="o">=</span> <span class="n">find_zero</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">))</span>
+        <span class="n">RAco</span> <span class="o">=</span> <span class="n">RAol</span><span class="p">(</span><span class="n">wco</span><span class="p">)</span>
+        <span class="n">phico</span> <span class="o">=</span> <span class="n">itp</span><span class="p">(</span><span class="n">wco</span><span class="p">)</span>
+    <span class="k">end</span>
+    
+    <span class="c">#Cálculo de la frecuencia para RA=1 y su desfase</span>
+    <span class="k">if</span> <span class="n">ra1</span>    
+        <span class="n">w1</span> <span class="o">=</span> <span class="n">find_zero</span><span class="p">(</span><span class="n">RAol</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">))</span>
+        <span class="n">RA1</span> <span class="o">=</span> <span class="n">RAol</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span>
+        <span class="n">phi1</span> <span class="o">=</span> <span class="n">itp</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="c"># Representación del diagrama de Bode</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nd">@layout</span> <span class="p">[</span><span class="n">a</span><span class="p">;</span> <span class="n">b</span><span class="p">]</span>
+    <span class="n">RAplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">RAol</span><span class="p">,</span> <span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span>
+        <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;RA&quot;</span><span class="p">,</span>
+        <span class="n">minorticks</span><span class="o">=:</span><span class="n">auto</span><span class="p">)</span>
+    <span class="c"># Encuentra el valor mínimo de la escala del eje y </span>
+    <span class="n">RAminscale</span> <span class="o">=</span> <span class="n">ylims</span><span class="p">(</span><span class="n">RAplot</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">co</span>
+        <span class="n">plot!</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wco</span><span class="p">,</span> <span class="n">wco</span><span class="p">],[</span><span class="n">RAco</span><span class="p">,</span> <span class="n">RAco</span><span class="p">,</span> <span class="n">RAminscale</span><span class="p">],</span> <span class="n">color</span><span class="o">=:</span><span class="n">red</span><span class="p">,</span> 
+            <span class="n">annotations</span><span class="o">=</span> <span class="p">(</span><span class="n">wco</span><span class="p">,</span> <span class="n">float</span><span class="p">(</span><span class="n">RAco</span><span class="p">),</span> <span class="n">text</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;w_{co}, RA_{co}&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">:</span><span class="n">left</span><span class="p">)))</span>
+    <span class="k">end</span>
+    <span class="k">if</span> <span class="n">ra1</span>
+        <span class="n">plot!</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w1</span><span class="p">],</span> <span class="p">[</span><span class="n">RA1</span><span class="p">,</span> <span class="n">RA1</span><span class="p">,</span> <span class="n">RAminscale</span><span class="p">],</span> <span class="n">color</span><span class="o">=:</span><span class="n">lime</span><span class="p">,</span> 
+            <span class="n">annotations</span><span class="o">=</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">float</span><span class="p">(</span><span class="n">RA1</span><span class="p">),</span> <span class="n">text</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;w_1, 1&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">:</span><span class="n">left</span><span class="p">)))</span>
+    <span class="k">end</span>
+    <span class="n">phiplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">wlin</span><span class="p">,</span> <span class="n">phidata</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span>
+        <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ&quot;</span><span class="p">,</span>
+        <span class="n">minorticks</span><span class="o">=:</span><span class="n">auto</span><span class="p">)</span>
+    <span class="n">phiminscale</span> <span class="o">=</span> <span class="n">ylims</span><span class="p">(</span><span class="n">phiplot</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">co</span>
+        <span class="n">plot!</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wco</span><span class="p">,</span> <span class="n">wco</span><span class="p">],[</span><span class="n">phico</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">phico</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">phiminscale</span><span class="p">],</span>
+            <span class="n">color</span><span class="o">=:</span><span class="n">red</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span> <span class="p">(</span><span class="n">wco</span> <span class="p">,</span><span class="n">float</span><span class="p">(</span><span class="n">phico</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">),</span> <span class="n">text</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;w_{co}, -180\degree&quot;</span><span class="p">,</span>
+                    <span class="n">pointsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">:</span><span class="n">left</span><span class="p">)))</span>
+    <span class="k">end</span>
+    <span class="k">if</span> <span class="n">ra1</span>
+        <span class="n">plot!</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w1</span><span class="p">],</span> <span class="p">[</span><span class="n">phi1</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">phi1</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">phiminscale</span><span class="p">],</span> <span class="n">color</span><span class="o">=:</span><span class="n">lime</span><span class="p">,</span>
+        <span class="n">annotations</span> <span class="o">=</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">float</span><span class="p">(</span><span class="n">phi1</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">),</span> <span class="n">text</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;w_1, \phi_1&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">:</span><span class="n">left</span><span class="p">)))</span>
+    <span class="k">end</span>
+    
+    <span class="c"># Muestra los gráficos </span>
+    <span class="n">display</span><span class="p">(</span><span class="n">plot</span><span class="p">(</span><span class="n">RAplot</span><span class="p">,</span> <span class="n">phiplot</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">l</span><span class="p">))</span>
+    
+    <span class="c"># Generación del diccionario con los valores de salida</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">co</span>
+        <span class="n">output</span><span class="p">[</span><span class="s">&quot;wco&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wco</span>
+        <span class="n">output</span><span class="p">[</span><span class="s">&quot;RAco&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RAco</span>
+        <span class="n">output</span><span class="p">[</span><span class="s">&quot;phico&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phico</span>
+    <span class="k">end</span>
+    <span class="k">if</span> <span class="n">ra1</span>
+        <span class="n">output</span><span class="p">[</span><span class="s">&quot;w1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">w1</span>
+        <span class="n">output</span><span class="p">[</span><span class="s">&quot;RA1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RA1</span>
+        <span class="n">output</span><span class="p">[</span><span class="s">&quot;phi1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi1</span>
+    <span class="k">end</span>
+    <span class="k">if</span> <span class="n">co</span><span class="o">==</span><span class="kc">false</span> <span class="o">&amp;&amp;</span> <span class="n">ra1</span><span class="o">==</span><span class="kc">false</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="nb">nothing</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">output</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bode
+</pre></div>
+</div>
+</div>
+</div>
+<p>La ayuda de esta función se puede obtener escribiendo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="n">bode</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>search: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">bode</span> <span class=" -Color -Color-Bold">Bo</span>un<span class=" -Color -Color-Bold">d</span>s<span class=" -Color -Color-Bold">E</span>rror is<span class=" -Color -Color-Bold">b</span>l<span class=" -Color -Color-Bold">o</span>ck<span class=" -Color -Color-Bold">de</span>v @<span class=" -Color -Color-Bold">bo</span>un<span class=" -Color -Color-Bold">d</span>sch<span class=" -Color -Color-Bold">e</span>ck LineNum<span class=" -Color -Color-Bold">b</span>erN<span class=" -Color -Color-Bold">ode</span> <span class=" -Color -Color-Bold">b</span>arem<span class=" -Color -Color-Bold">od</span>ul<span class=" -Color -Color-Bold">e</span>
+</pre></div>
+</div>
+<p><strong>bode(Gol; wmin=1e-1, wmax=1e1, points=100, co=false, ra1=false)</strong></p>
+<p>Representación del diagrama de Bode de la función de transferencia <em>Gol</em>.</p>
+<p>Parámetros:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Gol</span></code>: Función de transferencia dependiente de <em>s</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wmin</span></code>: Frecuencia angular mínima a representar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wmax</span></code>: Frecuencia angular máxima a representar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">points</span></code>: Número de puntos a representar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">co</span></code>: Calcula y representa la frecuencia de cruce</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ra1</span></code>: Calcula y representa la frecuencia que hace que <em>RA</em> = 1</p></li>
+</ul>
+<p>Ejemplo:</p>
+<p><code class="docutils literal notranslate"><span class="pre">salida</span> <span class="pre">=</span> <span class="pre">bode(20*(s+1)/s/(s+5)/(s^2+2s+10);</span> <span class="pre">wmax=10,</span> <span class="pre">co=true,</span> <span class="pre">ra1=true)</span></code></p>
+<p>El resultado se da como un diccionario. Para obtener los valores del ejemplo:</p>
+<ul class="simple">
+<li><p>Frecuencia de cruce: <code class="docutils literal notranslate"><span class="pre">salida[&quot;wco&quot;]</span></code></p></li>
+<li><p>Frecuencia para <em>RA</em> = 1: <code class="docutils literal notranslate"><span class="pre">salida[&quot;phi1&quot;]</span></code></p></li>
+</ul>
+</div>
+</div>
+<p>Las funciones de transferenica del lazo de control nos permiten calcular la función de transferencia de lazo abierto (<span class="math notranslate nohighlight">\(G_{OL}\)</span>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Gc</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>
+<span class="n">Gv</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">Gp</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">((</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">5</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Gm1</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="n">s</span><span class="p">)</span>
+<span class="n">Gm2</span> <span class="o">=</span> <span class="mf">0.25</span>
+
+<span class="n">Gol</span> <span class="o">=</span> <span class="n">Gc</span><span class="o">*</span><span class="n">Gv</span><span class="o">*</span><span class="n">Gp</span><span class="o">*</span><span class="n">Gm1</span><span class="o">*</span><span class="n">Gm2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}\frac{0.25 \left(5.0 + \frac{5.0}{s}\right) e^{- 0.8 s}}{\left(5 s + 2\right) \left(s^{2} + s + 2\right)}\end{equation*}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">;</span> <span class="n">wmax</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span> <span class="n">ra1</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob812_6_0.svg" src="../_images/prob812_6_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dict{Any, Any} with 6 entries:
+  &quot;wco&quot;   =&gt; 0.780786
+  &quot;RAco&quot;  =&gt; 0.290387267313595
+  &quot;RA1&quot;   =&gt; 1.00000000000000
+  &quot;phi1&quot;  =&gt; -2.26625
+  &quot;w1&quot;    =&gt; 0.274813
+  &quot;phico&quot; =&gt; -3.14159
+</pre></div>
+</div>
+</div>
+</div>
+<p>Obtenemos un valor de frecuencia de cruce:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span><span class="p">[</span><span class="s">&quot;wco&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7807857502620402
+</pre></div>
+</div>
+</div>
+</div>
+<p>lo que supone una valor de razón crítica de:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">RAcr</span> <span class="o">=</span> <span class="n">salida</span><span class="p">[</span><span class="s">&quot;RAco&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}0.290387267313595\end{equation*}\]</div>
+</div>
+</div>
+<p>Como consecuencia el margen de ganancia, <span class="math notranslate nohighlight">\(MG=\frac{1}{RA_{cr}}\)</span>, será:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">MG</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">RAcr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}3.4436771599909\end{equation*}\]</div>
+</div>
+</div>
+<p>Para obtener el margen de fase, necesitamos el valor del desfase para el que la razón de amplitudes toma el valor de la unidad, <span class="math notranslate nohighlight">\(\varphi_1\)</span>. Es decir:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">MF</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">+</span> <span class="n">salida</span><span class="p">[</span><span class="s">&quot;phi1&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.15353175315707
+</pre></div>
+</div>
+</div>
+</div>
+<p>b) El sistema es <strong>estable</strong> ya que la razón de amplitudes crítica es
+superior a la unidad.</p>
+<p>c) Al añadir al controlador una acción derivativa (<span class="math notranslate nohighlight">\(\tau_D = 1 \min\)</span>) cambia la función de transferencia de lazo abierto del bucle de control:</p>
+<div class="math notranslate nohighlight">
+\[G_{OL} = 4 \left( 1 + \frac{1}{s} + 1 s \right) \frac{0.5}{0.5 s^2 +
+   0.5 s + 1}  \frac{0.5}{2.5 s + 1} \mathrm{e}^{- 0.8 s}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Gc</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
+<span class="n">Gv</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">Gp</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">((</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">5</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Gm1</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="n">s</span><span class="p">)</span>
+<span class="n">Gm2</span> <span class="o">=</span> <span class="mf">0.25</span>
+
+<span class="n">Gol</span> <span class="o">=</span> <span class="n">Gc</span><span class="o">*</span><span class="n">Gv</span><span class="o">*</span><span class="n">Gp</span><span class="o">*</span><span class="n">Gm1</span><span class="o">*</span><span class="n">Gm2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}\frac{0.25 \left(5.0 s + 5.0 + \frac{5.0}{s}\right) e^{- 0.8 s}}{\left(5 s + 2\right) \left(s^{2} + s + 2\right)}\end{equation*}\]</div>
+</div>
+</div>
+<p>El nuevo diagrama de Bode es:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida_c</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">;</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob812_18_0.svg" src="../_images/prob812_18_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dict{Any, Any} with 3 entries:
+  &quot;wco&quot;   =&gt; 1.28925
+  &quot;RAco&quot;  =&gt; 0.156215976149308
+  &quot;phico&quot; =&gt; -3.14159
+</pre></div>
+</div>
+</div>
+</div>
+<p>Al añadir la acción derivativa, la frecuencia de cruce y la razón crítica pasan a tomar los siquientes valores:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida_c</span><span class="p">[</span><span class="s">&quot;wco&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2892522747990642
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">RAcr</span> <span class="o">=</span> <span class="n">salida_c</span><span class="p">[</span><span class="s">&quot;RAco&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}0.156215976149308\end{equation*}\]</div>
+</div>
+</div>
+<p>Lo que significa que el margen de ganacia es:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">MG</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">RAcr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}6.4013939204542\end{equation*}\]</div>
+</div>
+</div>
+<p>Todo esto supone que el lazo de control con el controlador PID está más alejado de la zona de inestabilidad, lo que supone que se tratará de un sistema más robusto. Será mucho más dificil que el sistema entre en la zona inestable debido a un error en la estimación de alguna de las ganancias o del retraso, por ejemplo.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "runjaj/apuntes-icia-jb",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.6"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.6",
+            path: "./Unidad08"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.6'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="prob811.html" title="previous page">Problema 8.11</a>
+    <a class='right-next' id="next-link" href="prob815.html" title="next page">Problema 8.15</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Javier Arántegui<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

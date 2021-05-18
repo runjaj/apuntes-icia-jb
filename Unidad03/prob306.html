@@ -570,7 +570,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad07/prob706.html">
-     Problema 7.06
+     Problema 7.6
     </a>
    </li>
    <li class="toctree-l2">
@@ -597,10 +597,59 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Unidad08/problemas08.html">
    Tema 8
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob801.html">
+     Problema 8.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob802.html">
+     Problema 8.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob807.html">
+     Problema 8.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob808.html">
+     Problema 8.8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob810.html">
+     Problema 8.10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob811.html">
+     Problema 8.11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob812.html">
+     Problema 8.12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob815.html">
+     Problema 8.15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob816.html">
+     Problema 8.16
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -696,151 +745,113 @@
                 
   <div class="section" id="problema-3-6">
 <span id="prob306"></span><h1>Problema 3.6<a class="headerlink" href="#problema-3-6" title="Permalink to this headline">¶</a></h1>
-<p>Determinar las funciones de transferencia <span class="math notranslate nohighlight">\(\frac{h_2 (s)}{F_i (s)}\)</span> de
-los sistemas siguientes:</p>
+<p>Determinar las funciones de transferencia <span class="math notranslate nohighlight">\(\frac{h_2 (s)}{F_i (s)}\)</span> de los sistemas siguientes:</p>
 <p><img alt="Problema 3.6" src="../_images/prob306.svg" /></p>
-<p>El fluido tiene una densidad constante y las resistencias son lineales
-(<span class="math notranslate nohighlight">\(F =
-  \frac{h}{R}\)</span>).</p>
+<p>El fluido tiene una densidad constante y las resistencias son lineales (<span class="math notranslate nohighlight">\(F = \frac{h}{R}\)</span>).</p>
 <hr class="docutils" />
 <p><strong>Solución</strong></p>
-<p>La primera figura muestra un sistema de <em>tanques sin interacción</em> ya que
-el nivel del segundo tanque no influye en el nivel del primer tanque o
-en el caudal <span class="math notranslate nohighlight">\(F_1\)</span>. En cambio, el segundo sistema se trata de un sistema
-de <em>tanques con interacción</em> ya que el caudal de salida del primer
-tanque dependerá tanto del nivel del tanque 1 como del nivel del tanque
+<p>La primera figura muestra un sistema de <em>tanques sin interacción</em> ya que el nivel del segundo tanque no influye en el nivel del primer tanque o en el caudal <span class="math notranslate nohighlight">\(F_1\)</span>. En cambio, el segundo sistema se trata de un sistema de <em>tanques con interacción</em> ya que el caudal de salida del primer tanque dependerá tanto del nivel del tanque 1 como del nivel del tanque
 2.</p>
 <p><strong>Tanques sin interacción</strong></p>
-<p>En ambos casos el objetivo del problema es encontrar la siguiente
-función de transferencia (las primas indican que se tratan de variables
-de desviación):</p>
+<p>En ambos casos el objetivo del problema es encontrar la siguiente función de transferencia (las primas indican que se tratan de variables de desviación):</p>
 <div class="math notranslate nohighlight">
 \[G (s) = \frac{h_2' (s)}{F_i' (s)}\]</div>
-<p>representada en el
-siguiente diagrama:</p>
+<p>representada en el siguiente diagrama:</p>
 <p><img alt="Bloque" src="../_images/bloque.svg" /></p>
-<p>Si el sistema no presenta interacciones el bloque anterior es
-equivalente a un sistema en el que hay dos procesos en serie como el que
-se muestra a continuación:</p>
+<p>Si el sistema no presenta interacciones el bloque anterior es equivalente a un sistema en el que hay dos procesos en serie como el que se muestra a continuación:</p>
 <p><img alt="Bloques separados" src="../_images/bloques_separados.svg" /></p>
-<p>en el que cada uno de los bloques representa a un depósito. Las
-funciones de transferencia de estos bloques serán:</p>
+<p>en el que cada uno de los bloques representa a un depósito. Las funciones de transferencia de estos bloques serán:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   G_1 (s) = \frac{h_1' (s)}{F_i' (s)} &amp;  &amp; \\
   G_2 (s) = \frac{h_2' (s)}{h_1' (s)} &amp;  &amp; \end{aligned}\end{split}\]</div>
-<p>Al tratarse
-de dos procesos en serie:</p>
+<p>Al tratarse de dos procesos en serie:</p>
 <div class="math notranslate nohighlight">
 \[G (s) = G_1 (s) G_2 (s)\]</div>
-<p>Para calcular
-<span class="math notranslate nohighlight">\(G_1\)</span> hay que obtener el modelo matemático que represente la variación
-con el tiempo del nivel de un depósito en función del caudal de entrada.
-Se trata del mismo modelo que el del ejemplo del capítulo 2, por tanto:</p>
+<p>Para calcular <span class="math notranslate nohighlight">\(G_1\)</span> hay que obtener el modelo matemático que represente la variación con el tiempo del nivel de un depósito en función del caudal de entrada. Se trata del mismo modelo que el del ejemplo del capítulo 2, por tanto:</p>
 <div class="math notranslate nohighlight">
 \[G_1 = \frac{K_1}{\tau_1 s + 1} = \frac{h'_1}{F'_i}\]</div>
-<p>donde <span class="math notranslate nohighlight">\(K_1 = R_1\)</span>
-y <span class="math notranslate nohighlight">\(\tau_1 = A_1 R_1\)</span>.</p>
+<p>donde <span class="math notranslate nohighlight">\(K_1 = R_1\)</span> y <span class="math notranslate nohighlight">\(\tau_1 = A_1 R_1\)</span>.</p>
 <p>De igual manera para el segundo de los depósitos:</p>
 <div class="math notranslate nohighlight">
 \[G_2 = \frac{K_2}{\tau_2 s + 1} = \frac{h'_2}{F'_1}\]</div>
-<p>donde
-<span class="math notranslate nohighlight">\(K_2 = R_2\)</span>, <span class="math notranslate nohighlight">\(\tau_2 = A_2 R_2\)</span> y <span class="math notranslate nohighlight">\(F_1' = \frac{h'_1}{R_1}\)</span>.</p>
-<p>Sustituyendo <span class="math notranslate nohighlight">\(F'_1\)</span> y operando se encuentra la función de transferencia
-buscada:</p>
+<p>donde <span class="math notranslate nohighlight">\(K_2 = R_2\)</span>, <span class="math notranslate nohighlight">\(\tau_2 = A_2 R_2\)</span> y <span class="math notranslate nohighlight">\(F_1' = \frac{h'_1}{R_1}\)</span>.</p>
+<p>Sustituyendo <span class="math notranslate nohighlight">\(F'_1\)</span> y operando se encuentra la función de transferencia buscada:</p>
 <div class="math notranslate nohighlight">
 \[G = \frac{K_2}{(\tau_1 s + 1)  (\tau_2 s + 1)}\]</div>
-<p>Se puede
-apreciar que se trata de un sistema de segundo orden. La respuesta de
-este sistema será sobreamortiguada (<span class="math notranslate nohighlight">\(\zeta &gt; 1\)</span>) ya que las raíces del
-denominador son números reales.</p>
-<p>En la figura siguiente se muestra la variación con el tiempo del nivel
-del depósito para un cambio en el caudal de entrada en forma de escalón
-unidad. Se observa que la dinámica es más lenta a medida que aumenta el
-número de tanques:</p>
+<p>Se puede apreciar que se trata de un sistema de segundo orden. La respuesta de este sistema será sobreamortiguada (<span class="math notranslate nohighlight">\(\zeta &gt; 1\)</span>) ya que las raíces del denominador son números reales.</p>
+<p>En la figura siguiente se muestra la variación con el tiempo del nivel del depósito para un cambio en el caudal de entrada en forma de escalón unidad. Se observa que la dinámica es más lenta a medida que aumenta el número de tanques:</p>
 <p><img alt="Tanques sin interacción" src="../_images/tanques_sin.svg" /></p>
 <p><strong>Tanques con interacción</strong></p>
-<p>Para obtener el modelo matemático se realizarán los Balances
-Macroscópicos de Materia a los tanques (se ha supuesto que la densidad
-es constante y que no depende del tiempo):</p>
+<p>Para obtener el modelo matemático se realizarán los Balances Macroscópicos de Materia a los tanques (se ha supuesto que la densidad es constante y que no depende del tiempo):</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \mathrm{Tanque 1: } &amp; A_1 \frac{\mathrm{d}h_1}{\mathrm{d}t} = F_i - F_1 &amp; \\
-  \text{Tanque 2: } &amp; A_2 \frac{\mathrm{d}h_2}{\mathrm{d}t} = F_1 - F_2 &amp; \end{aligned}\end{split}\]</div>
-<p>Los caudales de salida de los tanques dependen de las resistencias
-lineales:</p>
+  \text{Tanque 1: }A_1 \frac{\mathrm{d}h_1}{\mathrm{d}t} &amp;= F_i - F_1\\
+  \text{Tanque 2: } A_2 \frac{\mathrm{d}h_2}{\mathrm{d}t} &amp;= F_1 - F_2
+\end{aligned}\end{split}\]</div>
+<p>Los caudales de salida de los tanques dependen de las resistencias lineales:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  &amp; F_1 = \frac{h_1 - h_2}{R_1} &amp; \\
-  &amp; F_2 = \frac{h_2}{R_2} &amp; \end{aligned}\end{split}\]</div>
-<p>El cuadal de salida del
-primer tanque depende, lógicamente, de la diferencia de alturas entre
-los dos tanques ya que la presión ejercida por la columna de fluido
-depende de esa diferencia de nivel. En el caso de que <span class="math notranslate nohighlight">\(h_2\)</span> fuera mayor
-que <span class="math notranslate nohighlight">\(h_1\)</span> el fluido circularía en sentido contrario. Esta ecuación marca
-la interacción entre los tanques e impide que las ecuaciones de los
-balances de materia se puedan resolver de manera independiente. Las dos
+  F_1 &amp;= \frac{h_1 - h_2}{R_1}\\
+  F_2 &amp;= \frac{h_2}{R_2}
+\end{aligned}\end{split}\]</div>
+<p>El cuadal de salida del primer tanque depende, lógicamente, de la diferencia de alturas entre los dos tanques ya que la presión ejercida por la columna de fluido depende de esa diferencia de nivel. En el caso de que <span class="math notranslate nohighlight">\(h_2\)</span> fuera mayor que <span class="math notranslate nohighlight">\(h_1\)</span> el fluido circularía en sentido contrario. Esta ecuación marca la interacción entre los tanques e impide que las ecuaciones de los balances de materia se puedan resolver de manera independiente. Las dos
 ecuaciones diferenciales se deben resolver de manera simultanea.</p>
 <p>Sustituyendo los caudales en los balances de materia se encuentra:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  &amp; A_1 R_1  \frac{\mathrm{d}h_1}{\mathrm{d}t} + h_1 - h_2 = R_1 F_i &amp; \\
-  &amp; A_2 R_2  \frac{\mathrm{d}h_2}{\mathrm{d}t} + \left( 1 + \frac{R_2}{R_1} \right)
-  h_2 - \frac{R_2}{R_1} h_1 = 0 &amp; \end{aligned}\end{split}\]</div>
-<p>Tal como se ha
-comentado las dos ecuaciones diferenciales están ligadas (las incógnitas
-<span class="math notranslate nohighlight">\(h_1 (t)\)</span> y <span class="math notranslate nohighlight">\(h_2 (t)\)</span> aparecen en ambas ecuaciones), se deben resolver
-simultaneamente. Esta es la diferencia fundamental con los sistemas sin
-interacción.</p>
-<p>A continuación se realizan los balances de materia en estado
-estacionario:</p>
+  A_1 R_1  \frac{\mathrm{d}h_1}{\mathrm{d}t} + h_1 - h_2 = R_1 F_i &amp; \\
+  A_2 R_2  \frac{\mathrm{d}h_2}{\mathrm{d}t} + \left( 1 + \frac{R_2}{R_1} \right)
+  h_2 - \frac{R_2}{R_1} h_1 = 0
+\end{aligned}\end{split}\]</div>
+<p>Tal como se ha comentado las dos ecuaciones diferenciales están ligadas (las incógnitas
+<span class="math notranslate nohighlight">\(h_1 (t)\)</span> y <span class="math notranslate nohighlight">\(h_2 (t)\)</span> aparecen en ambas ecuaciones), se deben resolver simultaneamente. Esta es la diferencia fundamental con los sistemas sin interacción.</p>
+<p>A continuación se realizan los balances de materia en estado estacionario:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  &amp; h_{1, e} - h_{2, e} = R_1 F_i &amp; \\
-  &amp; \left( 1 + \frac{R_2}{R_1} \right) h_{2, e} - \frac{R_2}{R_1} h_{1, e} =
-  0 &amp; \end{aligned}\end{split}\]</div>
-<p>donde los subíndices <span class="math notranslate nohighlight">\(e\)</span> indican los valores en
-estado estacionario.</p>
+  h_{1, e} - h_{2, e} = R_1 F_i\\
+  \left( 1 + \frac{R_2}{R_1} \right) h_{2, e} - \frac{R_2}{R_1} h_{1, e} =
+  0
+\end{aligned}\end{split}\]</div>
+<p>donde los subíndices <span class="math notranslate nohighlight">\(e\)</span> indican los valores en estado estacionario.</p>
 <p>Restando los balances de materia y los balances en estado estacionario:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  &amp; A_1 R_1  \frac{\mathrm{d}h'_1}{\mathrm{d}t} + h'_1 - h'_2 = R_1 F'_i &amp; \\
-  &amp; A_2 R_2  \frac{\mathrm{d}h'_2}{\mathrm{d}t} + \left( 1 + \frac{R_2}{R_1}
-  \right) h'_2 - \frac{R_2}{R_1} h'_1 = 0 &amp; \end{aligned}\end{split}\]</div>
-<p>tomando como
-variables de desviación:</p>
-<div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\begin{split}\begin{aligned}
-  &amp; h'_1 = h_1 - h_{1, e} &amp; \\
-  &amp; h'_2 = h_2 - h_{2, e} &amp; \\
-  &amp; F'_i = F_i - F_{i, e} &amp; \end{aligned}$$ Haciendo la transformada de
-Laplace: \end{split}\\\begin{split}$$\begin{aligned}
-  &amp; (A_1 R_1 s + 1) h'_1 (s) - h'_2 (s) = R_1 F'_i (s) &amp; \\
-  &amp; \left[ A_2 R_2 s + \left( 1 + \frac{R_2}{R_1} \right) \right] h'_2 (s) -
-  \frac{R_2}{R_1} h'_1 (s) = 0 &amp; \end{aligned}\end{split}\end{aligned}\end{align} \]</div>
-<p>Resolviendo el sistema
-de ecuaciones:</p>
+  A_1 R_1  \frac{\mathrm{d}h'_1}{\mathrm{d}t} + h'_1 - h'_2 = R_1 F'_i\\
+  A_2 R_2  \frac{\mathrm{d}h'_2}{\mathrm{d}t} + \left( 1 + \frac{R_2}{R_1}
+  \right) h'_2 - \frac{R_2}{R_1} h'_1 = 0
+\end{aligned}\end{split}\]</div>
+<p>tomando como variables de desviación:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  &amp; h'_1 = \frac{(\tau_2 R_1) s + R_1 + R_2}{\tau_1 \tau_2 s^2 + (\tau_1 +
-  \tau_2 + A_1 R_2) s + 1} F_i' &amp; \\
-  &amp; h'_2 = \frac{R_2}{\tau_1 \tau_2 s^2 + (\tau_1 + \tau_2 + A_1 R_2) s + 1}
-  F_i' &amp; \end{aligned}\end{split}\]</div>
+  h'_1 &amp;= h_1 - h_{1, e}\\
+  h'_2 &amp;= h_2 - h_{2, e}\\
+  F'_i &amp;= F_i - F_{i, e}
+\end{aligned}\end{split}\]</div>
+<p>Haciendo la transformada deLaplace:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  (A_1 R_1 s + 1) h'_1 (s) - h'_2 (s) = R_1 F'_i (s)\\
+  \left[ A_2 R_2 s + \left( 1 + \frac{R_2}{R_1} \right) \right] h'_2 (s) -
+  \frac{R_2}{R_1} h'_1 (s) = 0
+\end{aligned}\end{split}\]</div>
+<p>Resolviendo el sistema de ecuaciones:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  h'_1 &amp;= \frac{(\tau_2 R_1) s + R_1 + R_2}{\tau_1 \tau_2 s^2 + (\tau_1 +
+  \tau_2 + A_1 R_2) s + 1} F_i'\\
+  h'_2 &amp;= \frac{R_2}{\tau_1 \tau_2 s^2 + (\tau_1 + \tau_2 + A_1 R_2) s + 1}
+  F_i'
+\end{aligned}\end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\tau_1 = A_1 R_1\)</span> y <span class="math notranslate nohighlight">\(\tau_2 = A_2 R_2\)</span>.</p>
-<p>La respuesta es igual a la de los tanques sin interacción excepto por el
-término <span class="math notranslate nohighlight">\(A_1 R_2\)</span> del denominador. Es el factor de interacción, ya que
-cuanto mayor sea mayor es la interacción entre los tanques.</p>
-<p>La respuesta, de nuevo, es sobreamortiguada pero más lenta que la del
-sistema sin interacción. Para el sistema de tanques sin interacción, la
-constante de tiempo es:</p>
+<p>La respuesta es igual a la de los tanques sin interacción excepto por el término <span class="math notranslate nohighlight">\(A_1 R_2\)</span> del denominador. Es el factor de interacción, ya que cuanto mayor sea mayor es la interacción entre los tanques.</p>
+<p>La respuesta, de nuevo, es sobreamortiguada pero más lenta que la del sistema sin interacción. Para el sistema de tanques sin interacción, la constante de tiempo es:</p>
 <div class="math notranslate nohighlight">
 \[\tau_{\mathrm{sin}} = \sqrt{\tau_1 + \tau_2}\]</div>
-<p>Para el
-sistema de tanques con interacción:</p>
+<p>Para el sistema de tanques con interacción:</p>
 <div class="math notranslate nohighlight">
 \[\tau_{\mathrm{con}} = \sqrt{\tau_1 + \tau_2 + A_1 R_2}\]</div>
-<p>Al ser el factor de interacción positivo es evidente que
-<span class="math notranslate nohighlight">\(\tau_{\mathrm{con}} &gt; \tau_{\mathrm{sin}}\)</span>.</p>
+<p>Al ser el factor de interacción positivo es evidente que <span class="math notranslate nohighlight">\(\tau_{\mathrm{con}} &gt; \tau_{\mathrm{sin}}\)</span>.</p>
 </div>
 
     <script type="text/x-thebe-config">

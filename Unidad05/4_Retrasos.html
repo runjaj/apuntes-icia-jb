@@ -570,7 +570,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Unidad07/prob706.html">
-     Problema 7.06
+     Problema 7.6
     </a>
    </li>
    <li class="toctree-l2">
@@ -597,10 +597,59 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Unidad08/problemas08.html">
    Tema 8
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob801.html">
+     Problema 8.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob802.html">
+     Problema 8.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob807.html">
+     Problema 8.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob808.html">
+     Problema 8.8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob810.html">
+     Problema 8.10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob811.html">
+     Problema 8.11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob812.html">
+     Problema 8.12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob815.html">
+     Problema 8.15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad08/prob816.html">
+     Problema 8.16
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -700,8 +749,31 @@
 alimentarios es la existencia de retrasos. En el capítulo 7 se estudiará
 su influencia en el control de procesos.</p>
 <p>Sea el siguiente proceso de primer orden con un retraso:</p>
-<div class="margin-caption figure align-default" id="retraso">
-<img alt="../_images/retraso.svg" src="../_images/retraso.svg" /><p class="caption"><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Diagrama de bloques de un proceso de primer orden con un retraso igual a <span class="math notranslate nohighlight">\(t_d\)</span>.</span><a class="headerlink" href="#retraso" title="Permalink to this image">¶</a></p>
+<div class="margin figure align-left" id="retraso-1">
+<img alt="../_images/02.png" src="../_images/02.png" />
+<p class="caption"><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Diagrama de bloques de un proceso de primer orden con un retraso igual a <span class="math notranslate nohighlight">\(t_d\)</span>.</span><a class="headerlink" href="#retraso-1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">PyCall</span><span class="p">,</span> <span class="n">LaTeXStrings</span>
+
+<span class="n">schemdraw</span> <span class="o">=</span> <span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;schemdraw&quot;</span><span class="p">)</span>
+<span class="n">dsp</span> <span class="o">=</span> <span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;schemdraw.dsp&quot;</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;f(t)&quot;</span><span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">))</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">()</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s">&quot;Proceso de</span><span class="se">\n</span><span class="s">primer orden&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+<span class="n">retraso</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">()</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="s">&quot;Retraso&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;y(t-t_d)&quot;</span><span class="p">,</span> <span class="s">&quot;right&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">retraso</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Retrasos_1_0.svg" src="../_images/4_Retrasos_1_0.svg" /></div>
 </div>
 <p>Para el sistema de primer orden:</p>
 <div class="math notranslate nohighlight">
@@ -712,6 +784,27 @@ su influencia en el control de procesos.</p>
 \[\frac{\mathcal{L} [y (t - t_d)]}{\mathcal{L} [y (t)]} = \mathrm{e}^{- t_d s}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(t_d\)</span> es el retraso o tiempo muerto.</p>
 <p>Por tanto el proceso puede representarse como:</p>
+<div class="margin figure align-left" id="retraso-2">
+<img alt="../_images/02.png" src="../_images/02.png" />
+<p class="caption"><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Diagrama de bloques de la figura anterior una vez realizadas las transformadas de Laplace.</span><a class="headerlink" href="#retraso-2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">schemdraw</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;f(s)&quot;</span><span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">))</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">()</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;G_p&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+<span class="n">retraso</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="kt">Box</span><span class="p">()</span><span class="o">.</span><span class="n">anchor</span><span class="p">(</span><span class="s">&quot;W&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;e^{-t_d s}&quot;</span><span class="p">))</span>
+<span class="n">d</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dsp</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span><span class="o">.</span><span class="n">right</span><span class="p">()</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;\mathcal{L}[y(t-t_d)]&quot;</span><span class="p">,</span> <span class="s">&quot;right&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">retraso</span><span class="o">.</span><span class="n">E</span><span class="p">))</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4_Retrasos_3_0.svg" src="../_images/4_Retrasos_3_0.svg" /></div>
+</div>
 <p>La función de transferencia global para el proceso de primer orden y el
 retraso será:</p>
 <div class="math notranslate nohighlight">
@@ -764,7 +857,7 @@ retraso será:</p>
 <p>El efecto del retraso es muy evidente al representar gráficamente ambas respuestas:</p>
 <div class="margin figure align-left" id="primer-orden-retraso">
 <img alt="../_images/02.png" src="../_images/02.png" />
-<p class="caption"><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Efecto de un retraso <span class="math notranslate nohighlight">\(t_0 = 1\)</span> sobre la respuesta de un sistema de primer orden con una entrada en escalón.</span><a class="headerlink" href="#primer-orden-retraso" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.5 </span><span class="caption-text">Efecto de un retraso <span class="math notranslate nohighlight">\(t_0 = 1\)</span> sobre la respuesta de un sistema de primer orden con una entrada en escalón.</span><a class="headerlink" href="#primer-orden-retraso" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -777,7 +870,7 @@ retraso será:</p>
 </div>
 <div class="cell_output docutils container">
 <div class="figure">
-<img alt="../_images/4_Retrasos_7_0.svg" src="../_images/4_Retrasos_7_0.svg" /><p class="caption"><span class="caption-text"><p>Efecto del retraso sobre la respuesta de un proceso de primer orden para una entrada en escalón.</p>
+<img alt="../_images/4_Retrasos_11_0.svg" src="../_images/4_Retrasos_11_0.svg" /><p class="caption"><span class="caption-text"><p>Efecto del retraso sobre la respuesta de un proceso de primer orden para una entrada en escalón.</p>
 </span></p>
 </div>
 </div>
