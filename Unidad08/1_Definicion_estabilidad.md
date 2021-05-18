@@ -7,8 +7,10 @@ La inestabilidad de los sistemas es la mayor limitación a la hora derealizar la
 
 Tal como se ha visto en los temas anteriores la respuesta de bucle cerrado para un sistema de control generalizado es:
 
-$$y = \frac{G_c G_p G_f}{1 + G_c G_p G_f G_m} y_{sp} + \frac{G_d}{1 +
-   G_c G_p G_f G_m} d$$
+```{math}
+:label: ec8.1
+y = \frac{G_c G_p G_f}{1 + G_c G_p G_f G_m} y_{sp} + \frac{G_d}{1 + G_c G_p G_f G_m} d
+```
 
 Normalmente, la estabilidad o inestabilidad de un sistema es intrínseca al mismo, independientemente de la entrada. Es un problema del sistema.
 

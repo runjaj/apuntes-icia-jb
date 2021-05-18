@@ -117,3 +117,13 @@
         - file: Unidad07/prob709
         - file: Unidad07/prob710
     - file: Unidad08/problemas08
+      sections:
+        - file: Unidad08/prob801
+        - file: Unidad08/prob802
+        - file: Unidad08/prob807
+        - file: Unidad08/prob808
+        - file: Unidad08/prob810
+        - file: Unidad08/prob811
+        - file: Unidad08/prob812
+        - file: Unidad08/prob815
+        - file: Unidad08/prob816
