@@ -661,6 +661,11 @@
      Problema 9.1
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob902.html">
+     Problema 9.2
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -823,9 +828,9 @@ entrada, <span class="math notranslate nohighlight">\(c(s)\)</span>, y la respue
 \[G_{\mathrm{CRP}} = \frac{y_m (s)}{c (s)} \approx \frac{K}{\tau s + 1}
    \mathrm{e}^{- t_d s}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(K\)</span>, <span class="math notranslate nohighlight">\(\tau\)</span> y <span class="math notranslate nohighlight">\(t_d\)</span> se determinan a partir del análisis de la curva de respuesta del proceso REFERENCIA FIG9.2:</p>
-<div class="margin figure align-left" id="id2">
+<div class="margin figure align-left" id="crp-fig">
 <img alt="../_images/06.png" src="../_images/06.png" />
-<p class="caption"><span class="caption-number">Fig. 9.2 </span><span class="caption-text">Análisis gráfico de la curva de respuesta del proceso.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9.2 </span><span class="caption-text">Análisis gráfico de la curva de respuesta del proceso.</span><a class="headerlink" href="#crp-fig" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -839,7 +844,7 @@ entrada, <span class="math notranslate nohighlight">\(c(s)\)</span>, y la respue
 
 <span class="n">plot</span><span class="p">(</span><span class="n">ym</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
     <span class="n">xlabel</span><span class="o">=</span><span class="n">L</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="n">L</span><span class="s">&quot;y_m&quot;</span><span class="p">,</span> <span class="n">gridalpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
-    <span class="n">xticks</span><span class="o">=</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="n">L</span><span class="s">&quot;0&quot;</span><span class="p">,</span> <span class="n">L</span><span class="s">&quot;t_d&quot;</span><span class="p">,</span> <span class="n">L</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">au&quot;</span><span class="p">]),</span>
+    <span class="n">xticks</span><span class="o">=</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="n">L</span><span class="s">&quot;0&quot;</span><span class="p">,</span> <span class="n">L</span><span class="s">&quot;t_d&quot;</span><span class="p">,</span> <span class="n">L</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">au+t_d&quot;</span><span class="p">]),</span>
     <span class="n">yticks</span><span class="o">=</span><span class="p">([</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">L</span><span class="s">&quot;\left(1-</span><span class="se">\f</span><span class="s">rac{1}{\mathrm{e}}</span><span class="se">\r</span><span class="s">ight) B&quot;</span><span class="p">,</span> <span class="n">L</span><span class="s">&quot;B&quot;</span><span class="p">]))</span>
 <span class="n">hline!</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=:</span><span class="n">dash</span><span class="p">)</span>
 </pre></div>
