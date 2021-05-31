@@ -681,6 +681,16 @@
      Problema 9.5
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob909.html">
+     Problema 9.9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob911.html">
+     Problema 9.11
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -834,7 +844,7 @@
 <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
 <span class="n">Resp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
 
-<span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Resp</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t (min)&quot;</span><span class="p">,</span>
+<span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Resp</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t (min)&quot;</span><span class="p">,</span>
     <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;Resp (ua)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -906,7 +916,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">R</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="n">Kp</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">td</span><span class="p">)</span><span class="o">/</span><span class="n">Tp</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">&gt;</span><span class="n">td</span><span class="p">)</span>
 
-<span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Resp</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t (min)&quot;</span><span class="p">,</span>
+<span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Resp</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t (min)&quot;</span><span class="p">,</span>
     <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;Resp (ua)&quot;</span><span class="p">)</span>
 <span class="n">plot!</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
@@ -962,7 +972,7 @@
 <p>Al dibujar el diagrama de Bode, representaremos <span class="math notranslate nohighlight">\(\frac{RA}{K_c}\)</span>, lo que permitirá encontrar el parámetro <span class="math notranslate nohighlight">\(M\)</span>, a partir del que calcularemos la ganancia última <span class="math notranslate nohighlight">\(K_u\)</span>. El valor de <span class="math notranslate nohighlight">\(P_u\)</span> lo calcularemos a partir de la frecuencia de cruce:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Kp</span><span class="o">/</span><span class="p">(</span><span class="n">Tp</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">td</span><span class="o">*</span><span class="n">s</span><span class="p">);</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="kc">true</span><span class="p">);</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Kp</span><span class="o">/</span><span class="p">(</span><span class="n">Tp</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">td</span><span class="o">*</span><span class="n">s</span><span class="p">);</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>

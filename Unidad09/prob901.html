@@ -681,6 +681,16 @@
      Problema 9.5
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob909.html">
+     Problema 9.9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob911.html">
+     Problema 9.11
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -804,7 +814,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Definición de la variable Kc</span>
-<span class="nd">@vars</span> <span class="n">Kc</span><span class="o">=&gt;</span><span class="s">&quot;K_c&quot;</span> <span class="n">positive</span><span class="o">=</span><span class="kc">true</span>
+<span class="nd">@vars</span> <span class="n">Kc</span><span class="o">=&gt;</span><span class="s">&quot;K_c&quot;</span> <span class="n">positive</span><span class="o">=</span><span class="nb">true</span>
 
 <span class="c"># Definición de las funciones de transferencia del lazo</span>
 <span class="n">G1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -834,7 +844,7 @@
 <p>Podemos encontrar <span class="math notranslate nohighlight">\(\omega_{co}\)</span> a partir del digrama de Bode:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">G1</span><span class="o">*</span><span class="n">G2</span><span class="p">;</span> <span class="n">co</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">G1</span><span class="o">*</span><span class="n">G2</span><span class="p">;</span> <span class="n">co</span><span class="o">=</span><span class="nb">true</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

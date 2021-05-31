@@ -681,6 +681,16 @@
      Problema 9.5
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob909.html">
+     Problema 9.9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob911.html">
+     Problema 9.11
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -832,9 +842,9 @@ alcanza el valor <span class="math notranslate nohighlight">\(M\)</span> para ti
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;t&quot;</span><span class="p">)</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
-     <span class="n">ylabel</span> <span class="o">=</span> <span class="n">L</span><span class="s">&quot;</span><span class="se">\f</span><span class="s">rac{f(t)}{M}&quot;</span><span class="p">,</span>
-     <span class="n">xlabel</span> <span class="o">=</span> <span class="n">L</span><span class="s">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span>
+     <span class="n">ylabel</span> <span class="o">=</span> <span class="sa">L</span><span class="s">&quot;</span><span class="se">\f</span><span class="s">rac{f(t)}{M}&quot;</span><span class="p">,</span>
+     <span class="n">xlabel</span> <span class="o">=</span> <span class="sa">L</span><span class="s">&quot;t&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -893,7 +903,7 @@ alcanza el valor <span class="math notranslate nohighlight">\(M\)</span> para ti
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span>
      <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;f(t)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -929,11 +939,11 @@ alcanza el valor <span class="math notranslate nohighlight">\(M\)</span> para ti
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">to</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;green&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s">&quot;Escalón altura 1&quot;</span><span class="p">,</span>
-    <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;f(t)&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=:</span><span class="n">bottomleft</span><span class="p">)</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;f(t)&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:bottomleft</span><span class="p">)</span>
 <span class="n">plot!</span><span class="p">(</span><span class="o">-</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">to</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
      <span class="n">label</span><span class="o">=</span><span class="s">&quot;Escalón altura -1&quot;</span><span class="p">)</span>
 <span class="n">plot!</span><span class="p">(</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">to</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;orange&quot;</span><span class="p">,</span>
-    <span class="n">linestyle</span><span class="o">=:</span><span class="n">dash</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;Pulso&quot;</span><span class="p">)</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="ss">:dash</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;Pulso&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1002,7 +1012,7 @@ la respuesta de un proceso a una entrada en escalón y en impulso.</p>
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;f(t)&quot;</span><span class="p">,</span>
-    <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+    <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1040,7 +1050,7 @@ la respuesta de un proceso a una entrada en escalón y en impulso.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> 
-     <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;f(t)&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+     <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;f(t)&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

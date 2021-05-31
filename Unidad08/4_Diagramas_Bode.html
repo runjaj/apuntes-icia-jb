@@ -681,6 +681,16 @@
      Problema 9.5
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob909.html">
+     Problema 9.9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob911.html">
+     Problema 9.11
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -901,13 +911,13 @@ reference=”ec:sinusoidal-1”}.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span><span class="p">,</span> <span class="n">Plots</span><span class="p">,</span> <span class="n">LaTeXStrings</span>
 <span class="c">#plotly()</span>
 
-<span class="n">w</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;omega zeta&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<span class="n">w</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;omega zeta&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="nb">true</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">)</span>
 
 <span class="n">G</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="k">function</span> <span class="n">RAphi</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
-    <span class="n">Gw</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="nb">I</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
+    <span class="n">Gw</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">I</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
 
     <span class="n">RA</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">re</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="nb">im</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">ϕ</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">arg</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span>
@@ -917,8 +927,8 @@ reference=”ec:sinusoidal-1”}.</p>
 
 <span class="k">function</span> <span class="n">bodedata</span><span class="p">(</span><span class="n">RA</span><span class="p">,</span> <span class="n">ϕ</span><span class="p">;</span> <span class="n">wmin</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="mf">1e2</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
     <span class="n">wdata</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">.^</span><span class="n">range</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">wmin</span><span class="p">),</span> <span class="n">log10</span><span class="p">(</span><span class="n">wmax</span><span class="p">),</span> <span class="n">length</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">RAdata</span> <span class="o">=</span> <span class="p">[</span><span class="n">RA</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">wdata</span><span class="p">]</span>
-    <span class="n">ϕdata</span> <span class="o">=</span> <span class="p">[</span><span class="n">N</span><span class="p">(</span><span class="n">ϕ</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">wdata</span><span class="p">]</span>
+    <span class="n">RAdata</span> <span class="o">=</span> <span class="p">[</span><span class="n">RA</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">wdata</span><span class="p">]</span>
+    <span class="n">ϕdata</span> <span class="o">=</span> <span class="p">[</span><span class="n">N</span><span class="p">(</span><span class="n">ϕ</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">wdata</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">RAdata</span><span class="p">,</span> <span class="n">ϕdata</span><span class="p">,</span> <span class="n">wdata</span>
 <span class="k">end</span>
 
@@ -928,21 +938,21 @@ reference=”ec:sinusoidal-1”}.</p>
     <span class="n">RAcol</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">length</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
     <span class="n">phicol</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">length</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">g</span> <span class="kp">in</span> <span class="n">G</span>
+    <span class="k">for</span> <span class="n">g</span> <span class="k">in</span> <span class="n">G</span>
         <span class="n">ra</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">RAphi</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
         <span class="n">radata</span><span class="p">,</span> <span class="n">phidata</span> <span class="o">=</span> <span class="n">bodedata</span><span class="p">(</span><span class="n">ra</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">wmin</span><span class="o">=</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="n">wmax</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
             <span class="n">RAcol</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">radata</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
             <span class="n">phicol</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">phidata</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
         <span class="k">end</span>
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">end</span>
     
-    <span class="n">RAplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">wdata</span><span class="p">,</span> <span class="n">RAcol</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
-                  <span class="n">ylabel</span><span class="o">=</span><span class="n">L</span><span class="s">&quot;RA&quot;</span><span class="p">)</span>
-    <span class="n">ϕplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">wdata</span><span class="p">,</span> <span class="n">phicol</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span>
+    <span class="n">RAplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">wdata</span><span class="p">,</span> <span class="n">RAcol</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span>
+                  <span class="n">ylabel</span><span class="o">=</span><span class="sa">L</span><span class="s">&quot;RA&quot;</span><span class="p">)</span>
+    <span class="n">ϕplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">wdata</span><span class="p">,</span> <span class="n">phicol</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span>
                  <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ&quot;</span><span class="p">)</span>
-    <span class="n">plot</span><span class="p">(</span><span class="n">RAplot</span><span class="p">,</span> <span class="n">ϕplot</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">link</span><span class="o">=:</span><span class="n">x</span><span class="p">,</span> <span class="n">minorticks</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">RAplot</span><span class="p">,</span> <span class="n">ϕplot</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="ss">:x</span><span class="p">,</span> <span class="n">minorticks</span><span class="o">=</span><span class="nb">true</span><span class="p">)</span>
 <span class="k">end</span>
 
 <span class="n">bode</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
@@ -993,7 +1003,7 @@ reference=”fig:bode_1”} se observa que:</p>
 
 <span class="n">G</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="n">s</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">GG</span> <span class="o">=</span> <span class="p">[</span><span class="n">G</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">zetas</span><span class="p">]</span>
+<span class="n">GG</span> <span class="o">=</span> <span class="p">[</span><span class="n">G</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">zetas</span><span class="p">]</span>
 
 <span class="n">bode</span><span class="p">(</span><span class="n">GG</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
@@ -1031,13 +1041,13 @@ reference=”fig:bode_1”} se observa que:</p>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">wmin</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">wmin</span> <span class="o">=</span> <span class="mf">.1</span>
 <span class="n">wmax</span> <span class="o">=</span> <span class="mf">10.</span>
-<span class="n">RAplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">],[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">],</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span>
-                  <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;RA(ω)&quot;</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">ϕplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span>
-             <span class="n">xlabel</span><span class="o">=</span><span class="n">L</span><span class="s">&quot;t_d \omega&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ&quot;</span><span class="p">)</span>
-  <span class="n">plot</span><span class="p">(</span><span class="n">RAplot</span><span class="p">,</span> <span class="n">ϕplot</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">link</span><span class="o">=:</span><span class="n">x</span><span class="p">,</span> <span class="n">minorticks</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<span class="n">RAplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">],[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">],</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span>
+                  <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;RA(ω)&quot;</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mf">.1</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ϕplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span>
+             <span class="n">xlabel</span><span class="o">=</span><span class="sa">L</span><span class="s">&quot;t_d \omega&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ&quot;</span><span class="p">)</span>
+  <span class="n">plot</span><span class="p">(</span><span class="n">RAplot</span><span class="p">,</span> <span class="n">ϕplot</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="ss">:x</span><span class="p">,</span> <span class="n">minorticks</span><span class="o">=</span><span class="nb">true</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1069,7 +1079,7 @@ reference=”fig:bode_1”} se observa que:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">bode</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>
-<span class="n">xlabel!</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;\omega </span><span class="se">\t</span><span class="s">au_I&quot;</span><span class="p">)</span>
+<span class="n">xlabel!</span><span class="p">(</span><span class="sa">L</span><span class="s">&quot;\omega </span><span class="se">\t</span><span class="s">au_I&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -681,6 +681,16 @@
      Problema 9.5
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob909.html">
+     Problema 9.9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob911.html">
+     Problema 9.11
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -818,123 +828,10 @@
 \[\varphi = \mathrm{atan} \left( - \frac{1}{\omega} \right) + \mathrm{atan}
    \left( - \frac{0.5 \omega}{1 - 0.5^2 \omega^2} \right) + \mathrm{atan} (- 2.5
    \omega) - 0.8 \omega\]</div>
-<p>Aunque podríamos dibujar el diagrama de Bode con las funciones anteriores, es una tarea un poco tediosa. A continuación se muestra el diagrama de Bode dibujado utilizando <em>SymPy</em>. Para su representación se utiliza la siguiente función:</p>
+<p>Aunque podríamos dibujar el diagrama de Bode con las funciones anteriores, es una tarea un poco tediosa. A continuación se muestra el diagrama de Bode dibujado utilizando <em>SymPy</em>. Para su representación se cargamos el siguiente fichero la función <code class="docutils literal notranslate"><span class="pre">bode</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span><span class="p">,</span> <span class="n">Plots</span><span class="p">,</span> <span class="n">LaTeXStrings</span><span class="p">,</span> <span class="n">DSP</span><span class="p">,</span> <span class="n">Roots</span><span class="p">,</span> <span class="n">Interpolations</span>
-
-<span class="n">t</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;t omega&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
-<span class="nd">@vars</span> <span class="n">s</span>
-
-<span class="s">&quot;&quot;&quot;</span>
-<span class="s">**bode(Gol; wmin=1e-1, wmax=1e1, points=100, co=false, ra1=false)**</span>
-
-<span class="s">Representación del diagrama de Bode de la función de transferencia _Gol_.</span>
-
-<span class="s">Parámetros:</span>
-
-<span class="s">- `Gol`: Función de transferencia dependiente de _s_</span>
-<span class="s">- `wmin`: Frecuencia angular mínima a representar</span>
-<span class="s">- `wmax`: Frecuencia angular máxima a representar</span>
-<span class="s">- `points`: Número de puntos a representar</span>
-<span class="s">- `co`: Calcula y representa la frecuencia de cruce</span>
-<span class="s">- `ra1`: Calcula y representa la frecuencia que hace que _RA_ = 1</span>
-
-<span class="s">Ejemplo:</span>
-
-<span class="s">`salida = bode(20*(s+1)/s/(s+5)/(s^2+2s+10); wmax=10, co=true, ra1=true)`</span>
-
-<span class="s">El resultado se da como un diccionario. Para obtener los valores del ejemplo:</span>
-
-<span class="s">- Frecuencia de cruce: ```salida[&quot;wco&quot;]```</span>
-<span class="s">- Frecuencia para _RA_ = 1: `salida[&quot;phi1&quot;]`</span>
-<span class="s">&quot;&quot;&quot;</span>
-<span class="k">function</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">;</span> <span class="n">wmin</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="mf">1e1</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">ra1</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
-    <span class="n">Gw</span> <span class="o">=</span> <span class="n">Gol</span><span class="p">(</span><span class="n">s</span><span class="o">=&gt;</span><span class="nb">im</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
-
-    <span class="n">RAol</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">real</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">imag</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">phiol</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">imag</span><span class="p">(</span><span class="n">Gw</span><span class="p">),</span> <span class="n">real</span><span class="p">(</span><span class="n">Gw</span><span class="p">))</span>
-    
-    <span class="c"># Hace una lista equiespaciada para los valores del log10 del desfase</span>
-    <span class="n">wlog</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">wmin</span><span class="p">),</span> <span class="n">log10</span><span class="p">(</span><span class="n">wmax</span><span class="p">);</span> <span class="n">length</span><span class="o">=</span><span class="n">points</span><span class="p">)</span>
-    <span class="c"># Genera la versión lineal</span>
-    <span class="n">wlin</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">.^</span><span class="n">wlog</span>
-    
-    <span class="c"># Convierte la función del desfase a lenguajje Julia</span>
-    <span class="n">philam</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">(</span><span class="n">phiol</span><span class="p">)</span>
-    <span class="c"># Calcula los datos de desfase para los valores de frecuencia</span>
-    <span class="n">phidata</span> <span class="o">=</span> <span class="n">philam</span><span class="o">.</span><span class="p">(</span><span class="n">wlin</span><span class="p">)</span>
-    <span class="c"># Tiene en cuanta las &quot;vueltas&quot; del desfase</span>
-    <span class="n">DSP</span><span class="o">.</span><span class="n">unwrap!</span><span class="p">(</span><span class="n">phidata</span><span class="p">)</span>
-    <span class="c"># Calcularemos los valores del desfase mediante interpolación</span>
-    <span class="c"># lineal</span>
-    <span class="n">itp</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="n">wlin</span><span class="p">,</span><span class="n">phidata</span><span class="p">)</span>
-    
-    <span class="c"># Calculo de la frecuencia de cruce (desfase = -180°) </span>
-    <span class="c"># y la RAco, si es necesario</span>
-    <span class="k">if</span> <span class="n">co</span>
-        <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">itp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="nb">pi</span>
-        <span class="n">wco</span> <span class="o">=</span> <span class="n">find_zero</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">))</span>
-        <span class="n">RAco</span> <span class="o">=</span> <span class="n">RAol</span><span class="p">(</span><span class="n">wco</span><span class="p">)</span>
-        <span class="n">phico</span> <span class="o">=</span> <span class="n">itp</span><span class="p">(</span><span class="n">wco</span><span class="p">)</span>
-    <span class="k">end</span>
-    
-    <span class="c">#Cálculo de la frecuencia para RA=1 y su desfase</span>
-    <span class="k">if</span> <span class="n">ra1</span>    
-        <span class="n">w1</span> <span class="o">=</span> <span class="n">find_zero</span><span class="p">(</span><span class="n">RAol</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">))</span>
-        <span class="n">RA1</span> <span class="o">=</span> <span class="n">RAol</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span>
-        <span class="n">phi1</span> <span class="o">=</span> <span class="n">itp</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span>
-    <span class="k">end</span>
-
-    <span class="c"># Representación del diagrama de Bode</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="nd">@layout</span> <span class="p">[</span><span class="n">a</span><span class="p">;</span> <span class="n">b</span><span class="p">]</span>
-    <span class="n">RAplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">RAol</span><span class="p">,</span> <span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span>
-        <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;RA&quot;</span><span class="p">,</span>
-        <span class="n">minorticks</span><span class="o">=:</span><span class="n">auto</span><span class="p">)</span>
-    <span class="c"># Encuentra el valor mínimo de la escala del eje y </span>
-    <span class="n">RAminscale</span> <span class="o">=</span> <span class="n">ylims</span><span class="p">(</span><span class="n">RAplot</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">co</span>
-        <span class="n">plot!</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wco</span><span class="p">,</span> <span class="n">wco</span><span class="p">],[</span><span class="n">RAco</span><span class="p">,</span> <span class="n">RAco</span><span class="p">,</span> <span class="n">RAminscale</span><span class="p">],</span> <span class="n">color</span><span class="o">=:</span><span class="n">red</span><span class="p">,</span> 
-            <span class="n">annotations</span><span class="o">=</span> <span class="p">(</span><span class="n">wco</span><span class="p">,</span> <span class="n">float</span><span class="p">(</span><span class="n">RAco</span><span class="p">),</span> <span class="n">text</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;w_{co}, RA_{co}&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">:</span><span class="n">left</span><span class="p">)))</span>
-    <span class="k">end</span>
-    <span class="k">if</span> <span class="n">ra1</span>
-        <span class="n">plot!</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w1</span><span class="p">],</span> <span class="p">[</span><span class="n">RA1</span><span class="p">,</span> <span class="n">RA1</span><span class="p">,</span> <span class="n">RAminscale</span><span class="p">],</span> <span class="n">color</span><span class="o">=:</span><span class="n">lime</span><span class="p">,</span> 
-            <span class="n">annotations</span><span class="o">=</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">float</span><span class="p">(</span><span class="n">RA1</span><span class="p">),</span> <span class="n">text</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;w_1, 1&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">:</span><span class="n">left</span><span class="p">)))</span>
-    <span class="k">end</span>
-    <span class="n">phiplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">wlin</span><span class="p">,</span> <span class="n">phidata</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=:</span><span class="n">log10</span><span class="p">,</span>
-        <span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ&quot;</span><span class="p">,</span>
-        <span class="n">minorticks</span><span class="o">=:</span><span class="n">auto</span><span class="p">)</span>
-    <span class="n">phiminscale</span> <span class="o">=</span> <span class="n">ylims</span><span class="p">(</span><span class="n">phiplot</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">co</span>
-        <span class="n">plot!</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wco</span><span class="p">,</span> <span class="n">wco</span><span class="p">],[</span><span class="n">phico</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">phico</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">phiminscale</span><span class="p">],</span>
-            <span class="n">color</span><span class="o">=:</span><span class="n">red</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span> <span class="p">(</span><span class="n">wco</span> <span class="p">,</span><span class="n">float</span><span class="p">(</span><span class="n">phico</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">),</span> <span class="n">text</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;w_{co}, -180\degree&quot;</span><span class="p">,</span>
-                    <span class="n">pointsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">:</span><span class="n">left</span><span class="p">)))</span>
-    <span class="k">end</span>
-    <span class="k">if</span> <span class="n">ra1</span>
-        <span class="n">plot!</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="n">w1</span><span class="p">],</span> <span class="p">[</span><span class="n">phi1</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">phi1</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">phiminscale</span><span class="p">],</span> <span class="n">color</span><span class="o">=:</span><span class="n">lime</span><span class="p">,</span>
-        <span class="n">annotations</span> <span class="o">=</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">float</span><span class="p">(</span><span class="n">phi1</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">),</span> <span class="n">text</span><span class="p">(</span><span class="n">L</span><span class="s">&quot;w_1, \phi_1&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">:</span><span class="n">left</span><span class="p">)))</span>
-    <span class="k">end</span>
-    
-    <span class="c"># Muestra los gráficos </span>
-    <span class="n">display</span><span class="p">(</span><span class="n">plot</span><span class="p">(</span><span class="n">RAplot</span><span class="p">,</span> <span class="n">phiplot</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">l</span><span class="p">))</span>
-    
-    <span class="c"># Generación del diccionario con los valores de salida</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">co</span>
-        <span class="n">output</span><span class="p">[</span><span class="s">&quot;wco&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wco</span>
-        <span class="n">output</span><span class="p">[</span><span class="s">&quot;RAco&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RAco</span>
-        <span class="n">output</span><span class="p">[</span><span class="s">&quot;phico&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phico</span>
-    <span class="k">end</span>
-    <span class="k">if</span> <span class="n">ra1</span>
-        <span class="n">output</span><span class="p">[</span><span class="s">&quot;w1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">w1</span>
-        <span class="n">output</span><span class="p">[</span><span class="s">&quot;RA1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RA1</span>
-        <span class="n">output</span><span class="p">[</span><span class="s">&quot;phi1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi1</span>
-    <span class="k">end</span>
-    <span class="k">if</span> <span class="n">co</span><span class="o">==</span><span class="kc">false</span> <span class="o">&amp;&amp;</span> <span class="n">ra1</span><span class="o">==</span><span class="kc">false</span>
-        <span class="n">output</span> <span class="o">=</span> <span class="nb">nothing</span>
-    <span class="k">end</span>
-    <span class="k">return</span> <span class="n">output</span>
-<span class="k">end</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="p">(</span><span class="s">&quot;../clasecontrol.jl&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -952,13 +849,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>search: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>search: <span class=" -Color -Color-Bold">bode</span> <span class=" -Color -Color-Bold">Bode</span> <span class=" -Color -Color-Bold">Bo</span>un<span class=" -Color -Color-Bold">d</span>s<span class=" -Color -Color-Bold">E</span>rror is<span class=" -Color -Color-Bold">b</span>l<span class=" -Color -Color-Bold">o</span>ck<span class=" -Color -Color-Bold">de</span>v @<span class=" -Color -Color-Bold">bo</span>un<span class=" -Color -Color-Bold">d</span>sch<span class=" -Color -Color-Bold">e</span>ck LineNum<span class=" -Color -Color-Bold">b</span>erN<span class=" -Color -Color-Bold">ode</span> <span class=" -Color -Color-Bold">b</span>arem<span class=" -Color -Color-Bold">od</span>ul<span class=" -Color -Color-Bold">e</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">bode</span> <span class=" -Color -Color-Bold">Bo</span>un<span class=" -Color -Color-Bold">d</span>s<span class=" -Color -Color-Bold">E</span>rror is<span class=" -Color -Color-Bold">b</span>l<span class=" -Color -Color-Bold">o</span>ck<span class=" -Color -Color-Bold">de</span>v @<span class=" -Color -Color-Bold">bo</span>un<span class=" -Color -Color-Bold">d</span>sch<span class=" -Color -Color-Bold">e</span>ck LineNum<span class=" -Color -Color-Bold">b</span>erN<span class=" -Color -Color-Bold">ode</span> <span class=" -Color -Color-Bold">b</span>arem<span class=" -Color -Color-Bold">od</span>ul<span class=" -Color -Color-Bold">e</span>
-</pre></div>
-</div>
-<p><strong>bode(Gol; wmin=1e-1, wmax=1e1, points=100, co=false, ra1=false)</strong></p>
+<p><strong>bode(Gol; wmin=1e-1, wmax=1e1, points=100, co=false, ra1=false, RAlabel=&quot;RA&quot;)</strong></p>
 <p>Representación del diagrama de Bode de la función de transferencia <em>Gol</em>.</p>
 <p>Parámetros:</p>
 <ul class="simple">
@@ -968,6 +862,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">points</span></code>: Número de puntos a representar</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">co</span></code>: Calcula y representa la frecuencia de cruce</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ra1</span></code>: Calcula y representa la frecuencia que hace que <em>RA</em> = 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RAlabel</span></code>: Etiqueta del gráfico de RA en el diagrama de Bode</p></li>
 </ul>
 <p>Ejemplo:</p>
 <p><code class="docutils literal notranslate"><span class="pre">salida</span> <span class="pre">=</span> <span class="pre">bode(20*(s+1)/s/(s+5)/(s^2+2s+10);</span> <span class="pre">wmax=10,</span> <span class="pre">co=true,</span> <span class="pre">ra1=true)</span></code></p>
@@ -996,28 +891,28 @@
 \[\begin{equation*}\frac{0.25 \left(5.0 + \frac{5.0}{s}\right) e^{- 0.8 s}}{\left(5 s + 2\right) \left(s^{2} + s + 2\right)}\end{equation*}\]</div>
 </div>
 </div>
+<p>A continuación calculamos el diagrama de Bode para valores de frecuencia angular entre 0.1 y 1. Además calculamos la frecuencia de cruce y la frecuencia que hace que la razón de amplitudes valga la unidad (<span class="math notranslate nohighlight">\(\omega_1\)</span>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">;</span> <span class="n">wmax</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span> <span class="n">ra1</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">;</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span> <span class="n">ra1</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El siguiente paso consiste en mostrar el diagrama de Bode:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span><span class="o">.</span><span class="n">fig</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/prob812_6_0.svg" src="../_images/prob812_6_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dict{Any, Any} with 6 entries:
-  &quot;wco&quot;   =&gt; 0.780786
-  &quot;RAco&quot;  =&gt; 0.290387267313595
-  &quot;RA1&quot;   =&gt; 1.00000000000000
-  &quot;phi1&quot;  =&gt; -2.26625
-  &quot;w1&quot;    =&gt; 0.274813
-  &quot;phico&quot; =&gt; -3.14159
-</pre></div>
-</div>
-</div>
+<img alt="../_images/prob812_9_0.svg" src="../_images/prob812_9_0.svg" /></div>
 </div>
 <p>Obtenemos un valor de frecuencia de cruce:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span><span class="p">[</span><span class="s">&quot;wco&quot;</span><span class="p">]</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span><span class="o">.</span><span class="n">wco</span>
 </pre></div>
 </div>
 </div>
@@ -1030,7 +925,7 @@
 <p>lo que supone una valor de razón crítica de:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">RAcr</span> <span class="o">=</span> <span class="n">salida</span><span class="p">[</span><span class="s">&quot;RAco&quot;</span><span class="p">]</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">RAcr</span> <span class="o">=</span> <span class="n">salida</span><span class="o">.</span><span class="n">RAco</span>
 </pre></div>
 </div>
 </div>
@@ -1054,7 +949,7 @@
 <p>Para obtener el margen de fase, necesitamos el valor del desfase para el que la razón de amplitudes toma el valor de la unidad, <span class="math notranslate nohighlight">\(\varphi_1\)</span>. Es decir:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">MF</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">+</span> <span class="n">salida</span><span class="p">[</span><span class="s">&quot;phi1&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">MF</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">+</span> <span class="n">salida</span><span class="o">.</span><span class="n">phi1</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span>
 </pre></div>
 </div>
 </div>
@@ -1090,23 +985,18 @@ superior a la unidad.</p>
 <p>El nuevo diagrama de Bode es:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida_c</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">;</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida_c</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">;</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">salida_c</span><span class="o">.</span><span class="n">fig</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/prob812_18_0.svg" src="../_images/prob812_18_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dict{Any, Any} with 3 entries:
-  &quot;wco&quot;   =&gt; 1.28925
-  &quot;RAco&quot;  =&gt; 0.156215976149308
-  &quot;phico&quot; =&gt; -3.14159
-</pre></div>
-</div>
-</div>
+<img alt="../_images/prob812_21_0.svg" src="../_images/prob812_21_0.svg" /></div>
 </div>
 <p>Al añadir la acción derivativa, la frecuencia de cruce y la razón crítica pasan a tomar los siquientes valores:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida_c</span><span class="p">[</span><span class="s">&quot;wco&quot;</span><span class="p">]</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida_c</span><span class="o">.</span><span class="n">wco</span>
 </pre></div>
 </div>
 </div>
@@ -1118,7 +1008,7 @@ superior a la unidad.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">RAcr</span> <span class="o">=</span> <span class="n">salida_c</span><span class="p">[</span><span class="s">&quot;RAco&quot;</span><span class="p">]</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">RAcr</span> <span class="o">=</span> <span class="n">salida_c</span><span class="o">.</span><span class="n">RAco</span>
 </pre></div>
 </div>
 </div>

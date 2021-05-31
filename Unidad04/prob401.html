@@ -681,6 +681,16 @@
      Problema 9.5
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob909.html">
+     Problema 9.9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob911.html">
+     Problema 9.11
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -798,7 +808,7 @@ realizar la transformada inversa de Laplace:</p>
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span><span class="p">,</span> <span class="n">Plots</span>
 
-<span class="n">t</span><span class="p">,</span> <span class="n">Kp</span><span class="p">,</span> <span class="n">τ</span><span class="p">,</span> <span class="n">Tp</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;t K_p tau tau_p&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">Kp</span><span class="p">,</span> <span class="n">τ</span><span class="p">,</span> <span class="n">Tp</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;t K_p tau tau_p&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="nb">true</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">)</span>
 
 <span class="n">G</span> <span class="o">=</span> <span class="n">Kp</span><span class="o">*</span><span class="p">(</span><span class="n">τ</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Tp</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -826,11 +836,11 @@ realizar la transformada inversa de Laplace:</p>
 <p>La única diferencia es el término <span class="math notranslate nohighlight">\(\tau / \tau_p\)</span>. Para ver el significado físico de la constante de tiempo <span class="math notranslate nohighlight">\(\tau\)</span> se puede representar la respuesta para diferentes valores <span class="math notranslate nohighlight">\((K_p = \tau_p = 1)\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">taus</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">25</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">taus</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.25</span><span class="p">,</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">plot</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">tau</span> <span class="kp">in</span> <span class="n">taus</span>
+<span class="k">for</span> <span class="n">tau</span> <span class="k">in</span> <span class="n">taus</span>
     <span class="n">plot!</span><span class="p">(</span><span class="n">y_t</span><span class="p">(</span><span class="n">Kp</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">Tp</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">τ</span><span class="o">=&gt;</span><span class="n">tau</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">tau</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="k">end</span>
 
@@ -849,11 +859,11 @@ realizar la transformada inversa de Laplace:</p>
 <p>Recurriendo de nuevo a Sympy para realizar la transformada inversa de Laplace:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;omega&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;omega&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="nb">true</span><span class="p">)</span>
 
 <span class="n">f_t</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
 
-<span class="n">f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">laplace_transform</span><span class="p">(</span><span class="n">f_t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">noconds</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">laplace_transform</span><span class="p">(</span><span class="n">f_t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">noconds</span><span class="o">=</span><span class="nb">true</span><span class="p">)</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="n">G</span><span class="o">*</span><span class="n">f</span>
 
