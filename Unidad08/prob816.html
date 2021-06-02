@@ -56,8 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tema 9" href="../Unidad09/problemas09.html" />
-    <link rel="prev" title="Problema 8.15" href="prob815.html" />
+    <link rel="next" title="Problema 8.18" href="prob818.html" />
+    <link rel="prev" title="Problema 8.12" href="prob812.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -637,14 +637,14 @@
      Problema 8.12
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="prob815.html">
-     Problema 8.15
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Problema 8.16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob818.html">
+     Problema 8.18
     </a>
    </li>
   </ul>
@@ -789,128 +789,138 @@
                 
   <div class="section" id="problema-8-16">
 <h1>Problema 8.16<a class="headerlink" href="#problema-8-16" title="Permalink to this headline">¶</a></h1>
+<p>Considerar la función de lazo abierto siguiente:</p>
+<div class="math notranslate nohighlight">
+\[G=\frac{K_c}{0.5s+1} \mathrm{e}^{-t_d s}\]</div>
+<p>Estudiar mediante los diagramas de Bode la influencia del retraso o del tiempo muerto <span class="math notranslate nohighlight">\(t_d\)</span> y de la ganancia <span class="math notranslate nohighlight">\(K_c\)</span> en la estabilidad del correspondiente lazo cerrado. Como ejemplo, considerar los casos en los que el retraso vale 0.01, 0.1 y 1 min.</p>
+<hr class="docutils" />
+<p><strong>Solución</strong></p>
+<p>En primer lugar cargamos las bibliotecas necesarias y definimos las variables que utilizaremos para resolver el problema, <span class="math notranslate nohighlight">\(K_c\)</span> y <span class="math notranslate nohighlight">\(t_d\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span><span class="p">,</span> <span class="n">Plots</span><span class="p">,</span> <span class="n">LaTeXStrings</span><span class="p">,</span> <span class="n">DSP</span><span class="p">,</span> <span class="n">Roots</span><span class="p">,</span> <span class="n">Interpolations</span>
-
-<span class="n">t</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">td</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s">&quot;t omega td&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="nb">true</span><span class="p">)</span>
-<span class="nd">@vars</span> <span class="n">s</span>
-
-<span class="k">function</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">;</span> <span class="n">wmin</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="mf">1e1</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">stab</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span>
-    <span class="n">Gw</span> <span class="o">=</span> <span class="n">Gol</span><span class="p">(</span><span class="n">s</span><span class="o">=&gt;</span><span class="nb">im</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
-
-    <span class="n">RAol</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">real</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">imag</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">phiol</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">imag</span><span class="p">(</span><span class="n">Gw</span><span class="p">),</span> <span class="n">real</span><span class="p">(</span><span class="n">Gw</span><span class="p">))</span>
-
-    <span class="n">wlog</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">wmin</span><span class="p">),</span> <span class="n">log10</span><span class="p">(</span><span class="n">wmax</span><span class="p">);</span> <span class="n">length</span><span class="o">=</span><span class="n">points</span><span class="p">)</span>
-    <span class="n">wlin</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">.^</span><span class="n">wlog</span>
-    <span class="n">philam</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">(</span><span class="n">phiol</span><span class="p">)</span>
-    <span class="n">phidata</span> <span class="o">=</span> <span class="n">philam</span><span class="o">.</span><span class="p">(</span><span class="n">wlin</span><span class="p">)</span>
-    <span class="n">DSP</span><span class="o">.</span><span class="n">unwrap!</span><span class="p">(</span><span class="n">phidata</span><span class="p">)</span>
-
-    
-    <span class="k">if</span> <span class="n">stab</span>
-        <span class="n">itp</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="n">wlin</span><span class="p">,</span><span class="n">phidata</span><span class="p">)</span>
-        <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">itp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="nb">pi</span>
-        <span class="n">wco</span> <span class="o">=</span> <span class="n">find_zero</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wlin</span><span class="p">[</span><span class="k">end</span><span class="p">]))</span>
-        <span class="n">RAco</span> <span class="o">=</span> <span class="n">RAol</span><span class="p">(</span><span class="n">wco</span><span class="p">)</span>
-        <span class="n">phico</span> <span class="o">=</span> <span class="n">itp</span><span class="p">(</span><span class="n">wco</span><span class="p">)</span>
-
-    <span class="k">end</span>
-
-    <span class="n">l</span> <span class="o">=</span> <span class="nd">@layout</span> <span class="p">[</span><span class="n">a</span><span class="p">;</span> <span class="n">b</span><span class="p">]</span>
-    <span class="n">RAplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">RAol</span><span class="p">,</span> <span class="n">wmin</span><span class="p">,</span> <span class="n">wmax</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span>
-        <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;RA&quot;</span><span class="p">,</span>
-        <span class="n">minorticks</span><span class="o">=</span><span class="ss">:auto</span><span class="p">)</span>
-    <span class="n">RAminscale</span> <span class="o">=</span> <span class="n">ylims</span><span class="p">(</span><span class="n">RAplot</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">stab</span>
-        <span class="n">plot!</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wco</span><span class="p">,</span> <span class="n">wco</span><span class="p">],[</span><span class="n">RAco</span><span class="p">,</span> <span class="n">RAco</span><span class="p">,</span> <span class="n">RAminscale</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="ss">:red</span><span class="p">,</span> 
-            <span class="n">annotations</span><span class="o">=</span> <span class="p">(</span><span class="n">wco</span><span class="p">,</span> <span class="n">float</span><span class="p">(</span><span class="n">RAco</span><span class="p">),</span> <span class="n">text</span><span class="p">(</span><span class="sa">L</span><span class="s">&quot;w_{co}, RA_{co}&quot;</span><span class="p">,</span> <span class="n">pointsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="ss">:left</span><span class="p">)))</span>
-
-    <span class="k">end</span>
-    <span class="n">phiplot</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">wlin</span><span class="p">,</span> <span class="n">phidata</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span>
-        <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ&quot;</span><span class="p">,</span>
-        <span class="n">minorticks</span><span class="o">=</span><span class="ss">:auto</span><span class="p">)</span>
-    <span class="n">phiminscale</span> <span class="o">=</span> <span class="n">ylims</span><span class="p">(</span><span class="n">phiplot</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">stab</span>
-        <span class="n">plot!</span><span class="p">([</span><span class="n">wmin</span><span class="p">,</span> <span class="n">wco</span><span class="p">,</span> <span class="n">wco</span><span class="p">],[</span><span class="n">phico</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">phico</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">,</span> <span class="n">phiminscale</span><span class="p">],</span>
-            <span class="n">color</span><span class="o">=</span><span class="ss">:red</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span> <span class="p">(</span><span class="n">wco</span> <span class="p">,</span><span class="n">float</span><span class="p">(</span><span class="n">phico</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">),</span> <span class="n">text</span><span class="p">(</span><span class="sa">L</span><span class="s">&quot;w_{co}, -180\degree&quot;</span><span class="p">,</span>
-                    <span class="n">pointsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="ss">:left</span><span class="p">)))</span>
-
-    <span class="k">end</span>
-
-    <span class="n">display</span><span class="p">(</span><span class="n">plot</span><span class="p">(</span><span class="n">RAplot</span><span class="p">,</span> <span class="n">phiplot</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">l</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">stab</span>
-        <span class="k">return</span> <span class="n">wco</span><span class="p">,</span> <span class="n">RAco</span><span class="p">,</span> <span class="n">phico</span>
-    <span class="k">end</span>
-<span class="k">end</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="p">(</span><span class="s">&quot;../clasecontrol.jl&quot;</span><span class="p">)</span>
+<span class="nd">@vars</span> <span class="n">td</span> <span class="n">Kc</span> <span class="n">positive</span><span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bode (generic function with 1 method)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(td, Kc)
 </pre></div>
 </div>
 </div>
 </div>
+<p>El siguiente paso es definir la función de lazo abierto, <span class="math notranslate nohighlight">\(G_{OL}\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Gol</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mf">0.5</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">td</span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Gol</span> <span class="o">=</span> <span class="n">Kc</span><span class="o">/</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">td</span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{equation*}\frac{e^{- s td}}{0.5 s + 1}\end{equation*}\]</div>
+\[\begin{equation*}\frac{Kc e^{- s td}}{0.5 s + 1}\end{equation*}\]</div>
 </div>
 </div>
+<p>Para comprobar el efecto del retraso sobre la ganancia del controlador, calcularemos la ganancia última, <span class="math notranslate nohighlight">\(K_u\)</span>, para los tres valores de retraso propuestos en el enunciado del problema.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(t_d = 0.01\)</span></p>
+<p>Dibujamos el diagrama de Bode y encontramos <span class="math notranslate nohighlight">\(M = \frac{RA}{K_c(\omega_{co})}\)</span>, lo que significa que la ganancia última es:</p>
+<div class="math notranslate nohighlight">
+\[K_u = \frac{1}{M}\]</div>
+</li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Gol</span><span class="p">(</span><span class="n">td</span><span class="o">=&gt;</span><span class="mf">.01</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">sol1</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">(</span><span class="n">td</span><span class="o">=&gt;</span><span class="mf">0.01</span><span class="p">)</span><span class="o">/</span><span class="n">Kc</span><span class="p">;</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span> <span class="nb">true</span><span class="p">,</span> <span class="n">RAlabel</span><span class="o">=</span><span class="s">&quot;RA/Kc&quot;</span><span class="p">)</span>
+<span class="n">sol1</span><span class="o">.</span><span class="n">fig</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{equation*}\frac{e^{- 0.01 s}}{0.5 s + 1}\end{equation*}\]</div>
-</div>
+<img alt="../_images/prob816_5_0.svg" src="../_images/prob816_5_0.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">(</span><span class="n">td</span><span class="o">=&gt;</span><span class="mf">0.01</span><span class="p">);</span> <span class="n">wmin</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">stab</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Ganancia última</span>
+<span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sol1</span><span class="o">.</span><span class="n">RAco</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/prob816_4_0.svg" src="../_images/prob816_4_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(158.34267333886166, 0.0126298264324675, -3.141592653589793)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>79.2
 </pre></div>
 </div>
 </div>
 </div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(t_d = 0.1\)</span></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">(</span><span class="n">td</span><span class="o">=&gt;</span><span class="mf">0.1</span><span class="p">);</span> <span class="n">wmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">stab</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">sol2</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">(</span><span class="n">td</span><span class="o">=&gt;</span><span class="mf">0.1</span><span class="p">)</span><span class="o">/</span><span class="n">Kc</span><span class="p">;</span> <span class="n">wmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="nb">true</span><span class="p">)</span>
+<span class="n">sol2</span><span class="o">.</span><span class="n">fig</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/prob816_5_0.svg" src="../_images/prob816_5_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(16.887252004838693, 0.117610584794211, -3.141592653589793)
-</pre></div>
-</div>
-</div>
+<img alt="../_images/prob816_8_0.svg" src="../_images/prob816_8_0.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">(</span><span class="n">td</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">);</span> <span class="n">wmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stab</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sol2</span><span class="o">.</span><span class="n">RAco</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/prob816_6_0.svg" src="../_images/prob816_6_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.288959596389207, 0.657975335715426, -3.141592653589793)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.5
 </pre></div>
 </div>
 </div>
 </div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(t_d = 1\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">sol3</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Gol</span><span class="p">(</span><span class="n">td</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">Kc</span><span class="p">;</span> <span class="n">wmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span> <span class="n">RAlabel</span><span class="o">=</span><span class="s">&quot;RA/Kc&quot;</span><span class="p">)</span>
+<span class="n">sol3</span><span class="o">.</span><span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob816_11_0.svg" src="../_images/prob816_11_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sol3</span><span class="o">.</span><span class="n">RAco</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.52
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se comprueba comprueba el efecto negativo del retraso sobre la estabilidad del lazo de control. Cuanto mayor es el retrasos, menor debe ser la ganancia proporcional última:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>td</p></th>
+<th class="head"><p>Kc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.01</p></td>
+<td><p>79.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.1</p></td>
+<td><p>8.50</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1.52</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 
     <script type="text/x-thebe-config">
@@ -941,8 +951,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="prob815.html" title="previous page">Problema 8.15</a>
-    <a class='right-next' id="next-link" href="../Unidad09/problemas09.html" title="next page">Tema 9</a>
+    <a class='left-prev' id="prev-link" href="prob812.html" title="previous page">Problema 8.12</a>
+    <a class='right-next' id="next-link" href="prob818.html" title="next page">Problema 8.18</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

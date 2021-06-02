@@ -1,0 +1,1561 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problema 8.18 &#8212; Control de procesos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tema 9" href="../Unidad09/problemas09.html" />
+    <link rel="prev" title="Problema 8.16" href="prob816.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/M-UdL2.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Control de procesos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Presentación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Teoría
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/unidad01.html">
+   1. Introducción
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/1_historia.html">
+     1.1. Breve historia del control de procesos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/2_contexto.html">
+     1.2. Contexto de la disciplina
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/3_descripci%C3%B3n.html">
+     1.3. Descripción cualitativa de un ejemplo de proceso alimentario y sus sistemas de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/4_conceptos.html">
+     1.4. Conceptos generales
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad02/unidad02.html">
+   2. Instrumentación industrial
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/1_definiciones.html">
+     2.1. Algunas definiciones de instrumentación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad02/2_instrumentacion.html">
+     2.2. Algo de instrumentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/unidad03.html">
+   3. Cómo abordar la dinámica de un sistema
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/1_ejemplo_dinamica.html">
+     3.1. Un ejemplo de dinámica de un sistema. ¿Qué se desea conocer?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/2_transformada.html">
+     3.2. La transformada de Laplace como herramienta útil
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/3_funcion_transferencia.html">
+     3.3. La función de transferencia. Álgebra de funciones de transferencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/4_funciones_singulares.html">
+     3.4. Transformadas de algunas funciones singulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/5_inversion.html">
+     3.5. Inversión de transformadas. De vuelta al tiempo real
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/6_expansion.html">
+     3.6. Expansión en fracciones parciales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/7_tablas_transformadas.html">
+     3.7. Transformadas de Laplace
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/unidad04.html">
+   4. Sistemas lineales de primer orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/1_Definicion.html">
+     4.1. Definición de sistema lineal de primer orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/2_Escalon.html">
+     4.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/3_Impulso.html">
+     4.3. Respuesta a una función impulso
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/4_Seno.html">
+     4.4. Respuesta a una función sinusoidal
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/unidad05.html">
+   5. Sistemas lineales de segundo orden
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/1_Definicion.html">
+     5.1. Definición de sistema de segundo orden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/2_Escalon.html">
+     5.2. Respuesta a una entrada en escalón
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/3_Linealizacion.html">
+     5.3. Linealización
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/4_Retrasos.html">
+     5.4. Retrasos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/unidad06.html">
+   6. Acciones de control
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/1_Descripcion.html">
+     6.1. Descripción de un bucle de control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/2_Control_P.html">
+     6.2. Control proporcional (P)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/3_Control_PI.html">
+     6.3. Control Proporcional + Integral (PI)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/4_Control_PD.html">
+     6.4. Control Proporcional + Derivativo (PD)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/5_Control_PID.html">
+     6.5. Control Proporcional + Integral + Derivativo (PID)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad07/unidad07.html">
+   7. Control por retroalimentación de sistemas lineales
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/1_Accion_P.html">
+     7.1. Acción de control proporcional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/2_Accion_I.html">
+     7.2. Acción de control integral
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/3_Accion_D.html">
+     7.3. Acción de control derivativa
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/4_Acciones_combinadas.html">
+     7.4. Acciones de control combinadas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/5_Influencia_retrasos.html">
+     7.5. Influencia de los retrasos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/6_Intro_dise%C3%B1o.html">
+     7.6. Introducción al diseño de sistemas de control por retroalimentación
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="unidad08.html">
+   8. Análisis de estabilidad de sistemas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1_Definicion_estabilidad.html">
+     8.1. Definición de estabilidad. Ecuación característica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2_Routh_Hurvitz.html">
+     8.2. Método de Routh-Hurvitz
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3_Lugar_raices.html">
+     8.3. Método del lugar de las raíces
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Diagramas_Bode.html">
+     8.4. Análisis armónico de sistemas lineales. Diagramas de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5_Bode.html">
+     8.5. Criterio de estabilidad de Bode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6_Nyquist.html">
+     8.6. Criterio de estabilidad de Nyquist
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad09/unidad09.html">
+   9. Métodos empíricos y semiempíricos
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/1_Ensayo.html">
+     9.1. Método del ensayo y error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/2_Criterio_unico.html">
+     9.2. Métodos de criterio único
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/3_Criterio_integral.html">
+     9.3. Método del criterio integral con el tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/4_Cohen.html">
+     9.4. Método de la curva de respuesta. Método de Cohen y Coon
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/5_Ziegler.html">
+     9.5. Método de Ziegler y Nichols
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Problemas resueltos
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad01/problemas01.html">
+   Tema 1
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob101.html">
+     Problema 1.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob102.html">
+     Problema 1.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad01/prob104.html">
+     Problema 1.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad03/problemas03.html">
+   Tema 3
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob301.html">
+     Problema 3.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob302.html">
+     Problema 3.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob303.html">
+     Problema 3.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob304.html">
+     Problema 3.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob305.html">
+     Problema 3.5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob306.html">
+     Problema 3.6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob307.html">
+     Problema 3.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad03/prob308.html">
+     Problema 3.8
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad04/problemas04.html">
+   Tema 4
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob401.html">
+     Problema 4.01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad04/prob403.html">
+     Problema 4.03
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad05/problemas05.html">
+   Tema 5
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad05/prob504.html">
+     Problema 5.4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad06/problemas06.html">
+   Tema 6
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob602.html">
+     Problema 6.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob603.html">
+     Problema 6.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob604.html">
+     Problema 6.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad06/prob605.html">
+     Problema 6.5
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad07/problemas07.html">
+   Tema 7
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob701.html">
+     Problema 7.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob702.html">
+     Problema 7.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob703.html">
+     Problema 7.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob704.html">
+     Problema 7.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob705.html">
+     Problema 7.5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob706.html">
+     Problema 7.6
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob707.html">
+     Problema 7.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob708.html">
+     Problema 7.8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob709.html">
+     Problema 7.9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad07/prob710.html">
+     Problema 7.10
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="problemas08.html">
+   Tema 8
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob801.html">
+     Problema 8.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob802.html">
+     Problema 8.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob807.html">
+     Problema 8.7
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob808.html">
+     Problema 8.8
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob810.html">
+     Problema 8.10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob811.html">
+     Problema 8.11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob812.html">
+     Problema 8.12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="prob816.html">
+     Problema 8.16
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Problema 8.18
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Unidad09/problemas09.html">
+   Tema 9
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob901.html">
+     Problema 9.1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob902.html">
+     Problema 9.2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob903.html">
+     Problema 9.3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob904.html">
+     Problema 9.4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob905.html">
+     Problema 9.5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob909.html">
+     Problema 9.9
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Unidad09/prob911.html">
+     Problema 9.11
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Unidad08/prob818.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/runjaj/apuntes-icia-jb/master?urlpath=tree/Unidad08/prob818.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="problema-8-18">
+<h1>Problema 8.18<a class="headerlink" href="#problema-8-18" title="Permalink to this headline">¶</a></h1>
+<p>A continuación se muestran la razón de amplitud y desfase en función de la frecuencia de tres sistemas desconocidos:</p>
+<ul class="simple">
+<li><p>Sistema 1:</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><span class="math notranslate nohighlight">\(\omega\)</span><br>(ciclos/min)</p></th>
+<th class="head"><p>RA</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\phi\)</span> (°)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>0.01</p></td>
+<td><p>10</p></td>
+<td><p>-0.63</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0.05</p></td>
+<td><p>9.99</p></td>
+<td><p>-3.15</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>0.10</p></td>
+<td><p>9.99</p></td>
+<td><p>-6.30</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>1.0</p></td>
+<td><p>9.95</p></td>
+<td><p>-63.01</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>3.0</p></td>
+<td><p>9.58</p></td>
+<td><p>-188.60</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>5.0</p></td>
+<td><p>8.94</p></td>
+<td><p>-313.04</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>7.0</p></td>
+<td><p>8.19</p></td>
+<td><p>-436.06</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>9.0</p></td>
+<td><p>7.43</p></td>
+<td><p>-557.65</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>10.0</p></td>
+<td><p>7.04</p></td>
+<td><p>-617.96</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>12.0</p></td>
+<td><p>6.40</p></td>
+<td><p>-737.74</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>15.0</p></td>
+<td><p>5.55</p></td>
+<td><p>-915.75</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>20.0</p></td>
+<td><p>4.47</p></td>
+<td><p>-1209.35</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>30.0</p></td>
+<td><p>3.16</p></td>
+<td><p>etc.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>40.0</p></td>
+<td><p>2.43</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>50.0</p></td>
+<td><p>1.96</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Sistema 2:</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><span class="math notranslate nohighlight">\(\omega\)</span><br>(ciclos/min)</p></th>
+<th class="head"><p>RA</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\phi\)</span> (°)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>0.01</p></td>
+<td><p>5.00</p></td>
+<td><p>-0.23</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0.05</p></td>
+<td><p>5.05</p></td>
+<td><p>-1.13</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>0.10</p></td>
+<td><p>5.20</p></td>
+<td><p>-2.39</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0.20</p></td>
+<td><p>5.93</p></td>
+<td><p>-5.44</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>0.30</p></td>
+<td><p>7.68</p></td>
+<td><p>-11.62</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0.40</p></td>
+<td><p>12.69</p></td>
+<td><p>-23.96</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>0.50</p></td>
+<td><p>25.00</p></td>
+<td><p>-90.00</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0.60</p></td>
+<td><p>9.98</p></td>
+<td><p>-151.39</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>0.70</p></td>
+<td><p>5.00</p></td>
+<td><p>-163.74</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0.80</p></td>
+<td><p>3.25</p></td>
+<td><p>-168.10</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>0.90</p></td>
+<td><p>2.20</p></td>
+<td><p>-170.87</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>1.10</p></td>
+<td><p>1.29</p></td>
+<td><p>-173.46</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>1.50</p></td>
+<td><p>0.62</p></td>
+<td><p>-175.71</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>2.00</p></td>
+<td><p>0.33</p></td>
+<td><p>-176.95</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>5.00</p></td>
+<td><p>0.05</p></td>
+<td><p>-178.84</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Sistema 3:</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><span class="math notranslate nohighlight">\(\omega\)</span><br>(ciclos/min)</p></th>
+<th class="head"><p>RA</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\phi\)</span> (°)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>0.01</p></td>
+<td><p>17</p></td>
+<td><p>-1.49</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0.02</p></td>
+<td><p>16.99</p></td>
+<td><p>-2.98</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>0.10</p></td>
+<td><p>16.67</p></td>
+<td><p>-14.75</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0.30</p></td>
+<td><p>14.42</p></td>
+<td><p>-41.21</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>0.50</p></td>
+<td><p>11.66</p></td>
+<td><p>-61.90</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>0.70</p></td>
+<td><p>9.33</p></td>
+<td><p>-77.76</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>1.00</p></td>
+<td><p>6.80</p></td>
+<td><p>-95.73</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>1.50</p></td>
+<td><p>4.30</p></td>
+<td><p>-117.03</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>2.00</p></td>
+<td><p>2.92</p></td>
+<td><p>-132.42</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>2.50</p></td>
+<td><p>2.07</p></td>
+<td><p>-144.53</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>3.00</p></td>
+<td><p>1.55</p></td>
+<td><p>-154.04</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>4.00</p></td>
+<td><p>0.94</p></td>
+<td><p>-169.23</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>8.00</p></td>
+<td><p>0.26</p></td>
+<td><p>-208.22</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>10.00</p></td>
+<td><p>0.17</p></td>
+<td><p>-223.12</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>20.00</p></td>
+<td><p>0.04</p></td>
+<td><p>-287.45</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="simple">
+<li><p>Determinar el orden de los sistemas y buscar la existencia de tiempos muertos.</p></li>
+<li><p>Calcular los valores de los parámetros de los sistemas, incluido el retraso, si existe.</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Solución</strong></p>
+<p><em>Sistema 1</em></p>
+<p>El primer paso será realizar una representación gráfica de los datos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">w_1</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">]</span>
+
+<span class="n">RA_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">9.99</span><span class="p">,</span> <span class="mf">9.99</span><span class="p">,</span> <span class="mf">9.95</span><span class="p">,</span> <span class="mf">9.58</span><span class="p">,</span> <span class="mf">8.94</span><span class="p">,</span> <span class="mf">8.19</span><span class="p">,</span> <span class="mf">7.43</span><span class="p">,</span> <span class="mf">7.04</span><span class="p">,</span> <span class="mf">6.40</span><span class="p">,</span> <span class="mf">5.55</span><span class="p">,</span> <span class="mf">4.47</span><span class="p">]</span>
+
+<span class="n">phi_1</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.63</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.15</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.30</span><span class="p">,</span> <span class="o">-</span><span class="mf">63.01</span><span class="p">,</span> <span class="o">-</span><span class="mf">188.60</span><span class="p">,</span> <span class="o">-</span><span class="mf">313.04</span><span class="p">,</span> <span class="o">-</span><span class="mf">436.06</span><span class="p">,</span> <span class="o">-</span><span class="mf">557.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">617.96</span><span class="p">,</span> <span class="o">-</span><span class="mf">737.74</span><span class="p">,</span> <span class="o">-</span><span class="mf">915.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">1209.35</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
+
+<span class="n">scatter</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">RA_1</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω₁&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;RA₁&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob818_2_0.svg" src="../_images/prob818_2_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">scatter</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">phi_1</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω₁&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ₁&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob818_3_0.svg" src="../_images/prob818_3_0.svg" /></div>
+</div>
+<p>Observando la tabla de razón de amplitudes y desfase de la tabla para el Sistema 1 y su representación gráfica se obtienen las dos conclusiones siguientes:</p>
+<ol class="simple">
+<li><p>Se trata de un sistema de primer orden o de segundo orden sobreamortiguado, ya que la razón de amplitudes decrece a medida que aumenta la frecuancia angular.</p></li>
+<li><p>El desfase disminuye de manera no asintótica al aumentar la frecuencia angular.</p></li>
+</ol>
+<p>Los parámetros del sistema se pueden obtener de diversas manera:</p>
+<p><em>Resolución gráfica</em></p>
+<p>Se puede suponer que se trata de un sistema de primer orden con retraso, lo que implica:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \text{Razón de Amplitudes: } &amp; RA = \frac{K}{\sqrt{1 + \tau^2
+  \omega^2}} \\
+  \text{Desfase: } &amp; \varphi = \frac{180}{\pi}  [\mathrm{atan} (-\tau \omega) - t_d \omega]
+\end{aligned}\end{split}\]</div>
+<p>Se puede determinar la ganancia del proceso utilizando la asíntota de baja frecuencia, es
+decir, sabiendo que:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{ABF} = \lim_{\omega \to 0} = \frac{K}{\sqrt{1 + \tau^2 \omega^2}} = K\]</div>
+<p>La ganancia del sistema coincidirá con el valor de la razón de amplitudes a baja frecuencia. Por tanto:</p>
+<div class="math notranslate nohighlight">
+\[K = 10\]</div>
+<p>Utilizando la asíntota de alta frecuencia se puede encontrar la constante de tiempo del sistema:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{AAF} = \log RA \approx \log K - \log \tau \omega = \log K -
+   \log \tau - \log \omega\]</div>
+<p>La asíntota de alta frecuencia es una recta de pendiente -1 y cuya ordenada en el origen es <span class="math notranslate nohighlight">\(\log K - \log \tau\)</span>. Gráficamente se puede encontrar la AAF al representar <span class="math notranslate nohighlight">\(\log RA\)</span> frente a <span class="math notranslate nohighlight">\(\log \omega\)</span>. Se obtiene la siguiente recta:</p>
+<div class="math notranslate nohighlight">
+\[\log RA = - \log \omega - 1.991\]</div>
+<p>Por tanto, sabiendo que <span class="math notranslate nohighlight">\(K = 10\)</span>, se obtiene la siguiente constante de tiempo del sistema:</p>
+<div class="math notranslate nohighlight">
+\[\tau = 0.10\]</div>
+<p>Para encontrar el valor del retraso será necesario recurrir a los datos del desfase. Despejando de la ec. (2) se obtiene:</p>
+<div class="math notranslate nohighlight">
+\[\varphi \frac{\pi}{180} + \mathrm{atan} (- \omega \tau) = - t_d \omega\]</div>
+<p>Tomando los 8 últimos puntos para los que se dispone de información
+sobre el desfase se obtiene el siguiente retraso (pendiente de la recta
+que ajusta los puntos según la ecuación anterior):</p>
+<div class="math notranslate nohighlight">
+\[t_d = -1.0\]</div>
+<p>Podemos comprobar la suposición de que el sistema es de primer orden con retraso representando la razón de amplitudes y el desfase del modelo junto con los datos experimentales. Para ello utilizaremos la función siguiente, que utilizaremos con el resto de sistemas del problema:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span>
+<span class="nd">@vars</span> <span class="n">s</span> <span class="n">w</span>
+<span class="n">G1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">/</span><span class="p">(</span><span class="mf">0.1</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}\frac{10 e^{- 1.0 s}}{0.1 s + 1}\end{equation*}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">DSP</span>
+<span class="k">function</span> <span class="n">drawbode</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">wdata</span><span class="p">,</span> <span class="n">RAdata</span><span class="p">,</span> <span class="n">phidata</span><span class="p">)</span>
+    <span class="n">Gw</span> <span class="o">=</span> <span class="n">G</span><span class="p">(</span><span class="n">s</span><span class="o">=&gt;</span><span class="nb">im</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
+    
+    <span class="c"># Cálculo de la razón de amplitudes de la función de transferencia de</span>
+    <span class="c"># lazo abierto G</span>
+    <span class="n">RA</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">real</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="nb">im</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="c"># Se calculan 100 puntos entre los extremos de las frecuencia angulares</span>
+    <span class="c"># para los que hay datos experimentales</span>
+    <span class="n">wlog</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">wdata</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">log10</span><span class="p">(</span><span class="n">wdata</span><span class="p">[</span><span class="k">end</span><span class="p">]);</span> <span class="n">length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">wsim</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">.^</span><span class="n">wlog</span>
+    
+    <span class="c"># Representación de los puntos experimentales</span>
+    <span class="n">RAplot</span> <span class="o">=</span> <span class="n">scatter</span><span class="p">(</span><span class="n">wdata</span><span class="p">,</span> <span class="n">RAdata</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span>
+        <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;RA&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span>
+    
+    <span class="c"># Representación de la curva ajustada</span>
+    <span class="n">plot!</span><span class="p">(</span><span class="n">wsim</span><span class="p">,</span> <span class="n">RA</span><span class="p">)</span>
+    
+    <span class="c"># Representación del desfase</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">atan</span><span class="p">(</span><span class="nb">im</span><span class="p">(</span><span class="n">Gw</span><span class="p">)</span><span class="o">/</span><span class="n">real</span><span class="p">(</span><span class="n">Gw</span><span class="p">))</span>
+    <span class="n">phisim</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span><span class="o">.</span><span class="p">(</span><span class="n">wsim</span><span class="p">)</span>
+    <span class="n">DSP</span><span class="o">.</span><span class="n">unwrap!</span><span class="p">(</span><span class="n">phisim</span><span class="p">,</span> <span class="n">range</span><span class="o">=</span><span class="nb">pi</span><span class="p">)</span>
+    <span class="n">phiplot</span> <span class="o">=</span> <span class="n">scatter</span><span class="p">(</span><span class="n">wdata</span><span class="p">,</span> <span class="n">phidata</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span>
+    <span class="n">plot!</span><span class="p">(</span><span class="n">wsim</span><span class="p">,</span> <span class="n">phisim</span><span class="o">.*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">)</span>
+    
+    <span class="n">plot</span><span class="p">(</span><span class="n">RAplot</span><span class="p">,</span> <span class="n">phiplot</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">grid</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">show</span><span class="o">=</span><span class="nb">true</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>drawbode (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">drawbode</span><span class="p">(</span><span class="n">G1</span><span class="p">,</span> <span class="n">w_1</span><span class="p">,</span> <span class="n">RA_1</span><span class="p">,</span> <span class="n">phi_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob818_7_0.svg" src="../_images/prob818_7_0.svg" /></div>
+</div>
+<p><em>Resolución mediante regresión no lineal</em></p>
+<p>Cargamos la biblioteca, creamos el modelo y realizamos el ajuste para la razón de amplitudes, lo que nos permitirá encontrar la ganancia y la constante de tiempo del proceso en cuestión:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">LsqFit</span>
+
+<span class="nd">@.</span> <span class="n">RAmodel_1</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">w</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fitRA1</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">RAmodel_1</span><span class="p">,</span> <span class="n">w_1</span><span class="p">,</span> <span class="n">RA_1</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">];</span> <span class="n">autodiff</span><span class="o">=</span><span class="ss">:forwarddiff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LsqFit.LsqFitResult{Vector{Float64}, Vector{Float64}, Matrix{Float64}, Vector{Float64}}([9.995973725031158, 0.10009388111275176], [-0.004031282340678288, 0.005848542992753281, 0.005473025093987616, -0.0037268863964108334, -0.006336056416909486, -0.0010083349439646838, -0.003507513194605849, -0.003172293161826545, 0.024903722436548925, -0.004277808779430181, -0.00883339307982478, -0.003019885143573653], [0.9999994990611245 -0.00010005343020183683; 0.9999874767539563 -0.002501245540604989; … ; 0.5543398531595183 -38.34806550782738; 0.4468779368307616 -35.71571644181666], true, Float64[])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">K_1</span> <span class="o">=</span> <span class="n">fitRA1</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">round</span><span class="p">(</span><span class="n">K_1</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">T_1</span> <span class="o">=</span> <span class="n">fitRA1</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">round</span><span class="p">(</span><span class="n">T_1</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="nd">@.</span> <span class="n">phimodel_1</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">=</span> <span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="o">*</span><span class="p">(</span><span class="n">atan</span><span class="p">(</span><span class="o">-</span><span class="n">T_1</span><span class="o">*</span><span class="n">w</span><span class="p">)</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">w</span><span class="p">)</span>
+
+<span class="n">fitphi1</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">phimodel_1</span><span class="p">,</span> <span class="n">w_1</span><span class="p">,</span> <span class="n">phi_1</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">];</span> <span class="n">autodiff</span><span class="o">=</span><span class="ss">:forwarddiff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LsqFit.LsqFitResult{Vector{Float64}, Vector{Float64}, Matrix{Float64}, Vector{Float64}}([0.9999673701743539], [-0.00028864989389243423, -0.0014409512133504165, -0.002867539180766876, 0.00017121603750780423, 0.004222464622984035, -0.016112912019309533, -0.014652559968226342, -0.009137284454823202, -0.0059819548567929814, -0.007787855215156014, 0.006608111105038006, 0.015352123624552405], [-0.5729577951308232; -2.8647889756541165; … ; -859.4366926962348; -1145.9155902616465], true, Float64[])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">td_1</span> <span class="o">=</span> <span class="n">fitphi1</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">round</span><span class="p">(</span><span class="n">td_1</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Sistema 2</em></p>
+<p>De nuevo, empezamos representando los datos del enunciado del problema:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">w_2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.60</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">1.10</span><span class="p">,</span> <span class="mf">1.50</span><span class="p">,</span> <span class="mf">2.00</span><span class="p">,</span> <span class="mf">5.00</span><span class="p">]</span>
+<span class="n">RA_2</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.00</span><span class="p">,</span> <span class="mf">5.05</span><span class="p">,</span> <span class="mf">5.20</span><span class="p">,</span> <span class="mf">5.93</span><span class="p">,</span> <span class="mf">7.68</span><span class="p">,</span> <span class="mf">12.69</span><span class="p">,</span> <span class="mf">25.00</span><span class="p">,</span> <span class="mf">9.98</span><span class="p">,</span> <span class="mf">5.00</span><span class="p">,</span> <span class="mf">3.25</span><span class="p">,</span> <span class="mf">2.20</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">,</span> <span class="mf">0.62</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+<span class="n">phi_2</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.23</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.13</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.39</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.44</span><span class="p">,</span> <span class="o">-</span><span class="mf">11.62</span><span class="p">,</span> <span class="o">-</span><span class="mf">23.96</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.00</span><span class="p">,</span> <span class="o">-</span><span class="mf">151.39</span><span class="p">,</span> <span class="o">-</span><span class="mf">163.74</span><span class="p">,</span> <span class="o">-</span><span class="mf">168.10</span><span class="p">,</span> <span class="o">-</span><span class="mf">170.87</span><span class="p">,</span> <span class="o">-</span><span class="mf">173.46</span><span class="p">,</span> <span class="o">-</span><span class="mf">175.71</span><span class="p">,</span> <span class="o">-</span><span class="mf">176.95</span><span class="p">,</span> <span class="o">-</span><span class="mf">178.84</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">scatter</span><span class="p">(</span><span class="n">w_2</span><span class="p">,</span> <span class="n">RA_2</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω₂&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;RA₂&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob818_16_0.svg" src="../_images/prob818_16_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">scatter</span><span class="p">(</span><span class="n">w_2</span><span class="p">,</span> <span class="n">phi_2</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω₂&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ₂&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob818_17_0.svg" src="../_images/prob818_17_0.svg" /></div>
+</div>
+<p>El sistema 2 claramente es un sistema de segundo orden subamortiguado, solo hay que seguir las siguientes pistas:</p>
+<ol class="simple">
+<li><p>El desfase tiende a -180° a medida que el valor de frecuencia angular aumenta.</p></li>
+<li><p>El gráfico de razón de amplitudes del diagrama de Bode tiene un máximo que indica que se trata de un sistema subamortiguado.</p></li>
+<li><p>El máximo de razón de amplitudes se produce para un retraso de -90°, lo que es propio de los sistemas de segundo orden.</p></li>
+</ol>
+<p>Este problema nuevamente se puede resolver de cualquiera de las dos maneras para las que se ha resuelto el sistema 1. Si se se realiza un ajuste no lineal para ajustar la razón de amplitudes respecto a la frecuencia angular, se obtiene:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># p[1]: Ganancia del sistema</span>
+<span class="c"># p[2]: Constante de tiempo</span>
+<span class="c"># p[3]: Coeficiente de amortiguamiento</span>
+
+<span class="nd">@.</span> <span class="n">RAmodel2</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">w</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">w</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">RAfit2</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">RAmodel2</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">RA_2</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">];</span> <span class="n">autodiff</span><span class="o">=</span><span class="ss">:forwarddiff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LsqFit.LsqFitResult{Vector{Float64}, Vector{Float64}, Matrix{Float64}, Vector{Float64}}([5.004332595589434, -1.9994457248500594, -0.10011895100290764], [0.006293864017719031, 0.0038200613266035077, 0.008199003709473018, 3.391806111441298e-5, 0.0027910040102687717, 0.0004748127835245697, -0.0012328551092473106, 0.016607118969471202, 0.009197149354097434, -0.104898297279989, 0.00744630658066292, 0.005617743325766034, 0.004173416606759073, 0.00334433049841637, 0.0005667789324355493], [1.00039191408461 -0.001962565079160098 0.0008021437527597949; 1.0098889242055542 -0.049980375755219526 0.02063015653783024; … ; 0.0666111462679777 0.35514143024987965 0.009472015501187174; 0.010104599957445384 0.05108144317264549 0.00020665174127284914], true, Float64[])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los parámetros obtenidos del sistema son:</p>
+<ul class="simple">
+<li><p>Ganancia:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">K_2</span> <span class="o">=</span> <span class="n">RAfit2</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">round</span><span class="p">(</span><span class="n">K_2</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Constante de tiempo:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">T_2</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">RAfit2</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">round</span><span class="p">(</span><span class="n">T_2</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Coeficiente de amortiguamiento:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Z_2</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">RAfit2</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">round</span><span class="p">(</span><span class="n">Z_2</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para comprobar la calidad del ajuste representaremos la función de transferenica del proceso con los parámetros obtenidos más arriba junto con los datos experimentales:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">G2</span> <span class="o">=</span> <span class="n">K_2</span><span class="o">/</span><span class="p">(</span><span class="n">T_2</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">T_2</span><span class="o">*</span><span class="n">Z_2</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}\frac{5.00433259558943}{3.99778320662118 s^{2} + 0.400364817118472 s + 1}\end{equation*}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">drawbode</span><span class="p">(</span><span class="n">G2</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">RA_2</span><span class="p">,</span> <span class="n">phi_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob818_28_0.svg" src="../_images/prob818_28_0.svg" /></div>
+</div>
+<p><em>Sistema 3</em></p>
+<p>En este caso se supondrá que se trata de un sistema de segundo orden sobreamortiguado con retraso:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span> <span class="n">w_3</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.50</span><span class="p">,</span> <span class="mf">2.00</span><span class="p">,</span> <span class="mf">2.50</span><span class="p">,</span> <span class="mf">3.00</span><span class="p">,</span> <span class="mf">4.00</span><span class="p">,</span> <span class="mf">8.00</span><span class="p">,</span> <span class="mf">10.00</span><span class="p">,</span> <span class="mf">20.00</span><span class="p">]</span>
+<span class="n">RA_3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">17</span><span class="p">,</span> <span class="mf">16.99</span><span class="p">,</span> <span class="mf">16.67</span><span class="p">,</span> <span class="mf">14.42</span><span class="p">,</span> <span class="mf">11.66</span><span class="p">,</span> <span class="mf">9.33</span><span class="p">,</span> <span class="mf">6.80</span><span class="p">,</span> <span class="mf">4.30</span><span class="p">,</span> <span class="mf">2.92</span><span class="p">,</span> <span class="mf">2.07</span><span class="p">,</span> <span class="mf">1.55</span><span class="p">,</span> <span class="mf">0.94</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.17</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">]</span>
+<span class="n">phi_3</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.49</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.98</span><span class="p">,</span> <span class="o">-</span><span class="mf">14.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">41.21</span><span class="p">,</span> <span class="o">-</span><span class="mf">61.90</span><span class="p">,</span> <span class="o">-</span><span class="mf">77.76</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.73</span><span class="p">,</span> <span class="o">-</span><span class="mf">117.03</span><span class="p">,</span> <span class="o">-</span><span class="mf">132.42</span><span class="p">,</span> <span class="o">-</span><span class="mf">144.53</span><span class="p">,</span> <span class="o">-</span><span class="mf">154.04</span><span class="p">,</span> <span class="o">-</span><span class="mf">169.23</span><span class="p">,</span> <span class="o">-</span><span class="mf">208.22</span><span class="p">,</span> <span class="o">-</span><span class="mf">223.12</span><span class="p">,</span> <span class="o">-</span><span class="mf">287.45</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">scatter</span><span class="p">(</span><span class="n">w_3</span><span class="p">,</span> <span class="n">RA_3</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span> <span class="n">yscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω₃&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;RA₃&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob818_31_0.svg" src="../_images/prob818_31_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">scatter</span><span class="p">(</span><span class="n">w_3</span><span class="p">,</span> <span class="n">phi_3</span><span class="p">,</span> <span class="n">xscale</span><span class="o">=</span><span class="ss">:log10</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;ω₃&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;φ₃&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob818_32_0.svg" src="../_images/prob818_32_0.svg" /></div>
+</div>
+<p>En primer lugar se obtendrá la ganancia, la constante de tiempo y el coeficiente de amortiguamiento del sistema ajustando la razón de amplitudes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="nd">@.</span> <span class="n">RAmodel3</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">w</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">w</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">RAfit3</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">RAmodel3</span><span class="p">,</span> <span class="n">w_3</span><span class="p">,</span> <span class="n">RA_3</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">];</span> <span class="n">autodiff</span><span class="o">=</span><span class="ss">:forwarddiff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LsqFit.LsqFitResult{Vector{Float64}, Vector{Float64}, Matrix{Float64}, Vector{Float64}}([17.00894104880903, -1.0010573200438633, -1.249495468209743], [0.005324369092630121, 0.004487134540500648, -0.012488268917962841, 0.0016676885911977024, 0.004609780915256323, -0.002918241632684726, -0.0008676683175261601, -0.0012069536891559096, -0.006567027601693809, 0.010846511724610597, -0.0013537504702396674, 0.0018252109282144158, -0.003189290657039101, -0.003762198615903295, 0.0022095343682418736], [0.9997873659679328 0.007223585567908273 0.008513590895022023; 0.9991502166873848 0.028843220371402058 0.03398929807924029; … ; 0.009773553856589838 0.3253448423961448 0.007953300199332608; 0.002481608599096026 0.08388754142770173 0.0005207744768818782], true, Float64[])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se encuentran los siguientes parámetros del proceso:</p>
+<ul class="simple">
+<li><p>Ganancia:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">K_3</span> <span class="o">=</span> <span class="n">RAfit3</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">round</span><span class="p">(</span><span class="n">K_3</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.0
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Constante de tiempo: Aunque el valor del ajuste es negativo, este valor no tiene sentido físico ya que debe ser un valor positivo. Se puede tomar el valor positivo sin problema ya que en el modelo la constante de tiempo aparece elevada al cuadrado, por lo que no afecta al ajuste el signo de este parámetro:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">T_3</span> <span class="o">=</span> <span class="n">RAfit3</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">round</span><span class="p">(</span><span class="n">T_3</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Coeficiente de amortiguamiento: Ocurre con el signo el mismo problema que en el caso anterior:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Z_3</span> <span class="o">=</span> <span class="n">RAfit3</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">round</span><span class="p">(</span><span class="n">Z_3</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.25
+</pre></div>
+</div>
+</div>
+</div>
+<p>Utilizando los parámetros obtenidos con el ajuste anterior y los datos de desfase se puede encontrar el retraso:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="nd">@.</span> <span class="n">phimodel3</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">=</span> <span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="o">*</span><span class="p">(</span><span class="n">atan</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">Z_3</span><span class="o">*</span><span class="n">T_3</span><span class="o">*</span><span class="n">w</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">T_3</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">w</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span><span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">w</span><span class="p">)</span><span class="o">-</span><span class="mi">180</span><span class="o">*</span><span class="p">(</span><span class="n">w</span><span class="o">&gt;</span><span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>phimodel3 (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">phifit3</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">phimodel3</span><span class="p">,</span> <span class="n">w_3</span><span class="p">,</span> <span class="n">phi_3</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">];</span> <span class="n">autodiff</span><span class="o">=</span><span class="ss">:forwarddiff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LsqFit.LsqFitResult{Vector{Float64}, Vector{Float64}, Matrix{Float64}, Vector{Float64}}([0.09997274324626008], [-0.0004550599482033846, 2.0964885032004332e-5, -0.004315113442558527, -0.027178087348723068, -0.03458157978677434, -0.04330122807311909, -0.04647418863925168, -0.05115281559162099, -0.054517095713464414, 0.12713475044066058, -0.04095240925985877, -0.03432719945126905, -0.01622343255735359, -0.007966020552117925, 0.0220102568649736], [-0.5729577951308232; -1.1459155902616465; … ; -572.9577951308232; -1145.9155902616465], true, Float64[])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">td_3</span> <span class="o">=</span> <span class="n">phifit3</span><span class="o">.</span><span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">round</span><span class="p">(</span><span class="n">td_3</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">G3</span> <span class="o">=</span> <span class="n">K_3</span><span class="o">/</span><span class="p">(</span><span class="n">T_3</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">s</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">T_3</span><span class="o">*</span><span class="n">Z_3</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">td_3</span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{equation*}\frac{17.008941048809 e^{- 0.0999727432462601 s}}{1.0021157580134 s^{2} + 2.501633169626 s + 1}\end{equation*}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">drawbode</span><span class="p">(</span><span class="n">G3</span><span class="p">,</span> <span class="n">w_3</span><span class="p">,</span> <span class="n">RA_3</span><span class="p">,</span> <span class="n">phi_3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/prob818_46_0.svg" src="../_images/prob818_46_0.svg" /></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "runjaj/apuntes-icia-jb",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.6"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.6",
+            path: "./Unidad08"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.6'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="prob816.html" title="previous page">Problema 8.16</a>
+    <a class='right-next' id="next-link" href="../Unidad09/problemas09.html" title="next page">Tema 9</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Javier Arántegui<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

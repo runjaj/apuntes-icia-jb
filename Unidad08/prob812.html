@@ -56,7 +56,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Problema 8.15" href="prob815.html" />
+    <link rel="next" title="Problema 8.16" href="prob816.html" />
     <link rel="prev" title="Problema 8.11" href="prob811.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -638,13 +638,13 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="prob815.html">
-     Problema 8.15
+    <a class="reference internal" href="prob816.html">
+     Problema 8.16
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="prob816.html">
-     Problema 8.16
+    <a class="reference internal" href="prob818.html">
+     Problema 8.18
     </a>
    </li>
   </ul>
@@ -912,12 +912,12 @@
 <p>Obtenemos un valor de frecuencia de cruce:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span><span class="o">.</span><span class="n">wco</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">round</span><span class="p">(</span><span class="n">salida</span><span class="o">.</span><span class="n">wco</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7807857502620402
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.781
 </pre></div>
 </div>
 </div>
@@ -926,24 +926,28 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">RAcr</span> <span class="o">=</span> <span class="n">salida</span><span class="o">.</span><span class="n">RAco</span>
+<span class="n">round</span><span class="p">(</span><span class="n">RAcr</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{equation*}0.290387267313595\end{equation*}\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.29
+</pre></div>
+</div>
 </div>
 </div>
 <p>Como consecuencia el margen de ganancia, <span class="math notranslate nohighlight">\(MG=\frac{1}{RA_{cr}}\)</span>, será:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">MG</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">RAcr</span>
+<span class="n">round</span><span class="p">(</span><span class="n">MG</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{equation*}3.4436771599909\end{equation*}\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.44
+</pre></div>
+</div>
 </div>
 </div>
 <p>Para obtener el margen de fase, necesitamos el valor del desfase para el que la razón de amplitudes toma el valor de la unidad, <span class="math notranslate nohighlight">\(\varphi_1\)</span>. Es decir:</p>
@@ -996,12 +1000,12 @@ superior a la unidad.</p>
 <p>Al añadir la acción derivativa, la frecuencia de cruce y la razón crítica pasan a tomar los siquientes valores:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida_c</span><span class="o">.</span><span class="n">wco</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">round</span><span class="p">(</span><span class="n">salida_c</span><span class="o">.</span><span class="n">wco</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2892522747990642
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.29
 </pre></div>
 </div>
 </div>
@@ -1009,24 +1013,28 @@ superior a la unidad.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">RAcr</span> <span class="o">=</span> <span class="n">salida_c</span><span class="o">.</span><span class="n">RAco</span>
+<span class="n">round</span><span class="p">(</span><span class="n">RAcr</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{equation*}0.156215976149308\end{equation*}\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.156
+</pre></div>
+</div>
 </div>
 </div>
 <p>Lo que significa que el margen de ganacia es:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">MG</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">RAcr</span>
+<span class="n">round</span><span class="p">(</span><span class="n">MG</span><span class="p">,</span> <span class="n">sigdigits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{equation*}6.4013939204542\end{equation*}\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.4
+</pre></div>
+</div>
 </div>
 </div>
 <p>Todo esto supone que el lazo de control con el controlador PID está más alejado de la zona de inestabilidad, lo que supone que se tratará de un sistema más robusto. Será mucho más dificil que el sistema entre en la zona inestable debido a un error en la estimación de alguna de las ganancias o del retraso, por ejemplo.</p>
@@ -1061,7 +1069,7 @@ superior a la unidad.</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="prob811.html" title="previous page">Problema 8.11</a>
-    <a class='right-next' id="next-link" href="prob815.html" title="next page">Problema 8.15</a>
+    <a class='right-next' id="next-link" href="prob816.html" title="next page">Problema 8.16</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
