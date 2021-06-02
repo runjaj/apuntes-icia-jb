@@ -839,13 +839,13 @@
 <p>Se representan los puntos disponibles y se encuentran en el gráfico los puntos <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(\tau\)</span> y <span class="math notranslate nohighlight">\(t_d\)</span>, tal como se muestra en la figura a continuación:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="p">(</span><span class="s">&quot;../clase.jl&quot;</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">include</span><span class="p">(</span><span class="s">&quot;../clasecontrol.jl&quot;</span><span class="p">)</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
 <span class="n">Resp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
 
 <span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Resp</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t (min)&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;Resp (ua)&quot;</span><span class="p">)</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;Resp (ua)&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -893,7 +893,7 @@
 </div>
 </div>
 </div>
-<p>Para determinar la constante de tiempo del proceso (<span class="math notranslate nohighlight">\(\tau_p\)</span>), deberemos encontrar el tiempo para el que la <span class="math notranslate nohighlight">\(Resp\)</span> es <span class="math notranslate nohighlight">\(B*(1-1/\mathrm{e})\)</span>). El tiempo que encontraremos será <span class="math notranslate nohighlight">\(\tau_p + t_d\)</span>, por lo que será necesario restar el valor del retraso que hemos encontrado más arriba:</p>
+<p>Para determinar la constante de tiempo del proceso (<span class="math notranslate nohighlight">\(\tau_p\)</span>), deberemos encontrar el tiempo para el que la <span class="math notranslate nohighlight">\(Resp\)</span> es <span class="math notranslate nohighlight">\(B (1-1/\mathrm{e})\)</span>). El tiempo que encontraremos será <span class="math notranslate nohighlight">\(\tau_p + t_d\)</span>, por lo que será necesario restar el valor del retraso que hemos encontrado más arriba:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># Utilizaremos un algoritmo de interpolación lineal para encontrar el</span>
@@ -917,7 +917,7 @@
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">R</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="n">Kp</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">td</span><span class="p">)</span><span class="o">/</span><span class="n">Tp</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">&gt;</span><span class="n">td</span><span class="p">)</span>
 
 <span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Resp</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="nb">false</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t (min)&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;Resp (ua)&quot;</span><span class="p">)</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;Resp (ua)&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
 <span class="n">plot!</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -972,7 +972,8 @@
 <p>Al dibujar el diagrama de Bode, representaremos <span class="math notranslate nohighlight">\(\frac{RA}{K_c}\)</span>, lo que permitirá encontrar el parámetro <span class="math notranslate nohighlight">\(M\)</span>, a partir del que calcularemos la ganancia última <span class="math notranslate nohighlight">\(K_u\)</span>. El valor de <span class="math notranslate nohighlight">\(P_u\)</span> lo calcularemos a partir de la frecuencia de cruce:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Kp</span><span class="o">/</span><span class="p">(</span><span class="n">Tp</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">td</span><span class="o">*</span><span class="n">s</span><span class="p">);</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">salida</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">Kp</span><span class="o">/</span><span class="p">(</span><span class="n">Tp</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">td</span><span class="o">*</span><span class="n">s</span><span class="p">);</span> <span class="n">wmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">co</span><span class="o">=</span><span class="nb">true</span><span class="p">)</span>
+<span class="n">salida</span><span class="o">.</span><span class="n">fig</span>
 </pre></div>
 </div>
 </div>
@@ -982,7 +983,7 @@
 <p>Por lo tanto:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">wco</span> <span class="o">=</span> <span class="n">salida</span><span class="p">[</span><span class="s">&quot;wco&quot;</span><span class="p">]</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">wco</span> <span class="o">=</span> <span class="n">salida</span><span class="o">.</span><span class="n">wco</span>
 </pre></div>
 </div>
 </div>
@@ -994,7 +995,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">salida</span><span class="p">[</span><span class="s">&quot;RAco&quot;</span><span class="p">]</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">salida</span><span class="o">.</span><span class="n">RAco</span>
 </pre></div>
 </div>
 </div>
@@ -1126,7 +1127,7 @@
 <span class="n">y_zn_t</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">y_zn</span><span class="p">,</span> <span class="n">tt</span><span class="p">)</span>
 
 <span class="c"># Representación de las simulaciones realizadas</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">tt</span><span class="p">,</span> <span class="n">y_cc_t</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;Choen-Coon&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;R(t)&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">tt</span><span class="p">,</span> <span class="n">y_cc_t</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;Cohen-Coon&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;t&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;R(t)&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">350</span><span class="p">)</span>
 <span class="n">plot!</span><span class="p">(</span><span class="n">tt</span><span class="p">,</span> <span class="n">y_zn_t</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;Ziegler-Nichols&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
