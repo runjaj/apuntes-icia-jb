@@ -1,6 +1,6 @@
 # Presentación
 
-## 102591 Instalaciones auxiliares en la industria alimentaria (2020-21)
+## 102591 Instalaciones auxiliares en la industria alimentaria (2021-22)
 
 ### Instrumentación y control de procesos
 
@@ -57,71 +57,65 @@ Este es la planificación prevista de la asignatura:
 
 **Día** - Contenido (Horas)
 
-**30 de abril**
+**22 de abril**
 : Presentación
-1 - Introducción al control de procesos (4)
+1 - Introducción al control de procesos (2)
 
-**4 de mayo**
+**27 de abril**
+:1 - Introducción al control de procesos (2)
+
+**29 de abril**
 : 1 - Introducción al control de procesos (2)
 
-**5 de mayo**
+**4 de mayo**
 : 3 - Cómo abordar la dinámica de un sistema (2) 
 
 **6 de mayo**
-: 3 - Cómo abordar la dinámica de un sistema (1)
+: 3 - Cómo abordar la dinámica de un sistema (2)
 
-**7 de mayo**
+**12 de mayo**
 : 4 - Sistemas de primer orden (2)
 
-**11 de mayo** ¡¡FIESTA!!
-: 5 - Sistemas de segundo orden (1)
+**13 de mayo**
+: 5 - Sistemas de segundo orden (2)
 
 **12 de mayo**
 : 6 - Acciones de control (2)
 
-**13 de mayo**
-: 7 - Control por retroalimentación de sistemas lineales (1)
-
-**14 de mayo**
+**18 de mayo**
 : 7 - Control por retroalimentación de sistemas lineales (2)
 
-**18 de mayo**
-: 8 - Análisis de estabilidad. Routh-Hurvitz (1)
-
 **19 de mayo**
-: 8 - Análisis de estabilidad. Lugar de las raíces (2)
+: 7 - Control por retroalimentación de sistemas lineales (2)
 
 **20 de mayo**
-: 8 - Análisis de estabilidad. Diagramas de Bode (1)
+: 8 - Análisis de estabilidad. Routh-Hurvitz y Lugar de las raíces (2)
 
-**21 de mayo**
+**19 de mayo**
+: 8 - Análisis de estabilidad. Diagramas de Bode (2)
+
+**20 de mayo**
 : 8 - Análisis de estabilidad. Criterio de estabilidad de Bode (3)
 
 **25 de mayo**
-9 - Métodos semiempíricos (1)
+: 9 - Métodos semiempíricos (2)
 
 **26 de mayo**
-: 9 - Métodos semiempíricos (1+1)
+: 9 - Métodos semiempíricos (2)
 
 **27 de mayo**
-: 9 - Métodos semiempíricos (1)
-
-**28 de mayo**
 : 2 - Instrumentación industrial (2)
 
 **1 de junio**
-: 10 - Control avanzado (1)
-
-**2 de junio**
 : 10 - Control avanzado (2)
 
-**3 de junio**
-: Problemas y dudas (1)
+**2 de junio**
+: Problemas y dudas (2)
 
-**4 de junio**
-: Problemas y dudas (1+1)
+*3 de junio**
+: Problemas y dudas (2)
 
-**21 de junio**
+**20 de junio**
 : EXAMEN
 
 #### Bibliografía y otro material

@@ -13,7 +13,7 @@ de procesos junto con sus posibles aplicaciones. Para una información
 más detallada generalmente hay que recurrir a los fabricantes de
 sensores.
 
-```{table} Principales sensores utilizados en la industria alimentaria.
+```{table}Principales sensores utilizados en la industria alimentaria.
 
 | ![](./img/comparativa.pdf) |
 |---|
@@ -64,10 +64,8 @@ la siguiente función de transferencia:
 
 $$\frac{P_o}{P_i} = \frac{e^{- \tau_d s}}{\tau_p + 1}$$
 
-donde $P_o$ es
-la presión de salida de la línea de transmisión neumática, $P_i$ es la
-presión de entrada y $\tau_d / \tau_p \approx
-0.25$.
+donde $P_o$ es la presión de salida de la línea de transmisión neumática, $P_i$ es la
+presión de entrada y $\tau_d / \tau_p \approx 0.25$.
 
 ## Elementos finales de control
 
@@ -87,8 +85,7 @@ descrito por la ecuación siguiente:
 
 $$F = Kf (x)  \sqrt{\frac{\Delta P}{\rho}}$$
 
- donde $\Delta P$ es la
-caída de presión del fluido al paso de la válvula, $K$ es una constante
+ donde $\Delta P$ es la caída de presión del fluido al paso de la válvula, $K$ es una constante
 que depende del tamaño de la válvula, $\rho$ es la densidad del fluido y
 $f(x)$ es una curva característica para la válvula.
 
