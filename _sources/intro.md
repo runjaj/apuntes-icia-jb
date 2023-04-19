@@ -1,6 +1,6 @@
 # Presentación
 
-## 102591 Instalaciones auxiliares en la industria alimentaria (2021-22)
+## 102591 Instalaciones auxiliares en la industria alimentaria (2022-23)
 
 ### Instrumentación y control de procesos
 
@@ -57,65 +57,56 @@ Este es la planificación prevista de la asignatura:
 
 **Día** - Contenido (Horas)
 
-**22 de abril**
+**21 de abril**
 : Presentación
 1 - Introducción al control de procesos (2)
 
-**27 de abril**
+**26 de abril**
 :1 - Introducción al control de procesos (2)
 
-**29 de abril**
+**27 de abril**
 : 1 - Introducción al control de procesos (2)
 
-**4 de mayo**
+**28 de abril**
 : 3 - Cómo abordar la dinámica de un sistema (2) 
 
-**6 de mayo**
+**3 de mayo**
 : 3 - Cómo abordar la dinámica de un sistema (2)
 
-**12 de mayo**
+**5 de mayo**
 : 4 - Sistemas de primer orden (2)
 
-**13 de mayo**
+**10 de mayo**
 : 5 - Sistemas de segundo orden (2)
 
 **12 de mayo**
 : 6 - Acciones de control (2)
 
+**17 de mayo**
+: 7 - Control por retroalimentación de sistemas lineales (2)
+
 **18 de mayo**
 : 7 - Control por retroalimentación de sistemas lineales (2)
 
 **19 de mayo**
-: 7 - Control por retroalimentación de sistemas lineales (2)
-
-**20 de mayo**
 : 8 - Análisis de estabilidad. Routh-Hurvitz y Lugar de las raíces (2)
 
-**19 de mayo**
+**24 de mayo**
 : 8 - Análisis de estabilidad. Diagramas de Bode (2)
 
-**20 de mayo**
-: 8 - Análisis de estabilidad. Criterio de estabilidad de Bode (3)
-
 **25 de mayo**
-: 9 - Métodos semiempíricos (2)
+: 8 - Análisis de estabilidad. Criterio de estabilidad de Bode (3)
 
 **26 de mayo**
 : 9 - Métodos semiempíricos (2)
 
-**27 de mayo**
-: 2 - Instrumentación industrial (2)
+**31 de mayo**
+: 9 - Métodos semiempíricos (2)
 
 **1 de junio**
-: 10 - Control avanzado (2)
+: 2 - Instrumentación industrial (2)
 
-**2 de junio**
-: Problemas y dudas (2)
-
-*3 de junio**
-: Problemas y dudas (2)
-
-**20 de junio**
+**13 de junio**
 : EXAMEN
 
 #### Bibliografía y otro material
